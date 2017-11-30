@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e86f680c4048a40498b21fcc5b22d3b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joyconID: 1
+  PlayerID: 1
   gyro: {x: 0, y: 0, z: 0}
 --- !u!212 &11202328
 SpriteRenderer:
@@ -176,7 +176,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e767aeb9afefcb842a90f2b7095ed617, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 95aac0bca7b68404c87e90d15f555591, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -284,7 +284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e86f680c4048a40498b21fcc5b22d3b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  joyconID: 0
+  PlayerID: 0
   gyro: {x: 0, y: 0, z: 0}
 --- !u!1 &1750470358
 GameObject:
@@ -295,6 +295,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1750470360}
   - component: {fileID: 1750470359}
+  - component: {fileID: 1750470361}
   m_Layer: 0
   m_Name: JoyconManager
   m_TagString: Untagged
@@ -328,6 +329,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1750470361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1750470358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2a6f891b4bb9504faf2d01830632a95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1982557817
 GameObject:
   m_ObjectHideFlags: 0
@@ -374,13 +386,13 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1
-    height: 1
+    width: 16
+    height: 9
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 5.5352454
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
