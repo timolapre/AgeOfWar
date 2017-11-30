@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
-
-    private List<Joycon> joycons;
+	
     private float rotation;
     private float offset;
     private int offsetcount;
@@ -16,21 +15,22 @@ public class Turret : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        joycons = JoyconManager.Instance.j;
         rotation = 90 * (PlayerID == 1 ? -1 : 1);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (InputHelper.GetActionDown(PlayerID, Joycon.Button.HOME))
+		//Recenter the turret
+        if (InputHelper.GetActionDown(PlayerID, Joycon.Button.STICK))
         {
             rotation = 90 * (PlayerID == 1 ? -1 : 1);
         }
-        // GetButtonDown checks if a button has been pressed (not held)
-        if (InputHelper.GetActionDown(PlayerID, Joycon.Button.DPAD_DOWN))
+
+		//Play the Mario Theme
+        if (InputHelper.GetActionDown(PlayerID, Joycon.Button.DPAD_LEFT))
         {
-            Debug.Log("Rumble");
+            Debug.Log("Mario!");
 
             // Rumble for 200 milliseconds, with low frequency rumble at 160 Hz and high frequency rumble at 320 Hz. For more information check:
             // https://github.com/dekuNukem/Nintendo_Switch_Reverse_Engineering/blob/master/rumble_data_table.md
@@ -43,6 +43,7 @@ public class Turret : MonoBehaviour
             // Then call SetRumble(0,0,0) when you want to turn it off.
         }
 
+		//Rotating the turret
 		gyro = InputHelper.GetGyro(PlayerID);
 		if (Mathf.Floor(Mathf.Abs(gyro.y) * 90) != 0)
 		{
@@ -55,6 +56,7 @@ public class Turret : MonoBehaviour
 		}
 		gameObject.transform.rotation = Quaternion.AngleAxis(rotation, Vector3.back);
 	}
+
 
 
     float E3 = 329.628f;//164.814f;
