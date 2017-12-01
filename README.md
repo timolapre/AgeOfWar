@@ -1,4 +1,3 @@
 # AgeOfWar
 
-De github extension lijkt niet te werken? :(
-Dus moet met git dan
+Use the InputHelper class for all your input related things.

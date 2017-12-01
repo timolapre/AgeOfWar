@@ -19,13 +19,13 @@ public class Base : MonoBehaviour {
     public float PlayerBaseHealth;
     public float EnemyBaseHealth;
     public int XP;
-    public int WhatCentury = 1;
+    public int WhatTier = 1;
 
     public List<GameObject> playerlist; 
     public List<GameObject> enemylist;
 
     private int timer;
-    public int random;
+    private int random;
 
 	void Start () {
         //Instantiate(Object, spawn.position, spawn.rotation);
@@ -40,35 +40,17 @@ public class Base : MonoBehaviour {
         healthbarplayer.transform.localScale = new Vector3(((float)15/1000*PlayerBaseHealth),1,1);
         healthbarenemy.transform.localScale = new Vector3(((float)15 / 1000 * EnemyBaseHealth), 1, 1);
 
-        if (WhatCentury == 1)
+        if (Input.GetKeyDown(KeyCode.Z) && money >= 1)
         {
-            if (Input.GetKeyDown(KeyCode.Z))
-            {
-                SpawnPlayer(1, 1);
-            }
-            if (Input.GetKeyDown(KeyCode.X) && money >= 3)
-            {
-                SpawnPlayer(2, 3);
-            }
-            if (Input.GetKeyDown(KeyCode.C) && money >= 5)
-            {
-                SpawnPlayer(3, 5);
-            }
+            SpawnPlayer(WhatTier*3-2, 1);    
         }
-        else if(WhatCentury == 2)
+        if (Input.GetKeyDown(KeyCode.X) && money >= 3)
         {
-            if (Input.GetKeyDown(KeyCode.Z))
-            {
-                SpawnPlayer(4, 3);
-            }
-            if (Input.GetKeyDown(KeyCode.X) && money >= 3)
-            {
-                SpawnPlayer(5, 5);
-            }
-            if (Input.GetKeyDown(KeyCode.C) && money >= 5)
-            {
-                SpawnPlayer(6, 7);
-            }
+            SpawnPlayer(WhatTier*3-1, 3);
+        }
+        if (Input.GetKeyDown(KeyCode.C) && money >= 5)
+        {
+            SpawnPlayer(WhatTier*3, 5);
         }
 
         timer++;
@@ -89,13 +71,13 @@ public class Base : MonoBehaviour {
         {
             money++;
         }
-        if (Input.GetKeyDown(KeyCode.S) && XP >= 10*WhatCentury)
+        if (Input.GetKeyDown(KeyCode.S) && XP >= 10*WhatTier)
         {
-            WhatCentury++;
+            WhatTier++;
         }
     }
 
-    void SpawnPlayer(int id, int cost)
+    public void SpawnPlayer(int id, int cost)
     {
         if (money >= cost)
         {

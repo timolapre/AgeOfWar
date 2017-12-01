@@ -52,8 +52,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 285bf91778eac6d4c8c76224e6f8a760, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lives: 100
+  sprite1: {fileID: 21300000, guid: 29516bbccb30b0f42ad70d239613e1bd, type: 3}
+  sprite2: {fileID: 21300000, guid: 8dc26f663dbe26842a4faa362c29aa58, type: 3}
+  sprite3: {fileID: 21300000, guid: 9a8521526c5b3fb44806a3a8b881a69c, type: 3}
+  sprite4: {fileID: 21300000, guid: c243fafc84f9fa14c899497f81294c4a, type: 3}
+  sprite5: {fileID: 21300000, guid: 728f1997b8e047644ad64b12883bbda2, type: 3}
+  sprite6: {fileID: 21300000, guid: 322986350a0e7d043a6862a0aef7c80d, type: 3}
+  health: 0
   damage: 1
+  range: 0
+  WhichUnit: 0
 --- !u!212 &212505990627019806
 SpriteRenderer:
   m_ObjectHideFlags: 1

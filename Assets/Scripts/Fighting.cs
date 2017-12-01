@@ -21,11 +21,10 @@ public class Fighting : MonoBehaviour {
             if (basescript.FirstEnemy - basescript.FirstPlayer <= 1)
             {
                 player.health -= enemy.damage;
-                enemy.lives -= player.damage;
+                enemy.health -= player.damage;
             }
         }
         catch { }
-        
 	}
 
     GameObject GetFirstPlayer()
