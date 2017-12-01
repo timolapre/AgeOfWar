@@ -23,7 +23,7 @@ public class AI : MonoBehaviour {
         if(timer > random)
         {
             SpawnEnemy(Random.Range(1,4));
-            random = Random.Range(50, 200);
+            random = Random.Range(50, 210);
             timer = 0;
         }
 
