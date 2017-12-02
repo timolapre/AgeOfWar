@@ -17,13 +17,13 @@ public class Base : MonoBehaviour {
     public float FirstPlayer;
     public float FirstEnemy;
     public int money;
-    public int Players;
     public float PlayerBaseHealth;
     public float EnemyBaseHealth;
     public int XP;
     public int WhatTier = 1;
     public static bool GameOver;
     public bool VsAI;
+    public bool Teams;
 
     public List<GameObject> playerlist; 
     public List<GameObject> enemylist;
@@ -33,7 +33,7 @@ public class Base : MonoBehaviour {
 
 	void Start () {
         //Instantiate(Object, spawn.position, spawn.rotation);
-        Players = 1;
+        Teams = false;
         VsAI = true;
         PlayerBaseHealth = 1000;
         EnemyBaseHealth = 1000;
@@ -45,9 +45,22 @@ public class Base : MonoBehaviour {
         XPtext.text = "XP: " + XP;
         healthbarplayer.transform.localScale = new Vector3(((float)15/1000*PlayerBaseHealth),1,1);
         healthbarenemy.transform.localScale = new Vector3(((float)15 / 1000 * EnemyBaseHealth), 1, 1);
-        if (PlayerBaseHealth <= 0 || EnemyBaseHealth <= 0)
+        if (PlayerBaseHealth <= 0)
         {
             GameOver = true;
+            if (VsAI)
+            {
+                GameOverText.text = "AI wins";
+            }
+            else
+            {
+                GameOverText.text = "Player 2 wins";
+            }
+        }
+        else if(EnemyBaseHealth <= 0)
+        {
+            GameOver = true;
+            GameOverText.text = "Player 1 wins";
         }
 
         if (Input.GetKeyDown(KeyCode.Z) && money >= 1)
