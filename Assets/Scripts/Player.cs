@@ -33,13 +33,13 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (transform.position.x < BaseObject.FirstEnemy - 1)
+        if (transform.position.x < BaseObject.FirstEnemy - 1 && !Base.GameOver)
         {
             if (transform.position.x < Closest - 1)
                 transform.Translate(0.05f, 0, 0);
         }
 
-        if (transform.position.x >= 6 && BaseObject.EnemyBaseHealth > 0)
+        if (transform.position.x >= 5 && BaseObject.EnemyBaseHealth > 0)
             BaseObject.EnemyBaseHealth -= damage;
 
         if (health <= 0)

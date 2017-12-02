@@ -33,9 +33,13 @@ public class AI : MonoBehaviour {
 
     void SpawnEnemy(int id)
     {
-        GameObject tempEnemy = Instantiate(Enemy, spawnEnemy.position, spawnEnemy.rotation, transform) as GameObject;
-        Enemy tempEnemyScript = tempEnemy.GetComponent<Enemy>();
-        tempEnemyScript.WhichUnit = id;
-        basescript.enemylist.Add(tempEnemy);
+        if (!Base.GameOver)
+        {
+            GameObject tempEnemy = Instantiate(Enemy, spawnEnemy.position, spawnEnemy.rotation, transform) as GameObject;
+            Enemy tempEnemyScript = tempEnemy.GetComponent<Enemy>();
+            tempEnemyScript.WhichUnit = id;
+            basescript.enemylist.Add(tempEnemy);
+        }
+        
     }
 }
