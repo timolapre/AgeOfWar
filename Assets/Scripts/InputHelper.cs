@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InputHelper : MonoBehaviour {
+public class InputHelper {
 
     static List<Joycon> joycons;
 	//mapping joycon buttons to keyboard keys
@@ -18,7 +18,7 @@ public class InputHelper : MonoBehaviour {
 																									{ Joycon.Button.STICK, KeyCode.Return } };
 
     // Use this for initialization
-    void Start ()
+    public static void Start ()
     {
         joycons = JoyconManager.Instance.j;
     }
