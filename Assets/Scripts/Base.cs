@@ -13,13 +13,17 @@ public class Base : MonoBehaviour {
     public Transform spawnEnemy;
     public Text moneytext;
     public Text XPtext;
+    public Text GameOverText;
     public float FirstPlayer;
     public float FirstEnemy;
     public int money;
+    public int Players;
     public float PlayerBaseHealth;
     public float EnemyBaseHealth;
     public int XP;
     public int WhatTier = 1;
+    public static bool GameOver;
+    public bool VsAI;
 
     public List<GameObject> playerlist; 
     public List<GameObject> enemylist;
@@ -29,6 +33,8 @@ public class Base : MonoBehaviour {
 
 	void Start () {
         //Instantiate(Object, spawn.position, spawn.rotation);
+        Players = 1;
+        VsAI = true;
         PlayerBaseHealth = 1000;
         EnemyBaseHealth = 1000;
         random = Random.Range(100, 1000);
@@ -39,6 +45,10 @@ public class Base : MonoBehaviour {
         XPtext.text = "XP: " + XP;
         healthbarplayer.transform.localScale = new Vector3(((float)15/1000*PlayerBaseHealth),1,1);
         healthbarenemy.transform.localScale = new Vector3(((float)15 / 1000 * EnemyBaseHealth), 1, 1);
+        if (PlayerBaseHealth <= 0 || EnemyBaseHealth <= 0)
+        {
+            GameOver = true;
+        }
 
         if (Input.GetKeyDown(KeyCode.Z) && money >= 1)
         {
@@ -54,7 +64,7 @@ public class Base : MonoBehaviour {
         }
 
         timer++;
-        if(timer >= random)
+        if(timer >= random && !GameOver)
         {
             GameObject tempEnemy = Instantiate(Enemy, spawnEnemy.position, spawnEnemy.rotation, transform) as GameObject;
             enemylist.Add(tempEnemy);
@@ -79,7 +89,7 @@ public class Base : MonoBehaviour {
 
     public void SpawnPlayer(int id, int cost)
     {
-        if (money >= cost)
+        if (money >= cost && !GameOver)
         {
             GameObject tempPlayer = Instantiate(player, spawnPlayer.position, spawnPlayer.rotation, transform) as GameObject;
             Player tempPlayerScript = tempPlayer.GetComponent<Player>();
