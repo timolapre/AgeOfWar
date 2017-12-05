@@ -28,12 +28,15 @@ public class Player : MonoBehaviour {
         spriterenderer = GetComponent<SpriteRenderer>();
 
         GetStartValues(WhichUnit);
-    }   
-	
+
+        PolygonCollider2D comp = gameObject.AddComponent<PolygonCollider2D>();
+        comp.isTrigger = true;
+    }
+
 	// Update is called once per frame
 	void Update () {
 
-        if (transform.position.x < BaseObject.FirstEnemy - 1)
+        if (transform.position.x < BaseObject.FirstEnemy - 1 && !BaseObject.GameOver)
         {
             if (transform.position.x < Closest - 1)
                 transform.Translate(0.05f, 0, 0);
@@ -58,6 +61,11 @@ public class Player : MonoBehaviour {
         foreach (GameObject OtherGameObject in BaseObject.PlayerList)
             if (OtherGameObject.transform.position.x < Closest && OtherGameObject.transform.position.x > transform.position.x)
                 Closest = OtherGameObject.transform.position.x;
+    }
+
+    void TakeDamage(int damage)
+    {
+        health -= damage;
     }
 
     void GetStartValues(int id)

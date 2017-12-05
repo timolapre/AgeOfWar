@@ -17,21 +17,27 @@ public class Base : MonoBehaviour {
     public float FirstPlayer;
     public float FirstEnemy;
     public int Money;
-    public int StartMoney = 20;
+    private int StartMoney = 20;
     public float PlayerBaseHealth;
     public float EnemyBaseHealth;
     public int XP;
     public int WhatTier = 1;
+    public bool GameOver;
     public bool VsAI;
     public bool Teams;
+<<<<<<< HEAD
     public bool GameOver;
     public bool Playing;
+=======
+>>>>>>> master
 
-    public List<GameObject> PlayerList; 
+    public List<GameObject> PlayerList;
     public List<GameObject> EnemyList;
 
     private int Timer;
     private int Random;
+
+    int PlayerID = 0;
 
 	void Start () {
         //Instantiate(Object, spawn.position, spawn.rotation);
@@ -43,7 +49,7 @@ public class Base : MonoBehaviour {
         Random = UnityEngine.Random.Range(100, 1000);
         Playing = true;
     }
-	
+
 	void Update () {
         if (!GameOver)
         {
@@ -70,15 +76,15 @@ public class Base : MonoBehaviour {
             SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);
         }
 
-        if (Input.GetKeyDown(KeyCode.Z) && Money >= 1)
+        if (InputHelper.GetActionDown(PlayerID, Joycon.Button.DPAD_LEFT) && Money >= 1)
         {
-            SpawnPlayer(WhatTier*3-2, 1);    
+            SpawnPlayer(WhatTier*3-2, 1);
         }
-        if (Input.GetKeyDown(KeyCode.X) && Money >= 3)
+        if (InputHelper.GetActionDown(PlayerID, Joycon.Button.DPAD_DOWN) && Money >= 3)
         {
             SpawnPlayer(WhatTier*3-1, 3);
         }
-        if (Input.GetKeyDown(KeyCode.C) && Money >= 5)
+        if (InputHelper.GetActionDown(PlayerID, Joycon.Button.DPAD_RIGHT) && Money >= 5)
         {
             SpawnPlayer(WhatTier*3, 5);
         }
@@ -92,7 +98,7 @@ public class Base : MonoBehaviour {
         {
             Money++;
         }
-        if (Input.GetKeyDown(KeyCode.S) && XP >= 10*WhatTier)
+        if (InputHelper.GetActionDown(PlayerID, Joycon.Button.SR) && XP >= 10*WhatTier)
         {
             WhatTier++;
         }

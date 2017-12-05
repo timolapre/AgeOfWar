@@ -28,11 +28,14 @@ public class Enemy : MonoBehaviour {
         SpriteRenderer = GetComponent<SpriteRenderer>();
         transform.localScale = new Vector3(-6, 6, 1);
         GetStartValues(WhichUnit);
+
+        PolygonCollider2D comp = gameObject.AddComponent<PolygonCollider2D>();
+        comp.isTrigger = true;
     }
-	
+
 	// Update is called once per frame
 	void Update () {
-        if (transform.position.x > BaseScript.FirstPlayer + 1)
+        if (transform.position.x > BaseScript.FirstPlayer + 1 && !BaseScript.GameOver)
         {
             if (transform.position.x > Closest + 1)
                 transform.Translate(-0.05f, 0, 0);
@@ -61,6 +64,11 @@ public class Enemy : MonoBehaviour {
                 Closest = OtherGameObject.transform.position.x;
     }
 
+    void TakeDamage(int Damage)
+    {
+        Health -= Damage;
+    }
+
     void GetStartValues(int id)
     {
         if (id == 1)
@@ -70,6 +78,8 @@ public class Enemy : MonoBehaviour {
             Damage = 1;
             Range = 1;
             SpriteRenderer.sprite = Sprite1;
+            Xp = 1;
+            Money = 1;
         }
 
         if (id == 2)
@@ -79,6 +89,8 @@ public class Enemy : MonoBehaviour {
             Damage = 2;
             Range = 1;
             SpriteRenderer.sprite = Sprite2;
+            Xp = 2;
+            Money = 2;
         }
 
         if (id == 3)
@@ -88,6 +100,8 @@ public class Enemy : MonoBehaviour {
             Damage = 2;
             Range = 1;
             SpriteRenderer.sprite = Sprite3;
+            Xp = 3;
+            Money = 3;
         }
 
         if (id == 4)
@@ -97,6 +111,8 @@ public class Enemy : MonoBehaviour {
             Damage = 2;
             Range = 1;
             SpriteRenderer.sprite = Sprite4;
+            Xp = 4;
+            Money = 4;
         }
 
         if (id == 5)
@@ -106,6 +122,8 @@ public class Enemy : MonoBehaviour {
             Damage = 4;
             Range = 1;
             SpriteRenderer.sprite = Sprite5;
+            Xp = 5;
+            Money = 5;
         }
 
         if (id == 6)
@@ -115,6 +133,8 @@ public class Enemy : MonoBehaviour {
             Damage = 5;
             Range = 1;
             SpriteRenderer.sprite = Sprite6;
+            Xp = 5;
+            Money = 5;
         }
     }
 }

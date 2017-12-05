@@ -16,6 +16,7 @@ public class Turret : MonoBehaviour
     public Sprite Sprite5;
 
     public int PlayerID;
+	public GameObject projectile;
     public Vector3 gyro;
 
     // Use this for initialization
@@ -35,8 +36,15 @@ public class Turret : MonoBehaviour
             rotation = 90 * (PlayerID == 1 ? -1 : 1);
         }
 
+		if (InputHelper.GetActionDown(PlayerID, Joycon.Button.HOME))
+		{
+			Debug.Log("Spawn proj");
+			GameObject proj = Instantiate(projectile, transform.position, new Quaternion(0,0,0,0));
+            proj.GetComponent<Projectile>().direction = (transform.rotation.eulerAngles.z) % 360;
+		}
+
 		//Play the Mario Theme
-        if (InputHelper.GetActionDown(PlayerID, Joycon.Button.DPAD_LEFT))
+		if (InputHelper.GetActionDown(PlayerID, Joycon.Button.SHOULDER_1))
         {
             Debug.Log("Mario!");
 
