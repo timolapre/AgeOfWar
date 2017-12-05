@@ -35,7 +35,7 @@ public class CharButtons : MonoBehaviour {
             {
                 if (raycastHit.transform.tag == "Button" && basescript.Money > 0)
                 {
-                    basescript.SpawnPlayer(basescript.WhatTier * 3 - (3-id), 1);
+                    basescript.SpawnPlayer(basescript.WhatTier * 3 - (3-id));
                     Debug.Log(id);
                 }
             }
@@ -47,7 +47,7 @@ public class CharButtons : MonoBehaviour {
         Debug.Log(id);
         if (Input.GetMouseButtonDown(0))
         {
-            basescript.SpawnPlayer(basescript.WhatTier * 3 - (3 - id), 1);
+            basescript.SpawnPlayer(basescript.WhatTier * 3 - (3 - id));
             Debug.Log(id);
         }
     }

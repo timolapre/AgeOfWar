@@ -35,7 +35,6 @@ public class Player : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-
         if (transform.position.x < BaseObject.FirstEnemy - 1 && !BaseObject.GameOver)
         {
             if (transform.position.x < Closest - 1)

@@ -11,7 +11,7 @@ public class CameraScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKey(KeyCode.RightArrow) && gameObject.transform.position.x < 8)
+        if (Input.GetKey(KeyCode.RightArrow) && gameObject.transform.position.x < 15)
             transform.Translate(0.1f,0,0);
         if (Input.GetKey(KeyCode.LeftArrow) && gameObject.transform.position.x > 0)
             transform.Translate(-0.1f, 0, 0);

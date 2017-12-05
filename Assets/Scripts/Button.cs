@@ -5,6 +5,7 @@ using UnityEngine;
 public class Button : MonoBehaviour {
 
     private Base BaseObject;
+    public int id;
 
 	// Use this for initialization
 	void Start () {
@@ -19,13 +20,24 @@ public class Button : MonoBehaviour {
             RaycastHit raycastHit;
             if (Physics.Raycast(raycast, out raycastHit))
             {
-                if (raycastHit.transform.name == "Button" && BaseObject.Money > 0)
+                if (raycastHit.transform.CompareTag("Button"))
                 {
-                    GameObject tempPlayer = Instantiate(BaseObject.Player, BaseObject.SpawnPlayerLocation.position, BaseObject.SpawnPlayerLocation.rotation, BaseObject.transform) as GameObject;
-                    BaseObject.PlayerList.Add(tempPlayer);
-                    BaseObject.Money--;
+                    try
+                    {
+                        Touched(raycastHit.transform.GetComponent<Button>().id);
+                    }
+                    catch { }
                 }
             }
         }
+    }
+
+    void Touched(int id)
+    {
+        if(id <= 3)
+        {
+            BaseObject.SpawnPlayer(id);
+        }
+
     }
 }
