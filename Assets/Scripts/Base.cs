@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Base : MonoBehaviour {
+    public Turret TurretScript;
     public GameObject Player;
     public GameObject Enemy;
     public GameObject HealthBarPlayer;
@@ -25,11 +26,9 @@ public class Base : MonoBehaviour {
     public bool GameOver;
     public bool VsAI;
     public bool Teams;
-<<<<<<< HEAD
-    public bool GameOver;
+    public int Faction1;
+
     public bool Playing;
-=======
->>>>>>> master
 
     public List<GameObject> PlayerList;
     public List<GameObject> EnemyList;
@@ -41,6 +40,7 @@ public class Base : MonoBehaviour {
 
 	void Start () {
         //Instantiate(Object, spawn.position, spawn.rotation);
+        TurretScript = GetComponentInParent<Turret>();
         Teams = false;
         VsAI = true;
         Money = StartMoney;
@@ -48,6 +48,7 @@ public class Base : MonoBehaviour {
         EnemyBaseHealth = 1000;
         Random = UnityEngine.Random.Range(100, 1000);
         Playing = true;
+        Faction1 = 0;
     }
 
 	void Update () {
