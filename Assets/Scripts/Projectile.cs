@@ -8,9 +8,26 @@ public class Projectile : MonoBehaviour {
 
 	float gravity = 9.81f;
 	float speed = 10;
-	
-	// Update is called once per frame
-	void Update () {
+    float lifeLeft = 1;
+
+    void Start()
+    {
+        transform.rotation = Quaternion.AngleAxis(-direction + 90, Vector3.back);
+    }
+
+    // Update is called once per frame
+    void Update () {
+        lifeLeft -= Time.deltaTime;
+        if (lifeLeft <= 0)
+            Destroy(gameObject);
 		transform.position = new Vector3(transform.position.x - Mathf.Sin(direction * Mathf.PI / 180) * speed * Time.deltaTime, transform.position.y + Mathf.Cos(direction * Mathf.PI / 180) * speed * Time.deltaTime, transform.position.z);
-	}
+        if (Mathf.Abs(transform.position.x) > 50 || Mathf.Abs(transform.position.y) > 50)
+            Destroy(gameObject);
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        Destroy(collision.gameObject);
+        Destroy(gameObject);
+    }
 }

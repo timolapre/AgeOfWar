@@ -540,7 +540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerID: 1
-  projectile: {fileID: 0}
+  projectile: {fileID: 1128415518675264, guid: ce251fd1bb0742d4395e533c3ff93411, type: 2}
   gyro: {x: 0, y: 0, z: 0}
 --- !u!212 &543170572
 SpriteRenderer:
@@ -857,7 +857,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1040315672}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1782.1553, y: 1407.403, z: 0}
+  m_LocalPosition: {x: 2262.3933, y: 841.11066, z: 0}
   m_LocalScale: {x: 5.5518856, y: 5.5518856, z: 5.5518856}
   m_Children:
   - {fileID: 170095593}

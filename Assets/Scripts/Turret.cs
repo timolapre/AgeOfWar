@@ -32,7 +32,7 @@ public class Turret : MonoBehaviour
 		{
 			Debug.Log("Spawn proj");
 			GameObject proj = Instantiate(projectile, transform.position, new Quaternion(0,0,0,0));
-			proj.GetComponent<Projectile>().direction = (transform.rotation.eulerAngles.z)%360;
+            proj.GetComponent<Projectile>().direction = (transform.rotation.eulerAngles.z) % 360;
 		}
 
 		//Play the Mario Theme
