@@ -25,6 +25,7 @@ public class Base : MonoBehaviour {
     public bool VsAI;
     public bool Teams;
     public bool GameOver;
+    public bool Playing;
 
     public List<GameObject> PlayerList; 
     public List<GameObject> EnemyList;
@@ -40,6 +41,7 @@ public class Base : MonoBehaviour {
         PlayerBaseHealth = 1000;
         EnemyBaseHealth = 1000;
         Random = UnityEngine.Random.Range(100, 1000);
+        Playing = true;
     }
 	
 	void Update () {
@@ -58,11 +60,13 @@ public class Base : MonoBehaviour {
         if (PlayerBaseHealth <= 0 && !GameOver)
         {
             GameOver = true;
+            Playing = false;
             SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);
         }
         else if(EnemyBaseHealth <= 0 && !GameOver)
         {
             GameOver = true;
+            Playing = false;
             SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);
         }
 
@@ -114,6 +118,7 @@ public class Base : MonoBehaviour {
         PlayerBaseHealth = 1000;
         EnemyBaseHealth = 1000;
         GameOver = false;
+        Playing = true;
         Money = StartMoney;
         XP = 0;
         Timer = 0;
