@@ -13,9 +13,10 @@ public class InputHelper {
 																									{ Joycon.Button.DPAD_DOWN, KeyCode.Alpha2 },
 																									{ Joycon.Button.HOME, KeyCode.Space },
 																									{ Joycon.Button.SL, KeyCode.C },
-																									{ Joycon.Button.SR, KeyCode.S },
+																									{ Joycon.Button.SR, KeyCode.U },
 																									{ Joycon.Button.PLUS, KeyCode.P },
-																									{ Joycon.Button.STICK, KeyCode.Return } };
+																									{ Joycon.Button.STICK, KeyCode.Return },
+                                                                                                    { Joycon.Button.SHOULDER_1, KeyCode.O } };
 
     // Use this for initialization
     public static void Start ()

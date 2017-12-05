@@ -25,7 +25,6 @@ public class Base : MonoBehaviour {
     public bool GameOver;
     public bool VsAI;
     public bool Teams;
-    public bool GameOver;
 
     public List<GameObject> PlayerList;
     public List<GameObject> EnemyList;
