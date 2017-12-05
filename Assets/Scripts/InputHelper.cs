@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InputHelper : MonoBehaviour {
+public class InputHelper {
 
     static List<Joycon> joycons;
 	//mapping joycon buttons to keyboard keys
@@ -13,12 +13,12 @@ public class InputHelper : MonoBehaviour {
 																									{ Joycon.Button.DPAD_DOWN, KeyCode.Alpha2 },
 																									{ Joycon.Button.HOME, KeyCode.Space },
 																									{ Joycon.Button.SL, KeyCode.C },
-																									{ Joycon.Button.SR, KeyCode.U },
+																									{ Joycon.Button.SR, KeyCode.S },
 																									{ Joycon.Button.PLUS, KeyCode.P },
 																									{ Joycon.Button.STICK, KeyCode.Return } };
 
     // Use this for initialization
-    void Start ()
+    public static void Start ()
     {
         joycons = JoyconManager.Instance.j;
     }
@@ -55,16 +55,24 @@ public class InputHelper : MonoBehaviour {
 		{
 			button = Joycon.Button.MINUS;
 		}
-		else if (button == Joycon.Button.DPAD_UP && joycons[PlayerID].isLeft)
-		{
-			button = Joycon.Button.DPAD_DOWN;
-		}
-		else if (button == Joycon.Button.DPAD_DOWN && joycons[PlayerID].isLeft)
-		{
-			button = Joycon.Button.DPAD_UP;
-		}
+        else if (button == Joycon.Button.DPAD_RIGHT && joycons[PlayerID].isLeft)
+        {
+            button = Joycon.Button.DPAD_LEFT;
+        }
+        else if (button == Joycon.Button.DPAD_LEFT && joycons[PlayerID].isLeft)
+        {
+            button = Joycon.Button.DPAD_RIGHT;
+        }
+        else if (button == Joycon.Button.DPAD_UP && joycons[PlayerID].isLeft)
+        {
+            button = Joycon.Button.DPAD_DOWN;
+        }
+        else if (button == Joycon.Button.DPAD_DOWN && joycons[PlayerID].isLeft)
+        {
+            button = Joycon.Button.DPAD_UP;
+        }
 
-		return joycons[PlayerID].GetButton(button);
+        return joycons[PlayerID].GetButton(button);
 	}
 
 	// Checks if button is released
@@ -86,16 +94,24 @@ public class InputHelper : MonoBehaviour {
 		{
 			button = Joycon.Button.MINUS;
 		}
-		else if (button == Joycon.Button.DPAD_UP && joycons[PlayerID].isLeft)
-		{
-			button = Joycon.Button.DPAD_DOWN;
-		}
-		else if (button == Joycon.Button.DPAD_DOWN && joycons[PlayerID].isLeft)
-		{
-			button = Joycon.Button.DPAD_UP;
-		}
+        else if (button == Joycon.Button.DPAD_RIGHT && joycons[PlayerID].isLeft)
+        {
+            button = Joycon.Button.DPAD_LEFT;
+        }
+        else if (button == Joycon.Button.DPAD_LEFT && joycons[PlayerID].isLeft)
+        {
+            button = Joycon.Button.DPAD_RIGHT;
+        }
+        else if (button == Joycon.Button.DPAD_UP && joycons[PlayerID].isLeft)
+        {
+            button = Joycon.Button.DPAD_DOWN;
+        }
+        else if (button == Joycon.Button.DPAD_DOWN && joycons[PlayerID].isLeft)
+        {
+            button = Joycon.Button.DPAD_UP;
+        }
 
-		return joycons[PlayerID].GetButtonUp(button);
+        return joycons[PlayerID].GetButtonUp(button);
 	}
 
 	// Checks if button is pressed
@@ -117,16 +133,24 @@ public class InputHelper : MonoBehaviour {
 		{
 			button = Joycon.Button.MINUS;
 		}
-		else if (button == Joycon.Button.DPAD_UP && joycons[PlayerID].isLeft)
+		else if (button == Joycon.Button.DPAD_RIGHT && joycons[PlayerID].isLeft)
 		{
-			button = Joycon.Button.DPAD_DOWN;
+			button = Joycon.Button.DPAD_LEFT;
 		}
-		else if (button == Joycon.Button.DPAD_DOWN && joycons[PlayerID].isLeft)
+		else if (button == Joycon.Button.DPAD_LEFT && joycons[PlayerID].isLeft)
 		{
-			button = Joycon.Button.DPAD_UP;
-		}
+			button = Joycon.Button.DPAD_RIGHT;
+        }
+        else if (button == Joycon.Button.DPAD_UP && joycons[PlayerID].isLeft)
+        {
+            button = Joycon.Button.DPAD_DOWN;
+        }
+        else if (button == Joycon.Button.DPAD_DOWN && joycons[PlayerID].isLeft)
+        {
+            button = Joycon.Button.DPAD_UP;
+        }
 
-		return joycons[PlayerID].GetButtonDown(button);
+        return joycons[PlayerID].GetButtonDown(button);
 	}
 
 	//Vibrate the Controller

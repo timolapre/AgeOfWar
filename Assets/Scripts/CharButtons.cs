@@ -33,7 +33,7 @@ public class CharButtons : MonoBehaviour {
             RaycastHit raycastHit;
             if (Physics.Raycast(raycast, out raycastHit))
             {
-                if (raycastHit.transform.tag == "Button" && basescript.money > 0)
+                if (raycastHit.transform.tag == "Button" && basescript.Money > 0)
                 {
                     basescript.SpawnPlayer(basescript.WhatTier * 3 - (3-id), 1);
                     Debug.Log(id);
