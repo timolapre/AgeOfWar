@@ -19,11 +19,11 @@ public class Button : MonoBehaviour {
             RaycastHit raycastHit;
             if (Physics.Raycast(raycast, out raycastHit))
             {
-                if (raycastHit.transform.name == "Button" && BaseObject.money > 0)
+                if (raycastHit.transform.name == "Button" && BaseObject.Money > 0)
                 {
-                    GameObject tempPlayer = Instantiate(BaseObject.player, BaseObject.spawnPlayer.position, BaseObject.spawnPlayer.rotation, BaseObject.transform) as GameObject;
-                    BaseObject.playerlist.Add(tempPlayer);
-                    BaseObject.money--;
+                    GameObject tempPlayer = Instantiate(BaseObject.Player, BaseObject.SpawnPlayerLocation.position, BaseObject.SpawnPlayerLocation.rotation, BaseObject.transform) as GameObject;
+                    BaseObject.PlayerList.Add(tempPlayer);
+                    BaseObject.Money--;
                 }
             }
         }

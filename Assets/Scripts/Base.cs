@@ -2,113 +2,132 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Base : MonoBehaviour {
-
-    public GameObject player;
+    public GameObject Player;
     public GameObject Enemy;
-    public GameObject healthbarplayer;
-    public GameObject healthbarenemy;
-    public Transform spawnPlayer;
-    public Transform spawnEnemy;
-    public Text moneytext;
-    public Text XPtext;
+    public GameObject HealthBarPlayer;
+    public GameObject HealthBarEnemy;
+    public Transform SpawnPlayerLocation;
+    public Transform SpawnEnemyLocation;
+    public Text MoneyText;
+    public Text XpText;
     public Text GameOverText;
     public float FirstPlayer;
     public float FirstEnemy;
-    public int money;
+    public int Money;
+    public int StartMoney = 20;
     public float PlayerBaseHealth;
     public float EnemyBaseHealth;
     public int XP;
     public int WhatTier = 1;
-    public static bool GameOver;
     public bool VsAI;
     public bool Teams;
+    public bool GameOver;
 
-    public List<GameObject> playerlist; 
-    public List<GameObject> enemylist;
+    public List<GameObject> PlayerList; 
+    public List<GameObject> EnemyList;
 
-    private int timer;
-    private int random;
+    private int Timer;
+    private int Random;
 
 	void Start () {
         //Instantiate(Object, spawn.position, spawn.rotation);
         Teams = false;
         VsAI = true;
+        Money = StartMoney;
         PlayerBaseHealth = 1000;
         EnemyBaseHealth = 1000;
-        random = Random.Range(100, 1000);
+        Random = UnityEngine.Random.Range(100, 1000);
     }
 	
 	void Update () {
-        moneytext.text = "Money: " + money;
-        XPtext.text = "XP: " + XP;
-        healthbarplayer.transform.localScale = new Vector3(((float)15/1000*PlayerBaseHealth),1,1);
-        healthbarenemy.transform.localScale = new Vector3(((float)15 / 1000 * EnemyBaseHealth), 1, 1);
-        if (PlayerBaseHealth <= 0)
+        if (!GameOver)
         {
-            GameOver = true;
-            if (VsAI)
-            {
-                GameOverText.text = "AI wins";
-            }
-            else
-            {
-                GameOverText.text = "Player 2 wins";
-            }
+            MoneyText.text = "Money: " + Money;
+            XpText.text = "XP: " + XP;
         }
-        else if(EnemyBaseHealth <= 0)
+        else
+        {
+            MoneyText.text = "";
+            XpText.text = "";
+        }
+        HealthBarPlayer.transform.localScale = new Vector3(((float)15/1000*PlayerBaseHealth),1,1);
+        HealthBarEnemy.transform.localScale = new Vector3(((float)15 / 1000 * EnemyBaseHealth), 1, 1);
+        if (PlayerBaseHealth <= 0 && !GameOver)
         {
             GameOver = true;
-            GameOverText.text = "Player 1 wins";
+            SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);
+        }
+        else if(EnemyBaseHealth <= 0 && !GameOver)
+        {
+            GameOver = true;
+            SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);
         }
 
-        if (Input.GetKeyDown(KeyCode.Z) && money >= 1)
+        if (Input.GetKeyDown(KeyCode.Z) && Money >= 1)
         {
             SpawnPlayer(WhatTier*3-2, 1);    
         }
-        if (Input.GetKeyDown(KeyCode.X) && money >= 3)
+        if (Input.GetKeyDown(KeyCode.X) && Money >= 3)
         {
             SpawnPlayer(WhatTier*3-1, 3);
         }
-        if (Input.GetKeyDown(KeyCode.C) && money >= 5)
+        if (Input.GetKeyDown(KeyCode.C) && Money >= 5)
         {
             SpawnPlayer(WhatTier*3, 5);
         }
 
-        timer++;
-        if(timer >= random && !GameOver)
-        {
-            GameObject tempEnemy = Instantiate(Enemy, spawnEnemy.position, spawnEnemy.rotation, transform) as GameObject;
-            enemylist.Add(tempEnemy);
-            timer = 0;
-            random = Random.Range(100, 300);
-        }
-
         if (Input.GetKeyDown(KeyCode.M))
         {
-             GameObject tempEnemy = Instantiate(Enemy, spawnEnemy.position, spawnEnemy.rotation, transform) as GameObject;
-             enemylist.Add(tempEnemy);
+             GameObject tempEnemy = Instantiate(Enemy, SpawnEnemyLocation.position, SpawnEnemyLocation.rotation, transform) as GameObject;
+             EnemyList.Add(tempEnemy);
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
-            money++;
+            Money++;
         }
         if (Input.GetKeyDown(KeyCode.S) && XP >= 10*WhatTier)
         {
             WhatTier++;
         }
+        if (Input.GetKeyDown(KeyCode.R) && GameOver)
+        {
+            Reset();
+        }
     }
 
     public void SpawnPlayer(int id, int cost)
     {
-        if (money >= cost && !GameOver)
+        if (Money >= cost && !GameOver)
         {
-            GameObject tempPlayer = Instantiate(player, spawnPlayer.position, spawnPlayer.rotation, transform) as GameObject;
+            GameObject tempPlayer = Instantiate(Player, SpawnPlayerLocation.position, SpawnPlayerLocation.rotation, transform) as GameObject;
             Player tempPlayerScript = tempPlayer.GetComponent<Player>();
             tempPlayerScript.WhichUnit = id;
-            playerlist.Add(tempPlayer);
-            money -= cost;
+            PlayerList.Add(tempPlayer);
+            Money -= cost;
         }
+    }
+    public void Reset()
+    {
+        PlayerBaseHealth = 1000;
+        EnemyBaseHealth = 1000;
+        GameOver = false;
+        Money = StartMoney;
+        XP = 0;
+        Timer = 0;
+        foreach (GameObject g in PlayerList)
+        {
+            Destroy(g);
+        }
+        foreach(GameObject g in EnemyList)
+        {
+            Destroy(g);
+        }
+        PlayerList.Clear();
+        EnemyList.Clear();
+        FirstPlayer = -8;
+        FirstEnemy = 10;
     }
 }

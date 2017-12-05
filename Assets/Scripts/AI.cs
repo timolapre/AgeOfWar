@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AI : MonoBehaviour {
 
-    public Base basescript;
+    public Base BaseScript;
     public GameObject Enemy;
     public Transform spawnEnemy;
 
@@ -13,8 +13,8 @@ public class AI : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        basescript = GetComponentInParent<Base>();
-	}
+        BaseScript = GetComponentInParent<Base>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -33,13 +33,12 @@ public class AI : MonoBehaviour {
 
     void SpawnEnemy(int id)
     {
-        if (!Base.GameOver)
+        if (!BaseScript.GameOver)
         {
             GameObject tempEnemy = Instantiate(Enemy, spawnEnemy.position, spawnEnemy.rotation, transform) as GameObject;
             Enemy tempEnemyScript = tempEnemy.GetComponent<Enemy>();
             tempEnemyScript.WhichUnit = id;
-            basescript.enemylist.Add(tempEnemy);
+            BaseScript.EnemyList.Add(tempEnemy);
         }
-        
     }
 }
