@@ -21,7 +21,7 @@ public class Base : MonoBehaviour {
     public float EnemyBaseHealth;
     public int XP;
     public int WhatTier = 1;
-    public static bool GameOver;
+    public bool GameOver;
     public bool VsAI;
     public bool Teams;
 
@@ -43,7 +43,7 @@ public class Base : MonoBehaviour {
 	void Update () {
         moneytext.text = "Money: " + money;
         XPtext.text = "XP: " + XP;
-        healthbarplayer.transform.localScale = new Vector3(((float)15/1000*PlayerBaseHealth),1,1);
+        healthbarplayer.transform.localScale = new Vector3(((float)15 / 1000 * PlayerBaseHealth), 1, 1);
         healthbarenemy.transform.localScale = new Vector3(((float)15 / 1000 * EnemyBaseHealth), 1, 1);
         if (PlayerBaseHealth <= 0)
         {
@@ -67,22 +67,13 @@ public class Base : MonoBehaviour {
         {
             SpawnPlayer(WhatTier*3-2, 1);    
         }
-        if (Input.GetKeyDown(KeyCode.X) && money >= 3)
+        if (Input.GetKeyDown(KeyCode.X)&& money >= 3)
         {
             SpawnPlayer(WhatTier*3-1, 3);
         }
         if (Input.GetKeyDown(KeyCode.C) && money >= 5)
         {
             SpawnPlayer(WhatTier*3, 5);
-        }
-
-        timer++;
-        if(timer >= random && !GameOver)
-        {
-            GameObject tempEnemy = Instantiate(Enemy, spawnEnemy.position, spawnEnemy.rotation, transform) as GameObject;
-            enemylist.Add(tempEnemy);
-            timer = 0;
-            random = Random.Range(100, 300);
         }
 
         if (Input.GetKeyDown(KeyCode.M))

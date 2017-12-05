@@ -32,7 +32,7 @@ public class Enemy : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (transform.position.x > BaseObject.FirstPlayer + 1 && !Base.GameOver)
+        if (transform.position.x > BaseObject.FirstPlayer + 1 && !BaseObject.GameOver)
         {
             if (transform.position.x > Closest + 1)
                 transform.Translate(-0.05f, 0, 0);
@@ -70,6 +70,8 @@ public class Enemy : MonoBehaviour {
             damage = 1;
             range = 1;
             spriterenderer.sprite = sprite1;
+            xp = 1;
+            money = 1;
         }
 
         if (id == 2)
@@ -79,6 +81,8 @@ public class Enemy : MonoBehaviour {
             damage = 2;
             range = 1;
             spriterenderer.sprite = sprite2;
+            xp = 2;
+            money = 2;
         }
 
         if (id == 3)
@@ -88,6 +92,8 @@ public class Enemy : MonoBehaviour {
             damage = 2;
             range = 1;
             spriterenderer.sprite = sprite3;
+            xp = 3;
+            money = 3;
         }
 
         if (id == 4)
@@ -97,6 +103,8 @@ public class Enemy : MonoBehaviour {
             damage = 2;
             range = 1;
             spriterenderer.sprite = sprite4;
+            xp = 4;
+            money = 4;
         }
 
         if (id == 5)
@@ -106,6 +114,8 @@ public class Enemy : MonoBehaviour {
             damage = 4;
             range = 1;
             spriterenderer.sprite = sprite5;
+            xp = 5;
+            money = 5;
         }
 
         if (id == 6)
@@ -115,6 +125,8 @@ public class Enemy : MonoBehaviour {
             damage = 5;
             range = 1;
             spriterenderer.sprite = sprite6;
+            xp = 5;
+            money = 5;
         }
     }
 }
