@@ -38,24 +38,22 @@ public class Player : MonoBehaviour {
     GameObject Attackee;
     // Update is called once per frame
     void Update () {
-        if (transform.position.x >= BaseObject.SpawnEnemyLocation.position.x)
+        if (transform.position.x >= BaseScript.SpawnEnemyLocation.position.x)
             AtOtherBase = true;
 
         if (!Colliding && !AtOtherBase)
             transform.Translate(.05f, 0, 0);
         else if (AtOtherBase && !Colliding)
-            BaseObject.EnemyBaseHealth -= damage;
+            BaseScript.EnemyBaseHealth -= damage;
         else
             Attackee.GetComponent<Enemy>().TakeDamage(damage);
 
-<<<<<<< HEAD
+
         if (health <= 0)
             Destroy(gameObject);
 
         /*if (transform.position.x < BaseObject.FirstEnemy - 1 && !BaseObject.GameOver)
-=======
         if (transform.position.x < BaseScript.FirstEnemy - 1 && !BaseScript.GameOver)
->>>>>>> Youri
         {
             if (transform.position.x < Closest - 1)
                 transform.Translate(0.05f, 0, 0);

@@ -141,5 +141,6 @@ public class Base : MonoBehaviour {
         EnemyList.Clear();
         FirstPlayer = -8;
         FirstEnemy = 10;
+        WhatTier = 1;
     }
 }

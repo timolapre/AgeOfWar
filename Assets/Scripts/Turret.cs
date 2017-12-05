@@ -56,6 +56,11 @@ public class Turret : MonoBehaviour
 
         }
 
+        if (Input.GetKeyDown(KeyCode.R) && GameOver)
+        {
+            Reset();
+        }
+
         if (InputHelper.GetActionDown(PlayerID, Joycon.Button.SL))
         {
             UpgradeTurret();
@@ -97,6 +102,11 @@ public class Turret : MonoBehaviour
         {
             TurretLevel++;
         }
+    }
+
+    public void Reset()
+    {
+        TurretLevel = 0;
     }
 
 

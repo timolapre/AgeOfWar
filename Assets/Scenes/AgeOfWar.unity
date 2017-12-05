@@ -227,6 +227,18 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114659443957838530, guid: fde3ae84bc093fb4c9d9d39e9df08e73,
+        type: 2}
+      propertyPath: Sprite1
+      value: 
+      objectReference: {fileID: 21300000, guid: e767aeb9afefcb842a90f2b7095ed617,
+        type: 3}
+    - target: {fileID: 114659443957838530, guid: fde3ae84bc093fb4c9d9d39e9df08e73,
+        type: 2}
+      propertyPath: Sprite2
+      value: 
+      objectReference: {fileID: 21300000, guid: 95aac0bca7b68404c87e90d15f555591,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fde3ae84bc093fb4c9d9d39e9df08e73, type: 2}
   m_IsPrefabParent: 0
@@ -502,6 +514,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0962ec3ee7750194b826942f69856b04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TurretScript: {fileID: 0}
+  id: 0
 --- !u!4 &919710009 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4227811560666952, guid: fde3ae84bc093fb4c9d9d39e9df08e73,
@@ -600,6 +614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24d363d380f72cb46b4a279117660e14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BaseScript: {fileID: 0}
 --- !u!1 &1032384078
 GameObject:
   m_ObjectHideFlags: 0
@@ -627,6 +642,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0962ec3ee7750194b826942f69856b04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TurretScript: {fileID: 0}
+  id: 0
 --- !u!4 &1032384080
 Transform:
   m_ObjectHideFlags: 0
@@ -665,7 +682,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1040315672}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2262.3933, y: 841.11066, z: 0}
+  m_LocalPosition: {x: 2556.6433, y: 1093.7214, z: 0}
   m_LocalScale: {x: 5.5518856, y: 5.5518856, z: 5.5518856}
   m_Children:
   - {fileID: 170095593}
@@ -845,6 +862,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69d011fefa8249840a32cb4b168dfe32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TurretScript: {fileID: 0}
   Player: {fileID: 1845344624181530, guid: 7eb9a18b0ae995947aac7e4057d4314d, type: 2}
   Enemy: {fileID: 1283681704908336, guid: f60c23e06e8a2ce469c64c2a163ae952, type: 2}
   HealthBarPlayer: {fileID: 460587257}
@@ -864,6 +882,8 @@ MonoBehaviour:
   GameOver: 0
   VsAI: 0
   Teams: 0
+  Faction1: 0
+  Playing: 0
   PlayerList: []
   EnemyList: []
 --- !u!212 &1198727279
