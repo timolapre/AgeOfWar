@@ -20,8 +20,8 @@ public class Fighting : MonoBehaviour {
 
             if (basescript.FirstEnemy - basescript.FirstPlayer <= 1)
             {
-                player.health -= enemy.damage;
-                enemy.health -= player.damage;
+                player.health -= enemy.Damage;
+                enemy.Health -= player.damage;
             }
         }
         catch { }
@@ -29,7 +29,7 @@ public class Fighting : MonoBehaviour {
 
     GameObject GetFirstPlayer()
     {
-        foreach (GameObject player in basescript.playerlist)
+        foreach (GameObject player in basescript.PlayerList)
             if (player.transform.position.x == basescript.FirstPlayer)
                 return player;
         return null;
@@ -37,7 +37,7 @@ public class Fighting : MonoBehaviour {
 
     GameObject GetFirstEnemy()
     {
-        foreach (GameObject enemy in basescript.enemylist)
+        foreach (GameObject enemy in basescript.EnemyList)
             if (enemy.transform.position.x == basescript.FirstEnemy)
                 return enemy;
         return null;

@@ -33,7 +33,7 @@ public class Player : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (transform.position.x < BaseObject.FirstEnemy - 1 && !Base.GameOver)
+        if (transform.position.x < BaseObject.FirstEnemy - 1)
         {
             if (transform.position.x < Closest - 1)
                 transform.Translate(0.05f, 0, 0);
@@ -45,7 +45,7 @@ public class Player : MonoBehaviour {
         if (health <= 0)
         {
             BaseObject.FirstPlayer = -8 ;
-            BaseObject.playerlist.Remove(gameObject);
+            BaseObject.PlayerList.Remove(gameObject);
             Destroy(gameObject);
         }
 
@@ -55,7 +55,7 @@ public class Player : MonoBehaviour {
         }
 
         Closest = 1000;
-        foreach (GameObject OtherGameObject in BaseObject.playerlist)
+        foreach (GameObject OtherGameObject in BaseObject.PlayerList)
             if (OtherGameObject.transform.position.x < Closest && OtherGameObject.transform.position.x > transform.position.x)
                 Closest = OtherGameObject.transform.position.x;
     }
