@@ -5,8 +5,9 @@ using UnityEngine;
 public class Projectile : MonoBehaviour {
 
 	public float direction; // 0 is to the right
+    public string kills = "Enemy";
 
-	float gravity = 9.81f;
+    float gravity = 9.81f;
 	float speed = 10;
     float lifeLeft = 1;
 
@@ -27,7 +28,10 @@ public class Projectile : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        collision.gameObject.SendMessage("TakeDamage", 100);
-        Destroy(gameObject);
+        if (collision.gameObject.tag == kills)
+        {
+            collision.gameObject.SendMessage("TakeDamage", 100);
+            Destroy(gameObject);
+        }
     }
 }

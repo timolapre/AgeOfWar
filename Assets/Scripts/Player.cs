@@ -33,10 +33,25 @@ public class Player : MonoBehaviour {
         comp.isTrigger = true;
     }
 
-	// Update is called once per frame
-	void Update () {
+    bool AtOtherBase = false;
+    bool Colliding = false;
+    GameObject Attackee;
+    // Update is called once per frame
+    void Update () {
+        if (transform.position.x >= BaseObject.SpawnEnemyLocation.position.x)
+            AtOtherBase = true;
 
-        if (transform.position.x < BaseObject.FirstEnemy - 1 && !BaseObject.GameOver)
+        if (!Colliding && !AtOtherBase)
+            transform.Translate(.05f, 0, 0);
+        else if (AtOtherBase && !Colliding)
+            BaseObject.EnemyBaseHealth -= damage;
+        else
+            Attackee.GetComponent<Enemy>().TakeDamage(damage);
+
+        if (health <= 0)
+            Destroy(gameObject);
+
+        /*if (transform.position.x < BaseObject.FirstEnemy - 1 && !BaseObject.GameOver)
         {
             if (transform.position.x < Closest - 1)
                 transform.Translate(0.05f, 0, 0);
@@ -60,10 +75,24 @@ public class Player : MonoBehaviour {
         Closest = 1000;
         foreach (GameObject OtherGameObject in BaseObject.PlayerList)
             if (OtherGameObject.transform.position.x < Closest && OtherGameObject.transform.position.x > transform.position.x)
-                Closest = OtherGameObject.transform.position.x;
+                Closest = OtherGameObject.transform.position.x;*/
     }
 
-    void TakeDamage(int damage)
+    void OnTriggerStay2D(Collider2D collision)
+    {
+        if(transform.position.x < collision.gameObject.transform.position.x)
+            Colliding = true;
+        if (collision.tag == "Enemy")
+            Attackee = collision.gameObject;
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        Colliding = false;
+        Attackee = null;
+    }
+
+    public void TakeDamage(int damage)
     {
         health -= damage;
     }

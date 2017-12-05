@@ -30,10 +30,11 @@ public class Turret : MonoBehaviour
 
 		if (InputHelper.GetActionDown(PlayerID, Joycon.Button.HOME))
 		{
-			Debug.Log("Spawn proj");
 			GameObject proj = Instantiate(projectile, transform.position, new Quaternion(0,0,0,0));
             proj.GetComponent<Projectile>().direction = (transform.rotation.eulerAngles.z) % 360;
-		}
+            proj.GetComponent<Projectile>().kills = PlayerID == 0 ? "Enemy" : "Player";
+
+        }
 
 		//Play the Mario Theme
 		if (InputHelper.GetActionDown(PlayerID, Joycon.Button.SHOULDER_1))
@@ -78,8 +79,7 @@ public class Turret : MonoBehaviour
     float F4 = 698.456f;//349.228f;
     float G4 = 783.991f;//391.995f;
     float A4 = 880;//440;
-
-    bool mario = false;
+    
     IEnumerator PlayMario()
     {
         int speed = 60000/(128*4);
