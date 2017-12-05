@@ -64,9 +64,9 @@ public class Enemy : MonoBehaviour {
                 Closest = OtherGameObject.transform.position.x;
     }
 
-    void TakeDamage(int damage)
+    void TakeDamage(int Damage)
     {
-        health -= damage;
+        Health -= Damage;
     }
 
     void GetStartValues(int id)

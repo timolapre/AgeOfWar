@@ -68,15 +68,15 @@ public class Base : MonoBehaviour {
             SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);
         }
 
-        if (InputHelper.GetActionDown(PlayerID, Joycon.Button.DPAD_LEFT) && money >= 1)
+        if (InputHelper.GetActionDown(PlayerID, Joycon.Button.DPAD_LEFT) && Money >= 1)
         {
             SpawnPlayer(WhatTier*3-2, 1);
         }
-        if (InputHelper.GetActionDown(PlayerID, Joycon.Button.DPAD_DOWN) && money >= 3)
+        if (InputHelper.GetActionDown(PlayerID, Joycon.Button.DPAD_DOWN) && Money >= 3)
         {
             SpawnPlayer(WhatTier*3-1, 3);
         }
-        if (InputHelper.GetActionDown(PlayerID, Joycon.Button.DPAD_RIGHT) && money >= 5)
+        if (InputHelper.GetActionDown(PlayerID, Joycon.Button.DPAD_RIGHT) && Money >= 5)
         {
             SpawnPlayer(WhatTier*3, 5);
         }
