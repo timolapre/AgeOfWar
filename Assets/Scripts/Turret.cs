@@ -36,7 +36,7 @@ public class Turret : MonoBehaviour
 		}
 
 		//Play the Mario Theme
-		if (InputHelper.GetActionDown(PlayerID, Joycon.Button.DPAD_LEFT))
+		if (InputHelper.GetActionDown(PlayerID, Joycon.Button.SHOULDER_1))
         {
             Debug.Log("Mario!");
 

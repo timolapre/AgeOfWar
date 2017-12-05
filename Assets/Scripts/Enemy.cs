@@ -28,6 +28,9 @@ public class Enemy : MonoBehaviour {
         spriterenderer = GetComponent<SpriteRenderer>();
         transform.localScale = new Vector3(-6, 6, 1);
         GetStartValues(WhichUnit);
+        
+        PolygonCollider2D comp = gameObject.AddComponent<PolygonCollider2D>();
+        comp.isTrigger = true;
     }
 	
 	// Update is called once per frame
@@ -59,6 +62,11 @@ public class Enemy : MonoBehaviour {
         foreach (GameObject OtherGameObject in BaseObject.enemylist)
             if (OtherGameObject.transform.position.x > Closest && OtherGameObject.transform.position.x < transform.position.x)
                 Closest = OtherGameObject.transform.position.x;
+    }
+
+    void TakeDamage(int damage)
+    {
+        health -= damage;
     }
 
     void GetStartValues(int id)

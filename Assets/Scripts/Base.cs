@@ -31,6 +31,8 @@ public class Base : MonoBehaviour {
     private int timer;
     private int random;
 
+    int PlayerID = 0;
+
 	void Start () {
         //Instantiate(Object, spawn.position, spawn.rotation);
         Teams = false;
@@ -63,15 +65,15 @@ public class Base : MonoBehaviour {
             GameOverText.text = "Player 1 wins";
         }
 
-        if (Input.GetKeyDown(KeyCode.Z) && money >= 1)
+        if (InputHelper.GetActionDown(PlayerID, Joycon.Button.DPAD_LEFT) && money >= 1)
         {
             SpawnPlayer(WhatTier*3-2, 1);    
         }
-        if (Input.GetKeyDown(KeyCode.X) && money >= 3)
+        if (InputHelper.GetActionDown(PlayerID, Joycon.Button.DPAD_DOWN) && money >= 3)
         {
             SpawnPlayer(WhatTier*3-1, 3);
         }
-        if (Input.GetKeyDown(KeyCode.C) && money >= 5)
+        if (InputHelper.GetActionDown(PlayerID, Joycon.Button.DPAD_RIGHT) && money >= 5)
         {
             SpawnPlayer(WhatTier*3, 5);
         }
@@ -94,7 +96,7 @@ public class Base : MonoBehaviour {
         {
             money++;
         }
-        if (Input.GetKeyDown(KeyCode.S) && XP >= 10*WhatTier)
+        if (InputHelper.GetActionDown(PlayerID, Joycon.Button.SR) && XP >= 10*WhatTier)
         {
             WhatTier++;
         }

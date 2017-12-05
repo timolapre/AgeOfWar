@@ -27,7 +27,7 @@ public class Projectile : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(collision.gameObject);
+        collision.gameObject.SendMessage("TakeDamage", 100);
         Destroy(gameObject);
     }
 }
