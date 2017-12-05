@@ -4,10 +4,18 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
-	
+    SpriteRenderer SpriteRenderer;
+    private Base BaseScript;
     private float rotation;
     private float offset;
     private int offsetcount;
+    public int TurretLevel;
+
+    public Sprite Sprite1;
+    public Sprite Sprite2;
+    public Sprite Sprite3;
+    public Sprite Sprite4;
+    public Sprite Sprite5;
 
     public int PlayerID;
 	public GameObject projectile;
@@ -16,12 +24,24 @@ public class Turret : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        TurretLevel = 1;
+        BaseScript = GetComponentInParent<Base>();
         rotation = 90 * (PlayerID == 1 ? -1 : 1);
+        SpriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(TurretLevel == 1)
+        {
+            SpriteRenderer.sprite = Sprite1;
+        }
+        else if(TurretLevel == 2)
+        {
+            SpriteRenderer.sprite = Sprite2;
+        }
+        
 		//Recenter the turret
         if (InputHelper.GetActionDown(PlayerID, Joycon.Button.STICK))
         {
@@ -36,8 +56,13 @@ public class Turret : MonoBehaviour
 
         }
 
-		//Play the Mario Theme
-		if (InputHelper.GetActionDown(PlayerID, Joycon.Button.SHOULDER_1))
+        if (InputHelper.GetActionDown(PlayerID, Joycon.Button.SL))
+        {
+            UpgradeTurret();
+        }
+
+        //Play the Mario Theme
+        if (InputHelper.GetActionDown(PlayerID, Joycon.Button.SHOULDER_1))
         {
             Debug.Log("Mario!");
 
@@ -65,6 +90,14 @@ public class Turret : MonoBehaviour
 		}
 		gameObject.transform.rotation = Quaternion.AngleAxis(rotation, Vector3.back);
 	}
+
+    public void UpgradeTurret()
+    {
+        if(BaseScript.Money >= 0/*add cost here later*/ && BaseScript.WhatTier > TurretLevel)
+        {
+            TurretLevel++;
+        }
+    }
 
 
 

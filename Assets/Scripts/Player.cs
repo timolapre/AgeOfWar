@@ -8,14 +8,14 @@ public class Player : MonoBehaviour {
     public int WhichUnit;
 
     SpriteRenderer spriterenderer;
-    public Sprite sprite1;
-    public Sprite sprite2;
-    public Sprite sprite3;
-    public Sprite sprite4;
-    public Sprite sprite5;
-    public Sprite sprite6;
+    public Sprite Sprite1;
+    public Sprite Sprite2;
+    public Sprite Sprite3;
+    public Sprite Sprite4;
+    public Sprite Sprite5;
+    public Sprite Sprite6;
 
-    private Base BaseObject;
+    private Base BaseScript;
     private float Closest = 1000;
 
     public int health;
@@ -24,7 +24,7 @@ public class Player : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        BaseObject = GetComponentInParent<Base>();
+        BaseScript = GetComponentInParent<Base>();
         spriterenderer = GetComponent<SpriteRenderer>();
 
         GetStartValues(WhichUnit);
@@ -48,32 +48,36 @@ public class Player : MonoBehaviour {
         else
             Attackee.GetComponent<Enemy>().TakeDamage(damage);
 
+<<<<<<< HEAD
         if (health <= 0)
             Destroy(gameObject);
 
         /*if (transform.position.x < BaseObject.FirstEnemy - 1 && !BaseObject.GameOver)
+=======
+        if (transform.position.x < BaseScript.FirstEnemy - 1 && !BaseScript.GameOver)
+>>>>>>> Youri
         {
             if (transform.position.x < Closest - 1)
                 transform.Translate(0.05f, 0, 0);
         }
 
-        if (transform.position.x >= 5 && BaseObject.EnemyBaseHealth > 0)
-            BaseObject.EnemyBaseHealth -= damage;
+        if (transform.position.x >= 5 && BaseScript.EnemyBaseHealth > 0)
+            BaseScript.EnemyBaseHealth -= damage;
 
         if (health <= 0)
         {
-            BaseObject.FirstPlayer = -8 ;
-            BaseObject.PlayerList.Remove(gameObject);
+            BaseScript.FirstPlayer = -8 ;
+            BaseScript.PlayerList.Remove(gameObject);
             Destroy(gameObject);
         }
 
-        if (transform.position.x > BaseObject.FirstPlayer && health > 0)
+        if (transform.position.x > BaseScript.FirstPlayer && health > 0)
         {
-            BaseObject.FirstPlayer = transform.position.x;
+            BaseScript.FirstPlayer = transform.position.x;
         }
 
         Closest = 1000;
-        foreach (GameObject OtherGameObject in BaseObject.PlayerList)
+        foreach (GameObject OtherGameObject in BaseScript.PlayerList)
             if (OtherGameObject.transform.position.x < Closest && OtherGameObject.transform.position.x > transform.position.x)
                 Closest = OtherGameObject.transform.position.x;*/
     }
@@ -105,7 +109,7 @@ public class Player : MonoBehaviour {
             health = 100;
             damage = 1;
             range = 1;
-            spriterenderer.sprite = sprite1;
+            spriterenderer.sprite = Sprite1;
         }
 
         if(id == 2)
@@ -114,7 +118,7 @@ public class Player : MonoBehaviour {
             health = 200;
             damage = 2;
             range = 1;
-            spriterenderer.sprite = sprite2;
+            spriterenderer.sprite = Sprite2;
         }
 
         if (id == 3)
@@ -123,7 +127,7 @@ public class Player : MonoBehaviour {
             health = 300;
             damage = 2;
             range = 1;
-            spriterenderer.sprite = sprite3;
+            spriterenderer.sprite = Sprite3;
         }
 
         if (id == 4)
@@ -132,7 +136,7 @@ public class Player : MonoBehaviour {
             health = 250;
             damage = 2;
             range = 1;
-            spriterenderer.sprite = sprite4;
+            spriterenderer.sprite = Sprite4;
         }
 
         if (id == 5)
@@ -141,7 +145,7 @@ public class Player : MonoBehaviour {
             health = 400;
             damage = 4;
             range = 1;
-            spriterenderer.sprite = sprite5;
+            spriterenderer.sprite = Sprite5;
         }
 
         if (id == 6)
@@ -150,7 +154,7 @@ public class Player : MonoBehaviour {
             health = 500;
             damage = 5;
             range = 1;
-            spriterenderer.sprite = sprite6;
+            spriterenderer.sprite = Sprite6;
         }
     }
 }
