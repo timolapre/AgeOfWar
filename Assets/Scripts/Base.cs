@@ -17,7 +17,7 @@ public class Base : MonoBehaviour {
     public float FirstPlayer;
     public float FirstEnemy;
     public int Money;
-    public int StartMoney = 20;
+    private int StartMoney = 20;
     public float PlayerBaseHealth;
     public float EnemyBaseHealth;
     public int XP;
