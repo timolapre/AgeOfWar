@@ -4,10 +4,16 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
-	
+    SpriteRenderer SpriteRenderer;
     private float rotation;
     private float offset;
     private int offsetcount;
+
+    public Sprite Sprite1;
+    public Sprite Sprite2;
+    public Sprite Sprite3;
+    public Sprite Sprite4;
+    public Sprite Sprite5;
 
     public int PlayerID;
     public Vector3 gyro;
@@ -16,11 +22,13 @@ public class Turret : MonoBehaviour
     void Start()
     {
         rotation = 90 * (PlayerID == 1 ? -1 : 1);
+        SpriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        SpriteRenderer.sprite = Sprite1;
 		//Recenter the turret
         if (InputHelper.GetActionDown(PlayerID, Joycon.Button.STICK))
         {
