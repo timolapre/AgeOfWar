@@ -41,7 +41,7 @@ public class Enemy : MonoBehaviour {
         if (transform.position.x <= BaseScript.SpawnPlayerLocation.position.x)
             AtOtherBase = true;
 
-        if (!Colliding && !AtOtherBase)
+        if (!Colliding && !AtOtherBase && BaseScript.Playing)
             transform.Translate(-.05f, 0, 0);
         else if (AtOtherBase && !Colliding)
             BaseScript.PlayerBaseHealth -= Damage;
