@@ -12,6 +12,7 @@ public class CameraScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+<<<<<<< HEAD
         if (BaseScript.Playing)
         {
             if (Input.GetKey(KeyCode.RightArrow) && gameObject.transform.position.x < 8)
@@ -28,5 +29,11 @@ public class CameraScript : MonoBehaviour {
             transform.position = new Vector3(0, 0, -10);
         }
         
+=======
+        if (Input.GetKey(KeyCode.RightArrow) && gameObject.transform.position.x < 15)
+            transform.Translate(0.1f,0,0);
+        if (Input.GetKey(KeyCode.LeftArrow) && gameObject.transform.position.x > 0)
+            transform.Translate(-0.1f, 0, 0);
+>>>>>>> timo
     }
 }
