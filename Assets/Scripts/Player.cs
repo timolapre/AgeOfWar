@@ -33,7 +33,6 @@ public class Player : MonoBehaviour {
         comp.isTrigger = true;
     }
 
-<<<<<<< HEAD
     bool AtOtherBase = false;
     bool Colliding = false;
     GameObject Attackee;
