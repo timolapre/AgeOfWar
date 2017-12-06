@@ -41,11 +41,11 @@ public class Enemy : MonoBehaviour {
         if (transform.position.x <= BaseScript.SpawnPlayerLocation.position.x)
             AtOtherBase = true;
 
-        if (!Colliding && !AtOtherBase)
+        if (!Colliding && !AtOtherBase && BaseScript.Playing)
             transform.Translate(-.05f, 0, 0);
-        else if (AtOtherBase && !Colliding)
+        else if (AtOtherBase && !Colliding && BaseScript.Playing)
             BaseScript.PlayerBaseHealth -= Damage;
-        else
+        else if (BaseScript.Playing)
             Attackee.GetComponent<Player>().TakeDamage(Damage);
 
         if (Health <= 0)
@@ -56,6 +56,9 @@ public class Enemy : MonoBehaviour {
         }
 
         /*if (transform.position.x > BaseScript.FirstPlayer + 1 && !BaseScript.GameOver)
+	// Update is called once per frame
+	void Update () {
+        if (transform.position.x > BaseScript.FirstPlayer + 1 && BaseScript.Playing)
         {
             if (transform.position.x > Closest + 1)
                 transform.Translate(-0.05f, 0, 0);
@@ -86,7 +89,7 @@ public class Enemy : MonoBehaviour {
 
     void OnTriggerStay2D(Collider2D collision)
     {
-        if (transform.position.x > collision.gameObject.transform.position.x)
+        if (transform.position.x > collision.gameObject.transform.position.x && (collision.tag == "Enemy" || collision.tag == "Player"))
             Colliding = true;
         if (collision.tag == "Player")
             Attackee = collision.gameObject;

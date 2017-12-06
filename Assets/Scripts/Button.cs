@@ -34,7 +34,7 @@ public class Button : MonoBehaviour
                     {
                         Touched(raycastHit.transform.GetComponent<Button>().id);
                     }
-                    catch { }
+                    catch { } 
                 }
             }
         }

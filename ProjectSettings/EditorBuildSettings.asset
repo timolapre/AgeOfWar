@@ -5,12 +5,15 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/Scenes/Battle.unity
-    guid: 6ee434cbb30feb948b836692e571005b
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/AgeOfWar.unity
     guid: 5a646604bff6c7247828921859296def
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: fcc9204832c64d64997612cb5c2780a7
+  - enabled: 1
+    path: Assets/Scenes/Paused.unity
+    guid: c03f3b91b03c76b4880ef4af62bf0afd

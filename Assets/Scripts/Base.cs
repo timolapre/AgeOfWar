@@ -30,6 +30,7 @@ public class Base : MonoBehaviour {
     public int Faction1;
 
     public bool Playing;
+    public bool Paused;
 
     public List<GameObject> PlayerList;
     public List<GameObject> EnemyList;
@@ -56,7 +57,7 @@ public class Base : MonoBehaviour {
     }
 
 	void Update () {
-        if (!GameOver)
+        if (Playing)
         {
             MoneyText.text = "Money: " + Money;
             XpText.text = "XP: " + XP;
@@ -110,6 +111,18 @@ public class Base : MonoBehaviour {
         {
             WhatTier++;
         }
+        if (InputHelper.GetActionDown(PlayerID, Joycon.Button.PLUS) && !Paused)
+        {
+            Paused = true;
+            Playing = false;
+            SceneManager.LoadScene("Paused", LoadSceneMode.Additive);
+        }
+        else if (InputHelper.GetActionDown(PlayerID, Joycon.Button.PLUS) && Paused)
+        {
+            Paused = false;
+            Playing = true;
+            SceneManager.UnloadSceneAsync("Paused");
+        }
         if (Input.GetKeyDown(KeyCode.R) && GameOver)
         {
             Reset();
@@ -118,7 +131,7 @@ public class Base : MonoBehaviour {
 
     public void SpawnPlayer(int id)
     {
-        if (Money >= UnitCosts[id/3,(id-1)%3])
+        if (Money >= UnitCosts[id/3,(id-1)%3] && Playing)
         {
             GameObject tempPlayer = Instantiate(Player, SpawnPlayerLocation.position, SpawnPlayerLocation.rotation, transform) as GameObject;
             Player tempPlayerScript = tempPlayer.GetComponent<Player>();

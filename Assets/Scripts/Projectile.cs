@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour {
 
-	public float direction; // 0 is to the right
+	public float direction; // 0 is up
     public string kills = "Enemy";
-
-    float gravity = 9.81f;
+    public int damage;
+    
 	float speed = 10;
     float lifeLeft = 1;
 
@@ -21,16 +21,21 @@ public class Projectile : MonoBehaviour {
         lifeLeft -= Time.deltaTime;
         if (lifeLeft <= 0)
             Destroy(gameObject);
-		transform.position = new Vector3(transform.position.x - Mathf.Sin(direction * Mathf.PI / 180) * speed * Time.deltaTime, transform.position.y + Mathf.Cos(direction * Mathf.PI / 180) * speed * Time.deltaTime, transform.position.z);
-        if (Mathf.Abs(transform.position.x) > 50 || Mathf.Abs(transform.position.y) > 50)
-            Destroy(gameObject);
+
+        if (direction < 180)
+            direction++;
+        else if (direction > 180)
+            direction--;
+        transform.rotation = Quaternion.AngleAxis(-direction + 90, Vector3.back);
+
+        transform.position = new Vector3(transform.position.x - Mathf.Sin(direction * Mathf.PI / 180) * speed * Time.deltaTime, transform.position.y + Mathf.Cos(direction * Mathf.PI / 180) * speed * Time.deltaTime, transform.position.z);
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == kills)
         {
-            collision.gameObject.SendMessage("TakeDamage", 100);
+            collision.gameObject.SendMessage("TakeDamage", damage);
             Destroy(gameObject);
         }
     }
