@@ -6,10 +6,7 @@ public class Button : MonoBehaviour
 {
 
     private Base BaseObject;
-<<<<<<< HEAD
     public Turret TurretScript;
-=======
->>>>>>> timo
     public int id;
 
     // Use this for initialization
@@ -42,10 +39,9 @@ public class Button : MonoBehaviour
 
     void Touched(int id)
     {
-<<<<<<< HEAD
         if (id <= 3)
         {
-            //BaseObject.SpawnPlayer(id);
+            BaseObject.SpawnPlayer(id);
         }
         if (id == 4)
         {
@@ -53,12 +49,3 @@ public class Button : MonoBehaviour
         }
     }
 }
-=======
-        if(id <= 3)
-        {
-            BaseObject.SpawnPlayer(id);
-        }
-
-    }
-}
->>>>>>> timo
