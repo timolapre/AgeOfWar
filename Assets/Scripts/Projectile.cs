@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour {
 
-	public float direction; // 0 is to the right
+	public float direction; // 0 is up
     public string kills = "Enemy";
+    public int damage;
 
     float gravity = 9.81f;
 	float speed = 10;
@@ -30,7 +31,7 @@ public class Projectile : MonoBehaviour {
     {
         if (collision.gameObject.tag == kills)
         {
-            collision.gameObject.SendMessage("TakeDamage", 100);
+            collision.gameObject.SendMessage("TakeDamage", damage);
             Destroy(gameObject);
         }
     }
