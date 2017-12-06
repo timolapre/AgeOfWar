@@ -21,7 +21,7 @@ public class CameraScript : MonoBehaviour {
             if (Input.GetKey(KeyCode.LeftArrow) && gameObject.transform.position.x > 0)
             {
                 transform.Translate(-0.1f, 0, 0);
-            }
+            }   
         }
         else
         {
