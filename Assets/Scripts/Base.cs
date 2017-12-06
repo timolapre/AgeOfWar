@@ -126,9 +126,7 @@ public class Base : MonoBehaviour {
             PlayerList.Add(tempPlayer);
             Money -= UnitCosts[(id-1) / 3, (id - 1) % 3];
             Debug.Log(UnitCosts[(id - 1) / 3, (id - 1) % 3]);
-            return;
         }
-        return;
     }
     public void Reset()
     {
