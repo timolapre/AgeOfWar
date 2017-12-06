@@ -656,7 +656,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1040315672}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2556.6433, y: 1093.7214, z: 0}
+  m_LocalPosition: {x: 2587.1787, y: 1121.4808, z: 0}
   m_LocalScale: {x: 5.5518856, y: 5.5518856, z: 5.5518856}
   m_Children:
   - {fileID: 170095593}
@@ -853,6 +853,7 @@ MonoBehaviour:
   Teams: 0
   Faction1: 0
   Playing: 0
+  Paused: 0
   PlayerList: []
   EnemyList: []
 --- !u!212 &1198727279
@@ -1012,7 +1013,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1244392689}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 82.8, y: 8.9, z: 0}
+  m_LocalPosition: {x: 82.8, y: 8.9, z: -1}
   m_LocalScale: {x: 17.877071, y: 17.877071, z: 17.877071}
   m_Children: []
   m_Father: {fileID: 1198727283}
@@ -1523,7 +1524,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4643744089122468, guid: 72ffef7e3b43ded4f9838870baa5fba0, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4643744089122468, guid: 72ffef7e3b43ded4f9838870baa5fba0, type: 2}
       propertyPath: m_LocalRotation.x
