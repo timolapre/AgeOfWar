@@ -43,9 +43,9 @@ public class Enemy : MonoBehaviour {
 
         if (!Colliding && !AtOtherBase && BaseScript.Playing)
             transform.Translate(-.05f, 0, 0);
-        else if (AtOtherBase && !Colliding)
+        else if (AtOtherBase && !Colliding && BaseScript.Playing)
             BaseScript.PlayerBaseHealth -= Damage;
-        else
+        else if (BaseScript.Playing)
             Attackee.GetComponent<Player>().TakeDamage(Damage);
 
         if (Health <= 0)
