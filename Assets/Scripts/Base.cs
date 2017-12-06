@@ -38,6 +38,9 @@ public class Base : MonoBehaviour {
 
     int PlayerID = 0;
 
+    private int[,] UnitCosts = { {1, 2, 3},
+                                 {4, 5, 6} };
+
 	void Start () {
         //Instantiate(Object, spawn.position, spawn.rotation);
         TurretScript = GetComponentInParent<Turret>();
@@ -62,8 +65,10 @@ public class Base : MonoBehaviour {
             MoneyText.text = "";
             XpText.text = "";
         }
-        HealthBarPlayer.transform.localScale = new Vector3(((float)15/1000*PlayerBaseHealth),1,1);
-        HealthBarEnemy.transform.localScale = new Vector3(((float)15 / 1000 * EnemyBaseHealth), 1, 1);
+        HealthBarPlayer.transform.localScale = new Vector3(((float)3/1000*PlayerBaseHealth),0.2f,0.2f);
+        HealthBarPlayer.transform.position = new Vector3(HealthBarPlayer.transform.localScale.x/2 - 9.5f, HealthBarPlayer.transform.position.y, HealthBarPlayer.transform.position.z);
+        HealthBarEnemy.transform.localScale = new Vector3(((float)3 / 1000 * EnemyBaseHealth), 0.2f, 0.2f);
+        HealthBarEnemy.transform.position = new Vector3(HealthBarEnemy.transform.localScale.x / 2 + 6.5f, HealthBarEnemy.transform.position.y, HealthBarEnemy.transform.position.z);
         if (PlayerBaseHealth <= 0 && !GameOver)
         {
             GameOver = true;
@@ -79,15 +84,15 @@ public class Base : MonoBehaviour {
 
         if (InputHelper.GetActionDown(PlayerID, Joycon.Button.DPAD_LEFT) && Money >= 1)
         {
-            SpawnPlayer(WhatTier*3-2, 1);
+            SpawnPlayer(WhatTier*3-2);
         }
         if (InputHelper.GetActionDown(PlayerID, Joycon.Button.DPAD_DOWN) && Money >= 3)
         {
-            SpawnPlayer(WhatTier*3-1, 3);
+            SpawnPlayer(WhatTier*3-1);
         }
         if (InputHelper.GetActionDown(PlayerID, Joycon.Button.DPAD_RIGHT) && Money >= 5)
         {
-            SpawnPlayer(WhatTier*3, 5);
+            SpawnPlayer(WhatTier*3);
         }
 
         if (Input.GetKeyDown(KeyCode.M))
@@ -109,15 +114,15 @@ public class Base : MonoBehaviour {
         }
     }
 
-    public void SpawnPlayer(int id, int cost)
+    public void SpawnPlayer(int id)
     {
-        if (Money >= cost && !GameOver)
+        if (Money >= UnitCosts[id/3,(id-1)%3])
         {
             GameObject tempPlayer = Instantiate(Player, SpawnPlayerLocation.position, SpawnPlayerLocation.rotation, transform) as GameObject;
             Player tempPlayerScript = tempPlayer.GetComponent<Player>();
             tempPlayerScript.WhichUnit = id;
             PlayerList.Add(tempPlayer);
-            Money -= cost;
+            Money -= UnitCosts[(id-1) / 3, (id - 1) % 3];
         }
     }
     public void Reset()

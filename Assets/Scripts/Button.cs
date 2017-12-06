@@ -41,7 +41,7 @@ public class Button : MonoBehaviour
     {
         if (id <= 3)
         {
-            //BaseObject.SpawnPlayer(id);
+            BaseObject.SpawnPlayer(id);
         }
         if (id == 4)
         {
