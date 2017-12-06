@@ -56,7 +56,7 @@ public class Turret : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown(KeyCode.R) && GameOver)
+        if (Input.GetKeyDown(KeyCode.R) && BaseScript.GameOver)
         {
             Reset();
         }
@@ -107,6 +107,7 @@ public class Turret : MonoBehaviour
     public void Reset()
     {
         TurretLevel = 0;
+        SpriteRenderer.sprite = Sprite1;
     }
 
 
