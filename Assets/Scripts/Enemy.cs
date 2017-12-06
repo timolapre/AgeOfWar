@@ -86,7 +86,7 @@ public class Enemy : MonoBehaviour {
 
     void OnTriggerStay2D(Collider2D collision)
     {
-        if (transform.position.x > collision.gameObject.transform.position.x)
+        if (transform.position.x > collision.gameObject.transform.position.x && (collision.tag == "Enemy" || collision.tag == "Player"))
             Colliding = true;
         if (collision.tag == "Player")
             Attackee = collision.gameObject;
