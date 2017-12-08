@@ -18,7 +18,7 @@ public class Base : MonoBehaviour {
     public float FirstPlayer;
     public float FirstEnemy;
     public int Money;
-    private int StartMoney = 20;
+    public int StartMoney = 20;
     public float PlayerBaseHealth;
     public float EnemyBaseHealth;
     public int XP;
@@ -37,16 +37,18 @@ public class Base : MonoBehaviour {
     private int Timer;
     private int Random;
 
+    public EBase eBase;
     int PlayerID = 0;
 
-    private int[,] UnitCosts = { {1, 2, 3},
+    public int[,] UnitCosts = { {1, 2, 3},
                                  {4, 5, 6} };
 
 	void Start () {
         //Instantiate(Object, spawn.position, spawn.rotation);
         TurretScript = GetComponentInParent<Turret>();
+        eBase = GetComponentInChildren<EBase>();
         Teams = false;
-        VsAI = true;
+        VsAI = false;
         Money = StartMoney;
         PlayerBaseHealth = 1000;
         EnemyBaseHealth = 1000;

@@ -7,7 +7,7 @@ public class Player : MonoBehaviour {
 
     public int WhichUnit;
 
-    SpriteRenderer spriterenderer;
+    SpriteRenderer SpriteRenderer;
     public Sprite Sprite1;
     public Sprite Sprite2;
     public Sprite Sprite3;
@@ -18,14 +18,16 @@ public class Player : MonoBehaviour {
     private Base BaseScript;
     private float Closest = 1000;
 
-    public int health;
-    public int damage;
-    public int range;
+    public int Health;
+    public int Damage;
+    public int Range;
+    private int Xp = 5;
+    private int Money = 2;
 
     // Use this for initialization
     void Start () {
         BaseScript = GetComponentInParent<Base>();
-        spriterenderer = GetComponent<SpriteRenderer>();
+        SpriteRenderer = GetComponent<SpriteRenderer>();
 
         GetStartValues(WhichUnit);
 
@@ -44,13 +46,17 @@ public class Player : MonoBehaviour {
         if (!Colliding && !AtOtherBase && BaseScript.Playing)
             transform.Translate(.05f, 0, 0);
         else if (AtOtherBase && !Colliding && BaseScript.Playing)
-            BaseScript.EnemyBaseHealth -= damage;
+            BaseScript.EnemyBaseHealth -= Damage;
         else if (BaseScript.Playing)
-            Attackee.GetComponent<Enemy>().TakeDamage(damage);
+            Attackee.GetComponent<Enemy>().TakeDamage(Damage);
 
 
-        if (health <= 0)
+        if (Health <= 0)
+        {
+            BaseScript.eBase.XP += Xp;
+            BaseScript.eBase.Money += Money;
             Destroy(gameObject);
+        }
 
         /*if (transform.position.x < BaseObject.FirstEnemy - 1 && !BaseObject.GameOver)
         if (transform.position.x < BaseScript.FirstEnemy - 1 && !BaseScript.GameOver)
@@ -101,63 +107,76 @@ public class Player : MonoBehaviour {
 
     public void TakeDamage(int damage)
     {
-        health -= damage;
+        Health -= damage;
     }
 
     void GetStartValues(int id)
     {
-        if(id == 1)
+        if (id == 1)
         {
             transform.localScale = new Vector3(6, 6, 1);
-            health = 100;
-            damage = 1;
-            range = 1;
-            spriterenderer.sprite = Sprite1;
+            Health = 100;
+            Damage = 1;
+            Range = 1;
+            SpriteRenderer.sprite = Sprite1;
+            Xp = 1;
+            Money = 1;
         }
 
-        if(id == 2)
+        if (id == 2)
         {
             transform.localScale = new Vector3(6, 6, 1);
-            health = 200;
-            damage = 2;
-            range = 1;
-            spriterenderer.sprite = Sprite2;
+            Health = 200;
+            Damage = 2;
+            Range = 1;
+            SpriteRenderer.sprite = Sprite2;
+            Xp = 2;
+            Money = 2;
         }
 
         if (id == 3)
         {
             transform.localScale = new Vector3(1, 1, 1);
-            health = 300;
-            damage = 2;
-            range = 1;
-            spriterenderer.sprite = Sprite3;
+            Health = 300;
+            Damage = 2;
+            Range = 1;
+            SpriteRenderer.sprite = Sprite3;
+            Xp = 3;
+            Money = 3;
         }
 
         if (id == 4)
         {
             transform.localScale = new Vector3(2, 2, 1);
-            health = 250;
-            damage = 2;
-            range = 1;
-            spriterenderer.sprite = Sprite4;
+            Health = 250;
+            Damage = 2;
+            Range = 1;
+            SpriteRenderer.sprite = Sprite4;
+            Xp = 4;
+            Money = 4;
         }
 
         if (id == 5)
         {
             transform.localScale = new Vector3(2, 2, 1);
-            health = 400;
-            damage = 4;
-            range = 1;
-            spriterenderer.sprite = Sprite5;
+            Health = 400;
+            Damage = 4;
+            Range = 1;
+            SpriteRenderer.sprite = Sprite5;
+            Xp = 5;
+            Money = 5;
         }
 
         if (id == 6)
         {
             transform.localScale = new Vector3(2, 2, 1);
-            health = 500;
-            damage = 5;
-            range = 1;
-            spriterenderer.sprite = Sprite6;
+            Health = 500;
+            Damage = 5;
+            Range = 1;
+            SpriteRenderer.sprite = Sprite6;
+            Xp = 5;
+            Money = 5;
         }
     }
 }
+
