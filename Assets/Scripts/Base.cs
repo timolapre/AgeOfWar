@@ -15,6 +15,7 @@ public class Base : MonoBehaviour {
     public Text MoneyText;
     public Text XpText;
     public Text GameOverText;
+    public Text WhatTierText;
     public float FirstPlayer;
     public float FirstEnemy;
     public int Money;
@@ -62,6 +63,7 @@ public class Base : MonoBehaviour {
         {
             MoneyText.text = "Money: " + Money;
             XpText.text = "XP: " + XP;
+            WhatTierText.text = "Tier " + WhatTier;
         }
         else
         {
@@ -138,7 +140,10 @@ public class Base : MonoBehaviour {
             tempPlayerScript.WhichUnit = id;
             PlayerList.Add(tempPlayer);
             Money -= UnitCosts[(id-1) / 3, (id - 1) % 3];
+            Debug.Log(UnitCosts[(id - 1) / 3, (id - 1) % 3]);
+            return;
         }
+        return;
     }
     public void Reset()
     {
