@@ -23,6 +23,7 @@ public class Player : MonoBehaviour {
     public int Range;
     private int Xp = 5;
     private int Money = 2;
+	float speed = 2;
 
     // Use this for initialization
     void Start () {
@@ -44,11 +45,11 @@ public class Player : MonoBehaviour {
             AtOtherBase = true;
 
         if (!Colliding && !AtOtherBase && BaseScript.Playing)
-            transform.Translate(.05f, 0, 0);
+            transform.Translate(speed * Time.deltaTime, 0, 0);
         else if (AtOtherBase && !Colliding && BaseScript.Playing)
-            BaseScript.EnemyBaseHealth -= Damage;
+            BaseScript.EnemyBaseHealth -= Damage * 200 * Time.deltaTime;
         else if (BaseScript.Playing)
-            Attackee.GetComponent<Enemy>().TakeDamage(Damage);
+            Attackee.GetComponent<Enemy>().TakeDamage((int)(Damage * 200 * Time.deltaTime));
 
         if (Health <= 0)
         {
