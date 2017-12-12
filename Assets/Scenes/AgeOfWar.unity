@@ -974,6 +974,11 @@ MonoBehaviour:
   VsAI: 0
   Teams: 0
   Faction1: 0
+  Sprite1: {fileID: 0}
+  Sprite2: {fileID: 0}
+  Sprite3: {fileID: 0}
+  Sprite4: {fileID: 0}
+  Sprite5: {fileID: 0}
   Playing: 0
   Paused: 0
   PlayerList: []
