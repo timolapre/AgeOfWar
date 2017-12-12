@@ -92,11 +92,6 @@ public class Enemy : MonoBehaviour {
             Colliding = true;
         if (collision.tag == "Player")
             collision.gameObject.GetComponent<Player>().StartTakingDamage(Damage, AttackAfterXSeconds, AttackEveryXSeconds);
-        if (collision.tag == "Bullet")
-        {
-            Health -= collision.GetComponent<Projectile>().damage;
-            Debug.Log(collision.GetComponent<Projectile>().damage);
-        }
         //Attackee = collision.gameObject;
         Debug.Log(collision.gameObject.name);
     }
@@ -116,6 +111,11 @@ public class Enemy : MonoBehaviour {
     void TakeDamage()
     {
         Health -= GetDamage;
+    }
+
+    void TakeBulletDamage(int Damage)
+    {
+        Health -= Damage;
     }
 
     void GetStartValues(int id)

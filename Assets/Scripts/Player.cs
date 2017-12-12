@@ -113,6 +113,11 @@ public class Player : MonoBehaviour {
         Health -= GetDamage;
     }
 
+    void TakeBulletDamage(int Damage)
+    {
+        Health -= Damage;
+    }
+
     void GetStartValues(int id)
     {
         if (id == 1)
