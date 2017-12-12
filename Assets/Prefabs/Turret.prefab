@@ -53,11 +53,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TurretLevel: 0
-  Sprite1: {fileID: 21300000, guid: e767aeb9afefcb842a90f2b7095ed617, type: 3}
-  Sprite2: {fileID: 21300000, guid: 95aac0bca7b68404c87e90d15f555591, type: 3}
-  Sprite3: {fileID: 0}
-  Sprite4: {fileID: 0}
-  Sprite5: {fileID: 0}
+  Sprite1: {fileID: 21300000, guid: 8498625a4ae19f541b91973826123be2, type: 3}
+  Sprite2: {fileID: 21300000, guid: 09d7764e77434f7458a31e7b87562dda, type: 3}
+  Sprite3: {fileID: 21300000, guid: 28e6bbb8c78b01e4595cdf12d6f25bb7, type: 3}
+  Sprite4: {fileID: 21300000, guid: b14020a54f9a71c43934d294a093ba03, type: 3}
+  Sprite5: {fileID: 21300000, guid: 22635faa9863e2f4a8fad83410714895, type: 3}
   PlayerID: 0
   projectile: {fileID: 1128415518675264, guid: ce251fd1bb0742d4395e533c3ff93411, type: 2}
   gyro: {x: 0, y: 0, z: 0}
