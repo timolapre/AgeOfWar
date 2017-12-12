@@ -8,7 +8,7 @@ public class Player : MonoBehaviour {
     public int WhichUnit;
 
     SpriteRenderer SpriteRenderer;
-    public Sprite Sprite1, Sprite2, Sprite3, Sprite4, Sprite5, Sprite6;
+    public Sprite Sprite1, Sprite2, Sprite3, Sprite4, Sprite5, Sprite6, Sprite7, Sprite8, Sprite9, Sprite10, Sprite11, Sprite12, Sprite13, Sprite14, Sprite15;
 
     private Base BaseScript;
     private float Closest = 1000;

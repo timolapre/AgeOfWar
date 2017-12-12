@@ -74,15 +74,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WhichUnit: 0
-  Sprite1: {fileID: 21300000, guid: 29516bbccb30b0f42ad70d239613e1bd, type: 3}
-  Sprite2: {fileID: 21300000, guid: 8dc26f663dbe26842a4faa362c29aa58, type: 3}
-  Sprite3: {fileID: 21300000, guid: 9a8521526c5b3fb44806a3a8b881a69c, type: 3}
-  Sprite4: {fileID: 21300000, guid: c243fafc84f9fa14c899497f81294c4a, type: 3}
-  Sprite5: {fileID: 21300000, guid: 728f1997b8e047644ad64b12883bbda2, type: 3}
-  Sprite6: {fileID: 21300000, guid: 322986350a0e7d043a6862a0aef7c80d, type: 3}
-  health: 0
-  damage: 1
-  range: 0
+  Sprite1: {fileID: 21300000, guid: 4aa396f00e0719540831904a3ac64adc, type: 3}
+  Sprite2: {fileID: 21300000, guid: ca4e3bec175718a498233c9b9043f7be, type: 3}
+  Sprite3: {fileID: 21300000, guid: eff62a865040b6a45b33bb2991923442, type: 3}
+  Sprite4: {fileID: 21300000, guid: d0c245e90df81d345a75a70b40a1eb74, type: 3}
+  Sprite5: {fileID: 21300000, guid: 1fc2457b5bfa2874a8ec9680b3ea20ea, type: 3}
+  Sprite6: {fileID: 21300000, guid: e2ad6c8e2aef27b42a1e5d4459ae2f5f, type: 3}
+  Sprite7: {fileID: 21300000, guid: c0129eca5978c924f8fb79a2fcf9e16e, type: 3}
+  Sprite8: {fileID: 21300000, guid: c7264a61ba0efdb4d932614fc88e9dea, type: 3}
+  Sprite9: {fileID: 21300000, guid: eae9135e8b2bafa4daa7cfe178d49cfc, type: 3}
+  Sprite10: {fileID: 21300000, guid: 7aee43ac41dc3d74684dd7b53190b3c4, type: 3}
+  Sprite11: {fileID: 21300000, guid: b2ee0d20e1fdb994f977a30151fb1caa, type: 3}
+  Sprite12: {fileID: 21300000, guid: abc65a4414b5c6c4da572684ef7e76b1, type: 3}
+  Sprite13: {fileID: 21300000, guid: 1fd18105664324d41ab39e844b664133, type: 3}
+  Sprite14: {fileID: 21300000, guid: e5c9eae00b05e03469a11bc3d660a0b9, type: 3}
+  Sprite15: {fileID: 21300000, guid: 50fd0592700067740b1c410d56050f62, type: 3}
+  Health: 0
+  Damage: 0
+  Speed: 2
+  Range: 0
+  Xp: 0
+  Money: 0
 --- !u!212 &212208179998666516
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -119,7 +131,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 29516bbccb30b0f42ad70d239613e1bd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1.12, y: 0.94}
