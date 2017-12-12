@@ -4,21 +4,26 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class CameraScript : MonoBehaviour {
+    public Base BaseScript;
     // Use this for initialization
     void Start ()
     {
     }
 	
 	// Update is called once per frame
-	void Update () {
-        if (Input.GetKey(KeyCode.RightArrow) && gameObject.transform.position.x < 8)
+	void Update ()
+    {
+        if (BaseScript.Playing)
         {
-            transform.Translate(0.1f, 0, 0);
+            if (Input.GetKey(KeyCode.RightArrow) && gameObject.transform.position.x < 8)
+            {
+                transform.Translate(0.1f, 0, 0);
+            }
+            if (Input.GetKey(KeyCode.LeftArrow) && gameObject.transform.position.x > 0)
+            {
+                transform.Translate(-0.1f, 0, 0);
+            }   
         }
-        if (Input.GetKey(KeyCode.LeftArrow) && gameObject.transform.position.x > 0)
-        {
-            transform.Translate(-0.1f, 0, 0);
-        }   
         else
         {
             transform.position = new Vector3(0, 0, -10);
