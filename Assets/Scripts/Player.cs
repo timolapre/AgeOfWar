@@ -94,7 +94,6 @@ public class Player : MonoBehaviour {
         if (collision.tag == "Enemy")
             collision.gameObject.GetComponent<Enemy>().StartTakingDamage(Damage, AttackAfterXSeconds, AttackEveryXSeconds);
         //Attackee = collision.gameObject;
-        Debug.Log(collision.gameObject.name);
     }
 
     void OnTriggerExit2D(Collider2D collision)

@@ -24,9 +24,11 @@ public class CameraScript : MonoBehaviour {
                 transform.Translate(-0.1f, 0, 0);
             }   
         }
-        else
+        else if(BaseScript.Paused == false)
         {
             transform.position = new Vector3(0, 0, -10);
         }
+ 
+        PlayerPrefs.SetFloat("CameraX", transform.position.x);
     }
 }
