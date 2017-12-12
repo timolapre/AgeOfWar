@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour {
     private Base BaseScript;
     private float Closest;
 
-    public int Health, Damage, Range, Xp, Money;
+    public int Health, Damage, Speed = 2, Range, Xp, Money;
     private float AttackAfterXSeconds, AttackEveryXSeconds;
     private int GetDamage;
 
@@ -36,9 +36,9 @@ public class Enemy : MonoBehaviour {
             AtOtherBase = true;
 
         if (!Colliding && !AtOtherBase && BaseScript.Playing)
-            transform.Translate(-.05f, 0, 0);
+            transform.Translate(-Speed * Time.deltaTime, 0, 0);
         else if (AtOtherBase && !Colliding && BaseScript.Playing)
-            BaseScript.PlayerBaseHealth -= Damage;
+            BaseScript.PlayerBaseHealth -= Damage * 200 * Time.deltaTime;
         else if (BaseScript.Playing)
             //Attackee.GetComponent<Player>().StartTakingDamage(Damage,);
 

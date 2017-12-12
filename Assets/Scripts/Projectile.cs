@@ -9,26 +9,28 @@ public class Projectile : MonoBehaviour {
     public int damage;
     
 	float speed = 10;
-    float lifeLeft = 1;
+	float gravity = -9.81f;
+
+	float verspeed;
+	float horspeed;
 
     void Start()
     {
         transform.rotation = Quaternion.AngleAxis(-direction + 90, Vector3.back);
-    }
+		verspeed = Mathf.Cos(direction * Mathf.PI / 180) * speed;
+		horspeed = -Mathf.Sin(direction * Mathf.PI / 180) * speed;
+	}
 
     // Update is called once per frame
     void Update () {
-        lifeLeft -= Time.deltaTime;
-        if (lifeLeft <= 0)
+        if (transform.position.y < -5)
             Destroy(gameObject);
 
-        if (direction < 180)
-            direction++;
-        else if (direction > 180)
-            direction--;
-        transform.rotation = Quaternion.AngleAxis(-direction + 90, Vector3.back);
+		verspeed += gravity * Time.deltaTime;
+		direction = Mathf.Tan(verspeed / horspeed) * 180 / Mathf.PI;
+		transform.rotation = Quaternion.AngleAxis(-direction + 90, Vector3.back);
 
-        transform.position = new Vector3(transform.position.x - Mathf.Sin(direction * Mathf.PI / 180) * speed * Time.deltaTime, transform.position.y + Mathf.Cos(direction * Mathf.PI / 180) * speed * Time.deltaTime, transform.position.z);
+		transform.position = new Vector3(transform.position.x + horspeed * Time.deltaTime, transform.position.y + verspeed * Time.deltaTime, transform.position.z);
     }
 
     void OnTriggerEnter2D(Collider2D collision)
