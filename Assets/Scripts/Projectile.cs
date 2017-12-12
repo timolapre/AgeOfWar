@@ -51,5 +51,11 @@ public class Projectile : MonoBehaviour {
             collision.gameObject.SendMessage("TakeDamage", damage);
             Destroy(gameObject);
         }
+
+        if (collision.tag == "Enemy" && kills == "Enemy")
+            collision.gameObject.SendMessage("TakeBulletDamage", damage);
+
+        if (collision.tag == "Player" && kills == "Player")
+            collision.gameObject.SendMessage("TakeBulletDamage", damage);
     }
 }
