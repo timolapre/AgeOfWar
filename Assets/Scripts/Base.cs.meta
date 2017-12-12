@@ -1,11 +1,28 @@
 fileFormatVersion: 2
 guid: 69d011fefa8249840a32cb4b168dfe32
-timeCreated: 1511444936
+timeCreated: 1513081714
 licenseType: Free
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - TurretScript: {instanceID: 0}
+  - Player: {instanceID: 0}
+  - Enemy: {instanceID: 0}
+  - HealthBarPlayer: {instanceID: 0}
+  - HealthBarEnemy: {instanceID: 0}
+  - SpawnPlayerLocation: {instanceID: 0}
+  - SpawnEnemyLocation: {instanceID: 0}
+  - MoneyText: {instanceID: 0}
+  - XpText: {instanceID: 0}
+  - GameOverText: {instanceID: 0}
+  - WhatTierText: {instanceID: 0}
+  - Sprite1: {fileID: 21300000, guid: f85f0aa976dbea948bbec72b349bb633, type: 3}
+  - Sprite2: {instanceID: 0}
+  - Sprite3: {instanceID: 0}
+  - Sprite4: {instanceID: 0}
+  - Sprite5: {instanceID: 0}
+  - eBase: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

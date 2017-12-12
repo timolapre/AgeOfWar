@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Base : MonoBehaviour {
+    SpriteRenderer SpriteRenderer;
     public Turret TurretScript;
     public GameObject Player;
     public GameObject Enemy;
@@ -29,6 +30,12 @@ public class Base : MonoBehaviour {
     public bool Teams;
     public int Faction1;
 
+    public Sprite Sprite1;
+    public Sprite Sprite2;
+    public Sprite Sprite3;
+    public Sprite Sprite4;
+    public Sprite Sprite5;
+
     public bool Playing;
     public bool Paused;
 
@@ -46,6 +53,7 @@ public class Base : MonoBehaviour {
 
 	void Start () {
         //Instantiate(Object, spawn.position, spawn.rotation);
+        SpriteRenderer = GetComponent<SpriteRenderer>();
         TurretScript = GetComponentInParent<Turret>();
         eBase = GetComponentInChildren<EBase>();
         Teams = false;
@@ -59,6 +67,16 @@ public class Base : MonoBehaviour {
     }
 
 	void Update () {
+        if (WhatTier == 1)
+            SpriteRenderer.sprite = Sprite1;
+        else if (WhatTier == 2)
+            SpriteRenderer.sprite = Sprite2;
+        else if (WhatTier == 3)
+            SpriteRenderer.sprite = Sprite3;
+        else if (WhatTier == 4)
+            SpriteRenderer.sprite = Sprite4;
+        else if (WhatTier == 5)
+            SpriteRenderer.sprite = Sprite5;
         if (Playing)
         {
             MoneyText.text = "Money: " + Money;
