@@ -49,8 +49,6 @@ public class Player : MonoBehaviour {
             BaseScript.EnemyBaseHealth -= Damage;
         else if (BaseScript.Playing)
             Attackee.GetComponent<Enemy>().TakeDamage(Damage);
-        if(Attackee.GetComponent<Enemy>() != null)
-            Attackee.GetComponent<Enemy>().TakeDamage(Damage);
 
         if (Health <= 0)
         {
