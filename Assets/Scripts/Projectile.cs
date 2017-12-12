@@ -8,6 +8,8 @@ public class Projectile : MonoBehaviour {
 	public float direction; // 0 to the right
     public string kills = "Enemy";
     public int damage;
+
+    public GameObject Explosion;
     
 	float speed = 10;
 	float gravity = -9.81f;
@@ -28,9 +30,12 @@ public class Projectile : MonoBehaviour {
     {
         if (!BaseScript.Paused)
         {
-            if (transform.position.y < -5)
+            if (transform.position.y < -0.55f)
+            {
+                GameObject Expl = Instantiate(Explosion, transform.position, new Quaternion(0, 0, 0, 0));
                 Destroy(gameObject);
-
+            }
+                
             verspeed += gravity * Time.deltaTime;
             direction = Mathf.Atan(verspeed / horspeed) * 180 / Mathf.PI;
             transform.rotation = Quaternion.AngleAxis(-direction + 90 * (horspeed <= 0 ? -1 : 1), Vector3.back);

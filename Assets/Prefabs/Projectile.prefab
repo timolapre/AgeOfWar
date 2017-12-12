@@ -105,9 +105,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f0e200c1467c3944965b3791f8d15ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BaseScript: {fileID: 0}
   direction: 0
   kills: Enemy
   damage: 0
+  Explosion: {fileID: 1666867468172020, guid: 328d0e5390082cd4cb334923c1997ef8, type: 2}
 --- !u!212 &212831684994930474
 SpriteRenderer:
   m_ObjectHideFlags: 1
