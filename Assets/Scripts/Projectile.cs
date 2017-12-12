@@ -30,9 +30,9 @@ public class Projectile : MonoBehaviour {
     {
         if (!BaseScript.Paused)
         {
-            if (transform.position.y < -0.55f)
+            if (transform.position.y < -2)
             {
-                GameObject Expl = Instantiate(Explosion, transform.position, new Quaternion(0, 0, 0, 0));
+                GameObject Expl = Instantiate(Explosion, new Vector3(transform.position.x, -0.6f, transform.position.z), new Quaternion(0, 0, 0, 0));
                 Destroy(gameObject);
             }
                 
