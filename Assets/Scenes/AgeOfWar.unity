@@ -974,9 +974,9 @@ MonoBehaviour:
   VsAI: 0
   Teams: 0
   Faction1: 0
-  Sprite1: {fileID: 0}
-  Sprite2: {fileID: 0}
-  Sprite3: {fileID: 0}
+  Sprite1: {fileID: 21300000, guid: f85f0aa976dbea948bbec72b349bb633, type: 3}
+  Sprite2: {fileID: 21300000, guid: a9fbc0269b1d877449eaaa50841aa85a, type: 3}
+  Sprite3: {fileID: 21300000, guid: 76ec0a3c73c171e4e9334a0a4d433678, type: 3}
   Sprite4: {fileID: 0}
   Sprite5: {fileID: 0}
   Playing: 0
