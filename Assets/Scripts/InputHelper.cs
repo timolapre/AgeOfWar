@@ -201,13 +201,13 @@ public class InputHelper {
     }
 
 	//check if the controller is a joycon
-	public static bool isJoycon(int playerID)
+	public static bool IsJoycon(int playerID)
 	{
 		return (joycons.Count > playerID);
 	}
 
     //Check if a joycon is the Left one
-    public static bool isLeft(int playerID)
+    public static bool IsLeft(int playerID)
     {
         if (joycons.Count > playerID)
         {

@@ -307,14 +307,36 @@ Prefab:
         type: 2}
       propertyPath: Sprite1
       value: 
-      objectReference: {fileID: 21300000, guid: e767aeb9afefcb842a90f2b7095ed617,
+      objectReference: {fileID: 21300000, guid: 8498625a4ae19f541b91973826123be2,
         type: 3}
     - target: {fileID: 114659443957838530, guid: fde3ae84bc093fb4c9d9d39e9df08e73,
         type: 2}
       propertyPath: Sprite2
       value: 
-      objectReference: {fileID: 21300000, guid: 95aac0bca7b68404c87e90d15f555591,
+      objectReference: {fileID: 21300000, guid: 09d7764e77434f7458a31e7b87562dda,
         type: 3}
+    - target: {fileID: 114659443957838530, guid: fde3ae84bc093fb4c9d9d39e9df08e73,
+        type: 2}
+      propertyPath: Sprite3
+      value: 
+      objectReference: {fileID: 21300000, guid: 28e6bbb8c78b01e4595cdf12d6f25bb7,
+        type: 3}
+    - target: {fileID: 114659443957838530, guid: fde3ae84bc093fb4c9d9d39e9df08e73,
+        type: 2}
+      propertyPath: Sprite4
+      value: 
+      objectReference: {fileID: 21300000, guid: b14020a54f9a71c43934d294a093ba03,
+        type: 3}
+    - target: {fileID: 114659443957838530, guid: fde3ae84bc093fb4c9d9d39e9df08e73,
+        type: 2}
+      propertyPath: Sprite5
+      value: 
+      objectReference: {fileID: 21300000, guid: 22635faa9863e2f4a8fad83410714895,
+        type: 3}
+    - target: {fileID: 4227811560666952, guid: fde3ae84bc093fb4c9d9d39e9df08e73, type: 2}
+      propertyPath: m_LocalScale.y
+      value: -17.87709
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fde3ae84bc093fb4c9d9d39e9df08e73, type: 2}
   m_IsPrefabParent: 0
@@ -487,7 +509,6 @@ GameObject:
   m_Component:
   - component: {fileID: 892785072}
   - component: {fileID: 892785073}
-  - component: {fileID: 892785074}
   - component: {fileID: 892785075}
   - component: {fileID: 892785076}
   m_Layer: 0
@@ -554,17 +575,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
---- !u!114 &892785074
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 892785071}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 43fe59d032f9e36489e9127fbfd3e764, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &892785075
 BoxCollider:
   m_ObjectHideFlags: 0

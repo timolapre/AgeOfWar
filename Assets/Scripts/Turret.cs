@@ -34,15 +34,17 @@ public class Turret : MonoBehaviour
     void Update()
     {
         if(TurretLevel == 1)
-        {
             SpriteRenderer.sprite = Sprite1;
-        }
         else if(TurretLevel == 2)
-        {
             SpriteRenderer.sprite = Sprite2;
-        }
-        
-		//Recenter the turret
+        else if (TurretLevel == 3)
+            SpriteRenderer.sprite = Sprite3;
+        else if (TurretLevel == 4)
+            SpriteRenderer.sprite = Sprite4;
+        else if (TurretLevel == 5)
+            SpriteRenderer.sprite = Sprite5;
+
+        //Recenter the turret
         if (InputHelper.GetActionDown(PlayerID, Joycon.Button.STICK) && BaseScript.Playing)
         {
             rotation = 90 * (PlayerID == 1 ? -1 : 1);
@@ -51,7 +53,7 @@ public class Turret : MonoBehaviour
 		if (InputHelper.GetActionDown(PlayerID, Joycon.Button.HOME) && BaseScript.Playing)
 		{
 			GameObject proj = Instantiate(projectile, transform.position, new Quaternion(0,0,0,0));
-            proj.GetComponent<Projectile>().direction = (transform.rotation.eulerAngles.z) % 360;
+            proj.GetComponent<Projectile>().direction = (transform.rotation.eulerAngles.z + 90) % 360;
             proj.GetComponent<Projectile>().kills = PlayerID == 0 ? "Enemy" : "Player";
             proj.GetComponent<Projectile>().damage = 100 * TurretLevel;
 
@@ -87,7 +89,7 @@ public class Turret : MonoBehaviour
 		gyro = InputHelper.GetGyro(PlayerID);
 		if (Mathf.Floor(Mathf.Abs(gyro.y) * 90) != 0 && BaseScript.Playing)
 		{
-			rotation += (gyro.y - offset) * (InputHelper.isLeft(PlayerID) ? 1 : -1);
+			rotation += (gyro.y - offset) * (InputHelper.IsLeft(PlayerID) ? 1 : -1);
 		}
 		else if(offsetcount < 200 && BaseScript.Playing)
 		{
