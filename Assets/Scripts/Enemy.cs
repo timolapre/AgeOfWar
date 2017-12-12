@@ -92,6 +92,11 @@ public class Enemy : MonoBehaviour {
             Colliding = true;
         if (collision.tag == "Player")
             collision.gameObject.GetComponent<Player>().StartTakingDamage(Damage, AttackAfterXSeconds, AttackEveryXSeconds);
+        if (collision.tag == "Bullet")
+        {
+            Health -= collision.GetComponent<Projectile>().damage;
+            Debug.Log(collision.GetComponent<Projectile>().damage);
+        }
         //Attackee = collision.gameObject;
         Debug.Log(collision.gameObject.name);
     }
@@ -118,7 +123,7 @@ public class Enemy : MonoBehaviour {
         if (id == 1)
         {
             transform.localScale = new Vector3(-6, 6, 1);
-            Health = 100;
+            Health = 10;
             Damage = 1;
             Range = 1;
             SpriteRenderer.sprite = Sprite1;
