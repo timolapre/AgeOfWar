@@ -88,13 +88,17 @@ public class Enemy : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (transform.position.x > collision.gameObject.transform.position.x && (collision.tag == "Enemy" || collision.tag == "Player"))
-            Colliding = true;
         if (collision.tag == "Player")
         {
             collision.gameObject.GetComponent<Player>().StartTakingDamage(Damage, AttackAfterXSeconds, AttackEveryXSeconds);
             Attackee = collision.gameObject;
         }
+    }
+
+    void OnTriggerStay2D(Collider2D collision)
+    {
+        if (transform.position.x > collision.gameObject.transform.position.x && (collision.tag == "Enemy" || collision.tag == "Player"))
+            Colliding = true;
     }
 
     void OnTriggerExit2D(Collider2D collision)
