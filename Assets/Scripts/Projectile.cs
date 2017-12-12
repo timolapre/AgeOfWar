@@ -27,7 +27,7 @@ public class Projectile : MonoBehaviour {
             Destroy(gameObject);
 
 		verspeed += gravity * Time.deltaTime;
-		direction = Mathf.Tan(verspeed / horspeed) * 180 / Mathf.PI;
+		direction = Mathf.Atan(verspeed / horspeed) * 180 / Mathf.PI;
 		transform.rotation = Quaternion.AngleAxis(-direction + 90, Vector3.back);
 
 		transform.position = new Vector3(transform.position.x + horspeed * Time.deltaTime, transform.position.y + verspeed * Time.deltaTime, transform.position.z);
