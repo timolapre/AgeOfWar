@@ -17,7 +17,7 @@ public class Projectile : MonoBehaviour {
 
 	void Start()
     {
-        BaseScript = GetComponent<Base>();
+        BaseScript = GetComponentInParent<Base>();
         transform.rotation = Quaternion.AngleAxis(-direction, Vector3.back);
 		verspeed = Mathf.Cos(direction * Mathf.PI / 180) * speed;
 		horspeed = -Mathf.Sin(direction * Mathf.PI / 180) * speed;
