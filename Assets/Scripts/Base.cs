@@ -73,7 +73,7 @@ public class Base : MonoBehaviour {
         HealthBarPlayer.transform.localScale = new Vector3(((float)3/1000*PlayerBaseHealth),0.2f,0.2f);
         HealthBarPlayer.transform.position = new Vector3(HealthBarPlayer.transform.localScale.x/2 - 9.5f, HealthBarPlayer.transform.position.y, HealthBarPlayer.transform.position.z);
         HealthBarEnemy.transform.localScale = new Vector3(((float)3 / 1000 * EnemyBaseHealth), 0.2f, 0.2f);
-        HealthBarEnemy.transform.position = new Vector3(HealthBarEnemy.transform.localScale.x / 2 + 6.5f, HealthBarEnemy.transform.position.y, HealthBarEnemy.transform.position.z);
+        HealthBarEnemy.transform.position = new Vector3(HealthBarEnemy.transform.localScale.x / 2 + 14f, HealthBarEnemy.transform.position.y, HealthBarEnemy.transform.position.z);
         if (PlayerBaseHealth <= 0 && !GameOver)
         {
             GameOver = true;

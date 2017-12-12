@@ -42,9 +42,13 @@ public class Button : MonoBehaviour
 
         if (id <= 3)
         {
-            spriterenderer.sprite = Spritelist[BaseObject.WhatTier - 1];
-            if (BaseObject.WhatTier > 1)
-                transform.localScale= new Vector3(2f,2f,1);
+            try
+            {
+                spriterenderer.sprite = Spritelist[BaseObject.WhatTier - 1];
+                if (BaseObject.WhatTier > 1)
+                    transform.localScale = new Vector3(2f, 2f, 1);
+            }
+            catch { };
         }
     }
 

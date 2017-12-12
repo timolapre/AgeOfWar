@@ -180,7 +180,7 @@ public class InputHelper {
         }
         else
         {
-            Debug.Log("Can't Rumble a keyboard");
+            //Debug.Log("Can't Rumble a keyboard");
         }
     }
 
