@@ -73,6 +73,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 285bf91778eac6d4c8c76224e6f8a760, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WhichUnit: 0
+  Explosion: {fileID: 1666867468172020, guid: 328d0e5390082cd4cb334923c1997ef8, type: 2}
   Sprite1: {fileID: 21300000, guid: 29516bbccb30b0f42ad70d239613e1bd, type: 3}
   Sprite2: {fileID: 21300000, guid: 8dc26f663dbe26842a4faa362c29aa58, type: 3}
   Sprite3: {fileID: 21300000, guid: 9a8521526c5b3fb44806a3a8b881a69c, type: 3}
@@ -81,8 +83,10 @@ MonoBehaviour:
   Sprite6: {fileID: 21300000, guid: 322986350a0e7d043a6862a0aef7c80d, type: 3}
   Health: 0
   Damage: 0
+  Speed: 2
   Range: 0
-  WhichUnit: 0
+  Xp: 0
+  Money: 0
 --- !u!212 &212505990627019806
 SpriteRenderer:
   m_ObjectHideFlags: 1

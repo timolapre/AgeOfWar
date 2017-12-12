@@ -11,11 +11,7 @@ public class Turret : MonoBehaviour
     private int offsetcount;
     public int TurretLevel;
 
-    public Sprite Sprite1;
-    public Sprite Sprite2;
-    public Sprite Sprite3;
-    public Sprite Sprite4;
-    public Sprite Sprite5;
+    public Sprite Sprite1, Sprite2, Sprite3, Sprite4, Sprite5;
 
     public int PlayerID;
 	public GameObject projectile;

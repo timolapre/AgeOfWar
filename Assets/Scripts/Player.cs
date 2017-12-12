@@ -6,6 +6,7 @@ using UnityEngine;
 public class Player : MonoBehaviour {
 
     public int WhichUnit;
+    public GameObject Explosion;
 
     SpriteRenderer SpriteRenderer;
     public Sprite Sprite1, Sprite2, Sprite3, Sprite4, Sprite5, Sprite6;
@@ -32,7 +33,17 @@ public class Player : MonoBehaviour {
     bool Colliding = false;
     GameObject Attackee = null;
     // Update is called once per frame
-    void Update () {
+    void Update() {
+        if (Health <= 0)
+        {
+            BaseScript.eBase.XP += Xp;
+            BaseScript.eBase.Money += Money;
+            GameObject expl = Instantiate(Explosion) as GameObject;
+            expl.transform.parent = transform.parent;
+            expl.transform.position = new Vector3(transform.position.x,0,0);
+            Destroy(gameObject);
+        }
+
         if (transform.position.x >= BaseScript.SpawnEnemyLocation.position.x)
             AtOtherBase = true;
 
@@ -40,15 +51,8 @@ public class Player : MonoBehaviour {
             transform.Translate(Speed * Time.deltaTime, 0, 0);
         else if (AtOtherBase && !Colliding && BaseScript.Playing)
             BaseScript.EnemyBaseHealth -= Damage * 200 * Time.deltaTime;
-        else if (BaseScript.Playing)
+        else if (BaseScript.Playing) { };
             //Attackee.GetComponent<Enemy>().StartTakingDamage(Damage, AttackAfterXSeconds, AttackEveryXSeconds);
-
-        if (Health <= 0)
-        {
-            BaseScript.eBase.XP += Xp;
-            BaseScript.eBase.Money += Money;
-            Destroy(gameObject);
-        }
 
         /*if (transform.position.x < BaseObject.FirstEnemy - 1 && !BaseObject.GameOver)
         if (transform.position.x < BaseScript.FirstEnemy - 1 && !BaseScript.GameOver)
