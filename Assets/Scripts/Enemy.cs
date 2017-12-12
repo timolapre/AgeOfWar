@@ -5,6 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour {
 
     public int WhichUnit;
+    public GameObject Explosion;
 
     SpriteRenderer SpriteRenderer;
     public Sprite Sprite1, Sprite2, Sprite3, Sprite4, Sprite5, Sprite6;
@@ -39,13 +40,17 @@ public class Enemy : MonoBehaviour {
             transform.Translate(-Speed * Time.deltaTime, 0, 0);
         else if (AtOtherBase && !Colliding && BaseScript.Playing)
             BaseScript.PlayerBaseHealth -= Damage * 200 * Time.deltaTime;
-        else if (BaseScript.Playing)
-            //Attackee.GetComponent<Player>().StartTakingDamage(Damage,);
+        else if (BaseScript.Playing) { };
+        //Attackee.GetComponent<Player>().StartTakingDamage(Damage,);
 
         if (Health <= 0)
         {
             BaseScript.XP += Xp;
             BaseScript.Money += Money;
+            Destroy(gameObject);
+            GameObject expl = Instantiate(Explosion) as GameObject;
+            expl.transform.parent = transform.parent;
+            expl.transform.position = new Vector3(transform.position.x, 0, 0);
             Destroy(gameObject);
         }
 
