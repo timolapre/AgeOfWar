@@ -51,7 +51,7 @@ public class Turret : MonoBehaviour
 			GameObject proj = Instantiate(projectile, transform.position, new Quaternion(0,0,0,0));
             proj.GetComponent<Projectile>().direction = (transform.rotation.eulerAngles.z + 90) % 360;
             proj.GetComponent<Projectile>().kills = PlayerID == 0 ? "Enemy" : "Player";
-            proj.GetComponent<Projectile>().damage = 10 * TurretLevel;
+            proj.GetComponent<Projectile>().damage = 7 * TurretLevel;
             proj.transform.parent = transform.parent;
 
         }

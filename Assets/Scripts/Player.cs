@@ -31,7 +31,7 @@ public class Player : MonoBehaviour {
 
     bool AtOtherBase = false;
     bool Colliding = false;
-    //GameObject Attackee = null;
+    GameObject Attackee = null;
     // Update is called once per frame
     void Update() {
         if (Health <= 0)
@@ -92,14 +92,18 @@ public class Player : MonoBehaviour {
         if(transform.position.x < collision.gameObject.transform.position.x && (collision.tag == "Enemy" || collision.tag == "Player"))
             Colliding = true;
         if (collision.tag == "Enemy")
+        {
             collision.gameObject.GetComponent<Enemy>().StartTakingDamage(Damage, AttackAfterXSeconds, AttackEveryXSeconds);
-        //Attackee = collision.gameObject;
+            Attackee = collision.gameObject;
+        }
     }
 
     void OnTriggerExit2D(Collider2D collision)
     {
         Colliding = false;
-        //Attackee = null;
+        Attackee = null;
+        if (collision.tag == "Enemy")
+            CancelInvoke("TakeDamage");
     }
 
     public void StartTakingDamage(int Damage, float GetHitAfterSeconds, float GetHitEverySeconds)
@@ -130,7 +134,7 @@ public class Player : MonoBehaviour {
             Xp = 1;
             Money = 1;
             AttackAfterXSeconds = 0.3f;
-            AttackEveryXSeconds = 1f;
+            AttackEveryXSeconds = 0.3f;
         }
 
         if (id == 2)
@@ -143,7 +147,7 @@ public class Player : MonoBehaviour {
             Xp = 2;
             Money = 2;
             AttackAfterXSeconds = 0.3f;
-            AttackEveryXSeconds = 1f;
+            AttackEveryXSeconds = 0.3f;
         }
 
         if (id == 3)
@@ -156,7 +160,7 @@ public class Player : MonoBehaviour {
             Xp = 3;
             Money = 3;
             AttackAfterXSeconds = 0.3f;
-            AttackEveryXSeconds = 1f;
+            AttackEveryXSeconds = 0.3f;
         }
 
         if (id == 4)
@@ -169,7 +173,7 @@ public class Player : MonoBehaviour {
             Xp = 4;
             Money = 4;
             AttackAfterXSeconds = 0.3f;
-            AttackEveryXSeconds = 1f;
+            AttackEveryXSeconds = 0.3f;
         }
 
         if (id == 5)
@@ -182,7 +186,7 @@ public class Player : MonoBehaviour {
             Xp = 5;
             Money = 5;
             AttackAfterXSeconds = 0.3f;
-            AttackEveryXSeconds = 1f;
+            AttackEveryXSeconds = 0.3f;
         }
 
         if (id == 6)
@@ -195,7 +199,7 @@ public class Player : MonoBehaviour {
             Xp = 5;
             Money = 5;
             AttackAfterXSeconds = 0.3f;
-            AttackEveryXSeconds = 1f;
+            AttackEveryXSeconds = 0.3f;
         }
     }
 }
