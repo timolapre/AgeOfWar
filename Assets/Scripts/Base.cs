@@ -87,6 +87,7 @@ public class Base : MonoBehaviour {
         {
             MoneyText.text = "";
             XpText.text = "";
+            WhatTierText.text = "";
         }
         HealthBarPlayer.transform.localScale = new Vector3(((float)3/1000*PlayerBaseHealth),0.2f,0.2f);
         HealthBarPlayer.transform.position = new Vector3(HealthBarPlayer.transform.localScale.x/2 - 9.5f, HealthBarPlayer.transform.position.y, HealthBarPlayer.transform.position.z);
