@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour {
 
-	public float direction; // 0 is up
+	public float direction; // 0 to the right
     public string kills = "Enemy";
     public int damage;
     
@@ -14,9 +14,9 @@ public class Projectile : MonoBehaviour {
 	float verspeed;
 	float horspeed;
 
-    void Start()
+	void Start()
     {
-        transform.rotation = Quaternion.AngleAxis(-direction + 90, Vector3.back);
+        transform.rotation = Quaternion.AngleAxis(-direction, Vector3.back);
 		verspeed = Mathf.Cos(direction * Mathf.PI / 180) * speed;
 		horspeed = -Mathf.Sin(direction * Mathf.PI / 180) * speed;
 	}
@@ -28,7 +28,7 @@ public class Projectile : MonoBehaviour {
 
 		verspeed += gravity * Time.deltaTime;
 		direction = Mathf.Atan(verspeed / horspeed) * 180 / Mathf.PI;
-		transform.rotation = Quaternion.AngleAxis(-direction + 90, Vector3.back);
+		transform.rotation = Quaternion.AngleAxis(-direction + 90 * (horspeed <= 0 ? -1 : 1), Vector3.back);
 
 		transform.position = new Vector3(transform.position.x + horspeed * Time.deltaTime, transform.position.y + verspeed * Time.deltaTime, transform.position.z);
     }
