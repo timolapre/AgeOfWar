@@ -37,7 +37,7 @@ public class Player : MonoBehaviour {
 
     bool AtOtherBase = false;
     bool Colliding = false;
-    GameObject Attackee;
+    GameObject Attackee = null;
     // Update is called once per frame
     void Update () {
         if (transform.position.x >= BaseScript.SpawnEnemyLocation.position.x)
@@ -48,8 +48,13 @@ public class Player : MonoBehaviour {
         else if (AtOtherBase && !Colliding && BaseScript.Playing)
             BaseScript.EnemyBaseHealth -= Damage;
         else if (BaseScript.Playing)
+<<<<<<< HEAD
             Attackee.GetComponent<Enemy>().TakeDamage(Damage);
 
+=======
+            if(Attackee.GetComponent<Enemy>() != null)
+                Attackee.GetComponent<Enemy>().TakeDamage(damage);
+>>>>>>> timo
 
         if (Health <= 0)
         {

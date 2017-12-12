@@ -22,7 +22,7 @@ public class Button : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        /*if (Input.GetMouseButtonDown(0))
         {
             Ray raycast = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit raycastHit;
@@ -33,11 +33,12 @@ public class Button : MonoBehaviour
                     try
                     {
                         Touched(raycastHit.transform.GetComponent<Button>().id);
+                        Debug.Log(transform.name);
                     }
                     catch { } 
                 }
             }
-        }
+        }*/
 
         if (id <= 3)
         {
@@ -45,6 +46,11 @@ public class Button : MonoBehaviour
             if (BaseObject.WhatTier > 1)
                 transform.localScale= new Vector3(2f,2f,1);
         }
+    }
+
+    void OnMouseDown()
+    {
+        Touched(id);
     }
 
     void Touched(int id)

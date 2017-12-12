@@ -133,17 +133,14 @@ public class Base : MonoBehaviour {
 
     public void SpawnPlayer(int id)
     {
-        if (Money >= UnitCosts[id/3,(id-1)%3] && Playing)
+        if (Money >= UnitCosts[(id-1)/3,(id-1)%3] && Playing)
         {
             GameObject tempPlayer = Instantiate(Player, SpawnPlayerLocation.position, SpawnPlayerLocation.rotation, transform) as GameObject;
             Player tempPlayerScript = tempPlayer.GetComponent<Player>();
             tempPlayerScript.WhichUnit = id;
             PlayerList.Add(tempPlayer);
             Money -= UnitCosts[(id-1) / 3, (id - 1) % 3];
-            Debug.Log(UnitCosts[(id - 1) / 3, (id - 1) % 3]);
-            return;
         }
-        return;
     }
     public void Reset()
     {
