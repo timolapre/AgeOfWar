@@ -31,7 +31,7 @@ public class Player : MonoBehaviour {
 
     bool AtOtherBase = false;
     bool Colliding = false;
-    GameObject Attackee = null;
+    //GameObject Attackee = null;
     // Update is called once per frame
     void Update() {
         if (Health <= 0)
@@ -99,7 +99,7 @@ public class Player : MonoBehaviour {
     void OnTriggerExit2D(Collider2D collision)
     {
         Colliding = false;
-        Attackee = null;
+        //Attackee = null;
     }
 
     public void StartTakingDamage(int Damage, float GetHitAfterSeconds, float GetHitEverySeconds)
