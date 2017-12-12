@@ -48,13 +48,9 @@ public class Player : MonoBehaviour {
         else if (AtOtherBase && !Colliding && BaseScript.Playing)
             BaseScript.EnemyBaseHealth -= Damage;
         else if (BaseScript.Playing)
-<<<<<<< HEAD
             Attackee.GetComponent<Enemy>().TakeDamage(Damage);
-
-=======
-            if(Attackee.GetComponent<Enemy>() != null)
-                Attackee.GetComponent<Enemy>().TakeDamage(damage);
->>>>>>> timo
+        if(Attackee.GetComponent<Enemy>() != null)
+            Attackee.GetComponent<Enemy>().TakeDamage(Damage);
 
         if (Health <= 0)
         {
