@@ -5,10 +5,20 @@ using UnityEngine;
 public class Explosion : MonoBehaviour {
 
     public Sprite SpriteDestroy;
-    public Base BaseScript;
+    private Base BaseScript;
+
+    private Animator animator;
+
+    public int Expl = 1;
 
 	// Use this for initialization
 	void Start () {
+        animator = GetComponent<Animator>();
+        if (Expl == 1)
+            animator.Play("SmallExplosion");
+        else if (Expl == 2)
+            animator.Play("LargeExplosion");
+
         BaseScript = GetComponentInParent<Base>();
 	}
 	
@@ -25,6 +35,6 @@ public class Explosion : MonoBehaviour {
 
     void Destroy()
     {
-        Destroy(gameObject, 0.08f);
+        Destroy(gameObject);
     }
 }

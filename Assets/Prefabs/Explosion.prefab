@@ -70,6 +70,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eac1fc11406b43541aa810d92c9f0510, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpriteDestroy: {fileID: 21300000, guid: 81f919acf4534584e919e7a34367cf0d, type: 3}
+  BaseScript: {fileID: 0}
+  Expl: 1
 --- !u!212 &212238557316753354
 SpriteRenderer:
   m_ObjectHideFlags: 1
