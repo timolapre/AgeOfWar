@@ -20,10 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4799175308495316}
   - component: {fileID: 212238557316753354}
-  - component: {fileID: 95256595291729352}
   - component: {fileID: 114338962278638342}
+  - component: {fileID: 95229663947030082}
   m_Layer: 0
-  m_Name: ExplosionAnimation_0 1
+  m_Name: Explosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42,7 +42,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &95256595291729352
+--- !u!95 &95229663947030082
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
@@ -70,6 +70,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eac1fc11406b43541aa810d92c9f0510, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SpriteDestroy: {fileID: 21300028, guid: 2a333cefe42b9774aa95680fe732aff3, type: 3}
+  BaseScript: {fileID: 0}
 --- !u!212 &212238557316753354
 SpriteRenderer:
   m_ObjectHideFlags: 1
