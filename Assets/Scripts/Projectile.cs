@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour {
-    public Base BaseScript;
+    private Base BaseScript;
     
 	public float direction; // 0 to the right
     public string kills = "Enemy";
@@ -34,6 +34,7 @@ public class Projectile : MonoBehaviour {
             {
                 GameObject Expl = Instantiate(Explosion, new Vector3(transform.position.x, -0.6f, transform.position.z), new Quaternion(0, 0, 0, 0));
                 Expl.transform.parent = transform.parent;
+                Expl.GetComponent<Explosion>().Expl = damage / 7;
                 Destroy(gameObject);
             }
                 
