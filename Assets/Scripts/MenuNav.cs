@@ -10,13 +10,15 @@ public class MenuNav : PointerInputModule
 {
 	public float Cooldown = .2f;
 
-	GameObject Selected;
+	public GameObject Selected;
 	float deadzone = 0.1f;
 	float Cooling = 0;
 	Vector3 LastMouse;
 	int inputmode = 0;
 	PointerEventData p;
 	bool canMouse = true;
+	GameObject Dragging;
+	GameObject MouseDown;
 
 	[DllImport("user32.dll", EntryPoint = "SetCursorPos")]
 	private static extern bool SetCursorPos(int X, int Y);
@@ -59,11 +61,27 @@ public class MenuNav : PointerInputModule
 		{
 			if (p.pointerCurrentRaycast.gameObject != null)
 			{
-				Selected = p.pointerCurrentRaycast.gameObject.GetComponentInParent<UnityEngine.UI.Button>().gameObject;
+				Selected = p.pointerCurrentRaycast.gameObject.GetComponentInParent<UnityEngine.UI.Selectable>().gameObject;
 				Select(Vector2.zero);
+				if (Selected.GetComponent<Slider>() != null && Input.GetMouseButtonDown(0))
+					Dragging = Selected;
+
+				if (Input.GetMouseButtonDown(0))
+					MouseDown = Selected;
+				else if (Input.GetMouseButtonUp(0) && MouseDown == Selected)
+					ExecuteEvents.Execute(Selected, new BaseEventData(eventSystem), ExecuteEvents.submitHandler);
 			}
 			else
 				eventSystem.SetSelectedGameObject(null, new BaseEventData(eventSystem));
+
+			if (Input.GetMouseButtonUp(0))
+				MouseDown = null;
+			if (Dragging != null)
+			{
+				Dragging.GetComponent<Slider>().OnDrag(p);
+				if (Input.GetMouseButtonUp(0))
+					Dragging = null;
+			}
 		}
 		else if(Cursor.visible)
 		{
@@ -87,13 +105,19 @@ public class MenuNav : PointerInputModule
 		try
 		{
 			if (md == MoveDirection.Up)
-				Selected = Selected.GetComponent<UnityEngine.UI.Button>().FindSelectableOnUp().gameObject;
+				Selected = Selected.GetComponent<UnityEngine.UI.Selectable>().FindSelectableOnUp().gameObject;
 			else if (md == MoveDirection.Down)
-				Selected = Selected.GetComponent<UnityEngine.UI.Button>().FindSelectableOnDown().gameObject;
+				Selected = Selected.GetComponent<UnityEngine.UI.Selectable>().FindSelectableOnDown().gameObject;
 			else if (md == MoveDirection.Left)
-				Selected = Selected.GetComponent<UnityEngine.UI.Button>().FindSelectableOnLeft().gameObject;
+				if (Selected.GetComponent<Slider>() != null)
+					Selected.GetComponent<Slider>().value -= .05f;
+				else
+					Selected = Selected.GetComponent<UnityEngine.UI.Selectable>().FindSelectableOnLeft().gameObject;
 			else if (md == MoveDirection.Right)
-				Selected = Selected.GetComponent<UnityEngine.UI.Button>().FindSelectableOnRight().gameObject;
+				if (Selected.GetComponent<Slider>() != null)
+					Selected.GetComponent<Slider>().value += .05f;
+				else
+					Selected = Selected.GetComponent<UnityEngine.UI.Selectable>().FindSelectableOnRight().gameObject;
 		}
 		catch (NullReferenceException) { }
 
