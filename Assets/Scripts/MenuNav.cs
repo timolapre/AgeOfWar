@@ -2,40 +2,102 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
+using System;
+using System.Runtime.InteropServices;
 
-public class MenuNav : BaseInputModule
+public class MenuNav : PointerInputModule
 {
-
 	public float Cooldown = .2f;
-	public GameObject[] Selectable;
 
+	GameObject Selected;
 	float deadzone = 0.1f;
-	int Selected = 0;
 	float Cooling = 0;
+	Vector3 LastMouse;
+	int inputmode = 0;
+	PointerEventData p;
+	bool canMouse = true;
+
+	[DllImport("user32.dll", EntryPoint = "SetCursorPos")]
+	private static extern bool SetCursorPos(int X, int Y);
+	private static bool SetCursorPos(Vector2 pos)
+	{
+		return SetCursorPos((int)pos.x, (int)pos.y);
+	}
+
+	protected override void Start()
+	{
+		Selected = eventSystem.firstSelectedGameObject;
+	}
 
 	public override void Process()
 	{
 		Cooling -= Time.deltaTime;
-		if (InputHelper.GetStick(0).y > deadzone && Cooling <= 0)
-			Select(-1);
-		else if (InputHelper.GetStick(0).y < -deadzone && Cooling <= 0)
-			Select(1);
-		else
-			eventSystem.SetSelectedGameObject(Selectable[Selected], new BaseEventData(eventSystem));
+
+		if ((Mathf.Abs(InputHelper.GetStick(0).y) > deadzone || Mathf.Abs(InputHelper.GetStick(0).x) > deadzone) && Cooling <= 0)
+		{
+			if (inputmode != 0)
+				inputmode = 0;
+			else
+				Select(InputHelper.GetStick(0));
+			Cooling = Cooldown;
+		}
+		else if (inputmode == 0)
+			Select(Vector2.zero);
+
+
+		if ((Input.GetMouseButtonUp(0) || LastMouse != Input.mousePosition) && inputmode != 1 && canMouse)
+		{
+			Cursor.lockState = CursorLockMode.Locked; Cursor.lockState = CursorLockMode.None;
+			Cursor.visible = true;
+			inputmode = 1;
+		}
+
+		MouseState ms = GetMousePointerEventData();
+		base.GetPointerData(-1, out p, true);
+		if (inputmode == 1)
+		{
+			if (p.pointerCurrentRaycast.gameObject != null)
+			{
+				Selected = p.pointerCurrentRaycast.gameObject.GetComponentInParent<UnityEngine.UI.Button>().gameObject;
+				Select(Vector2.zero);
+			}
+			else
+				eventSystem.SetSelectedGameObject(null, new BaseEventData(eventSystem));
+		}
+		else if(Cursor.visible)
+		{
+			SetCursorPos(0, 0);
+			Cursor.visible = false;
+			canMouse = false;
+		}
+		else if(canMouse == false)
+			canMouse = true;
+
 
 		if (InputHelper.GetActionDown(0, Joycon.Button.HOME))
 			ExecuteEvents.Execute(eventSystem.currentSelectedGameObject, new BaseEventData(eventSystem), ExecuteEvents.submitHandler);
+
+		LastMouse = Input.mousePosition;
 	}
 
-	void Select(int i)
+	void Select(Vector2 dir)
 	{
-		Selected += i;
-		if (Selected > 3)
-			Selected = 0;
-		else if (Selected < 0)
-			Selected = 3;
+		MoveDirection md = DetermineMoveDirection(dir.x, dir.y);
+		try
+		{
+			if (md == MoveDirection.Up)
+				Selected = Selected.GetComponent<UnityEngine.UI.Button>().FindSelectableOnUp().gameObject;
+			else if (md == MoveDirection.Down)
+				Selected = Selected.GetComponent<UnityEngine.UI.Button>().FindSelectableOnDown().gameObject;
+			else if (md == MoveDirection.Left)
+				Selected = Selected.GetComponent<UnityEngine.UI.Button>().FindSelectableOnLeft().gameObject;
+			else if (md == MoveDirection.Right)
+				Selected = Selected.GetComponent<UnityEngine.UI.Button>().FindSelectableOnRight().gameObject;
+		}
+		catch (NullReferenceException) { }
 
-		eventSystem.SetSelectedGameObject(Selectable[Selected], new BaseEventData(eventSystem));
-		Cooling = Cooldown;
+		if(Selected != null)
+			eventSystem.SetSelectedGameObject(Selected, new BaseEventData(eventSystem));
 	}
 }
