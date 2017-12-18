@@ -29,26 +29,40 @@ public class Turret : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(TurretLevel == 1)
-            SpriteRenderer.sprite = Sprite1;
-        else if(TurretLevel == 2)
-            SpriteRenderer.sprite = Sprite2;
-        else if (TurretLevel == 3)
-            SpriteRenderer.sprite = Sprite3;
-        else if (TurretLevel == 4)
-            SpriteRenderer.sprite = Sprite4;
-        else if (TurretLevel == 5)
-            SpriteRenderer.sprite = Sprite5;
+		if (TurretLevel == 1)
+			SpriteRenderer.sprite = Sprite1;
+		else if (TurretLevel == 2)
+		{
+			SpriteRenderer.sprite = Sprite2;
+		}
+		else if (TurretLevel == 3)
+		{
+			SpriteRenderer.sprite = Sprite3;
+		}
+		else if (TurretLevel == 4)
+		{
+			SpriteRenderer.sprite = Sprite4;
+		}
+		else if (TurretLevel == 5)
+		{
+			SpriteRenderer.sprite = Sprite5;
+		}
 
-        //Recenter the turret
-        if (InputHelper.GetActionDown(PlayerID, Joycon.Button.STICK) && BaseScript.Playing)
+		if (TurretLevel != 1)
+		{
+			GetComponentsInChildren<Transform>()[1].localPosition = new Vector3(-1, 0);
+			transform.localPosition = new Vector3(0, 0, .1f);
+		}
+
+		//Recenter the turret
+		if (InputHelper.GetActionDown(PlayerID, Joycon.Button.STICK) && BaseScript.Playing)
         {
             rotation = 90 * (PlayerID == 1 ? -1 : 1);
         }
 
 		if (InputHelper.GetActionDown(PlayerID, Joycon.Button.HOME) && BaseScript.Playing)
 		{
-			GameObject proj = Instantiate(projectile, transform.position, new Quaternion(0,0,0,0));
+			GameObject proj = Instantiate(projectile, GetComponentsInChildren<Transform>()[1].position, new Quaternion(0,0,0,0));
             proj.GetComponent<Projectile>().direction = (transform.rotation.eulerAngles.z + 90) % 360;
             proj.GetComponent<Projectile>().kills = PlayerID == 0 ? "Enemy" : "Player";
             proj.GetComponent<Projectile>().damage = 7 * TurretLevel;

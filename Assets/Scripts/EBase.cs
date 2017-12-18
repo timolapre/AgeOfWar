@@ -57,6 +57,7 @@ public class EBase : MonoBehaviour {
             GameObject tempPlayer = Instantiate(BaseScript.Enemy, BaseScript.SpawnEnemyLocation.position, BaseScript.SpawnEnemyLocation.rotation, transform) as GameObject;
             Enemy tempPlayerScript = tempPlayer.GetComponent<Enemy>();
             tempPlayerScript.WhichUnit = id;
+            BaseScript.EnemyList.Add(tempPlayer);
             Money -= BaseScript.UnitCosts[(id - 1) / 3, (id - 1) % 3];
         }
     }

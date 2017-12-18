@@ -75,21 +75,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WhichUnit: 0
   Explosion: {fileID: 1666867468172020, guid: 328d0e5390082cd4cb334923c1997ef8, type: 2}
-  Sprite1: {fileID: 21300000, guid: 29516bbccb30b0f42ad70d239613e1bd, type: 3}
-  Sprite2: {fileID: 21300000, guid: 8dc26f663dbe26842a4faa362c29aa58, type: 3}
-  Sprite3: {fileID: 21300000, guid: 9a8521526c5b3fb44806a3a8b881a69c, type: 3}
-  Sprite4: {fileID: 21300000, guid: c243fafc84f9fa14c899497f81294c4a, type: 3}
-  Sprite5: {fileID: 21300000, guid: 728f1997b8e047644ad64b12883bbda2, type: 3}
-  Sprite6: {fileID: 21300000, guid: 322986350a0e7d043a6862a0aef7c80d, type: 3}
-  Sprite7: {fileID: 0}
-  Sprite8: {fileID: 0}
-  Sprite9: {fileID: 0}
-  Sprite10: {fileID: 0}
-  Sprite11: {fileID: 0}
-  Sprite12: {fileID: 0}
-  Sprite13: {fileID: 0}
-  Sprite14: {fileID: 0}
-  Sprite15: {fileID: 0}
+  Sprite1: {fileID: 21300000, guid: e39c741d3d5c5a941a42a80c5d7bce54, type: 3}
+  Sprite2: {fileID: 21300000, guid: 72428aa303235b842ad6a369ae18f29c, type: 3}
+  Sprite3: {fileID: 21300000, guid: 230dd2c4f3b7b304297aeac108e405e3, type: 3}
+  Sprite4: {fileID: 21300000, guid: cd6a2c20fc037ad4586dd952fce23afd, type: 3}
+  Sprite5: {fileID: 21300000, guid: 5bdde945f6cbae84fb63945709e5bbdd, type: 3}
+  Sprite6: {fileID: 21300000, guid: 31ba2ef139019af48906a683079819ca, type: 3}
+  Sprite7: {fileID: 21300000, guid: d3dc2e860bdb0744587371a5f90f7e4a, type: 3}
+  Sprite8: {fileID: 21300000, guid: 8809cd95163c8b04cab9c6f43f4b7e61, type: 3}
+  Sprite9: {fileID: 21300000, guid: 8c451413b3f7c994693b8805a6500ec6, type: 3}
+  Sprite10: {fileID: 21300000, guid: df798eb281723bb458bd3cfe5b9b06cc, type: 3}
+  Sprite11: {fileID: 21300000, guid: 6c59ff9e4cc345342b98d120bbc33803, type: 3}
+  Sprite12: {fileID: 21300000, guid: 29f3915d4e7104a499efe10d26387c3c, type: 3}
+  Sprite13: {fileID: 21300000, guid: 1a53af298eb209d48870629014b69d41, type: 3}
+  Sprite14: {fileID: 21300000, guid: 53e7352499b7a7647bb710fed73cd830, type: 3}
+  Sprite15: {fileID: 21300000, guid: a6faba2635d5fa047863fb8a71136291, type: 3}
   Health: 0
   Damage: 0
   Speed: 2

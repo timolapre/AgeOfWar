@@ -127,9 +127,9 @@ public class Enemy : MonoBehaviour {
 
     void GetStartValues(int id)
     {
+        transform.localScale = new Vector3(2, 2, 1);
         if (id == 1)
         {
-            transform.localScale = new Vector3(-6, 6, 1);
             Health = 10;
             Damage = 1;
             Range = 1;
@@ -142,7 +142,6 @@ public class Enemy : MonoBehaviour {
 
         if (id == 2)
         {
-            transform.localScale = new Vector3(-6, 6, 1);
             Health = 20;
             Damage = 2;
             Range = 1;
@@ -155,7 +154,6 @@ public class Enemy : MonoBehaviour {
 
         if (id == 3)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
             Health = 30;
             Damage = 2;
             Range = 1;
@@ -168,7 +166,6 @@ public class Enemy : MonoBehaviour {
 
         if (id == 4)
         {
-            transform.localScale = new Vector3(-2, 2, 1);
             Health = 25;
             Damage = 2;
             Range = 1;
@@ -181,7 +178,6 @@ public class Enemy : MonoBehaviour {
 
         if (id == 5)
         {
-            transform.localScale = new Vector3(-2, 2, 1);
             Health = 40;
             Damage = 4;
             Range = 1;
@@ -194,7 +190,6 @@ public class Enemy : MonoBehaviour {
 
         if (id == 6)
         {
-            transform.localScale = new Vector3(-2, 2, 1);
             Health = 50;
             Damage = 5;
             Range = 1;
