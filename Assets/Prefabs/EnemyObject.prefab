@@ -75,12 +75,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WhichUnit: 0
   Explosion: {fileID: 1666867468172020, guid: 328d0e5390082cd4cb334923c1997ef8, type: 2}
-  Sprite1: {fileID: 21300000, guid: 29516bbccb30b0f42ad70d239613e1bd, type: 3}
-  Sprite2: {fileID: 21300000, guid: 8dc26f663dbe26842a4faa362c29aa58, type: 3}
-  Sprite3: {fileID: 21300000, guid: 9a8521526c5b3fb44806a3a8b881a69c, type: 3}
-  Sprite4: {fileID: 21300000, guid: c243fafc84f9fa14c899497f81294c4a, type: 3}
-  Sprite5: {fileID: 21300000, guid: 728f1997b8e047644ad64b12883bbda2, type: 3}
-  Sprite6: {fileID: 21300000, guid: 322986350a0e7d043a6862a0aef7c80d, type: 3}
+  Sprite1: {fileID: 21300000, guid: e39c741d3d5c5a941a42a80c5d7bce54, type: 3}
+  Sprite2: {fileID: 21300000, guid: 72428aa303235b842ad6a369ae18f29c, type: 3}
+  Sprite3: {fileID: 21300000, guid: 230dd2c4f3b7b304297aeac108e405e3, type: 3}
+  Sprite4: {fileID: 21300000, guid: cd6a2c20fc037ad4586dd952fce23afd, type: 3}
+  Sprite5: {fileID: 21300000, guid: 5bdde945f6cbae84fb63945709e5bbdd, type: 3}
+  Sprite6: {fileID: 21300000, guid: 31ba2ef139019af48906a683079819ca, type: 3}
   Health: 0
   Damage: 0
   Speed: 2
