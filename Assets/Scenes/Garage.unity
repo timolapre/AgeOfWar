@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -378,7 +378,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 156136629}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 43.2, y: -13.157285, z: -1}
+  m_LocalPosition: {x: 43.58, y: -0.95, z: -1}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -515,7 +515,7 @@ SpriteRenderer:
   m_Size: {x: 7.72, y: 2.24}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!4 &170404183
 Transform:
@@ -567,7 +567,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4042364983017594, guid: ce251fd1bb0742d4395e533c3ff93411, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1128415518675264, guid: ce251fd1bb0742d4395e533c3ff93411, type: 2}
       propertyPath: m_Name
@@ -575,11 +575,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4042364983017594, guid: ce251fd1bb0742d4395e533c3ff93411, type: 2}
       propertyPath: m_LocalScale.x
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4042364983017594, guid: ce251fd1bb0742d4395e533c3ff93411, type: 2}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ce251fd1bb0742d4395e533c3ff93411, type: 2}
@@ -642,7 +642,7 @@ SpriteRenderer:
   m_Size: {x: 5, y: 2.79}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!4 &415002360
 Transform:
@@ -715,7 +715,7 @@ SpriteRenderer:
   m_Size: {x: 11.81, y: 5.37}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!4 &445603522
 Transform:
@@ -788,7 +788,7 @@ SpriteRenderer:
   m_Size: {x: 3.37, y: 1.52}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!4 &511866729
 Transform:
@@ -934,7 +934,7 @@ SpriteRenderer:
   m_Size: {x: 7.32, y: 3.07}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!4 &559896132
 Transform:
@@ -1007,7 +1007,7 @@ SpriteRenderer:
   m_Size: {x: 35.35, y: 15}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!4 &593015594
 Transform:
@@ -1080,7 +1080,7 @@ SpriteRenderer:
   m_Size: {x: 8.33, y: 2.88}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!4 &743618454
 Transform:
@@ -1153,7 +1153,7 @@ SpriteRenderer:
   m_Size: {x: 5.87, y: 2.92}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!4 &745223235
 Transform:
@@ -1353,7 +1353,7 @@ SpriteRenderer:
   m_Size: {x: 3.74, y: 1.74}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!4 &986734932
 Transform:
@@ -1426,7 +1426,7 @@ SpriteRenderer:
   m_Size: {x: 7.61, y: 2.83}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!4 &1055118226
 Transform:
@@ -1572,7 +1572,7 @@ SpriteRenderer:
   m_Size: {x: 8.26, y: 2.73}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!4 &1068872414
 Transform:
@@ -1600,7 +1600,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4042364983017594, guid: ce251fd1bb0742d4395e533c3ff93411, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -13.15
+      value: -1.06
       objectReference: {fileID: 0}
     - target: {fileID: 4042364983017594, guid: ce251fd1bb0742d4395e533c3ff93411, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1624,7 +1624,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4042364983017594, guid: ce251fd1bb0742d4395e533c3ff93411, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1128415518675264, guid: ce251fd1bb0742d4395e533c3ff93411, type: 2}
       propertyPath: m_Name
@@ -1632,11 +1632,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4042364983017594, guid: ce251fd1bb0742d4395e533c3ff93411, type: 2}
       propertyPath: m_LocalScale.x
-      value: 5
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 4042364983017594, guid: ce251fd1bb0742d4395e533c3ff93411, type: 2}
       propertyPath: m_LocalScale.y
-      value: 5
+      value: 2.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ce251fd1bb0742d4395e533c3ff93411, type: 2}
@@ -1699,7 +1699,7 @@ SpriteRenderer:
   m_Size: {x: 6.08, y: 2.03}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!4 &1098049225
 Transform:
@@ -1977,7 +1977,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1556564051}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 43.8, y: -12.79, z: 0}
+  m_LocalPosition: {x: 43.8, y: -0.6999998, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2050,7 +2050,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1863421753}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 53.14, y: 5.03, z: 0}
+  m_LocalPosition: {x: 53.27, y: 5.03, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2187,7 +2187,7 @@ SpriteRenderer:
   m_Size: {x: 4.39, y: 1.74}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!4 &1967798170
 Transform:
@@ -2260,7 +2260,7 @@ SpriteRenderer:
   m_Size: {x: 7.55, y: 3.41}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!4 &2015708782
 Transform:
@@ -2333,7 +2333,7 @@ SpriteRenderer:
   m_Size: {x: 4.46, y: 2.67}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!4 &2117013896
 Transform:

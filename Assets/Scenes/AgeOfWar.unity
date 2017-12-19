@@ -858,7 +858,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1011310785}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 14.5, z: -1}
+  m_LocalPosition: {x: 4.6, y: -0.2, z: -1}
   m_LocalScale: {x: 17, y: 17, z: 1}
   m_Children:
   - {fileID: 866865527}
@@ -977,7 +977,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1040315672}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1540.6483, y: 841.11066, z: -27.759428}
+  m_LocalPosition: {x: 2764.839, y: 1096.4974, z: -27.759428}
   m_LocalScale: {x: 5.5518856, y: 5.5518856, z: 5.5518856}
   m_Children:
   - {fileID: 170095593}
@@ -1237,6 +1237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TurretScript: {fileID: 0}
+  EnemyTurretScript: {fileID: 0}
   Player: {fileID: 1845344624181530, guid: 7eb9a18b0ae995947aac7e4057d4314d, type: 2}
   Enemy: {fileID: 1283681704908336, guid: f60c23e06e8a2ce469c64c2a163ae952, type: 2}
   HealthBarPlayer: {fileID: 460587257}
@@ -1259,11 +1260,11 @@ MonoBehaviour:
   VsAI: 0
   Teams: 0
   Faction1: 0
-  Sprite1: {fileID: 21300000, guid: f85f0aa976dbea948bbec72b349bb633, type: 3}
-  Sprite2: {fileID: 21300000, guid: 07a2aa6d36e93af4eb86660cd8e91f6b, type: 3}
-  Sprite3: {fileID: 21300000, guid: 9da440fc6aac3374a806eb653474dfee, type: 3}
-  Sprite4: {fileID: 21300000, guid: d2e5c605e4ffbf8428515a631b1bd01a, type: 3}
-  Sprite5: {fileID: 21300000, guid: a290b553e960b734bbd6de2580687498, type: 3}
+  Sprite1: {fileID: 21300000, guid: 26ad75bc15b28544894c491c16e2909e, type: 3}
+  Sprite2: {fileID: 21300000, guid: 8003f0c721620644591fc94df778087e, type: 3}
+  Sprite3: {fileID: 21300000, guid: 62d91391e21f4f14f9d2ca3844f3e26a, type: 3}
+  Sprite4: {fileID: 21300000, guid: 0b38ca96a6f2c39468bb700271117930, type: 3}
+  Sprite5: {fileID: 21300000, guid: 836ee40aa297aa64186ce50e6ee301da, type: 3}
   Playing: 0
   Paused: 0
   PlayerList: []
@@ -1303,9 +1304,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f85f0aa976dbea948bbec72b349bb633, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 26ad75bc15b28544894c491c16e2909e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 6.2000003, y: 7.11}
@@ -1944,12 +1945,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f85f0aa976dbea948bbec72b349bb633, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 26ad75bc15b28544894c491c16e2909e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 6.2000003, y: 7.11}
+  m_Size: {x: 20, y: 22.4}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1985,6 +1986,7 @@ MonoBehaviour:
   spawnEnemy: {fileID: 1841949569}
   Money: 0
   XP: 0
+  WhatTier: 1
 --- !u!1001 &1993968504
 Prefab:
   m_ObjectHideFlags: 0
@@ -1994,15 +1996,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4227811560666952, guid: fde3ae84bc093fb4c9d9d39e9df08e73, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -4.3
       objectReference: {fileID: 0}
     - target: {fileID: 4227811560666952, guid: fde3ae84bc093fb4c9d9d39e9df08e73, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 14.5
+      value: -1.66
       objectReference: {fileID: 0}
     - target: {fileID: 4227811560666952, guid: fde3ae84bc093fb4c9d9d39e9df08e73, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -1
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4227811560666952, guid: fde3ae84bc093fb4c9d9d39e9df08e73, type: 2}
       propertyPath: m_LocalRotation.x
