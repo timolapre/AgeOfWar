@@ -129,9 +129,9 @@ public class Base : MonoBehaviour {
         {
             Money++;
         }
-        if (InputHelper.GetActionDown(PlayerID, Joycon.Button.SR) && XP >= 10*WhatTier)
+        if (InputHelper.GetActionDown(PlayerID, Joycon.Button.SR))
         {
-            WhatTier++;
+            UpgradeTier();
         }
         if (InputHelper.GetActionDown(PlayerID, Joycon.Button.PLUS) && !Paused)
         {
@@ -184,5 +184,12 @@ public class Base : MonoBehaviour {
         FirstPlayer = -8;
         FirstEnemy = 10;
         WhatTier = 1;
+    }
+    public void UpgradeTier()
+    {
+        if(XP >= 10 * WhatTier)
+        {
+            WhatTier++;
+        }       
     }
 }

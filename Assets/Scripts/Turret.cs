@@ -10,7 +10,7 @@ public class Turret : MonoBehaviour
     private float offset;
     private int offsetcount;
     public int TurretLevel;
-    float Cooldown = .5f;
+    float Cooldown = 2f;
     float Cooling = 0;
     
     public SpriteRenderer TurretBase;
