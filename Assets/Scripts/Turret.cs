@@ -12,7 +12,7 @@ public class Turret : MonoBehaviour
     public int TurretLevel;
     float Cooldown = 2f;
     float Cooling = 0;
-    
+
     public SpriteRenderer TurretBase;
 
     public int PlayerID;
@@ -30,7 +30,7 @@ public class Turret : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {   
+    {
         Cooling -= Time.deltaTime;
 
         if (BaseScript.VsAI && PlayerID > 0)
@@ -161,7 +161,7 @@ public class Turret : MonoBehaviour
     float F4 = 698.456f;//349.228f;
     float G4 = 783.991f;//391.995f;
     float A4 = 880;//440;
-    
+
     IEnumerator PlayMario()
     {
         int speed = 60000/(128*4);

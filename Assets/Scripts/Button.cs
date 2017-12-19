@@ -75,5 +75,9 @@ public class Button : MonoBehaviour
         {
             BaseObject.UpgradeTier();
         }
+        else if (id == 5)
+        {
+            BaseObject.UpgradeTier();
+        }
     }
 }
