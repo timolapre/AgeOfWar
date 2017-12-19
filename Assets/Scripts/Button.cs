@@ -69,7 +69,6 @@ public class Button : MonoBehaviour
         else if (id == 4)
         {
             TurretScript.UpgradeTurret();
-            Debug.Log("kaas");
         }
         else if (id == 5)
         {
