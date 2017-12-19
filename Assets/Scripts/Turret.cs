@@ -31,14 +31,6 @@ public class Turret : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (BaseScript.WhatTier == 1)
-        {
-            TurretBase.transform.localPosition = new Vector3(-4.3f, -1.66f, 6);
-        }
-        else if (BaseScript.WhatTier == 2)
-        {
-            TurretBase.transform.localPosition = new Vector3(-5f, 3f, 6);
-        }
         Cooling -= Time.deltaTime;
 
         if (BaseScript.VsAI && PlayerID > 0)
