@@ -30,16 +30,10 @@ public class Turret : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-		if (TurretLevel != 1)
-		{
-			GetComponentsInChildren<Transform>()[1].localPosition = new Vector3(-1, 0);
-			transform.localPosition = new Vector3(0, 0, .1f);
-		}
-        
+    {   
         Cooling -= Time.deltaTime;
 
-        if (BaseScript.VsAI)
+        if (BaseScript.VsAI && PlayerID > 0)
         {
             DoAI();
             return;
@@ -102,6 +96,11 @@ public class Turret : MonoBehaviour
             TurretLevel++;
             SpriteRenderer.sprite = Resources.Load<Sprite>("Germany/Turrets/german_turret_barrel_" + TurretLevel);
             TurretBase.sprite = Resources.Load<Sprite>("Germany/Turrets/german_turret_body_" + TurretLevel);
+
+            GetComponentsInChildren<Transform>()[1].localPosition = new Vector3(-1, 0);
+            transform.localPosition = new Vector3(0, 0, .1f);
+            //if(TurretLevel == 2)
+
         }
     }
 
