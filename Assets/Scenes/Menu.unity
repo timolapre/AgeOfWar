@@ -294,7 +294,6 @@ GameObject:
   - component: {fileID: 830846817}
   - component: {fileID: 830846816}
   - component: {fileID: 830846815}
-  - component: {fileID: 830846814}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -302,18 +301,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &830846814
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 830846813}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24d363d380f72cb46b4a279117660e14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BaseScript: {fileID: 0}
 --- !u!81 &830846815
 AudioListener:
   m_ObjectHideFlags: 0
@@ -427,6 +414,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cam: {fileID: 0}
+  Can1: {fileID: 0}
+  Can2: {fileID: 0}
+  Can3: {fileID: 0}
+  Playerfaction: {fileID: 0}
+  Enemyfaction: {fileID: 0}
+  Diff: {fileID: 0}
 --- !u!114 &955243585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -562,6 +555,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cam: {fileID: 0}
+  Can1: {fileID: 0}
+  Can2: {fileID: 0}
+  Can3: {fileID: 0}
+  Playerfaction: {fileID: 0}
+  Enemyfaction: {fileID: 0}
+  Diff: {fileID: 0}
 --- !u!114 &1130378201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -697,6 +696,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cam: {fileID: 0}
+  Can1: {fileID: 0}
+  Can2: {fileID: 0}
+  Can3: {fileID: 0}
+  Playerfaction: {fileID: 0}
+  Enemyfaction: {fileID: 0}
+  Diff: {fileID: 0}
 --- !u!114 &1291757298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1114,6 +1119,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cam: {fileID: 0}
+  Can1: {fileID: 0}
+  Can2: {fileID: 0}
+  Can3: {fileID: 0}
+  Playerfaction: {fileID: 0}
+  Enemyfaction: {fileID: 0}
+  Diff: {fileID: 0}
 --- !u!1 &2010732376
 GameObject:
   m_ObjectHideFlags: 0

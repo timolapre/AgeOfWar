@@ -10,12 +10,15 @@ public class Buttonforpros : MonoBehaviour
     public GameObject Can3;
     public GameObject Playerfaction;
     public GameObject Enemyfaction;
-    public GameObject Difficulty;
+    public GameObject Diff;
 
     private void Start()
     {
-        Can2.SetActive(false);
-        Can3.SetActive(false);
+        if (Can1.activeSelf == true)
+        {
+            Can2.SetActive(false);
+            Can3.SetActive(false);
+        }
     }
 
     public void ChangeScene (string ChangeTo)
@@ -52,9 +55,14 @@ public class Buttonforpros : MonoBehaviour
         }
         else if (ChangeTo == "SKRPlay")
         {
-            PlayerPrefs.SetString("Mode", "Skrimisch");
-            //PlayerPrefs.SetString("Player", Playerfaction.GetComponent<GameObject>().value;);
-            //PlayerPrefs.SetString("Enemy", Enemyfaction);
+            /*string player = Playerfaction.GetComponent<string>();
+            string Enemy = Enemyfaction.GetComponent<string>();
+            string Difficulty = Diff.GetComponent<string>();
+            PlayerPrefs.SetString("Player", player);
+            PlayerPrefs.SetString("Enemy", Enemy);
+            PlayerPrefs.SetString("Difficulty", Difficulty);
+            PlayerPrefs.SetString("Mode", "Skrimisch");*/
+            SceneManager.LoadScene("AgeOfWar", LoadSceneMode.Single);
         }
         else
         {
