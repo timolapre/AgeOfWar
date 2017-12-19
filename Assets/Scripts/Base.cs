@@ -57,7 +57,7 @@ public class Base : MonoBehaviour {
         TurretScript = GetComponentInParent<Turret>();
         eBase = GetComponentInChildren<EBase>();
         Teams = false;
-        VsAI = false;
+        VsAI = true;
         Money = StartMoney;
         PlayerBaseHealth = 1000;
         EnemyBaseHealth = 1000;
