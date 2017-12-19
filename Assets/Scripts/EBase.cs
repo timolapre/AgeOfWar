@@ -65,16 +65,14 @@ public class EBase : MonoBehaviour {
 
     void AI()
     {
-        //control the turret
-
         if (Time.fixedTime > random)
         {
             SpawnEnemy(Random.Range((int)Time.fixedTime / 50 + 1, Mathf.Min(4, (int)Time.fixedTime / 25 + 2)));
-            random = Random.Range(1f, 3f) + Time.fixedTime;
+            random = Random.Range(3f, 7f) + Time.fixedTime;
         }
 
-        if (Input.GetKeyDown(KeyCode.L))
-            SpawnEnemy(Random.Range(1, 4));
+        /*if (Input.GetKeyDown(KeyCode.L))
+            SpawnEnemy(Random.Range(1, 4));*/
     }
 
     void SpawnEnemy(int id)

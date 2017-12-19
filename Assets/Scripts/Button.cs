@@ -9,14 +9,16 @@ public class Button : MonoBehaviour
     public int id;
     public List<Sprite> Spritelist;
 
-    private SpriteRenderer spriterenderer   ;
+    private SpriteRenderer spriterenderer;
+    private BoxCollider collider;
 
     // Use this for initialization
     void Start()
     {
-        BaseObject = GetComponentInParent<Base>();
-        TurretScript = GetComponentInParent<Turret>();
+        BaseObject = GameObject.Find("PBase /main object").GetComponent<Base>();
+        TurretScript = GameObject.Find("Turret").GetComponent<Turret>();
         spriterenderer = GetComponent<SpriteRenderer>();
+        collider = GetComponent<BoxCollider>();
     }
 
     // Update is called once per frame
@@ -35,7 +37,7 @@ public class Button : MonoBehaviour
                         Touched(raycastHit.transform.GetComponent<Button>().id);
                         Debug.Log(transform.name);
                     }
-                    catch { } 
+                    catch { }
                 }
             }
         }*/
@@ -46,7 +48,8 @@ public class Button : MonoBehaviour
             {
                 spriterenderer.sprite = Spritelist[BaseObject.WhatTier - 1];
                 if (BaseObject.WhatTier > 1)
-                    transform.localScale = new Vector3(2f, 2f, 1);
+                    transform.localScale = new Vector3(0.007529334f, 0.06927653f, 1);
+                    collider.size = spriterenderer.sprite.bounds.size;
             }
             catch { };
         }
@@ -63,9 +66,18 @@ public class Button : MonoBehaviour
         {
             BaseObject.SpawnPlayer(id+3*(BaseObject.WhatTier-1));
         }
-        if (id == 4)
+        else if (id == 4)
         {
             TurretScript.UpgradeTurret();
+            Debug.Log("kaas");
+        }
+        else if (id == 5)
+        {
+            BaseObject.UpgradeTier();
+        }
+        else if (id == 5)
+        {
+            BaseObject.UpgradeTier();
         }
     }
 }

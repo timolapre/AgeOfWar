@@ -196,5 +196,16 @@ public class Player : MonoBehaviour {
             AttackAfterXSeconds = 0.3f;
             AttackEveryXSeconds = 0.3f;
         }
+
+        if (id > 6)
+        {
+            Health = 80;
+            Damage = 7;
+            Range = 1;
+            Xp = 5;
+            Money = 5;
+            AttackAfterXSeconds = 0.3f;
+            AttackEveryXSeconds = 0.3f;
+        }
     }
 }

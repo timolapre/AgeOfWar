@@ -50,15 +50,17 @@ public class Base : MonoBehaviour {
 
     public int[,] UnitCosts = { {1, 2, 3},
                                 {4, 5, 6},
+                                {7, 8, 9},
+                                {7, 8, 9},
                                 {7, 8, 9} };
 
-	void Start () {
+    void Start () {
         //Instantiate(Object, spawn.position, spawn.rotation);
         SpriteRenderer = GetComponent<SpriteRenderer>();
         TurretScript = GetComponentInParent<Turret>();
         eBase = GetComponentInChildren<EBase>();
         Teams = false;
-        VsAI = false;
+        VsAI = true;
         Money = StartMoney;
         PlayerBaseHealth = 1000;
         EnemyBaseHealth = 1000;
@@ -129,9 +131,9 @@ public class Base : MonoBehaviour {
         {
             Money++;
         }
-        if (InputHelper.GetActionDown(PlayerID, Joycon.Button.SR) && XP >= 10*WhatTier)
+        if (InputHelper.GetActionDown(PlayerID, Joycon.Button.SR))
         {
-            WhatTier++;
+            UpgradeTier();
         }
         if (InputHelper.GetActionDown(PlayerID, Joycon.Button.PLUS) && !Paused)
         {
@@ -184,5 +186,12 @@ public class Base : MonoBehaviour {
         FirstPlayer = -8;
         FirstEnemy = 10;
         WhatTier = 1;
+    }
+    public void UpgradeTier()
+    {
+        if(XP >= 10 * WhatTier)
+        {
+            WhatTier++;
+        }       
     }
 }
