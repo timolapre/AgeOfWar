@@ -49,7 +49,8 @@ public class Base : MonoBehaviour {
     int PlayerID = 0;
 
     public int[,] UnitCosts = { {1, 2, 3},
-                                 {4, 5, 6} };
+                                {4, 5, 6},
+                                {7, 8, 9} };
 
 	void Start () {
         //Instantiate(Object, spawn.position, spawn.rotation);
