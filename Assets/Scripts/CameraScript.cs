@@ -26,7 +26,7 @@ public class CameraScript : MonoBehaviour {
         }
         else if(BaseScript.Paused == false)
         {
-            transform.position = new Vector3(0, 0, -10);
+            transform.position = new Vector3(0, 0.9f, -10);
         }
  
         PlayerPrefs.SetFloat("CameraX", transform.position.x);
