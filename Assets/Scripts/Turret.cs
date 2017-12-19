@@ -115,7 +115,6 @@ public class Turret : MonoBehaviour
         if(BaseScript.Money >= 0/*add cost here later*/ && BaseScript.WhatTier > TurretLevel && BaseScript.Playing)
         {
             TurretLevel++;
-            Debug.Log(TurretLevel);
         }
     }
 
