@@ -881,7 +881,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TurretLevel: 0
-  TurretBase: {fileID: 0}
+  TurretBase: {fileID: 879884496}
   PlayerID: 0
   projectile: {fileID: 1128415518675264, guid: ce251fd1bb0742d4395e533c3ff93411, type: 2}
   gyro: {x: 0, y: 0, z: 0}
@@ -1072,7 +1072,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1040315672}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1854.3298, y: 1018.77094, z: -27.759428}
+  m_LocalPosition: {x: 2764.839, y: 1096.4974, z: -27.759428}
   m_LocalScale: {x: 5.5518856, y: 5.5518856, z: 5.5518856}
   m_Children:
   - {fileID: 170095593}
@@ -1332,6 +1332,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TurretScript: {fileID: 0}
+  EnemyTurretScript: {fileID: 0}
   Player: {fileID: 1845344624181530, guid: 7eb9a18b0ae995947aac7e4057d4314d, type: 2}
   Enemy: {fileID: 1283681704908336, guid: f60c23e06e8a2ce469c64c2a163ae952, type: 2}
   HealthBarPlayer: {fileID: 460587257}
@@ -1664,6 +1665,11 @@ Prefab:
       propertyPath: m_Name
       value: Turret2
       objectReference: {fileID: 0}
+    - target: {fileID: 114659443957838530, guid: fde3ae84bc093fb4c9d9d39e9df08e73,
+        type: 2}
+      propertyPath: TurretBase
+      value: 
+      objectReference: {fileID: 1011310787}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fde3ae84bc093fb4c9d9d39e9df08e73, type: 2}
   m_IsPrefabParent: 0
@@ -2209,6 +2215,7 @@ MonoBehaviour:
   spawnEnemy: {fileID: 1841949569}
   Money: 0
   XP: 0
+  WhatTier: 1
 --- !u!1001 &1993968504
 Prefab:
   m_ObjectHideFlags: 0

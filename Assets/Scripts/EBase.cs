@@ -12,7 +12,7 @@ public class EBase : MonoBehaviour {
     public int Money;
     int Faction;
     public int XP;
-    int WhatTier = 1;
+    public int WhatTier = 1;
 
     int PlayerID = 1;
 
