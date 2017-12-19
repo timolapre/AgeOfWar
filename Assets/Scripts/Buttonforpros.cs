@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class Buttonforpros : MonoBehaviour
 {
     public Camera Cam;
@@ -40,6 +41,7 @@ public class Buttonforpros : MonoBehaviour
         }
         else if (ChangeTo == "Multiplayer")
         {
+            PlayerPrefs.SetInt("VsAI", 0);
             PlayerPrefs.SetString("Mode", "Multiplayer");
             SceneManager.LoadScene("AgeofWar", LoadSceneMode.Single);
         }
@@ -47,6 +49,7 @@ public class Buttonforpros : MonoBehaviour
         {
             Can1.SetActive(false);
             Can2.SetActive(true);
+            PlayerPrefs.SetInt("VsAI", 1);
         }
         else if (ChangeTo == "Skirmish")
         {
@@ -63,6 +66,9 @@ public class Buttonforpros : MonoBehaviour
             PlayerPrefs.SetString("Difficulty", Difficulty);
             PlayerPrefs.SetString("Mode", "Skrimisch");*/
             SceneManager.LoadScene("AgeOfWar", LoadSceneMode.Single);
+            //int PlayerFaction = PlayerPrefs.SetInt("PlayerFaction", Can1.GetComponentInChildren<Dropdown>().value);
+            Dropdown[] DropdownValues = Can1.GetComponentsInChildren<Dropdown>();
+
         }
         else
         {

@@ -56,11 +56,18 @@ public class Base : MonoBehaviour {
 
     void Start () {
         //Instantiate(Object, spawn.position, spawn.rotation);
+        int vsai = PlayerPrefs.GetInt("VsAI");
+        if (vsai == 1)
+            VsAI = true;
+        else
+            VsAI = false;
+        Debug.Log(vsai + " " + VsAI);
+
         SpriteRenderer = GetComponent<SpriteRenderer>();
         TurretScript = GetComponentInParent<Turret>();
         eBase = GetComponentInChildren<EBase>();
         Teams = false;
-        VsAI = true;
+        //  VsAI = true;
         Money = StartMoney;
         PlayerBaseHealth = 1000;
         EnemyBaseHealth = 1000;
