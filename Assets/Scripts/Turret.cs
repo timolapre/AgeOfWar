@@ -12,8 +12,7 @@ public class Turret : MonoBehaviour
     public int TurretLevel;
     float Cooldown = 2f;
     float Cooling = 0;
-
-    public SpriteRenderer TurretBase;
+    SpriteRenderer TurretBase;
 
     public int PlayerID;
 	public GameObject projectile;
@@ -26,6 +25,7 @@ public class Turret : MonoBehaviour
         BaseScript = GetComponentInParent<Base>();
         rotation = 90 * (PlayerID == 1 ? -1 : 1);
         SpriteRenderer = GetComponent<SpriteRenderer>();
+        TurretBase = PlayerID == 0 ? GameObject.Find("Turret Body").GetComponent<SpriteRenderer>(): GameObject.Find("Turret Body2").GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
