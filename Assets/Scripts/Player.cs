@@ -9,7 +9,6 @@ public class Player : MonoBehaviour {
     public GameObject Explosion;
 
     SpriteRenderer SpriteRenderer;
-    public Sprite Sprite1, Sprite2, Sprite3, Sprite4, Sprite5, Sprite6, Sprite7, Sprite8, Sprite9, Sprite10, Sprite11, Sprite12, Sprite13, Sprite14, Sprite15;
 
     private Base BaseScript;
     private float Closest = 1000;
@@ -128,13 +127,15 @@ public class Player : MonoBehaviour {
 
     void GetStartValues(int id)
     {
+        //SpriteRenderer.sprite = SpriteList[id-1];
         transform.localScale = new Vector3(-2, 2, 1);
+        SpriteRenderer.sprite = Resources.Load("Germany/Units/" + BaseScript.WhatTier.ToString() + "_" + (((id-1)%3)+1).ToString(), typeof(Sprite)) as Sprite;
+
         if (id == 1)
         {
             Health = 10;
             Damage = 1;
             Range = 1;
-            SpriteRenderer.sprite = Sprite1;
             Xp = 1;
             Money = 1;
             AttackAfterXSeconds = 0.3f;
@@ -146,7 +147,6 @@ public class Player : MonoBehaviour {
             Health = 20;
             Damage = 2;
             Range = 1;
-            SpriteRenderer.sprite = Sprite2;
             Xp = 2;
             Money = 2;
             AttackAfterXSeconds = 0.3f;
@@ -158,7 +158,6 @@ public class Player : MonoBehaviour {
             Health = 30;
             Damage = 2;
             Range = 1;
-            SpriteRenderer.sprite = Sprite3;
             Xp = 3;
             Money = 3;
             AttackAfterXSeconds = 0.3f;
@@ -170,7 +169,6 @@ public class Player : MonoBehaviour {
             Health = 25;
             Damage = 2;
             Range = 1;
-            SpriteRenderer.sprite = Sprite4;
             Xp = 4;
             Money = 4;
             AttackAfterXSeconds = 0.3f;
@@ -182,7 +180,6 @@ public class Player : MonoBehaviour {
             Health = 40;
             Damage = 4;
             Range = 1;
-            SpriteRenderer.sprite = Sprite5;
             Xp = 5;
             Money = 5;
             AttackAfterXSeconds = 0.3f;
@@ -194,7 +191,6 @@ public class Player : MonoBehaviour {
             Health = 50;
             Damage = 5;
             Range = 1;
-            SpriteRenderer.sprite = Sprite6;
             Xp = 5;
             Money = 5;
             AttackAfterXSeconds = 0.3f;
