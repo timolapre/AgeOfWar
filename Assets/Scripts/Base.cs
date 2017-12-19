@@ -50,9 +50,11 @@ public class Base : MonoBehaviour {
 
     public int[,] UnitCosts = { {1, 2, 3},
                                 {4, 5, 6},
+                                {7, 8, 9},
+                                {7, 8, 9},
                                 {7, 8, 9} };
 
-	void Start () {
+    void Start () {
         //Instantiate(Object, spawn.position, spawn.rotation);
         SpriteRenderer = GetComponent<SpriteRenderer>();
         TurretScript = GetComponentInParent<Turret>();
