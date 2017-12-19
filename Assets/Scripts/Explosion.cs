@@ -10,6 +10,7 @@ public class Explosion : MonoBehaviour {
     private Animator animator;
 
     public int Expl = 1;
+    public int ExplTimes = 1;
 
 	// Use this for initialization
 	void Start () {
@@ -20,23 +21,26 @@ public class Explosion : MonoBehaviour {
         else if (Expl == 2)
         {
             animator.Play("MediumExplosion");
-            transform.localScale = new Vector3(1.2f, 1.2f, 1);
+            if (ExplTimes == 1)
+                transform.localScale = new Vector3(1.2f * ExplTimes, 1.2f * ExplTimes, 1);
         }
         else if (Expl == 3)
         {
             animator.Play("MediumExplosion");
-            transform.localScale = new Vector3(1.2f, 1.2f, 1);
+            if (ExplTimes == 1)
+                transform.localScale = new Vector3(1.2f * ExplTimes, 1.2f * ExplTimes, 1);
         }
         else if (Expl == 4)
             animator.Play("LargeExplosion");
         else if (Expl == 5)
         {
             animator.Play("HugeExplosion");
-            transform.localScale = new Vector3(1.7f, 1.7f, 1);
-            transform.Translate(0, 1.5f, 0);
+            if (ExplTimes == 1)
+            {
+                transform.localScale = new Vector3(1.7f * ExplTimes, 1.7f * ExplTimes, 1);
+                transform.Translate(0, 1.5f, 0);
+            }
         }
-
-        Debug.Log(Expl);
 	}
 	
 	// Update is called once per frame

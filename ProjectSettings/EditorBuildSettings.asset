@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: a43a06dc5e395444abb0f6f02609fc87
   - enabled: 1
+    path: Assets/Scenes/Pre-GameSettings.unity
+    guid: 0ba94e40fb2cb914396bceb381186e5b
+  - enabled: 1
     path: Assets/Scenes/AgeOfWar.unity
     guid: 5a646604bff6c7247828921859296def
   - enabled: 1

@@ -48,9 +48,12 @@ public class Enemy : MonoBehaviour {
             BaseScript.XP += Xp;
             BaseScript.Money += Money;
             Destroy(gameObject);
-            GameObject expl = Instantiate(Explosion) as GameObject;
+            GameObject expl = Instantiate(Explosion);
             expl.transform.parent = transform.parent;
             expl.transform.position = new Vector3(transform.position.x, 0, 0);
+            expl.GetComponent<Explosion>().Expl = (WhichUnit - 1) / 3 + 1;
+            expl.GetComponent<Explosion>().ExplTimes = 0;
+            expl.transform.Translate(0, -2f, 0);
             Destroy(gameObject);
         }
 
