@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class Base : MonoBehaviour {
     SpriteRenderer SpriteRenderer;
     public Turret TurretScript;
+    public Turret EnemyTurretScript;
     public GameObject Player;
     public GameObject Enemy;
     public GameObject HealthBarPlayer;
@@ -57,7 +58,8 @@ public class Base : MonoBehaviour {
     void Start () {
         //Instantiate(Object, spawn.position, spawn.rotation);
         SpriteRenderer = GetComponent<SpriteRenderer>();
-        TurretScript = GetComponentInParent<Turret>();
+        TurretScript = GameObject.Find("Turret").GetComponent<Turret>();
+        EnemyTurretScript = GameObject.Find("Turret2").GetComponent<Turret>();
         eBase = GetComponentInChildren<EBase>();
         Teams = false;
         VsAI = true;
@@ -150,6 +152,8 @@ public class Base : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.R) && GameOver)
         {
             Reset();
+            TurretScript.Reset();
+            EnemyTurretScript.Reset();
         }
     }
 
@@ -186,6 +190,7 @@ public class Base : MonoBehaviour {
         FirstPlayer = -8;
         FirstEnemy = 10;
         WhatTier = 1;
+        eBase.WhatTier = 1;
     }
     public void UpgradeTier()
     {

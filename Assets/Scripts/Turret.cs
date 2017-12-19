@@ -116,7 +116,9 @@ public class Turret : MonoBehaviour
 
     public void Reset()
     {
-        TurretLevel = 0;
+        TurretLevel = 1;
+        SpriteRenderer.sprite = Resources.Load<Sprite>("Germany/Turrets/german_turret_barrel_" + TurretLevel);
+        TurretBase.sprite = Resources.Load<Sprite>("Germany/Turrets/german_turret_body_" + TurretLevel);
     }
 
     void DoAI()
