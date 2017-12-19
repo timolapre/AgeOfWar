@@ -9,7 +9,8 @@ public class Button : MonoBehaviour
     public int id;
     public List<Sprite> Spritelist;
 
-    private SpriteRenderer spriterenderer   ;
+    private SpriteRenderer spriterenderer;
+    private BoxCollider collider;
 
     // Use this for initialization
     void Start()
@@ -17,6 +18,7 @@ public class Button : MonoBehaviour
         BaseObject = GetComponentInParent<Base>();
         TurretScript = GetComponentInParent<Turret>();
         spriterenderer = GetComponent<SpriteRenderer>();
+        collider = GetComponent<BoxCollider>();
     }
 
     // Update is called once per frame
@@ -38,7 +40,7 @@ public class Button : MonoBehaviour
                     catch { } 
                 }
             }
-        }*/
+        }*/ 
 
         if (id <= 3)
         {
@@ -47,6 +49,7 @@ public class Button : MonoBehaviour
                 spriterenderer.sprite = Spritelist[BaseObject.WhatTier - 1];
                 if (BaseObject.WhatTier > 1)
                     transform.localScale = new Vector3(2f, 2f, 1);
+                collider.size = spriterenderer.sprite.bounds.size;
             }
             catch { };
         }
