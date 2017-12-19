@@ -1,34 +1,24 @@
 fileFormatVersion: 2
-guid: 5f4ccfdad7dbbbd4c8f187fe44ffcabf
-timeCreated: 1513605706
+guid: 59a310cd4e7d4f948ae361ba3cb609c2
+timeCreated: 1513605512
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: MediumExpl_0
-    21300002: MediumExpl_1
-    21300004: MediumExpl_2
-    21300006: MediumExpl_3
-    21300008: MediumExpl_4
-    21300010: MediumExpl_5
-    21300012: MediumExpl_6
-    21300014: MediumExpl_7
-    21300016: MediumExpl_8
-    21300018: MediumExpl_9
-    21300020: MediumExpl_10
-    21300022: MediumExpl_11
-    21300024: MediumExpl_12
-    21300026: MediumExpl_13
-    21300028: MediumExpl_14
-    21300030: MediumExpl_15
-    21300032: MediumExpl_16
-    21300034: MediumExpl_17
-    21300036: MediumExpl_18
-    21300038: MediumExpl_19
-    21300040: MediumExpl_20
-    21300042: MediumExpl_21
-    21300044: MediumExpl_22
-    21300046: MediumExpl_23
-    21300048: MediumExpl_24
+    21300000: LargeExpl_0
+    21300002: LargeExpl_1
+    21300004: LargeExpl_2
+    21300006: LargeExpl_3
+    21300008: LargeExpl_4
+    21300010: LargeExpl_5
+    21300012: LargeExpl_6
+    21300014: LargeExpl_7
+    21300016: LargeExpl_8
+    21300018: LargeExpl_9
+    21300020: LargeExpl_10
+    21300022: LargeExpl_11
+    21300024: LargeExpl_12
+    21300026: LargeExpl_13
+    21300028: LargeExpl_14
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -112,13 +102,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MediumExpl_0
+      name: LargeExpl_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 59
-        width: 26
-        height: 59
+        x: 0
+        y: 192
+        width: 96
+        height: 96
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -126,13 +116,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: MediumExpl_1
+      name: LargeExpl_1
       rect:
         serializedVersion: 2
-        x: 33
-        y: 59
-        width: 28
-        height: 59
+        x: 96
+        y: 192
+        width: 96
+        height: 96
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,13 +130,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: MediumExpl_2
+      name: LargeExpl_2
       rect:
         serializedVersion: 2
-        x: 63
-        y: 59
-        width: 28
-        height: 59
+        x: 192
+        y: 192
+        width: 96
+        height: 96
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -154,13 +144,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: MediumExpl_3
+      name: LargeExpl_3
       rect:
         serializedVersion: 2
-        x: 92
-        y: 59
-        width: 30
-        height: 59
+        x: 288
+        y: 192
+        width: 96
+        height: 96
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,13 +158,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: MediumExpl_4
+      name: LargeExpl_4
       rect:
         serializedVersion: 2
-        x: 123
-        y: 59
-        width: 32
-        height: 59
+        x: 384
+        y: 192
+        width: 96
+        height: 96
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,13 +172,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: MediumExpl_5
+      name: LargeExpl_5
       rect:
         serializedVersion: 2
-        x: 155
-        y: 59
-        width: 34
-        height: 59
+        x: 0
+        y: 96
+        width: 96
+        height: 96
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -196,13 +186,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: MediumExpl_6
+      name: LargeExpl_6
       rect:
         serializedVersion: 2
-        x: 190
-        y: 59
-        width: 34
-        height: 59
+        x: 96
+        y: 96
+        width: 96
+        height: 96
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -210,13 +200,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: MediumExpl_7
+      name: LargeExpl_7
       rect:
         serializedVersion: 2
-        x: 225
-        y: 59
-        width: 33
-        height: 59
+        x: 192
+        y: 96
+        width: 96
+        height: 96
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -224,13 +214,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: MediumExpl_8
+      name: LargeExpl_8
       rect:
         serializedVersion: 2
-        x: 260
-        y: 59
-        width: 34
-        height: 59
+        x: 288
+        y: 96
+        width: 96
+        height: 96
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -238,13 +228,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: MediumExpl_9
+      name: LargeExpl_9
       rect:
         serializedVersion: 2
-        x: 295
-        y: 59
-        width: 34
-        height: 59
+        x: 384
+        y: 96
+        width: 96
+        height: 96
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -252,111 +242,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: MediumExpl_10
-      rect:
-        serializedVersion: 2
-        x: 330
-        y: 59
-        width: 34
-        height: 59
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MediumExpl_11
-      rect:
-        serializedVersion: 2
-        x: 365
-        y: 59
-        width: 34
-        height: 59
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MediumExpl_12
-      rect:
-        serializedVersion: 2
-        x: 401
-        y: 59
-        width: 32
-        height: 59
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MediumExpl_13
-      rect:
-        serializedVersion: 2
-        x: 434
-        y: 59
-        width: 33
-        height: 59
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MediumExpl_14
-      rect:
-        serializedVersion: 2
-        x: 468
-        y: 59
-        width: 33
-        height: 59
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MediumExpl_15
-      rect:
-        serializedVersion: 2
-        x: 501
-        y: 59
-        width: 34
-        height: 59
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MediumExpl_16
-      rect:
-        serializedVersion: 2
-        x: 536
-        y: 59
-        width: 33
-        height: 59
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MediumExpl_17
+      name: LargeExpl_10
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 33.588234
-        height: 59
+        width: 96
+        height: 96
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -364,13 +256,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: MediumExpl_18
+      name: LargeExpl_11
       rect:
         serializedVersion: 2
-        x: 33
+        x: 96
         y: 0
-        width: 33.588234
-        height: 59
+        width: 96
+        height: 96
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -378,13 +270,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: MediumExpl_19
+      name: LargeExpl_12
       rect:
         serializedVersion: 2
-        x: 68
+        x: 192
         y: 0
-        width: 30
-        height: 59
+        width: 96
+        height: 96
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -392,13 +284,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: MediumExpl_20
+      name: LargeExpl_13
       rect:
         serializedVersion: 2
-        x: 99
+        x: 288
         y: 0
-        width: 28
-        height: 59
+        width: 96
+        height: 96
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -406,55 +298,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: MediumExpl_21
+      name: LargeExpl_14
       rect:
         serializedVersion: 2
-        x: 128
+        x: 384
         y: 0
-        width: 24
-        height: 59
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MediumExpl_22
-      rect:
-        serializedVersion: 2
-        x: 152
-        y: 0
-        width: 24
-        height: 59
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MediumExpl_23
-      rect:
-        serializedVersion: 2
-        x: 177
-        y: 0
-        width: 23
-        height: 59
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: MediumExpl_24
-      rect:
-        serializedVersion: 2
-        x: 200
-        y: 0
-        width: 24
-        height: 59
+        width: 96
+        height: 96
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
