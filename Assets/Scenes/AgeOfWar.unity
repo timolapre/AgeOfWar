@@ -563,6 +563,7 @@ GameObject:
   m_Component:
   - component: {fileID: 866865527}
   - component: {fileID: 480866817}
+  - component: {fileID: 480866816}
   m_Layer: 0
   m_Name: Turret2
   m_TagString: Untagged
@@ -570,6 +571,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &480866816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 480866815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e86f680c4048a40498b21fcc5b22d3b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TurretLevel: 1
+  PlayerID: 1
+  projectile: {fileID: 1128415518675264, guid: ce251fd1bb0742d4395e533c3ff93411, type: 2}
+  gyro: {x: 0, y: 0, z: 0}
 --- !u!212 &480866817
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1055,7 +1071,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1040315672}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1993.127, y: 1096.4974, z: -27.759428}
+  m_LocalPosition: {x: 1854.3298, y: 1018.77094, z: -27.759428}
   m_LocalScale: {x: 5.5518856, y: 5.5518856, z: 5.5518856}
   m_Children:
   - {fileID: 170095593}
@@ -1233,7 +1249,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: b81ce0d07d7da5147992b8839ef9b62c, type: 2}
+  - {fileID: 2100000, guid: 396041e8883ca3a44b33cd16e02b8622, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
