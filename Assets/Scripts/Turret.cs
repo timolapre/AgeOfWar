@@ -10,7 +10,7 @@ public class Turret : MonoBehaviour
     private float offset;
     private int offsetcount;
     public int TurretLevel;
-    float Cooldown = 1;
+    float Cooldown = 2f;
     float Cooling = 0;
     SpriteRenderer TurretBase;
 
@@ -109,6 +109,7 @@ public class Turret : MonoBehaviour
         proj.GetComponent<Projectile>().direction = (transform.rotation.eulerAngles.z + 90) % 360;
         proj.GetComponent<Projectile>().kills = PlayerID == 0 ? "Enemy" : "Player";
         proj.GetComponent<Projectile>().damage = 7 * TurretLevel;
+        proj.GetComponent<Projectile>().transform.localScale = new Vector3(TurretLevel * 0.75f, TurretLevel * 0.75f, 1);
         proj.transform.parent = transform.parent;
         Cooling = Cooldown;
     }
