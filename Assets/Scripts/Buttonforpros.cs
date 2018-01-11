@@ -48,7 +48,7 @@ public class Buttonforpros : MonoBehaviour
         else if (ChangeTo == "Multiplayer")
         {
             //PlayerPrefs.SetInt("VsAI", 0);
-            PlayerPrefs.SetString("Mode", "Multiplayer");
+            //PlayerPrefs.SetString("Mode", "Multiplayer");
             //SceneManager.LoadScene("AgeofWar", LoadSceneMode.Single);
             PlayerPrefs.SetString("PlayerMode", "Multiplayer");
             Can1.SetActive(false);
@@ -101,7 +101,7 @@ public class Buttonforpros : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene(ChangeTo, LoadSceneMode.Single);
+                SceneManager.LoadScene(ChangeTo, LoadSceneMode.Single);
         }
     }
 

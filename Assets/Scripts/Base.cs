@@ -53,8 +53,8 @@ public class Base : MonoBehaviour {
 
     void Start () {
         //Instantiate(Object, spawn.position, spawn.rotation);
-        int vsai = PlayerPrefs.GetInt("VsAI");
-        if (vsai == 1)
+        string vsai = PlayerPrefs.GetString("PlayerMode");
+        if (vsai == "SinglePlayer")
             VsAI = true;
         else
             VsAI = false;
