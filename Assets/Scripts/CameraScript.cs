@@ -11,27 +11,35 @@ public class CameraScript : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
+
     }
-	
+
 	// Update is called once per frame
 	void Update ()
     {
-        if (BaseScript.Playing)
+        if (BaseScript.Playing && BaseScript.VsAI)
         {
-            if (InputHelper.GetStick(0).x > Deadzone && gameObject.transform.position.x < 10)
+            if (InputHelper.GetStick(0).x > Deadzone && gameObject.transform.position.x <  8.75f)
             {
                     transform.Translate(0.1f, 0, 0);
             }
             if (InputHelper.GetStick(0).x < -Deadzone && gameObject.transform.position.x > -1.23f)
             {
                 transform.Translate(-0.1f, 0, 0);
-            }   
+            }
         }
-        else if(BaseScript.Paused == false)
+
+        if (!BaseScript.VsAI && transform.position != new Vector3(3.6f, 4, -10))
         {
-            transform.position = new Vector3(0, 0.9f, -10);
+            Camera.current.orthographicSize = 8.8f;
+            transform.position = new Vector3(3.6f, 4, -10);
         }
- 
+        else if(BaseScript.VsAI && transform.position == new Vector3(3.6f, 4, -10))
+        {
+            Camera.current.orthographicSize = 6;
+            transform.position = new Vector3(-1.23f, 0.9f, -10);
+        }
+
         PlayerPrefs.SetFloat("CameraX", transform.position.x);
     }
 }
