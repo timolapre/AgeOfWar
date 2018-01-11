@@ -24,16 +24,34 @@ public class Button : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(id <= 3)
+        {
+            if (BaseObject.VsAI)
+            {
+                transform.localPosition = new Vector3(-12 + 2.5f * id, -5.25f, 8);
+            }
+            else
+            {
+                transform.localPosition = new Vector3((-17 + 2.5f * id), -8, 8);
+            }
+        }
         if(id == 4)
         {
             if (TurretScript.CanUpgradeTurret())
             {
                 spriterenderer.sprite = Resources.Load("Buttons/turret_upgrade", typeof(Sprite)) as Sprite;                
             }
-            else
+            else if(!TurretScript.CanUpgradeTurret())
             {
                 spriterenderer.sprite = Resources.Load("Buttons/turret_upgrade_grey", typeof(Sprite)) as Sprite;
-                Debug.Log("kaas");
+            }
+            if (!BaseObject.VsAI)
+            {
+                transform.position = new Vector3(-100, -100, 0);
+            }
+            else
+            {
+                transform.localPosition = new Vector3(-0.6500001f, -4.72f, 9);
             }
         }
         if(id == 5)
@@ -42,40 +60,18 @@ public class Button : MonoBehaviour
             {
                 spriterenderer.sprite = Resources.Load("Buttons/TierUpgrade", typeof(Sprite)) as Sprite;
             }
-            else
+            else if(!BaseObject.CanUpgradeTier())
             {
                 spriterenderer.sprite = Resources.Load("Buttons/TierUpgrade_false", typeof(Sprite)) as Sprite;
-                Debug.Log("kaas2");
             }
-        }
-        /*if (Input.GetMouseButtonDown(0))
-        {
-            Ray raycast = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit raycastHit;
-            if (Physics.Raycast(raycast, out raycastHit))
+            if (!BaseObject.VsAI)
             {
-                if (raycastHit.transform.CompareTag("Button"))
-                {
-                    try
-                    {
-                        Touched(raycastHit.transform.GetComponent<Button>().id);
-                        Debug.Log(transform.name);
-                    }
-                    catch { }
-                }
+                transform.position = new Vector3(-100, -100, 0);
             }
-        }*/
-
-        if (id <= 3)
-        {
-            try
+            else
             {
-                spriterenderer.sprite = Spritelist[BaseObject.WhatTier - 1];
-                if (BaseObject.WhatTier > 1)
-                    transform.localScale = new Vector3(0.007529334f, 0.06927653f, 1);
-                    collider.size = spriterenderer.sprite.bounds.size;
+                transform.localPosition = new Vector3(-2.3525f, -4.72f, 9);
             }
-            catch { };
         }
     }
 
@@ -86,21 +82,20 @@ public class Button : MonoBehaviour
 
     void Touched(int id)
     {
-        if (id <= 3)
+        if (BaseObject.VsAI)
         {
-            BaseObject.SpawnPlayer(id+3*(BaseObject.WhatTier-1));
-        }
-        else if (id == 4)
-        {
-            TurretScript.UpgradeTurret();
-        }
-        else if (id == 5)
-        {
-            BaseObject.UpgradeTier();
-        }
-        else if (id == 5)
-        {
-            BaseObject.UpgradeTier();
-        }
+            if (id <= 3)
+            {
+                BaseObject.SpawnPlayer(id+3*(BaseObject.WhatTier-1));
+            }
+            else if (id == 4)
+            {
+                TurretScript.UpgradeTurret();
+            }
+            else if (id == 5)
+            {
+                BaseObject.UpgradeTier();
+            }
+        }        
     }
 }
