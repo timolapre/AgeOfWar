@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class CameraScript : MonoBehaviour {
     public Base BaseScript;
+
+    float Deadzone = .5f;
+
     // Use this for initialization
     void Start ()
     {
@@ -15,11 +18,11 @@ public class CameraScript : MonoBehaviour {
     {
         if (BaseScript.Playing)
         {
-            if (Input.GetKey(KeyCode.RightArrow) && gameObject.transform.position.x < 10)
+            if (InputHelper.GetStick(0).x > Deadzone && gameObject.transform.position.x < 10)
             {
                     transform.Translate(0.1f, 0, 0);
                 }
-            if (Input.GetKey(KeyCode.LeftArrow) && gameObject.transform.position.x > -1.23f)
+            if (InputHelper.GetStick(0).x < -Deadzone && gameObject.transform.position.x > -1.23f)
             {
                 transform.Translate(-0.1f, 0, 0);
             }   
