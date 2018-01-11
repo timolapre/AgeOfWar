@@ -199,4 +199,15 @@ public class Base : MonoBehaviour {
             WhatTier++;
         }       
     }
+    public bool CanUpgradeTier()
+    {
+        if (XP >= 10 * WhatTier && WhatTier != 5)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }
