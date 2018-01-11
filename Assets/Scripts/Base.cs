@@ -33,8 +33,6 @@ public class Base : MonoBehaviour {
     public bool VsAI;
     public bool Teams;
 
-    public Sprite[] Sprites;
-
     public bool Playing;
     public bool Paused;
 
@@ -80,7 +78,7 @@ public class Base : MonoBehaviour {
     }
 
 	void Update () {
-        SpriteRenderer.sprite = Sprites[WhatTier-1];
+        SpriteRenderer.sprite = Resources.Load(WhatFaction + "/Bases/" + WhatTier, typeof(Sprite)) as Sprite;
 
         if (Playing)
         {

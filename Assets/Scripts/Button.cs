@@ -33,7 +33,6 @@ public class Button : MonoBehaviour
             else
             {
                 spriterenderer.sprite = Resources.Load("Buttons/turret_upgrade_grey", typeof(Sprite)) as Sprite;
-                Debug.Log("kaas");
             }
         }
         if(id == 5)
@@ -70,8 +69,8 @@ public class Button : MonoBehaviour
         {
             try
             {
-                Debug.Log("JOEE");
                 spriterenderer.sprite = Spritelist[BaseObject.WhatTier - 1];
+                spriterenderer.sprite = Resources.Load(BaseObject.WhatFaction + "/Units/" + BaseObject.WhatTier.ToString() + "_" + (((id - 1) % 3) + 1).ToString(), typeof(Sprite)) as Sprite;
                 if (BaseObject.WhatTier > 1)
                     transform.localScale = new Vector3(0.007529334f, 0.06927653f, 1);
                     collider.size = spriterenderer.sprite.bounds.size;
