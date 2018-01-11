@@ -35,6 +35,17 @@ public class Button : MonoBehaviour
                 transform.localPosition = new Vector3((-17 + 2.5f * id), -8, 8);
             }
         }
+        if(id >= 6 && id <= 8)
+        {
+            if (BaseObject.VsAI)
+            {
+                transform.localPosition = new Vector3(-100, -100, 8);
+            }
+            else
+            {
+                transform.localPosition = new Vector3(16.5f - 2.5f * (id - 5), -8, 8);
+            }
+        }
         if(id == 4)
         {
             if (TurretScript.CanUpgradeTurret())
@@ -51,7 +62,7 @@ public class Button : MonoBehaviour
             }
             else
             {
-                transform.localPosition = new Vector3(-0.6500001f, -4.72f, 9);
+                transform.localPosition = new Vector3(-2.3525f, -4.72f, 9);
             }
         }
         if(id == 5)
@@ -70,7 +81,7 @@ public class Button : MonoBehaviour
             }
             else
             {
-                transform.localPosition = new Vector3(-2.3525f, -4.72f, 9);
+                transform.localPosition = new Vector3(-0.6500001f, -4.72f, 9);
             }
         }
     }

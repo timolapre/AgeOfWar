@@ -55,38 +55,7 @@ public class Enemy : MonoBehaviour {
             expl.GetComponent<Explosion>().ExplTimes = 0;
             expl.transform.Translate(0, -2f, 0);
             Destroy(gameObject);
-        }
-
-        /*if (transform.position.x > BaseScript.FirstPlayer + 1 && !BaseScript.GameOver)
-	// Update is called once per frame
-	void Update () {
-        if (transform.position.x > BaseScript.FirstPlayer + 1 && BaseScript.Playing)
-        {
-            if (transform.position.x > Closest + 1)
-                transform.Translate(-0.05f, 0, 0);
-        }
-
-        if (transform.position.x <= -6 && BaseScript.PlayerBaseHealth>0)
-            BaseScript.PlayerBaseHealth -= Damage;
-
-        if (Health <= 0)
-        {
-            BaseScript.XP += Xp;
-            BaseScript.Money += Money;
-            BaseScript.FirstEnemy = 10;
-            BaseScript.EnemyList.Remove(gameObject);
-            Destroy(gameObject);
-        }
-
-        if (transform.position.x < BaseScript.FirstEnemy && Health > 0)
-        {
-            BaseScript.FirstEnemy = transform.position.x;
-        }
-
-        Closest = -1000;
-        foreach (GameObject OtherGameObject in BaseScript.EnemyList)
-            if (OtherGameObject.transform.position.x > Closest && OtherGameObject.transform.position.x < transform.position.x)
-                Closest = OtherGameObject.transform.position.x;*/
+        }       
     }
 
     void OnTriggerEnter2D(Collider2D collision)
