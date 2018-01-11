@@ -26,6 +26,7 @@ public class Button : MonoBehaviour
     {
         if(id <= 3)
         {
+            spriterenderer.sprite = Resources.Load(BaseObject.WhatFaction + "/Units/" + BaseObject.WhatTier.ToString() + "_" + (((id - 1) % 3) + 1).ToString(), typeof(Sprite)) as Sprite;
             if (BaseObject.VsAI)
             {
                 transform.localPosition = new Vector3(-12 + 2.5f * id, -5.25f, 8);
@@ -55,8 +56,6 @@ public class Button : MonoBehaviour
             else if(!TurretScript.CanUpgradeTurret())
             {
                 spriterenderer.sprite = Resources.Load("Buttons/turret_upgrade_grey", typeof(Sprite)) as Sprite;
-<<<<<<< HEAD
-=======
             }
             if (!BaseObject.VsAI)
             {
@@ -65,7 +64,6 @@ public class Button : MonoBehaviour
             else
             {
                 transform.localPosition = new Vector3(-2.3525f, -4.72f, 9);
->>>>>>> 9262fe7c54c5cbeb94a3bd80c591ecfdb086adf1
             }
         }
         if(id == 5)
@@ -84,15 +82,7 @@ public class Button : MonoBehaviour
             }
             else
             {
-<<<<<<< HEAD
-                spriterenderer.sprite = Spritelist[BaseObject.WhatTier - 1];
-                spriterenderer.sprite = Resources.Load(BaseObject.WhatFaction + "/Units/" + BaseObject.WhatTier.ToString() + "_" + (((id - 1) % 3) + 1).ToString(), typeof(Sprite)) as Sprite;
-                if (BaseObject.WhatTier > 1)
-                    transform.localScale = new Vector3(0.007529334f, 0.06927653f, 1);
-                    collider.size = spriterenderer.sprite.bounds.size;
-=======
                 transform.localPosition = new Vector3(-0.6500001f, -4.72f, 9);
->>>>>>> 9262fe7c54c5cbeb94a3bd80c591ecfdb086adf1
             }
         }
     }

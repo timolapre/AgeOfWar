@@ -47,15 +47,12 @@ public class Buttonforpros : MonoBehaviour
         }
         else if (ChangeTo == "Multiplayer")
         {
-<<<<<<< HEAD
-            PlayerPrefs.SetInt("VsAI", 0);
+            //PlayerPrefs.SetInt("VsAI", 0);
             PlayerPrefs.SetString("Mode", "Multiplayer");
-            SceneManager.LoadScene("AgeofWar", LoadSceneMode.Single);
-=======
+            //SceneManager.LoadScene("AgeofWar", LoadSceneMode.Single);
             PlayerPrefs.SetString("PlayerMode", "Multiplayer");
             Can1.SetActive(false);
             Can4.SetActive(true);
->>>>>>> zoveelste-kk-branch-kk-github
         }
         else if (ChangeTo == "Singleplayer")
         {
