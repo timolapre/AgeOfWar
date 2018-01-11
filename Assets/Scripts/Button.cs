@@ -39,7 +39,7 @@ public class Button : MonoBehaviour
         {
             if (TurretScript.CanUpgradeTurret())
             {
-                spriterenderer.sprite = Resources.Load("Buttons/turret_upgrade", typeof(Sprite)) as Sprite;                
+                spriterenderer.sprite = Resources.Load("Buttons/turret_upgrade", typeof(Sprite)) as Sprite;
             }
             else if(!TurretScript.CanUpgradeTurret())
             {
@@ -96,6 +96,6 @@ public class Button : MonoBehaviour
             {
                 BaseObject.UpgradeTier();
             }
-        }        
+        }
     }
 }
