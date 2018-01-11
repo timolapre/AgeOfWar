@@ -38,3 +38,6 @@ sysinfo.txt
 *.unitypackage
 Assets/Scenes/AgeOfWar.unity
 Assets/Resources/
+*.png
+Assets/Resources/TierUpgrade_false.png
+*.png
