@@ -10,8 +10,9 @@ public class MenuNav : PointerInputModule
 {
 	public float Cooldown = .2f;
 
-	public GameObject Selected;
-	float deadzone = 0.1f;
+	public static GameObject Selected;
+    public GameObject tset;
+	float deadzone = 0.5f;
 	float Cooling = 0;
 	Vector3 LastMouse;
 	int inputmode = 0;
@@ -34,8 +35,9 @@ public class MenuNav : PointerInputModule
 
 	public override void Process()
 	{
+        tset = Selected;
 		Cooling -= Time.deltaTime;
-
+        
 		if ((Mathf.Abs(InputHelper.GetStick(0).y) > deadzone || Mathf.Abs(InputHelper.GetStick(0).x) > deadzone) && Cooling <= 0)
 		{
 			if (inputmode != 0)
@@ -101,7 +103,7 @@ public class MenuNav : PointerInputModule
 
 	void Select(Vector2 dir)
 	{
-		MoveDirection md = DetermineMoveDirection(dir.x, dir.y);
+		MoveDirection md = DetermineMoveDirection(dir.x * 10, dir.y * 10);
 		try
 		{
 			if (md == MoveDirection.Up)
@@ -124,4 +126,10 @@ public class MenuNav : PointerInputModule
 		if(Selected != null)
 			eventSystem.SetSelectedGameObject(Selected, new BaseEventData(eventSystem));
 	}
+
+    public void ResetSelected(GameObject obj)
+    {
+        Selected = obj;
+        Debug.Log(obj.name);
+    }
 }

@@ -3,6 +3,7 @@
 /[Oo]bj/
 /[Bb]uild/
 /[Bb]uilds/
+/Assets/Resources/
 
 /Assets/AssetStoreTools*
 /Assets/Plugins/GitHub.meta
@@ -37,4 +38,7 @@ sysinfo.txt
 *.apk
 *.unitypackage
 Assets/Scenes/AgeOfWar.unity
-Assets/Resources/
+/Assets/Resources/
+*.png
+/Assets/Resources/TierUpgrade_false.png
+*.png
