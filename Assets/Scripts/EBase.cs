@@ -12,12 +12,15 @@ public class EBase : MonoBehaviour {
     public int Money;
     int Faction;
     public int XP;
-    public int WhatTier = 1;
+
+    SpriteRenderer SpriteRenderer;
+    public Sprite[] Sprites;
 
     int PlayerID = 1;
 
 	// Use this for initialization
 	void Start () {
+        SpriteRenderer = GetComponent<SpriteRenderer>();
         BaseScript = GetComponentInParent<Base>();
 
         Money = BaseScript.StartMoney;
@@ -26,6 +29,8 @@ public class EBase : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+        SpriteRenderer.sprite = Sprites[BaseScript.WhatTierEnemy - 1];
+
         if (BaseScript.VsAI)
         {
             AI();
@@ -34,19 +39,19 @@ public class EBase : MonoBehaviour {
 
         if (InputHelper.GetActionDown(PlayerID, Joycon.Button.DPAD_LEFT) && Money >= 1)
         {
-            SpawnPlayer(WhatTier * 3 - 2);
+            SpawnPlayer(BaseScript.WhatTierEnemy * 3 - 2);
         }
         if (InputHelper.GetActionDown(PlayerID, Joycon.Button.DPAD_DOWN) && Money >= 3)
         {
-            SpawnPlayer(WhatTier * 3 - 1);
+            SpawnPlayer(BaseScript.WhatTierEnemy * 3 - 1);
         }
         if (InputHelper.GetActionDown(PlayerID, Joycon.Button.DPAD_RIGHT) && Money >= 5)
         {
-            SpawnPlayer(WhatTier * 3);
+            SpawnPlayer(BaseScript.WhatTierEnemy * 3);
         }
-        if (InputHelper.GetActionDown(PlayerID, Joycon.Button.SR) && XP >= 10 * WhatTier)
+        if (InputHelper.GetActionDown(PlayerID, Joycon.Button.SR) && XP >= 10 * BaseScript.WhatTierEnemy)
         {
-            WhatTier++;
+            BaseScript.WhatTierEnemy++;
         }
     }
 
@@ -70,6 +75,12 @@ public class EBase : MonoBehaviour {
             SpawnEnemy(Random.Range((int)Time.fixedTime / 50 + 1, Mathf.Min(4, (int)Time.fixedTime / 25 + 2)));
             random = Random.Range(3f, 7f) + Time.fixedTime;
         }
+        if (Time.fixedTime > 10)
+            BaseScript.WhatTierEnemy = 2;
+        if (Time.fixedTime > 13)
+            BaseScript.WhatTierEnemy = 3;
+        if (Time.fixedTime > 16)
+            BaseScript.WhatTierEnemy = 4;
 
         /*if (Input.GetKeyDown(KeyCode.L))
             SpawnEnemy(Random.Range(1, 4));*/

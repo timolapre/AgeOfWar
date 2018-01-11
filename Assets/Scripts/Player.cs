@@ -132,7 +132,9 @@ public class Player : MonoBehaviour {
     {
         //SpriteRenderer.sprite = SpriteList[id-1];
         transform.localScale = new Vector3(-2, 2, 1);
-        SpriteRenderer.sprite = Resources.Load("Germany/Units/" + BaseScript.WhatTier.ToString() + "_" + (((id-1)%3)+1).ToString(), typeof(Sprite)) as Sprite;
+        
+        //Get Sprites. in Units folder + sprites names should be 1_1, 1_2, 2_1 etc (Tier_ID)
+        SpriteRenderer.sprite = Resources.Load(BaseScript.WhatFaction + "/Units/" + BaseScript.WhatTier.ToString() + "_" + (((id-1)%3)+1).ToString(), typeof(Sprite)) as Sprite;
 
         if (id == 1)
         {
