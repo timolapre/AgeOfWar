@@ -22,7 +22,7 @@ public class CameraScript : MonoBehaviour {
             if (InputHelper.GetStick(0).x > Deadzone && gameObject.transform.position.x <  8.75f)
             {
                     transform.Translate(0.1f, 0, 0);
-                }
+            }
             if (InputHelper.GetStick(0).x < -Deadzone && gameObject.transform.position.x > -1.23f)
             {
                 transform.Translate(-0.1f, 0, 0);

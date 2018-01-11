@@ -14,7 +14,6 @@ public class EBase : MonoBehaviour {
     public int XP;
 
     SpriteRenderer SpriteRenderer;
-    public Sprite[] Sprites;
 
     int PlayerID = 1;
 
@@ -29,7 +28,7 @@ public class EBase : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-        SpriteRenderer.sprite = Sprites[BaseScript.WhatTierEnemy - 1];
+        SpriteRenderer.sprite = Resources.Load(BaseScript.WhatFactionEnemy + "/Bases/" + BaseScript.WhatTierEnemy, typeof(Sprite)) as Sprite;
 
         if (BaseScript.VsAI)
         {
@@ -75,11 +74,11 @@ public class EBase : MonoBehaviour {
             SpawnEnemy(Random.Range((int)Time.fixedTime / 50 + 1, Mathf.Min(4, (int)Time.fixedTime / 25 + 2)));
             random = Random.Range(3f, 7f) + Time.fixedTime;
         }
-        if (Time.fixedTime > 10)
+        if (Time.fixedTime > 30)
             BaseScript.WhatTierEnemy = 2;
-        if (Time.fixedTime > 13)
+        if (Time.fixedTime > 60)
             BaseScript.WhatTierEnemy = 3;
-        if (Time.fixedTime > 16)
+        if (Time.fixedTime > 100    )
             BaseScript.WhatTierEnemy = 4;
 
         /*if (Input.GetKeyDown(KeyCode.L))
