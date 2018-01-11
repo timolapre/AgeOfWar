@@ -2778,8 +2778,8 @@ MonoBehaviour:
   Can1: {fileID: 368263607}
   Can2: {fileID: 1477365615}
   Can3: {fileID: 783943369}
-  Can4: {fileID: 0}
-  Can5: {fileID: 0}
+  Can4: {fileID: 315958968}
+  Can5: {fileID: 937595857}
   Playerfaction: {fileID: 0}
   Enemyfaction: {fileID: 0}
   Diff: {fileID: 0}
@@ -6404,8 +6404,8 @@ MonoBehaviour:
   Can1: {fileID: 368263607}
   Can2: {fileID: 1477365615}
   Can3: {fileID: 783943369}
-  Can4: {fileID: 0}
-  Can5: {fileID: 0}
+  Can4: {fileID: 315958968}
+  Can5: {fileID: 937595857}
   Playerfaction: {fileID: 555160314}
   Enemyfaction: {fileID: 16353699}
   Diff: {fileID: 2120993049}
@@ -6960,7 +6960,7 @@ MonoBehaviour:
   Can1: {fileID: 368263607}
   Can2: {fileID: 1477365615}
   Can3: {fileID: 783943369}
-  Can4: {fileID: 0}
+  Can4: {fileID: 315958968}
   Can5: {fileID: 0}
   Playerfaction: {fileID: 0}
   Enemyfaction: {fileID: 0}
@@ -7324,8 +7324,8 @@ MonoBehaviour:
   Can1: {fileID: 368263607}
   Can2: {fileID: 1477365615}
   Can3: {fileID: 783943369}
-  Can4: {fileID: 0}
-  Can5: {fileID: 0}
+  Can4: {fileID: 315958968}
+  Can5: {fileID: 937595857}
   Playerfaction: {fileID: 0}
   Enemyfaction: {fileID: 0}
   Diff: {fileID: 0}
