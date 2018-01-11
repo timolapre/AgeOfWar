@@ -44,7 +44,7 @@ public class InputHelper {
 		//if there is a joycon just return it's input
 		if (joycons.Count > PlayerID)
 		{
-			return new Vector2(joycons[PlayerID].GetStick()[0], joycons[PlayerID].GetStick()[1]);
+			return new Vector2(-joycons[PlayerID].GetStick()[1], joycons[PlayerID].GetStick()[0]);
 		}
 
 		//else use WASD as stick
