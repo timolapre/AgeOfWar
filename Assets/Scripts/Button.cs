@@ -24,6 +24,30 @@ public class Button : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(id == 4)
+        {
+            if (TurretScript.CanUpgradeTurret())
+            {
+                spriterenderer.sprite = Resources.Load("Buttons/turret_upgrade", typeof(Sprite)) as Sprite;                
+            }
+            else
+            {
+                spriterenderer.sprite = Resources.Load("Buttons/turret_upgrade_grey", typeof(Sprite)) as Sprite;
+                Debug.Log("kaas");
+            }
+        }
+        if(id == 5)
+        {
+            if (BaseObject.CanUpgradeTier())
+            {
+                spriterenderer.sprite = Resources.Load("Buttons/TierUpgrade", typeof(Sprite)) as Sprite;
+            }
+            else
+            {
+                spriterenderer.sprite = Resources.Load("Buttons/TierUpgrade_false", typeof(Sprite)) as Sprite;
+                Debug.Log("kaas2");
+            }
+        }
         /*if (Input.GetMouseButtonDown(0))
         {
             Ray raycast = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -69,7 +93,6 @@ public class Button : MonoBehaviour
         else if (id == 4)
         {
             TurretScript.UpgradeTurret();
-            Debug.Log("kaas");
         }
         else if (id == 5)
         {
