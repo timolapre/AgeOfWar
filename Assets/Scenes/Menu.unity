@@ -268,7 +268,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 790213363}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 458, y: 202, z: 0}
+  m_LocalPosition: {x: 360, y: 202.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1964603432}
@@ -412,6 +412,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23e3e29672312324691cb14b85c82dd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Cam: {fileID: 0}
+  Can1: {fileID: 0}
+  Can2: {fileID: 0}
+  Can3: {fileID: 0}
+  Playerfaction: {fileID: 0}
+  Enemyfaction: {fileID: 0}
+  Diff: {fileID: 0}
 --- !u!114 &955243585
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -588,6 +595,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23e3e29672312324691cb14b85c82dd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Cam: {fileID: 0}
+  Can1: {fileID: 0}
+  Can2: {fileID: 0}
+  Can3: {fileID: 0}
+  Playerfaction: {fileID: 0}
+  Enemyfaction: {fileID: 0}
+  Diff: {fileID: 0}
 --- !u!114 &1130378201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -722,6 +736,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23e3e29672312324691cb14b85c82dd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Cam: {fileID: 0}
+  Can1: {fileID: 0}
+  Can2: {fileID: 0}
+  Can3: {fileID: 0}
+  Playerfaction: {fileID: 0}
+  Enemyfaction: {fileID: 0}
+  Diff: {fileID: 0}
 --- !u!114 &1291757298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -969,7 +990,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: AgeOfWar
+          m_StringArgument: Pre-GameSettings
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -1018,6 +1039,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23e3e29672312324691cb14b85c82dd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Cam: {fileID: 0}
+  Can1: {fileID: 0}
+  Can2: {fileID: 0}
+  Can3: {fileID: 0}
+  Playerfaction: {fileID: 0}
+  Enemyfaction: {fileID: 0}
+  Diff: {fileID: 0}
 --- !u!65 &1964603437
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1059,6 +1087,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Cooldown: 0.2
+  Selected: {fileID: 0}
 --- !u!114 &2010732378
 MonoBehaviour:
   m_ObjectHideFlags: 0
