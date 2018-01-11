@@ -26,16 +26,14 @@ public class Base : MonoBehaviour {
     public float EnemyBaseHealth;
     public int XP;
     public int WhatTier = 1;
+    public int WhatTierEnemy = 1;
+    public string WhatFaction;
+    public string WhatFactionEnemy;
     public bool GameOver;
     public bool VsAI;
     public bool Teams;
-    public int Faction1;
 
-    public Sprite Sprite1;
-    public Sprite Sprite2;
-    public Sprite Sprite3;
-    public Sprite Sprite4;
-    public Sprite Sprite5;
+    public Sprite[] Sprites;
 
     public bool Playing;
     public bool Paused;
@@ -62,7 +60,11 @@ public class Base : MonoBehaviour {
             VsAI = true;
         else
             VsAI = false;
-        Debug.Log(vsai + " " + VsAI);
+        //Debug.Log(vsai + " " + VsAI);
+
+        WhatFaction = PlayerPrefs.GetString("Faction");
+        WhatFactionEnemy = PlayerPrefs.GetString("FactionEnemy");
+        Debug.Log(WhatFaction + " " + WhatFactionEnemy);
 
         SpriteRenderer = GetComponent<SpriteRenderer>();
         TurretScript = GameObject.Find("Turret").GetComponent<Turret>();
@@ -75,20 +77,11 @@ public class Base : MonoBehaviour {
         EnemyBaseHealth = 1000;
         Random = UnityEngine.Random.Range(100, 1000);
         Playing = true;
-        Faction1 = 0;
     }
 
 	void Update () {
-        if (WhatTier == 1)
-            SpriteRenderer.sprite = Sprite1;
-        else if (WhatTier == 2)
-            SpriteRenderer.sprite = Sprite2;
-        else if (WhatTier == 3)
-            SpriteRenderer.sprite = Sprite3;
-        else if (WhatTier == 4)
-            SpriteRenderer.sprite = Sprite4;
-        else if (WhatTier == 5)
-            SpriteRenderer.sprite = Sprite5;
+        SpriteRenderer.sprite = Sprites[WhatTier-1];
+
         if (Playing)
         {
             MoneyText.text = "Money: " + Money;
@@ -197,7 +190,7 @@ public class Base : MonoBehaviour {
         FirstPlayer = -8;
         FirstEnemy = 10;
         WhatTier = 1;
-        eBase.WhatTier = 1;
+        WhatTierEnemy = 1;
     }
     public void UpgradeTier()
     {

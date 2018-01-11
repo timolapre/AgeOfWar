@@ -1071,7 +1071,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1040315672}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1854.3298, y: 1018.77094, z: -27.759428}
+  m_LocalPosition: {x: 1968.1436, y: 1082.6177, z: -27.759428}
   m_LocalScale: {x: 5.5518856, y: 5.5518856, z: 5.5518856}
   m_Children:
   - {fileID: 170095593}
@@ -1350,15 +1350,18 @@ MonoBehaviour:
   EnemyBaseHealth: 0
   XP: 40
   WhatTier: 1
+  WhatTierEnemy: 1
+  WhatFaction: 
+  WhatFactionEnemy: 
   GameOver: 0
   VsAI: 0
   Teams: 0
-  Faction1: 0
-  Sprite1: {fileID: 21300000, guid: 26ad75bc15b28544894c491c16e2909e, type: 3}
-  Sprite2: {fileID: 21300000, guid: 8003f0c721620644591fc94df778087e, type: 3}
-  Sprite3: {fileID: 21300000, guid: 62d91391e21f4f14f9d2ca3844f3e26a, type: 3}
-  Sprite4: {fileID: 21300000, guid: 0b38ca96a6f2c39468bb700271117930, type: 3}
-  Sprite5: {fileID: 21300000, guid: 836ee40aa297aa64186ce50e6ee301da, type: 3}
+  Sprites:
+  - {fileID: 21300000, guid: 26ad75bc15b28544894c491c16e2909e, type: 3}
+  - {fileID: 21300000, guid: 8003f0c721620644591fc94df778087e, type: 3}
+  - {fileID: 21300000, guid: 62d91391e21f4f14f9d2ca3844f3e26a, type: 3}
+  - {fileID: 21300000, guid: 0b38ca96a6f2c39468bb700271117930, type: 3}
+  - {fileID: 21300000, guid: 836ee40aa297aa64186ce50e6ee301da, type: 3}
   Playing: 0
   Paused: 0
   PlayerList: []
@@ -2155,7 +2158,12 @@ MonoBehaviour:
   spawnEnemy: {fileID: 1841949569}
   Money: 0
   XP: 0
-  WhatTier: 1
+  Sprites:
+  - {fileID: 21300000, guid: 26ad75bc15b28544894c491c16e2909e, type: 3}
+  - {fileID: 21300000, guid: 8003f0c721620644591fc94df778087e, type: 3}
+  - {fileID: 21300000, guid: 62d91391e21f4f14f9d2ca3844f3e26a, type: 3}
+  - {fileID: 21300000, guid: 0b38ca96a6f2c39468bb700271117930, type: 3}
+  - {fileID: 21300000, guid: 836ee40aa297aa64186ce50e6ee301da, type: 3}
 --- !u!1001 &1993968504
 Prefab:
   m_ObjectHideFlags: 0

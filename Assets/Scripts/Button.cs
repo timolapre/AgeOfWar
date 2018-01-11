@@ -46,6 +46,7 @@ public class Button : MonoBehaviour
         {
             try
             {
+                Debug.Log("JOEE");
                 spriterenderer.sprite = Spritelist[BaseObject.WhatTier - 1];
                 if (BaseObject.WhatTier > 1)
                     transform.localScale = new Vector3(0.007529334f, 0.06927653f, 1);

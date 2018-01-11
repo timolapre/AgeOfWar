@@ -130,13 +130,14 @@ public class Enemy : MonoBehaviour {
 
     void GetStartValues(int id)
     {
+        SpriteRenderer.sprite = Resources.Load(BaseScript.WhatFactionEnemy + "/Units/" + BaseScript.WhatTierEnemy.ToString() + "_" + (((id - 1) % 3) + 1).ToString(), typeof(Sprite)) as Sprite;
+
         transform.localScale = new Vector3(2, 2, 1);
         if (id == 1)
         {
             Health = 10;
             Damage = 1;
             Range = 1;
-            SpriteRenderer.sprite = Sprite1;
             Xp = 1;
             Money = 1;
             AttackAfterXSeconds = 0.3f;
@@ -148,7 +149,6 @@ public class Enemy : MonoBehaviour {
             Health = 20;
             Damage = 2;
             Range = 1;
-            SpriteRenderer.sprite = Sprite2;
             Xp = 2;
             Money = 2;
             AttackAfterXSeconds = 0.3f;
@@ -160,7 +160,6 @@ public class Enemy : MonoBehaviour {
             Health = 30;
             Damage = 2;
             Range = 1;
-            SpriteRenderer.sprite = Sprite3;
             Xp = 3;
             Money = 3;
             AttackAfterXSeconds = 0.3f;
@@ -172,7 +171,6 @@ public class Enemy : MonoBehaviour {
             Health = 25;
             Damage = 2;
             Range = 1;
-            SpriteRenderer.sprite = Sprite4;
             Xp = 4;
             Money = 4;
             AttackAfterXSeconds = 0.3f;
@@ -184,7 +182,6 @@ public class Enemy : MonoBehaviour {
             Health = 40;
             Damage = 4;
             Range = 1;
-            SpriteRenderer.sprite = Sprite5;
             Xp = 5;
             Money = 5;
             AttackAfterXSeconds = 0.3f;
@@ -196,7 +193,6 @@ public class Enemy : MonoBehaviour {
             Health = 50;
             Damage = 5;
             Range = 1;
-            SpriteRenderer.sprite = Sprite6;
             Xp = 5;
             Money = 5;
             AttackAfterXSeconds = 0.3f;
