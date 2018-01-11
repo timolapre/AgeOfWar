@@ -91,7 +91,7 @@ public class Turret : MonoBehaviour
 
     public void UpgradeTurret()
     {
-        if(BaseScript.Money >= 0/*add cost here later*/ && BaseScript.WhatTier > TurretLevel && BaseScript.Playing)
+        if(BaseScript.Money >= 0/*add cost here later*/ && BaseScript.WhatTier > TurretLevel && BaseScript.Playing && TurretLevel != 5)
         {
             TurretLevel++;
             SpriteRenderer.sprite = Resources.Load<Sprite>("Germany/Turrets/german_turret_barrel_" + TurretLevel);
@@ -103,6 +103,17 @@ public class Turret : MonoBehaviour
         }
     }
 
+    public bool CanUpgradeTurret()
+    {
+        if (BaseScript.Money >= 0/*add cost here later*/ && BaseScript.WhatTier > TurretLevel && TurretLevel != 5)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
     void Shoot()
     {
         GameObject proj = Instantiate(projectile, GetComponentsInChildren<Transform>()[1].position, new Quaternion(0, 0, 0, 0));
