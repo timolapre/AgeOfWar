@@ -1138,7 +1138,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1032384078}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0962ec3ee7750194b826942f69856b04, type: 3}
   m_Name: 
@@ -1469,12 +1469,6 @@ MonoBehaviour:
   GameOver: 0
   VsAI: 0
   Teams: 0
-  Sprites:
-  - {fileID: 21300000, guid: 26ad75bc15b28544894c491c16e2909e, type: 3}
-  - {fileID: 21300000, guid: 8003f0c721620644591fc94df778087e, type: 3}
-  - {fileID: 21300000, guid: 62d91391e21f4f14f9d2ca3844f3e26a, type: 3}
-  - {fileID: 21300000, guid: 0b38ca96a6f2c39468bb700271117930, type: 3}
-  - {fileID: 21300000, guid: 836ee40aa297aa64186ce50e6ee301da, type: 3}
   Playing: 0
   Paused: 0
   PlayerList: []
@@ -2371,7 +2365,6 @@ MonoBehaviour:
   spawnEnemy: {fileID: 1841949569}
   Money: 0
   XP: 0
-  Sprites: []
 --- !u!1 &1984274837
 GameObject:
   m_ObjectHideFlags: 0
