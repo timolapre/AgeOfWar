@@ -45,7 +45,7 @@ public class Button : MonoBehaviour
             else
             {
                 transform.localPosition = new Vector3(16.5f - 2.5f * (id - 5), -8, 8);
-                spriterenderer.sprite = Resources.Load(BaseObject.WhatFaction + "/Units/" + BaseObject.WhatTier.ToString() + "_" + (((id - 1) % 3) + 1).ToString(), typeof(Sprite)) as Sprite;
+                spriterenderer.sprite = Resources.Load(BaseObject.WhatFactionEnemy + "/Units/" + BaseObject.WhatTierEnemy.ToString() + "_" + (((id - 1) % 3) + 1).ToString(), typeof(Sprite)) as Sprite;
             }
         }
         if(id == 4)

@@ -79,6 +79,8 @@ public class Base : MonoBehaviour {
         EnemyBaseHealth = 1000;
         Random = UnityEngine.Random.Range(100, 1000);
         Playing = true;
+        WhatTier = 1;
+        WhatTierEnemy = 1;
     }
 
 	void Update () {

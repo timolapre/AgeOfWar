@@ -74,11 +74,11 @@ public class Buttonforpros : MonoBehaviour
         else if (ChangeTo == "SKRSingle")
         {
             int playerval = Playerfaction.value;
-            string player = Playerfaction.options[playerval].text;
-            PlayerPrefs.SetString("Player", player);
+            string Faction = Playerfaction.options[playerval].text;
+            PlayerPrefs.SetString("Faction", Faction);
             int Enemyval = Enemyfaction.value;
-            string Enemy = Enemyfaction.options[Enemyval].text;
-            PlayerPrefs.SetString("Enemy", Enemy);
+            string FactionEnemy = Enemyfaction.options[Enemyval].text;
+            PlayerPrefs.SetString("FactionEnemy", FactionEnemy);
             int Diffval = Diff.value;
             string Difficulty = Diff.options[Diffval].text;
             PlayerPrefs.SetString("Difficulty", Difficulty);
@@ -88,11 +88,11 @@ public class Buttonforpros : MonoBehaviour
         else if (ChangeTo == "SKRMulti")
         {
             int player1 = Player1.value;
-            string player1val = Player1.options[player1].text;
-            PlayerPrefs.SetString("Player1", player1val);
+            string Faction = Player1.options[player1].text;
+            PlayerPrefs.SetString("Faction", Faction);
             int player2 = Player2.value;
-            string player2val = Player2.options[player2].text;
-            PlayerPrefs.SetString("player2", player2val);
+            string FactionEnemy = Player2.options[player2].text;
+            PlayerPrefs.SetString("FactionEnemy", FactionEnemy);
             PlayerPrefs.SetString("Mode", "SkrimischMulti");
             SceneManager.LoadScene("AgeOfWar", LoadSceneMode.Single);
             //int PlayerFaction = PlayerPrefs.SetInt("PlayerFaction", Can1.GetComponentInChildren<Dropdown>().value);
