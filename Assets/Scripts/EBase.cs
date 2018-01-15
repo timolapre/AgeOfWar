@@ -38,31 +38,32 @@ public class EBase : MonoBehaviour {
 
         if (InputHelper.GetActionDown(PlayerID, Joycon.Button.DPAD_LEFT) && Money >= 1)
         {
-            SpawnPlayer(BaseScript.WhatTierEnemy * 3 - 2);
+            SpawnPlayer(1);
         }
         if (InputHelper.GetActionDown(PlayerID, Joycon.Button.DPAD_DOWN) && Money >= 3)
         {
-            SpawnPlayer(BaseScript.WhatTierEnemy * 3 - 1);
+            SpawnPlayer(2);
         }
         if (InputHelper.GetActionDown(PlayerID, Joycon.Button.DPAD_RIGHT) && Money >= 5)
         {
-            SpawnPlayer(BaseScript.WhatTierEnemy * 3);
+            SpawnPlayer(3);
         }
-        if (InputHelper.GetActionDown(PlayerID, Joycon.Button.SR) && XP >= 10 * BaseScript.WhatTierEnemy)
+        if (InputHelper.GetActionDown(PlayerID, Joycon.Button.SR) && XP >= 10 * BaseScript.WhatTierEnemy && BaseScript.WhatTierEnemy != 5)
         {
-            BaseScript.WhatTierEnemy++;
+            XP -= BaseScript.WhatTierEnemy * 10;
+            BaseScript.WhatTierEnemy++;          
         }
     }
 
     void SpawnPlayer(int id)
     {
-        if (Money >= BaseScript.UnitCosts[id / 3, (id - 1) % 3] && BaseScript.Playing)
+        if (Money >= 5 * id && BaseScript.Playing)
         {
             GameObject tempPlayer = Instantiate(BaseScript.Enemy, BaseScript.SpawnEnemyLocation.position, BaseScript.SpawnEnemyLocation.rotation, transform) as GameObject;
             Enemy tempPlayerScript = tempPlayer.GetComponent<Enemy>();
             tempPlayerScript.WhichUnit = id;
             BaseScript.EnemyList.Add(tempPlayer);
-            Money -= BaseScript.UnitCosts[(id - 1) / 3, (id - 1) % 3];
+            Money -= 5 * id;
         }
     }
 

@@ -23,7 +23,7 @@ public class Turret : MonoBehaviour
     {
         TurretLevel = 1;
         BaseScript = GetComponentInParent<Base>();
-        rotation = 90 * (PlayerID == 1 ? -1 : 1);
+        rotation = (PlayerID == 1 ? 0 : 180);
         SpriteRenderer = GetComponent<SpriteRenderer>();
         TurretBase = PlayerID == 0 ? GameObject.Find("Turret Body").GetComponent<SpriteRenderer>(): GameObject.Find("Turret Body2").GetComponent<SpriteRenderer>();
     }
@@ -91,15 +91,26 @@ public class Turret : MonoBehaviour
 
     public void UpgradeTurret()
     {
-        if(BaseScript.Money >= 0/*add cost here later*/ && BaseScript.WhatTier > TurretLevel && BaseScript.Playing && TurretLevel != 5)
+        if(BaseScript.Money >= 0/*add cost here later*/ && BaseScript.Playing && TurretLevel != 5)
         {
-            TurretLevel++;
-            SpriteRenderer.sprite = Resources.Load<Sprite>("Germany/Turrets/german_turret_barrel_" + TurretLevel);
-            TurretBase.sprite = Resources.Load<Sprite>("Germany/Turrets/german_turret_body_" + TurretLevel);
+            if(PlayerID == 0 &BaseScript.WhatTier > TurretLevel)
+            {            
+                TurretLevel++;
+                SpriteRenderer.sprite = Resources.Load<Sprite>("Germany/Turrets/german_turret_barrel_" + TurretLevel);
+                TurretBase.sprite = Resources.Load<Sprite>("Germany/Turrets/german_turret_body_" + TurretLevel);
 
-            GetComponentsInChildren<Transform>()[1].localPosition = new Vector3(-1, 0);
-            transform.localPosition = new Vector3(0, 0, .1f);
+                GetComponentsInChildren<Transform>()[1].localPosition = new Vector3(-1, 0);
+                transform.localPosition = new Vector3(0, 0, .1f);
+            }
+            else if(PlayerID == 1 & BaseScript.WhatTierEnemy > TurretLevel)
+            {
+                TurretLevel++;
+                SpriteRenderer.sprite = Resources.Load<Sprite>("Germany/Turrets/german_turret_barrel_" + TurretLevel);
+                TurretBase.sprite = Resources.Load<Sprite>("Germany/Turrets/german_turret_body_" + TurretLevel);
 
+                GetComponentsInChildren<Transform>()[1].localPosition = new Vector3(-1, 0);
+                transform.localPosition = new Vector3(0, 0, .1f);
+            }
         }
     }
 

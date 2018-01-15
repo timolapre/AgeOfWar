@@ -6,18 +6,27 @@ using UnityEngine.SceneManagement;
 
 public class Base : MonoBehaviour {
     SpriteRenderer SpriteRenderer;
+    private EBase EBaseScript;
     public Turret TurretScript;
     public Turret EnemyTurretScript;
     public GameObject Player;
     public GameObject Enemy;
     public GameObject HealthBarPlayer;
     public GameObject HealthBarEnemy;
+    public GameObject CanvasSingle;
+    public GameObject CanvasMulti;
     public Transform SpawnPlayerLocation;
     public Transform SpawnEnemyLocation;
     public Text MoneyText;
     public Text XpText;
-    public Text GameOverText;
     public Text WhatTierText;
+    public Text MoneyTextP1;
+    public Text XpTextP1;
+    public Text WhatTierTextP1;
+    public Text MoneyTextP2;
+    public Text XpTextP2;
+    public Text WhatTierTextP2;
+    public Text GameOverText;    
     public float FirstPlayer;
     public float FirstEnemy;
     public int Money;
@@ -53,16 +62,22 @@ public class Base : MonoBehaviour {
 
     void Start () {
         //Instantiate(Object, spawn.position, spawn.rotation);
+        EBaseScript = GetComponentInChildren<EBase>();
         string vsai = PlayerPrefs.GetString("PlayerMode");
+        CanvasSingle = GameObject.Find("Canvas Single");
+        CanvasMulti = GameObject.Find("Canvas Multi");
         if (vsai == "Singleplayer")
         {
             VsAI = true;
+            CanvasMulti.SetActive(false);
         }
         else
         {
             VsAI = false;
+            CanvasSingle.SetActive(false);
         }
-        //Debug.Log(vsai + " " + VsAI);
+        
+    //Debug.Log(vsai + " " + VsAI);
 
         WhatFaction = PlayerPrefs.GetString("Faction");
         WhatFactionEnemy = PlayerPrefs.GetString("FactionEnemy");
@@ -80,7 +95,7 @@ public class Base : MonoBehaviour {
         Random = UnityEngine.Random.Range(100, 1000);
         Playing = true;
         WhatTier = 1;
-        WhatTierEnemy = 1;
+        WhatTierEnemy = 1;        
     }
 
 	void Update () {
@@ -91,12 +106,24 @@ public class Base : MonoBehaviour {
             MoneyText.text = "Money: " + Money;
             XpText.text = "XP: " + XP;
             WhatTierText.text = "Tier " + WhatTier;
+            MoneyTextP1.text = "Money: " + Money;
+            XpTextP1.text = "XP: " + XP;
+            WhatTierTextP1.text = "Tier " + WhatTier;
+            MoneyTextP2.text = "Money: " + EBaseScript.Money;
+            XpTextP2.text = "XP: " + EBaseScript.XP;
+            WhatTierTextP2.text = "Tier " + WhatTierEnemy;
         }
         else
         {
             MoneyText.text = "";
-            XpText.text = "";
+            XpText.text = "XP: " + XP;
             WhatTierText.text = "";
+            MoneyTextP1.text = "";
+            XpTextP1.text = "";
+            WhatTierTextP1.text = "";
+            MoneyTextP2.text = "";
+            XpTextP2.text = "";
+            WhatTierTextP2.text = "Tier " + WhatTierEnemy;
         }
         HealthBarPlayer.transform.localScale = new Vector3(((float)3/1000*PlayerBaseHealth),0.2f,0.2f);
         HealthBarPlayer.transform.position = new Vector3(HealthBarPlayer.transform.localScale.x/2 - 9.5f, HealthBarPlayer.transform.position.y, HealthBarPlayer.transform.position.z);
@@ -117,15 +144,15 @@ public class Base : MonoBehaviour {
 
         if (InputHelper.GetActionDown(PlayerID, Joycon.Button.DPAD_LEFT) && Money >= 1)
         {
-            SpawnPlayer(WhatTier*3-2);
+            SpawnPlayer(1);
         }
         if (InputHelper.GetActionDown(PlayerID, Joycon.Button.DPAD_DOWN) && Money >= 3)
         {
-            SpawnPlayer(WhatTier*3-1);
+            SpawnPlayer(2);
         }
         if (InputHelper.GetActionDown(PlayerID, Joycon.Button.DPAD_RIGHT) && Money >= 5)
         {
-            SpawnPlayer(WhatTier*3);
+            SpawnPlayer(3);
         }
 
         if (Input.GetKeyDown(KeyCode.M))
@@ -163,13 +190,13 @@ public class Base : MonoBehaviour {
 
     public void SpawnPlayer(int id)
     {
-        if (Money >= UnitCosts[(id-1)/3,(id-1)%3] && Playing)
+        if (Money >= id * 5 && Playing)
         {
             GameObject tempPlayer = Instantiate(Player, SpawnPlayerLocation.position, SpawnPlayerLocation.rotation, transform) as GameObject;
             Player tempPlayerScript = tempPlayer.GetComponent<Player>();
             tempPlayerScript.WhichUnit = id;
             PlayerList.Add(tempPlayer);
-            Money -= UnitCosts[(id-1) / 3, (id - 1) % 3];
+            Money -= id * 5;
         }
     }
     public void Reset()
@@ -200,7 +227,8 @@ public class Base : MonoBehaviour {
     {
         if(XP >= 10 * WhatTier)
         {
-            WhatTier++;
+            XP -= WhatTier * 10;
+            WhatTier++;            
         }       
     }
     public bool CanUpgradeTier()

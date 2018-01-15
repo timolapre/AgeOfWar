@@ -13,7 +13,7 @@ public class Player : MonoBehaviour {
     private Base BaseScript;
     private float Closest = 1000;
 
-    public int Health, Damage, Speed = 2, Range, Xp, Money;
+    public int Health, Damage, Speed, Range, Xp, Money;
     private float AttackEveryXSeconds, AttackAfterXSeconds;
     private int GetDamage;
 
@@ -23,6 +23,14 @@ public class Player : MonoBehaviour {
         SpriteRenderer = GetComponent<SpriteRenderer>();
 
         GetStartValues(WhichUnit);
+        if(BaseScript.WhatFaction == "Germany" && BaseScript.VsAI)
+        {
+            Speed ++;
+        }
+        else if(BaseScript.WhatFaction == "Russia" && BaseScript.VsAI)
+        {
+            Health += 10 * BaseScript.WhatTier;
+        }
 
         PolygonCollider2D comp = gameObject.AddComponent<PolygonCollider2D>();
         comp.isTrigger = true;
@@ -138,38 +146,41 @@ public class Player : MonoBehaviour {
 
         if (id == 1)
         {
-            Health = 10;
-            Damage = 1;
+            Health = 10 * BaseScript.WhatTier;
+            Damage = BaseScript.WhatTier;
             Range = 1;
             Xp = 1;
-            Money = 1;
+            Money = 2;
             AttackAfterXSeconds = 0.3f;
             AttackEveryXSeconds = 0.3f;
+            Speed = 3;
         }
 
         if (id == 2)
         {
-            Health = 20;
-            Damage = 2;
+            Health = 20 * BaseScript.WhatTier;
+            Damage = 2 + BaseScript.WhatTier;
             Range = 1;
             Xp = 2;
-            Money = 2;
+            Money = 5;
             AttackAfterXSeconds = 0.3f;
             AttackEveryXSeconds = 0.3f;
+            Speed = 2;
         }
 
         if (id == 3)
         {
-            Health = 30;
-            Damage = 2;
+            Health = 30 * BaseScript.WhatTier;
+            Damage = 1 + BaseScript.WhatTier;
             Range = 1;
-            Xp = 3;
-            Money = 3;
+            Xp = 3 ;
+            Money = 10;
             AttackAfterXSeconds = 0.3f;
             AttackEveryXSeconds = 0.3f;
+            Speed = 1;
         }
 
-        if (id == 4)
+        /*if (id == 4)
         {
             Health = 25;
             Damage = 2;
@@ -211,6 +222,6 @@ public class Player : MonoBehaviour {
             Money = 5;
             AttackAfterXSeconds = 0.3f;
             AttackEveryXSeconds = 0.3f;
-        }
+        }*/
     }
 }
