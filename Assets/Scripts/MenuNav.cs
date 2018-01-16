@@ -10,8 +10,7 @@ public class MenuNav : PointerInputModule
 {
 	public float Cooldown = .2f;
 
-	public static GameObject Selected;
-    public GameObject tset;
+	public GameObject Selected;
 	float deadzone = 0.5f;
 	float Cooling = 0;
 	Vector3 LastMouse;
@@ -35,7 +34,6 @@ public class MenuNav : PointerInputModule
 
 	public override void Process()
 	{
-        tset = Selected;
 		Cooling -= Time.deltaTime;
         
 		if ((Mathf.Abs(InputHelper.GetStick(0).y) > deadzone || Mathf.Abs(InputHelper.GetStick(0).x) > deadzone) && Cooling <= 0)
@@ -95,8 +93,12 @@ public class MenuNav : PointerInputModule
 			canMouse = true;
 
 
-		if (InputHelper.GetActionDown(0, Joycon.Button.HOME))
-			ExecuteEvents.Execute(eventSystem.currentSelectedGameObject, new BaseEventData(eventSystem), ExecuteEvents.submitHandler);
+        if (InputHelper.GetActionDown(0, Joycon.Button.HOME))
+        {
+            ExecuteEvents.Execute(eventSystem.currentSelectedGameObject, new BaseEventData(eventSystem), ExecuteEvents.submitHandler);
+            if (GetComponent<Dropdown>() == null)
+                Selected = eventSystem.currentSelectedGameObject.GetComponentInParent<Dropdown>().gameObject;
+        }
 
 		LastMouse = Input.mousePosition;
 	}
@@ -126,10 +128,4 @@ public class MenuNav : PointerInputModule
 		if(Selected != null)
 			eventSystem.SetSelectedGameObject(Selected, new BaseEventData(eventSystem));
 	}
-
-    public void ResetSelected(GameObject obj)
-    {
-        Selected = obj;
-        Debug.Log(obj.name);
-    }
 }
