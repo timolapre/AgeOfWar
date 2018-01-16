@@ -61,40 +61,7 @@ public class Player : MonoBehaviour {
             transform.Translate(Speed * Time.deltaTime, 0, 0);
         else if (AtOtherBase && !Colliding && BaseScript.Playing)
             BaseScript.EnemyBaseHealth -= Damage * 200 * Time.deltaTime;
-        else if (BaseScript.Playing) { };
-            //Attackee.GetComponent<Enemy>().StartTakingDamage(Damage, AttackAfterXSeconds, AttackEveryXSeconds);
-
-        /*if (transform.position.x < BaseObject.FirstEnemy - 1 && !BaseObject.GameOver)
-        if (transform.position.x < BaseScript.FirstEnemy - 1 && !BaseScript.GameOver)
-	// Update is called once per frame
-	void Update () {
-        if (transform.position.x < BaseObject.FirstEnemy - 1 && !BaseObject.GameOver)
-
-        if (transform.position.x < BaseScript.FirstEnemy - 1 && BaseScript.Playing)
-        {
-            if (transform.position.x < Closest - 1)
-                transform.Translate(0.05f, 0, 0);
-        }
-
-        if (transform.position.x >= 5 && BaseScript.EnemyBaseHealth > 0)
-            BaseScript.EnemyBaseHealth -= damage;
-
-        if (health <= 0)
-        {
-            BaseScript.FirstPlayer = -8 ;
-            BaseScript.PlayerList.Remove(gameObject);
-            Destroy(gameObject);
-        }
-
-        if (transform.position.x > BaseScript.FirstPlayer && health > 0)
-        {
-            BaseScript.FirstPlayer = transform.position.x;
-        }
-
-        Closest = 1000;
-        foreach (GameObject OtherGameObject in BaseScript.PlayerList)
-            if (OtherGameObject.transform.position.x < Closest && OtherGameObject.transform.position.x > transform.position.x)
-                Closest = OtherGameObject.transform.position.x;*/
+        else if (BaseScript.Playing) { };          
     }
 
     void OnTriggerEnter2D(Collider2D collision)

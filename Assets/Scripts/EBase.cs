@@ -10,7 +10,6 @@ public class EBase : MonoBehaviour {
 
     private float random;
     public int Money;
-    string Faction;
     public int XP;
 
     SpriteRenderer SpriteRenderer;
@@ -23,7 +22,7 @@ public class EBase : MonoBehaviour {
         BaseScript = GetComponentInParent<Base>();
 
         Money = BaseScript.StartMoney;
-        Faction = BaseScript.WhatFactionEnemy;
+        random = Random.Range(3f, 7f) + Time.fixedTime;
     }
 
 	// Update is called once per frame
