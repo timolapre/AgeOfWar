@@ -302,7 +302,7 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: Russia
       m_Image: {fileID: 0}
-    - m_Text: kaas
+    - m_Text: Imperium of Man
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2673,7 +2673,7 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: Russia
       m_Image: {fileID: 0}
-    - m_Text: kaas
+    - m_Text: Imperium of Man
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5746,7 +5746,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Noob
+  m_Text: Easy
 --- !u!222 &1658390413
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7573,11 +7573,11 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: Noob
+    - m_Text: Easy
       m_Image: {fileID: 0}
-    - m_Text: nwef
+    - m_Text: Normal
       m_Image: {fileID: 0}
-    - m_Text: Option C
+    - m_Text: Hard
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
