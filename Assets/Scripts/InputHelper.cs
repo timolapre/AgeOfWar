@@ -14,7 +14,7 @@ public class InputHelper {
 																									{ Joycon.Button.HOME, KeyCode.Space },
 																									{ Joycon.Button.SL, KeyCode.R },
 																									{ Joycon.Button.SR, KeyCode.T },
-																									{ Joycon.Button.PLUS, KeyCode.P },
+																									{ Joycon.Button.PLUS, KeyCode.Escape },
 																									{ Joycon.Button.STICK, KeyCode.LeftControl },
                                                                                                     { Joycon.Button.SHOULDER_1, KeyCode.M } };
 
@@ -25,7 +25,7 @@ public class InputHelper {
                                                                                                     { Joycon.Button.HOME, KeyCode.RightShift },
                                                                                                     { Joycon.Button.SL, KeyCode.Keypad8 },
                                                                                                     { Joycon.Button.SR, KeyCode.Keypad7 },
-                                                                                                    { Joycon.Button.PLUS, KeyCode.P },
+                                                                                                    { Joycon.Button.PLUS, KeyCode.Escape },
                                                                                                     { Joycon.Button.STICK, KeyCode.RightControl },
                                                                                                     { Joycon.Button.SHOULDER_1, KeyCode.M } };
 

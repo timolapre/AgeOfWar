@@ -134,11 +134,6 @@ public class Base : MonoBehaviour {
             SpawnPlayer(3);
         }
 
-        if (Input.GetKeyDown(KeyCode.M))
-        {
-             GameObject tempEnemy = Instantiate(Enemy, SpawnEnemyLocation.position, SpawnEnemyLocation.rotation, transform) as GameObject;
-             EnemyList.Add(tempEnemy);
-        }
         if (Input.GetKeyDown(KeyCode.A))
         {
             Money++;
@@ -158,12 +153,6 @@ public class Base : MonoBehaviour {
             Paused = false;
             Playing = true;
             SceneManager.UnloadSceneAsync("Paused");
-        }
-        if (Input.GetKeyDown(KeyCode.R) && GameOver)
-        {
-            Reset();
-            TurretScript.Reset();
-            EnemyTurretScript.Reset();
         }
     }
 
