@@ -62,7 +62,7 @@ public class Button : MonoBehaviour
             }
             else
             {
-                transform.localPosition = new Vector3(-2.3525f, -4.72f, 1);
+                transform.localPosition = new Vector3(-2.3525f, -4.72f, 2);
             }
         }
         if(id == 5)
@@ -81,7 +81,7 @@ public class Button : MonoBehaviour
             }
             else
             {
-                transform.localPosition = new Vector3(-0.6500001f, -4.72f, 1);
+                transform.localPosition = new Vector3(-0.6500001f, -4.72f, 2);
             }
         }
     }
