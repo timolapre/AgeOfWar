@@ -97,7 +97,7 @@ public class Button : MonoBehaviour
         {
             if (id <= 3)
             {
-                BaseObject.SpawnPlayer(id+3*(BaseObject.WhatTier-1));
+                BaseObject.SpawnPlayer(id);
             }
             else if (id == 4)
             {

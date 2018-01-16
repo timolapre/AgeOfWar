@@ -11,8 +11,8 @@ public class EBase : MonoBehaviour {
     private float RandomSpawnTime;
     private float UpgradeTime;
     public float Money;
-    string Faction;
     public float XP;
+
 
     SpriteRenderer SpriteRenderer;
 
@@ -24,7 +24,6 @@ public class EBase : MonoBehaviour {
         BaseScript = GetComponentInParent<Base>();
 
         Money = BaseScript.StartMoney;
-        Faction = BaseScript.WhatFactionEnemy;
 
         UpgradeTime = Time.fixedTime + 30;
     }
@@ -102,7 +101,10 @@ public class EBase : MonoBehaviour {
     {
         XP = 0;
         Money = BaseScript.StartMoney;
+<<<<<<< HEAD
         RandomSpawnTime = Random.Range(3f, 7f) + Time.fixedTime;
         UpgradeTime = Time.fixedTime + 30;
+=======
+>>>>>>> a6fe580af3022e0c6daa5e627cfe176a8ba24fab
     }
 }
