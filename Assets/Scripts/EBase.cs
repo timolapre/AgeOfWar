@@ -96,4 +96,10 @@ public class EBase : MonoBehaviour {
             BaseScript.EnemyList.Add(tempEnemy);
         }
     }
+    private void Reset()
+    {
+        XP = 0;
+        Money = BaseScript.StartMoney;
+        random = Random.Range(3f, 7f) + Time.fixedTime;
+    }
 }
