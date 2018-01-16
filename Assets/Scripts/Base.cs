@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 public class Base : MonoBehaviour {
     SpriteRenderer SpriteRenderer;
     private EBase EBaseScript;
-<<<<<<< HEAD
     public Turret TurretScript, EnemyTurretScript;
     public GameObject Player, Enemy, HealthBarPlayer, HealthBarEnemy, CanvasSingle, CanvasMulti;
     public Transform SpawnPlayerLocation, SpawnEnemyLocation;
@@ -15,34 +14,6 @@ public class Base : MonoBehaviour {
     public float FirstPlayer, FirstEnemy;
     public float Money, XP, StartMoney = 20;
     public float PlayerBaseHealth, EnemyBaseHealth, PlayerBaseHealthStart, EnemyBaseHealtStart;
-=======
-    public Turret TurretScript;
-    public Turret EnemyTurretScript;
-    public GameObject Player;
-    public GameObject Enemy;
-    public GameObject HealthBarPlayer;
-    public GameObject HealthBarEnemy;
-    public GameObject CanvasSingle;
-    public GameObject CanvasMulti;
-    public Transform SpawnPlayerLocation;
-    public Transform SpawnEnemyLocation;
-    public Text MoneyText;
-    public Text XpText;
-    public Text WhatTierText;
-    public Text MoneyTextP1;
-    public Text XpTextP1;
-    public Text WhatTierTextP1;
-    public Text MoneyTextP2;
-    public Text XpTextP2;
-    public Text WhatTierTextP2;
-    public Text GameOverText;    
-    public float FirstPlayer;
-    public float FirstEnemy;
-    public float Money;
-    public int StartMoney = 20;
-    public float PlayerBaseHealth;
-    public float EnemyBaseHealth;
->>>>>>> 153ce3eb4798dab34dace9d644b1a6676b5f141d
     public float Difficulty;
     public int WhatTier = 1, WhatTierEnemy = 1;
     public string WhatFaction, WhatFactionEnemy;
@@ -89,13 +60,8 @@ public class Base : MonoBehaviour {
             Difficulty = 1f;
         else if (Dif == "Hard")
             Difficulty = 0.9f;
-<<<<<<< HEAD
-        //Debug.Log(WhatFaction + " " + WhatFactionEnemy);
-=======
         else       
             Difficulty = 1;       
-        Debug.Log(WhatFaction + " " + WhatFactionEnemy);
->>>>>>> 153ce3eb4798dab34dace9d644b1a6676b5f141d
 
         SpriteRenderer = GetComponent<SpriteRenderer>();
         TurretScript = GameObject.Find("Turret").GetComponent<Turret>();
