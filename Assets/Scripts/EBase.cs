@@ -102,6 +102,7 @@ public class EBase : MonoBehaviour {
     {
         XP = 0;
         Money = BaseScript.StartMoney;
-        random = Random.Range(3f, 7f) + Time.fixedTime;
+        RandomSpawnTime = Random.Range(3f, 7f) + Time.fixedTime;
+        UpgradeTime = Time.fixedTime + 30;
     }
 }
