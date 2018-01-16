@@ -59,6 +59,7 @@ public class Buttonforpros : MonoBehaviour
             PlayerPrefs.SetString("PlayerMode", "Singleplayer");
             Can1.SetActive(false);
             Can2.SetActive(true);
+            
             PlayerPrefs.SetInt("VsAI", 1);
         }
         else if (ChangeTo == "Skirmish")
@@ -98,6 +99,35 @@ public class Buttonforpros : MonoBehaviour
             //int PlayerFaction = PlayerPrefs.SetInt("PlayerFaction", Can1.GetComponentInChildren<Dropdown>().value);
             Dropdown[] DropdownValues = Can1.GetComponentsInChildren<Dropdown>();
 
+        }
+        else if (ChangeTo == "Menu" && PlayerPrefs.GetInt("InGame") == 1)
+        {
+            SceneManager.UnloadSceneAsync("Options");
+            SceneManager.LoadScene("Paused", LoadSceneMode.Additive);
+            PlayerPrefs.SetInt("InGame", 0);
+        }
+        else if (ChangeTo == "Back")
+        {
+            if (Can2.activeSelf == true)
+            {
+                Can2.SetActive(false);
+                Can1.SetActive(true);
+            }
+            if (Can3.activeSelf == true)
+            {
+                Can3.SetActive(false);
+                Can2.SetActive(true);
+            }
+            if (Can4.activeSelf == true)
+            {
+                Can4.SetActive(false);
+                Can2.SetActive(true);
+            }
+            if (Can5.activeSelf == true)
+            {
+                Can5.SetActive(false);
+                Can4.SetActive(true);
+            }
         }
         else
         {

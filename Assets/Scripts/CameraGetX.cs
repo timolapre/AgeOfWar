@@ -18,8 +18,8 @@ public class CameraGetX : MonoBehaviour {
         string Mode = PlayerPrefs.GetString("PlayerMode");
         if (Mode == "Singleplayer")
         {
-            transform.localScale = new Vector3(6, 7, 1);
-            transform.localPosition = new Vector3(-1.23f, 2.5f, -9);
+            transform.localScale = new Vector3(6, 10.5f, 1);
+            transform.localPosition = new Vector3(-1.23f, 0.5f, -9);
             Debug.Log("kaas");
         }
         else
