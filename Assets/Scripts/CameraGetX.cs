@@ -24,8 +24,8 @@ public class CameraGetX : MonoBehaviour {
         }
         else
         {            
-            transform.localScale = new Vector3(7, 10, 1);
-            transform.localPosition = new Vector3(3.6f, 6.5f, -9);
+            transform.localScale = new Vector3(7, 15, 1);
+            transform.localPosition = new Vector3(3.6f, 4, -9);
         }
     }
 }
