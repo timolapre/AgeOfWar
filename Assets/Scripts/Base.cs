@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class Base : MonoBehaviour {
     SpriteRenderer SpriteRenderer;
     private EBase EBaseScript;
+<<<<<<< HEAD
     public Turret TurretScript, EnemyTurretScript;
     public GameObject Player, Enemy, HealthBarPlayer, HealthBarEnemy, CanvasSingle, CanvasMulti;
     public Transform SpawnPlayerLocation, SpawnEnemyLocation;
@@ -14,6 +15,34 @@ public class Base : MonoBehaviour {
     public float FirstPlayer, FirstEnemy;
     public float Money, XP, StartMoney = 20;
     public float PlayerBaseHealth, EnemyBaseHealth, PlayerBaseHealthStart, EnemyBaseHealtStart;
+=======
+    public Turret TurretScript;
+    public Turret EnemyTurretScript;
+    public GameObject Player;
+    public GameObject Enemy;
+    public GameObject HealthBarPlayer;
+    public GameObject HealthBarEnemy;
+    public GameObject CanvasSingle;
+    public GameObject CanvasMulti;
+    public Transform SpawnPlayerLocation;
+    public Transform SpawnEnemyLocation;
+    public Text MoneyText;
+    public Text XpText;
+    public Text WhatTierText;
+    public Text MoneyTextP1;
+    public Text XpTextP1;
+    public Text WhatTierTextP1;
+    public Text MoneyTextP2;
+    public Text XpTextP2;
+    public Text WhatTierTextP2;
+    public Text GameOverText;    
+    public float FirstPlayer;
+    public float FirstEnemy;
+    public float Money;
+    public int StartMoney = 20;
+    public float PlayerBaseHealth;
+    public float EnemyBaseHealth;
+>>>>>>> 153ce3eb4798dab34dace9d644b1a6676b5f141d
     public float Difficulty;
     public int WhatTier = 1, WhatTierEnemy = 1;
     public string WhatFaction, WhatFactionEnemy;
@@ -56,11 +85,17 @@ public class Base : MonoBehaviour {
         string Dif = PlayerPrefs.GetString("Difficulty");
         if (Dif == "Easy")
             Difficulty = 1.1f;
-        if (Dif == "Normal")
+        else if (Dif == "Normal")
             Difficulty = 1f;
-        if (Dif == "Hard")
+        else if (Dif == "Hard")
             Difficulty = 0.9f;
+<<<<<<< HEAD
         //Debug.Log(WhatFaction + " " + WhatFactionEnemy);
+=======
+        else       
+            Difficulty = 1;       
+        Debug.Log(WhatFaction + " " + WhatFactionEnemy);
+>>>>>>> 153ce3eb4798dab34dace9d644b1a6676b5f141d
 
         SpriteRenderer = GetComponent<SpriteRenderer>();
         TurretScript = GameObject.Find("Turret").GetComponent<Turret>();
@@ -71,8 +106,6 @@ public class Base : MonoBehaviour {
         Money = StartMoney;
         PlayerBaseHealth = 1000;
         EnemyBaseHealth = 1000;
-        PlayerBaseHealthStart = 1000;
-        EnemyBaseHealtStart = 1000;
         Playing = true;
         WhatTier = 1;
         WhatTierEnemy = 1;        
@@ -105,9 +138,9 @@ public class Base : MonoBehaviour {
             XpTextP2.text = "";
             WhatTierTextP2.text = "Tier " + WhatTierEnemy;
         }
-        HealthBarPlayer.transform.localScale = new Vector3(((float)3/PlayerBaseHealthStart*PlayerBaseHealth),0.2f,0.2f);
+        HealthBarPlayer.transform.localScale = new Vector3(((float)3/1000*PlayerBaseHealth),0.2f,0.2f);
         HealthBarPlayer.transform.position = new Vector3(HealthBarPlayer.transform.localScale.x/2 - 9.5f, HealthBarPlayer.transform.position.y, HealthBarPlayer.transform.position.z);
-        HealthBarEnemy.transform.localScale = new Vector3(((float)3/EnemyBaseHealtStart * EnemyBaseHealth), 0.2f, 0.2f);
+        HealthBarEnemy.transform.localScale = new Vector3(((float)3 / 1000 * EnemyBaseHealth), 0.2f, 0.2f);
         HealthBarEnemy.transform.position = new Vector3(HealthBarEnemy.transform.localScale.x / 2 + 14f, HealthBarEnemy.transform.position.y, HealthBarEnemy.transform.position.z);
         if (PlayerBaseHealth <= 0 && !GameOver)
         {
