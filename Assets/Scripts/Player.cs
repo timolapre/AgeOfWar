@@ -27,9 +27,13 @@ public class Player : MonoBehaviour {
         {
             Speed ++;
         }
-        else if(BaseScript.WhatFaction == "Russia" && BaseScript.VsAI)
+        if(BaseScript.WhatFaction == "Russia" && BaseScript.VsAI)
         {
             Health += 10 * BaseScript.WhatTier;
+        }
+        if(BaseScript.WhatFaction == "Imperium of Man" && BaseScript.VsAI)
+        {
+            Damage *= 1.25f;
         }
 
         PolygonCollider2D comp = gameObject.AddComponent<PolygonCollider2D>();
