@@ -225,6 +225,7 @@ public class Base : MonoBehaviour {
         FirstEnemy = 10;
         WhatTier = 1;
         WhatTierEnemy = 1;
+        eBase.Reset();
     }
     public void UpgradeTier()
     {

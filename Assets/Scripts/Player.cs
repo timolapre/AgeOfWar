@@ -118,7 +118,7 @@ public class Player : MonoBehaviour {
             Damage = BaseScript.WhatTier * BaseScript.Difficulty;
             Range = 1;
             Xp = 1;
-            Money = 2;
+            Money = 7;
             AttackAfterXSeconds = 0.3f;
             AttackEveryXSeconds = 0.3f;
             Speed = 3;
@@ -130,7 +130,7 @@ public class Player : MonoBehaviour {
             Damage = (2 + BaseScript.WhatTier) * BaseScript.Difficulty;
             Range = 1;
             Xp = 2;
-            Money = 5;
+            Money = 13;
             AttackAfterXSeconds = 0.3f;
             AttackEveryXSeconds = 0.3f;
             Speed = 2;
@@ -142,7 +142,7 @@ public class Player : MonoBehaviour {
             Damage = (1 + BaseScript.WhatTier) * BaseScript.Difficulty;
             Range = 1;
             Xp = 3 ;
-            Money = 10;
+            Money = 19;
             AttackAfterXSeconds = 0.3f;
             AttackEveryXSeconds = 0.3f;
             Speed = 1;
