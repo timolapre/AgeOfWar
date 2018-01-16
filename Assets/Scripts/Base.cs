@@ -7,49 +7,21 @@ using UnityEngine.SceneManagement;
 public class Base : MonoBehaviour {
     SpriteRenderer SpriteRenderer;
     private EBase EBaseScript;
-    public Turret TurretScript;
-    public Turret EnemyTurretScript;
-    public GameObject Player;
-    public GameObject Enemy;
-    public GameObject HealthBarPlayer;
-    public GameObject HealthBarEnemy;
-    public GameObject CanvasSingle;
-    public GameObject CanvasMulti;
-    public Transform SpawnPlayerLocation;
-    public Transform SpawnEnemyLocation;
-    public Text MoneyText;
-    public Text XpText;
-    public Text WhatTierText;
-    public Text MoneyTextP1;
-    public Text XpTextP1;
-    public Text WhatTierTextP1;
-    public Text MoneyTextP2;
-    public Text XpTextP2;
-    public Text WhatTierTextP2;
-    public Text GameOverText;    
-    public float FirstPlayer;
-    public float FirstEnemy;
-    public float Money;
-    public int StartMoney = 20;
-    public float PlayerBaseHealth;
-    public float EnemyBaseHealth;
-    private float PlayerBaseHealthStart;
-    private float EnemyBaseHealtStart;
+    public Turret TurretScript, EnemyTurretScript;
+    public GameObject Player, Enemy, HealthBarPlayer, HealthBarEnemy, CanvasSingle, CanvasMulti;
+    public Transform SpawnPlayerLocation, SpawnEnemyLocation;
+    public Text MoneyText, XpText, WhatTierText, MoneyTextP1, XpTextP1, WhatTierTextP1, MoneyTextP2, XpTextP2, WhatTierTextP2, GameOverText; 
+    public float FirstPlayer, FirstEnemy;
+    public float Money, XP, StartMoney = 20;
+    public float PlayerBaseHealth, EnemyBaseHealth, PlayerBaseHealthStart, EnemyBaseHealtStart;
     public float Difficulty;
-    public float XP;
-    public int WhatTier = 1;
-    public int WhatTierEnemy = 1;
-    public string WhatFaction;
-    public string WhatFactionEnemy;
-    public bool GameOver;
-    public bool VsAI;
-    public bool Teams;
+    public int WhatTier = 1, WhatTierEnemy = 1;
+    public string WhatFaction, WhatFactionEnemy;
+    public bool GameOver, VsAI, Teams;
 
-    public bool Playing;
-    public bool Paused;
+    public bool Playing, Paused;
 
-    public List<GameObject> PlayerList;
-    public List<GameObject> EnemyList;
+    public List<GameObject> PlayerList, EnemyList;
 
     public EBase eBase;
     int PlayerID = 0;
@@ -88,7 +60,7 @@ public class Base : MonoBehaviour {
             Difficulty = 1f;
         if (Dif == "Hard")
             Difficulty = 0.9f;
-        Debug.Log(WhatFaction + " " + WhatFactionEnemy);
+        //Debug.Log(WhatFaction + " " + WhatFactionEnemy);
 
         SpriteRenderer = GetComponent<SpriteRenderer>();
         TurretScript = GameObject.Find("Turret").GetComponent<Turret>();
