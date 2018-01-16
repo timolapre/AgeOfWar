@@ -13,9 +13,9 @@ public class Player : MonoBehaviour {
     private Base BaseScript;
     private float Closest = 1000;
 
-    public int Health, Damage, Speed, Range, Xp, Money;
+    public float Health, Damage, Speed, Range, Xp, Money;
     private float AttackEveryXSeconds, AttackAfterXSeconds;
-    private int GetDamage;
+    private float GetDamage;
 
     // Use this for initialization
     void Start () {
@@ -87,7 +87,7 @@ public class Player : MonoBehaviour {
             CancelInvoke("TakeDamage");
     }
 
-    public void StartTakingDamage(int Damage, float GetHitAfterSeconds, float GetHitEverySeconds)
+    public void StartTakingDamage(float Damage, float GetHitAfterSeconds, float GetHitEverySeconds)
     {
         GetDamage = Damage;
         InvokeRepeating("TakeDamage", GetHitAfterSeconds, GetHitEverySeconds);
@@ -113,8 +113,8 @@ public class Player : MonoBehaviour {
 
         if (id == 1)
         {
-            Health = 10 * BaseScript.WhatTier;
-            Damage = BaseScript.WhatTier;
+            Health = 10 * BaseScript.WhatTier * BaseScript.Difficulty;
+            Damage = BaseScript.WhatTier * BaseScript.Difficulty;
             Range = 1;
             Xp = 1;
             Money = 7;
@@ -125,8 +125,8 @@ public class Player : MonoBehaviour {
 
         if (id == 2)
         {
-            Health = 20 * BaseScript.WhatTier;
-            Damage = 2 + BaseScript.WhatTier;
+            Health = 20 * BaseScript.WhatTier * BaseScript.Difficulty;
+            Damage = (2 + BaseScript.WhatTier) * BaseScript.Difficulty;
             Range = 1;
             Xp = 2;
             Money = 13;
@@ -137,8 +137,8 @@ public class Player : MonoBehaviour {
 
         if (id == 3)
         {
-            Health = 30 * BaseScript.WhatTier;
-            Damage = 1 + BaseScript.WhatTier;
+            Health = 30 * BaseScript.WhatTier * BaseScript.Difficulty;
+            Damage = (1 + BaseScript.WhatTier) * BaseScript.Difficulty;
             Range = 1;
             Xp = 3 ;
             Money = 19;
@@ -146,49 +146,5 @@ public class Player : MonoBehaviour {
             AttackEveryXSeconds = 0.3f;
             Speed = 1;
         }
-
-        /*if (id == 4)
-        {
-            Health = 25;
-            Damage = 2;
-            Range = 1;
-            Xp = 4;
-            Money = 4;
-            AttackAfterXSeconds = 0.3f;
-            AttackEveryXSeconds = 0.3f;
-        }
-
-        if (id == 5)
-        {
-            Health = 40;
-            Damage = 4;
-            Range = 1;
-            Xp = 5;
-            Money = 5;
-            AttackAfterXSeconds = 0.3f;
-            AttackEveryXSeconds = 0.3f;
-        }
-
-        if (id == 6)
-        {
-            Health = 50;
-            Damage = 5;
-            Range = 1;
-            Xp = 5;
-            Money = 5;
-            AttackAfterXSeconds = 0.3f;
-            AttackEveryXSeconds = 0.3f;
-        }
-
-        if (id > 6)
-        {
-            Health = 80;
-            Damage = 7;
-            Range = 1;
-            Xp = 5;
-            Money = 5;
-            AttackAfterXSeconds = 0.3f;
-            AttackEveryXSeconds = 0.3f;
-        }*/
     }
 }
