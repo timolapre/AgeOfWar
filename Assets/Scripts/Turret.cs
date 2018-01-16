@@ -6,12 +6,10 @@ public class Turret : MonoBehaviour
 {
     SpriteRenderer SpriteRenderer;
     private Base BaseScript;
-    private float rotation;
-    private float offset;
+    private float rotation, offset;
     private int offsetcount;
     public int TurretLevel;
-    float Cooldown = 2f;
-    float Cooling = 0;
+    float Cooldown = 2f, Cooling = 0;
     SpriteRenderer TurretBase;
 
     public int PlayerID;
@@ -32,6 +30,17 @@ public class Turret : MonoBehaviour
     void Update()
     {
         Cooling -= Time.deltaTime;
+
+        if (PlayerID == 0)
+        {
+            SpriteRenderer.sprite = Resources.Load<Sprite>(BaseScript.WhatFaction + "/Turrets/" + TurretLevel);
+            TurretBase.sprite = Resources.Load<Sprite>(BaseScript.WhatFaction + "/Turrets/B" + TurretLevel);
+        }
+        if (PlayerID == 1)
+        {
+            SpriteRenderer.sprite = Resources.Load<Sprite>(BaseScript.WhatFactionEnemy + "/Turrets/" + TurretLevel);
+            TurretBase.sprite = Resources.Load<Sprite>(BaseScript.WhatFactionEnemy + "/Turrets/B" + TurretLevel);
+        }
 
         if (BaseScript.VsAI && PlayerID > 0)
         {
@@ -91,22 +100,23 @@ public class Turret : MonoBehaviour
 
     public void UpgradeTurret()
     {
-        if(BaseScript.Money >= 0/*add cost here later*/ && BaseScript.Playing && TurretLevel != 5)
+        if(BaseScript.Playing && TurretLevel != 5)
         {
-            if(PlayerID == 0 &BaseScript.WhatTier > TurretLevel)
-            {            
+            if(PlayerID == 0 &BaseScript.WhatTier > TurretLevel && BaseScript.Money >= 20 * TurretLevel)
+            {
+                BaseScript.Money -= 20 * TurretLevel;         
                 TurretLevel++;
-                SpriteRenderer.sprite = Resources.Load<Sprite>("Germany/Turrets/german_turret_barrel_" + TurretLevel);
-                TurretBase.sprite = Resources.Load<Sprite>("Germany/Turrets/german_turret_body_" + TurretLevel);
+                
 
                 GetComponentsInChildren<Transform>()[1].localPosition = new Vector3(-1, 0);
                 transform.localPosition = new Vector3(0, 0, .1f);
             }
-            else if(PlayerID == 1 & BaseScript.WhatTierEnemy > TurretLevel)
+            else if(PlayerID == 1 & BaseScript.WhatTierEnemy > TurretLevel && BaseScript.eBase.Money >= 20 * TurretLevel)
             {
+                BaseScript.eBase.Money -= 20 * TurretLevel;
                 TurretLevel++;
-                SpriteRenderer.sprite = Resources.Load<Sprite>("Germany/Turrets/german_turret_barrel_" + TurretLevel);
-                TurretBase.sprite = Resources.Load<Sprite>("Germany/Turrets/german_turret_body_" + TurretLevel);
+                //SpriteRenderer.sprite = Resources.Load<Sprite>(BaseScript.WhatFaction + "/Turrets/" + TurretLevel);
+               // TurretBase.sprite = Resources.Load<Sprite>(BaseScript.WhatFaction + "/Turrets/B" + TurretLevel);
 
                 GetComponentsInChildren<Transform>()[1].localPosition = new Vector3(-1, 0);
                 transform.localPosition = new Vector3(0, 0, .1f);
