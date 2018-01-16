@@ -13,9 +13,9 @@ public class Enemy : MonoBehaviour {
     private Base BaseScript;
     private float Closest;
 
-    public int Health, Damage, Speed, Range, Xp, Money;
+    public float Health, Damage, Speed, Range, Xp, Money;
     private float AttackAfterXSeconds, AttackEveryXSeconds;
-    private int GetDamage;
+    private float GetDamage;
 
 	// Use this for initialization
 	void Start () {
@@ -81,7 +81,7 @@ public class Enemy : MonoBehaviour {
             CancelInvoke("TakeDamage");
     }
 
-    public void StartTakingDamage(int Damage, float GetHitAfterSeconds, float GetHitEverySeconds)
+    public void StartTakingDamage(float Damage, float GetHitAfterSeconds, float GetHitEverySeconds)
     {
         GetDamage = Damage;
         InvokeRepeating("TakeDamage", GetHitAfterSeconds, GetHitEverySeconds);

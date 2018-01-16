@@ -8,10 +8,11 @@ public class EBase : MonoBehaviour {
     public GameObject Enemy;
     public Transform spawnEnemy;
 
-    private float random;
-    public int Money;
+    private float RandomSpawnTime;
+    private float UpgradeTime;
+    public float Money;
     string Faction;
-    public int XP;
+    public float XP;
 
     SpriteRenderer SpriteRenderer;
 
@@ -24,6 +25,8 @@ public class EBase : MonoBehaviour {
 
         Money = BaseScript.StartMoney;
         Faction = BaseScript.WhatFactionEnemy;
+
+        UpgradeTime = Time.fixedTime + 30;
     }
 
 	// Update is called once per frame
@@ -70,17 +73,16 @@ public class EBase : MonoBehaviour {
 
     void AI()
     {
-        if (Time.fixedTime > random)
+        if (Time.fixedTime > RandomSpawnTime)
         {
             SpawnEnemy(Random.Range((int)Time.fixedTime / 50 + 1, Mathf.Min(4, (int)Time.fixedTime / 25 + 2)));
-            random = Random.Range(3f, 7f) + Time.fixedTime;
+            RandomSpawnTime = Random.Range(3f, 7f) + Time.fixedTime;
         }
-        if (Time.fixedTime > 30)
-            BaseScript.WhatTierEnemy = 2;
-        if (Time.fixedTime > 60)
-            BaseScript.WhatTierEnemy = 3;
-        if (Time.fixedTime > 100    )
-            BaseScript.WhatTierEnemy = 4;
+        if (Time.fixedTime > UpgradeTime)
+        {
+            BaseScript.WhatTierEnemy++;
+            UpgradeTime = Time.fixedTime + 30;
+        }
 
         /*if (Input.GetKeyDown(KeyCode.L))
             SpawnEnemy(Random.Range(1, 4));*/

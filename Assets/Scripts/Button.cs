@@ -10,7 +10,6 @@ public class Button : MonoBehaviour
     public List<Sprite> Spritelist;
 
     private SpriteRenderer spriterenderer;
-    private BoxCollider collider;
 
     // Use this for initialization
     void Start()
@@ -18,7 +17,6 @@ public class Button : MonoBehaviour
         BaseObject = GameObject.Find("PBase /main object").GetComponent<Base>();
         TurretScript = GameObject.Find("Turret").GetComponent<Turret>();
         spriterenderer = GetComponent<SpriteRenderer>();
-        collider = GetComponent<BoxCollider>();
     }
 
     // Update is called once per frame

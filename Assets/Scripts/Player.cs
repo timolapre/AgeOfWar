@@ -13,9 +13,9 @@ public class Player : MonoBehaviour {
     private Base BaseScript;
     private float Closest = 1000;
 
-    public int Health, Damage, Speed, Range, Xp, Money;
+    public float Health, Damage, Speed, Range, Xp, Money;
     private float AttackEveryXSeconds, AttackAfterXSeconds;
-    private int GetDamage;
+    private float GetDamage;
 
     // Use this for initialization
     void Start () {
@@ -63,38 +63,6 @@ public class Player : MonoBehaviour {
             BaseScript.EnemyBaseHealth -= Damage * 200 * Time.deltaTime;
         else if (BaseScript.Playing) { };
             //Attackee.GetComponent<Enemy>().StartTakingDamage(Damage, AttackAfterXSeconds, AttackEveryXSeconds);
-
-        /*if (transform.position.x < BaseObject.FirstEnemy - 1 && !BaseObject.GameOver)
-        if (transform.position.x < BaseScript.FirstEnemy - 1 && !BaseScript.GameOver)
-	// Update is called once per frame
-	void Update () {
-        if (transform.position.x < BaseObject.FirstEnemy - 1 && !BaseObject.GameOver)
-
-        if (transform.position.x < BaseScript.FirstEnemy - 1 && BaseScript.Playing)
-        {
-            if (transform.position.x < Closest - 1)
-                transform.Translate(0.05f, 0, 0);
-        }
-
-        if (transform.position.x >= 5 && BaseScript.EnemyBaseHealth > 0)
-            BaseScript.EnemyBaseHealth -= damage;
-
-        if (health <= 0)
-        {
-            BaseScript.FirstPlayer = -8 ;
-            BaseScript.PlayerList.Remove(gameObject);
-            Destroy(gameObject);
-        }
-
-        if (transform.position.x > BaseScript.FirstPlayer && health > 0)
-        {
-            BaseScript.FirstPlayer = transform.position.x;
-        }
-
-        Closest = 1000;
-        foreach (GameObject OtherGameObject in BaseScript.PlayerList)
-            if (OtherGameObject.transform.position.x < Closest && OtherGameObject.transform.position.x > transform.position.x)
-                Closest = OtherGameObject.transform.position.x;*/
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -120,7 +88,7 @@ public class Player : MonoBehaviour {
             CancelInvoke("TakeDamage");
     }
 
-    public void StartTakingDamage(int Damage, float GetHitAfterSeconds, float GetHitEverySeconds)
+    public void StartTakingDamage(float Damage, float GetHitAfterSeconds, float GetHitEverySeconds)
     {
         GetDamage = Damage;
         InvokeRepeating("TakeDamage", GetHitAfterSeconds, GetHitEverySeconds);
@@ -146,8 +114,8 @@ public class Player : MonoBehaviour {
 
         if (id == 1)
         {
-            Health = 10 * BaseScript.WhatTier;
-            Damage = BaseScript.WhatTier;
+            Health = 10 * BaseScript.WhatTier * BaseScript.Difficulty;
+            Damage = BaseScript.WhatTier * BaseScript.Difficulty;
             Range = 1;
             Xp = 1;
             Money = 2;
@@ -158,8 +126,8 @@ public class Player : MonoBehaviour {
 
         if (id == 2)
         {
-            Health = 20 * BaseScript.WhatTier;
-            Damage = 2 + BaseScript.WhatTier;
+            Health = 20 * BaseScript.WhatTier * BaseScript.Difficulty;
+            Damage = (2 + BaseScript.WhatTier) * BaseScript.Difficulty;
             Range = 1;
             Xp = 2;
             Money = 5;
@@ -170,8 +138,8 @@ public class Player : MonoBehaviour {
 
         if (id == 3)
         {
-            Health = 30 * BaseScript.WhatTier;
-            Damage = 1 + BaseScript.WhatTier;
+            Health = 30 * BaseScript.WhatTier * BaseScript.Difficulty;
+            Damage = (1 + BaseScript.WhatTier) * BaseScript.Difficulty;
             Range = 1;
             Xp = 3 ;
             Money = 10;

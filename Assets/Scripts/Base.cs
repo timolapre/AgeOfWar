@@ -29,11 +29,12 @@ public class Base : MonoBehaviour {
     public Text GameOverText;    
     public float FirstPlayer;
     public float FirstEnemy;
-    public int Money;
+    public float Money;
     public int StartMoney = 20;
     public float PlayerBaseHealth;
     public float EnemyBaseHealth;
-    public int XP;
+    public float Difficulty;
+    public float XP;
     public int WhatTier = 1;
     public int WhatTierEnemy = 1;
     public string WhatFaction;
@@ -47,9 +48,6 @@ public class Base : MonoBehaviour {
 
     public List<GameObject> PlayerList;
     public List<GameObject> EnemyList;
-
-    private int Timer;
-    private int Random;
 
     public EBase eBase;
     int PlayerID = 0;
@@ -81,6 +79,13 @@ public class Base : MonoBehaviour {
 
         WhatFaction = PlayerPrefs.GetString("Faction");
         WhatFactionEnemy = PlayerPrefs.GetString("FactionEnemy");
+        string Dif = PlayerPrefs.GetString("Difficulty");
+        if (Dif == "Easy")
+            Difficulty = 1.1f;
+        if (Dif == "Normal")
+            Difficulty = 1f;
+        if (Dif == "Hard")
+            Difficulty = 0.9f;
         Debug.Log(WhatFaction + " " + WhatFactionEnemy);
 
         SpriteRenderer = GetComponent<SpriteRenderer>();
@@ -92,7 +97,6 @@ public class Base : MonoBehaviour {
         Money = StartMoney;
         PlayerBaseHealth = 1000;
         EnemyBaseHealth = 1000;
-        Random = UnityEngine.Random.Range(100, 1000);
         Playing = true;
         WhatTier = 1;
         WhatTierEnemy = 1;        
@@ -207,7 +211,6 @@ public class Base : MonoBehaviour {
         Playing = true;
         Money = StartMoney;
         XP = 0;
-        Timer = 0;
         foreach (GameObject g in PlayerList)
         {
             Destroy(g);
