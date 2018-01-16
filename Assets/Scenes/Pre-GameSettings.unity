@@ -1176,13 +1176,13 @@ MonoBehaviour:
   Can1: {fileID: 368263607}
   Can2: {fileID: 1477365615}
   Can3: {fileID: 783943369}
-  Can4: {fileID: 0}
-  Can5: {fileID: 0}
-  Playerfaction: {fileID: 0}
-  Enemyfaction: {fileID: 0}
-  Diff: {fileID: 0}
-  Player1: {fileID: 0}
-  Player2: {fileID: 0}
+  Can4: {fileID: 315958968}
+  Can5: {fileID: 937595857}
+  Playerfaction: {fileID: 555160314}
+  Enemyfaction: {fileID: 16353699}
+  Diff: {fileID: 2120993049}
+  Player1: {fileID: 1394215116}
+  Player2: {fileID: 101634426}
 --- !u!114 &181825796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1907,17 +1907,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23e3e29672312324691cb14b85c82dd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Cam: {fileID: 0}
-  Can1: {fileID: 0}
-  Can2: {fileID: 0}
-  Can3: {fileID: 0}
-  Can4: {fileID: 0}
-  Can5: {fileID: 0}
-  Playerfaction: {fileID: 0}
-  Enemyfaction: {fileID: 0}
-  Diff: {fileID: 0}
-  Player1: {fileID: 0}
-  Player2: {fileID: 0}
+  Cam: {fileID: 426127515}
+  Can1: {fileID: 368263607}
+  Can2: {fileID: 1477365615}
+  Can3: {fileID: 783943369}
+  Can4: {fileID: 315958968}
+  Can5: {fileID: 937595857}
+  Playerfaction: {fileID: 555160314}
+  Enemyfaction: {fileID: 16353699}
+  Diff: {fileID: 2120993049}
+  Player1: {fileID: 1394215116}
+  Player2: {fileID: 101634426}
 --- !u!114 &349837153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2567,17 +2567,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23e3e29672312324691cb14b85c82dd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Cam: {fileID: 0}
-  Can1: {fileID: 0}
-  Can2: {fileID: 0}
-  Can3: {fileID: 0}
-  Can4: {fileID: 0}
-  Can5: {fileID: 0}
-  Playerfaction: {fileID: 0}
-  Enemyfaction: {fileID: 0}
-  Diff: {fileID: 0}
-  Player1: {fileID: 0}
-  Player2: {fileID: 0}
+  Cam: {fileID: 426127515}
+  Can1: {fileID: 368263607}
+  Can2: {fileID: 1477365615}
+  Can3: {fileID: 783943369}
+  Can4: {fileID: 315958968}
+  Can5: {fileID: 937595857}
+  Playerfaction: {fileID: 555160314}
+  Enemyfaction: {fileID: 16353699}
+  Diff: {fileID: 2120993049}
+  Player1: {fileID: 1394215116}
+  Player2: {fileID: 101634426}
 --- !u!114 &504590300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3145,11 +3145,11 @@ MonoBehaviour:
   Can3: {fileID: 783943369}
   Can4: {fileID: 315958968}
   Can5: {fileID: 937595857}
-  Playerfaction: {fileID: 0}
-  Enemyfaction: {fileID: 0}
-  Diff: {fileID: 0}
-  Player1: {fileID: 0}
-  Player2: {fileID: 0}
+  Playerfaction: {fileID: 555160314}
+  Enemyfaction: {fileID: 16353699}
+  Diff: {fileID: 2120993049}
+  Player1: {fileID: 1394215116}
+  Player2: {fileID: 101634426}
 --- !u!114 &569990037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4379,13 +4379,13 @@ MonoBehaviour:
   Can1: {fileID: 368263607}
   Can2: {fileID: 1477365615}
   Can3: {fileID: 783943369}
-  Can4: {fileID: 0}
-  Can5: {fileID: 0}
-  Playerfaction: {fileID: 0}
-  Enemyfaction: {fileID: 0}
-  Diff: {fileID: 0}
-  Player1: {fileID: 0}
-  Player2: {fileID: 0}
+  Can4: {fileID: 315958968}
+  Can5: {fileID: 937595857}
+  Playerfaction: {fileID: 555160314}
+  Enemyfaction: {fileID: 16353699}
+  Diff: {fileID: 2120993049}
+  Player1: {fileID: 1394215116}
+  Player2: {fileID: 101634426}
 --- !u!114 &1016221564
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4611,17 +4611,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23e3e29672312324691cb14b85c82dd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Cam: {fileID: 0}
-  Can1: {fileID: 0}
-  Can2: {fileID: 0}
-  Can3: {fileID: 0}
-  Can4: {fileID: 0}
-  Can5: {fileID: 0}
-  Playerfaction: {fileID: 0}
-  Enemyfaction: {fileID: 0}
-  Diff: {fileID: 0}
-  Player1: {fileID: 0}
-  Player2: {fileID: 0}
+  Cam: {fileID: 426127515}
+  Can1: {fileID: 368263607}
+  Can2: {fileID: 1477365615}
+  Can3: {fileID: 783943369}
+  Can4: {fileID: 315958968}
+  Can5: {fileID: 937595857}
+  Playerfaction: {fileID: 555160314}
+  Enemyfaction: {fileID: 16353699}
+  Diff: {fileID: 2120993049}
+  Player1: {fileID: 1394215116}
+  Player2: {fileID: 101634426}
 --- !u!114 &1136715371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7135,17 +7135,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23e3e29672312324691cb14b85c82dd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Cam: {fileID: 0}
-  Can1: {fileID: 0}
-  Can2: {fileID: 0}
-  Can3: {fileID: 0}
-  Can4: {fileID: 0}
-  Can5: {fileID: 0}
-  Playerfaction: {fileID: 0}
-  Enemyfaction: {fileID: 0}
-  Diff: {fileID: 0}
-  Player1: {fileID: 0}
-  Player2: {fileID: 0}
+  Cam: {fileID: 426127515}
+  Can1: {fileID: 368263607}
+  Can2: {fileID: 1477365615}
+  Can3: {fileID: 783943369}
+  Can4: {fileID: 315958968}
+  Can5: {fileID: 937595857}
+  Playerfaction: {fileID: 555160314}
+  Enemyfaction: {fileID: 16353699}
+  Diff: {fileID: 2120993049}
+  Player1: {fileID: 1394215116}
+  Player2: {fileID: 101634426}
 --- !u!114 &1897007919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7289,8 +7289,8 @@ MonoBehaviour:
   Playerfaction: {fileID: 555160314}
   Enemyfaction: {fileID: 16353699}
   Diff: {fileID: 2120993049}
-  Player1: {fileID: 0}
-  Player2: {fileID: 0}
+  Player1: {fileID: 1394215116}
+  Player2: {fileID: 101634426}
 --- !u!114 &1913716070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7493,17 +7493,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23e3e29672312324691cb14b85c82dd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Cam: {fileID: 0}
-  Can1: {fileID: 0}
-  Can2: {fileID: 0}
-  Can3: {fileID: 0}
+  Cam: {fileID: 426127515}
+  Can1: {fileID: 368263607}
+  Can2: {fileID: 1477365615}
+  Can3: {fileID: 783943369}
   Can4: {fileID: 315958968}
   Can5: {fileID: 937595857}
-  Playerfaction: {fileID: 0}
-  Enemyfaction: {fileID: 0}
-  Diff: {fileID: 0}
-  Player1: {fileID: 0}
-  Player2: {fileID: 0}
+  Playerfaction: {fileID: 555160314}
+  Enemyfaction: {fileID: 16353699}
+  Diff: {fileID: 2120993049}
+  Player1: {fileID: 1394215116}
+  Player2: {fileID: 101634426}
 --- !u!114 &1947413373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7841,12 +7841,12 @@ MonoBehaviour:
   Can2: {fileID: 1477365615}
   Can3: {fileID: 783943369}
   Can4: {fileID: 315958968}
-  Can5: {fileID: 0}
-  Playerfaction: {fileID: 0}
-  Enemyfaction: {fileID: 0}
-  Diff: {fileID: 0}
-  Player1: {fileID: 0}
-  Player2: {fileID: 0}
+  Can5: {fileID: 937595857}
+  Playerfaction: {fileID: 555160314}
+  Enemyfaction: {fileID: 16353699}
+  Diff: {fileID: 2120993049}
+  Player1: {fileID: 1394215116}
+  Player2: {fileID: 101634426}
 --- !u!114 &2003152904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7981,15 +7981,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23e3e29672312324691cb14b85c82dd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Cam: {fileID: 0}
-  Can1: {fileID: 0}
-  Can2: {fileID: 0}
-  Can3: {fileID: 0}
-  Can4: {fileID: 0}
-  Can5: {fileID: 0}
-  Playerfaction: {fileID: 0}
-  Enemyfaction: {fileID: 0}
-  Diff: {fileID: 0}
+  Cam: {fileID: 426127515}
+  Can1: {fileID: 368263607}
+  Can2: {fileID: 1477365615}
+  Can3: {fileID: 783943369}
+  Can4: {fileID: 315958968}
+  Can5: {fileID: 937595857}
+  Playerfaction: {fileID: 555160314}
+  Enemyfaction: {fileID: 16353699}
+  Diff: {fileID: 2120993049}
   Player1: {fileID: 1394215116}
   Player2: {fileID: 101634426}
 --- !u!114 &2046372486
@@ -8206,11 +8206,11 @@ MonoBehaviour:
   Can3: {fileID: 783943369}
   Can4: {fileID: 315958968}
   Can5: {fileID: 937595857}
-  Playerfaction: {fileID: 0}
-  Enemyfaction: {fileID: 0}
-  Diff: {fileID: 0}
-  Player1: {fileID: 0}
-  Player2: {fileID: 0}
+  Playerfaction: {fileID: 555160314}
+  Enemyfaction: {fileID: 16353699}
+  Diff: {fileID: 2120993049}
+  Player1: {fileID: 1394215116}
+  Player2: {fileID: 101634426}
 --- !u!114 &2101520195
 MonoBehaviour:
   m_ObjectHideFlags: 0
