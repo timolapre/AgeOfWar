@@ -17,14 +17,15 @@ public class Pause : MonoBehaviour {
         }
         if (Button == "Restart")
         {
-            if (SceneManager.GetSceneByName("GameOver") == SceneManager.GetActiveScene())
+            if (BaseScript.GameOver)
             {
+                BaseScript.Reset();
                 SceneManager.LoadScene("AgeOfWar", LoadSceneMode.Single);
             }
             else
             {
-                SceneManager.UnloadSceneAsync("Paused");
                 BaseScript.Reset();
+                SceneManager.UnloadSceneAsync("Paused");                
             }
         }
         if (Button == "Options")
