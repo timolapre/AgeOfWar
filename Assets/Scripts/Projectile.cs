@@ -25,13 +25,13 @@ public class Projectile : MonoBehaviour {
         transform.rotation = Quaternion.AngleAxis(-direction, Vector3.back);
 		verspeed = Mathf.Cos(direction * Mathf.PI / 180) * speed;
 		horspeed = -Mathf.Sin(direction * Mathf.PI / 180) * speed;
-        if (BaseScript.PlayerID == 0)
+        if (kills == "Enemy")
         {
-            spriteRenderer.sprite = Resources.Load(BaseScript.WhatFaction + "Bullet", typeof(Sprite)) as Sprite;
+            spriteRenderer.sprite = Resources.Load(BaseScript.WhatFaction + "/Bullet", typeof(Sprite)) as Sprite;
         }
-        if (BaseScript.PlayerID == 2)
+        if (kills == "Player")
         {
-            spriteRenderer.sprite = Resources.Load(BaseScript.WhatFactionEnemy + "Bullet", typeof(Sprite)) as Sprite;
+            spriteRenderer.sprite = Resources.Load(BaseScript.WhatFactionEnemy + "/Bullet", typeof(Sprite)) as Sprite;
         }
     }
 
