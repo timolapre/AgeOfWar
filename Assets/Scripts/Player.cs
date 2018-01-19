@@ -63,9 +63,9 @@ public class Player : MonoBehaviour {
 
         if (!Colliding && !AtOtherBase && BaseScript.Playing)
             transform.Translate(Speed * Time.deltaTime, 0, 0);
-        else if (AtOtherBase && !Colliding && BaseScript.Playing)
-            BaseScript.EnemyBaseHealth -= Damage * 200 * Time.deltaTime;
-        else if (BaseScript.Playing) { };          
+        //else if (AtOtherBase && !Colliding && BaseScript.Playing)
+            //BaseScript.EnemyBaseHealth -= Damage * 200 * Time.deltaTime;
+        //else if (BaseScript.Playing) { };          
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -73,6 +73,11 @@ public class Player : MonoBehaviour {
         if (collision.tag == "Enemy")
         {
             collision.gameObject.GetComponent<Enemy>().StartTakingDamage(Damage, AttackAfterXSeconds, AttackEveryXSeconds);
+            Attackee = collision.gameObject;
+        }
+        if (collision.tag == "EBase")
+        {
+            collision.gameObject.GetComponent<EBase>().StartTakingDamage(Damage, AttackAfterXSeconds, AttackEveryXSeconds);
             Attackee = collision.gameObject;
         }
     }

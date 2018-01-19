@@ -50,7 +50,7 @@ public class Turret : MonoBehaviour
 		//Recenter the turret
 		if (InputHelper.GetActionDown(PlayerID, Joycon.Button.STICK) && BaseScript.Playing)
         {
-            rotation = 90 * (PlayerID == 1 ? -1 : 1);
+            rotation = 180 - 180*PlayerID;
         }
 
 		if (Cooling <= 0 && InputHelper.GetAction(PlayerID, Joycon.Button.HOME) && BaseScript.Playing)
@@ -104,9 +104,9 @@ public class Turret : MonoBehaviour
         {
             if(PlayerID == 0 &BaseScript.WhatTier > TurretLevel && BaseScript.Money >= 20 * TurretLevel)
             {
-                BaseScript.Money -= 20 * TurretLevel;         
+                BaseScript.Money -= 20 * TurretLevel;
                 TurretLevel++;
-                
+
 
                 GetComponentsInChildren<Transform>()[1].localPosition = new Vector3(-1, 0);
                 transform.localPosition = new Vector3(0, 0, .1f);

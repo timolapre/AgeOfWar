@@ -5,13 +5,13 @@ using UnityEngine;
 public class Projectile : MonoBehaviour {
     private Base BaseScript;
     SpriteRenderer spriteRenderer;
-    
+
 	public float direction; // 0 to the right
     public string kills = "Enemy";
     public int damage;
 
     public GameObject Explosion;
-    
+
 	float speed = 10;
 	float gravity = -9.81f;
 
@@ -47,7 +47,7 @@ public class Projectile : MonoBehaviour {
                 Expl.GetComponent<Explosion>().Expl = damage / 7;
                 Destroy(gameObject);
             }
-                
+
             verspeed += gravity * Time.deltaTime;
             direction = Mathf.Atan(verspeed / horspeed) * 180 / Mathf.PI;
             transform.rotation = Quaternion.AngleAxis(-direction + 90 * (horspeed <= 0 ? -1 : 1), Vector3.back);

@@ -14,8 +14,7 @@ public class Enemy : MonoBehaviour {
     private float Closest;
 
     public float Health, Damage, Speed, Range, Xp, Money;
-    private float AttackAfterXSeconds, AttackEveryXSeconds;
-    private float GetDamage;
+    private float AttackAfterXSeconds, AttackEveryXSeconds, GetDamage;
 
 	// Use this for initialization
 	void Start () {
@@ -38,9 +37,9 @@ public class Enemy : MonoBehaviour {
 
         if (!Colliding && !AtOtherBase && BaseScript.Playing)
             transform.Translate(-Speed * Time.deltaTime, 0, 0);
-        else if (AtOtherBase && !Colliding && BaseScript.Playing)
-            BaseScript.PlayerBaseHealth -= Damage * 200 * Time.deltaTime;
-        else if (BaseScript.Playing) { };
+        //else if (AtOtherBase && !Colliding && BaseScript.Playing)
+            //BaseScript.PlayerBaseHealth -= Damage * 200 * Time.deltaTime;
+        //else if (BaseScript.Playing) { };
         //Attackee.GetComponent<Player>().StartTakingDamage(Damage,);
 
         if (Health <= 0)
@@ -63,6 +62,11 @@ public class Enemy : MonoBehaviour {
         if (collision.tag == "Player")
         {
             collision.gameObject.GetComponent<Player>().StartTakingDamage(Damage, AttackAfterXSeconds, AttackEveryXSeconds);
+            Attackee = collision.gameObject;
+        }
+        if (collision.tag == "Base")
+        {
+            collision.gameObject.GetComponent<Base>().StartTakingDamage(Damage, AttackAfterXSeconds, AttackEveryXSeconds);
             Attackee = collision.gameObject;
         }
     }

@@ -10,8 +10,7 @@ public class EBase : MonoBehaviour {
 
     private float RandomSpawnTime;
     private float UpgradeTime;
-    public float Money;
-    public float XP;
+    public float Money, XP, GetDamage;
 
 
     SpriteRenderer SpriteRenderer;
@@ -103,5 +102,22 @@ public class EBase : MonoBehaviour {
         Money = BaseScript.StartMoney;
         RandomSpawnTime = Random.Range(3f, 7f) + Time.fixedTime;
         UpgradeTime = Time.fixedTime + 30;
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+            CancelInvoke("TakeDamage");
+    }
+
+    public void StartTakingDamage(float Damage, float GetHitAfterSeconds, float GetHitEverySeconds)
+    {
+        GetDamage = Damage;
+        InvokeRepeating("TakeDamage", GetHitAfterSeconds, GetHitEverySeconds);
+    }
+
+    void TakeDamage()
+    {
+        BaseScript.EnemyBaseHealth -= GetDamage;
     }
 }
