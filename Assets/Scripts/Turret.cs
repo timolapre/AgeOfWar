@@ -104,9 +104,9 @@ public class Turret : MonoBehaviour
         {
             if(PlayerID == 0 &BaseScript.WhatTier > TurretLevel && BaseScript.Money >= 20 * TurretLevel)
             {
-                BaseScript.Money -= 20 * TurretLevel;         
+                BaseScript.Money -= 20 * TurretLevel;
                 TurretLevel++;
-                
+
 
                 GetComponentsInChildren<Transform>()[1].localPosition = new Vector3(-1, 0);
                 transform.localPosition = new Vector3(0, 0, .1f);
@@ -126,7 +126,7 @@ public class Turret : MonoBehaviour
 
     public bool CanUpgradeTurret()
     {
-        if (BaseScript.Money >= 0/*add cost here later*/ && BaseScript.WhatTier > TurretLevel && TurretLevel != 5)
+        if (BaseScript.Money >= 20 * TurretLevel && BaseScript.WhatTier > TurretLevel && TurretLevel != 5)
         {
             return true;
         }
