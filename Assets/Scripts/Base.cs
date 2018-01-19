@@ -24,7 +24,7 @@ public class Base : MonoBehaviour {
     public List<GameObject> PlayerList, EnemyList;
 
     public EBase eBase;
-    int PlayerID = 0;
+    public int PlayerID = 0;
 
     public int[,] UnitCosts = { {1, 2, 3},
                                 {4, 5, 6},
@@ -60,9 +60,10 @@ public class Base : MonoBehaviour {
             Difficulty = 1f;
         else if (Dif == "Hard")
             Difficulty = 0.9f;
-        else       
-            Difficulty = 1;       
-
+        else
+            Difficulty = 1;
+        if (!VsAI)
+            Difficulty = 1;
         SpriteRenderer = GetComponent<SpriteRenderer>();
         TurretScript = GameObject.Find("Turret").GetComponent<Turret>();
         EnemyTurretScript = GameObject.Find("Turret2").GetComponent<Turret>();

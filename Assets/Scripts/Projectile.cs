@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour {
     private Base BaseScript;
+    SpriteRenderer spriteRenderer;
     
 	public float direction; // 0 to the right
     public string kills = "Enemy";
@@ -19,11 +20,20 @@ public class Projectile : MonoBehaviour {
 
 	void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         BaseScript = GetComponentInParent<Base>();
         transform.rotation = Quaternion.AngleAxis(-direction, Vector3.back);
 		verspeed = Mathf.Cos(direction * Mathf.PI / 180) * speed;
 		horspeed = -Mathf.Sin(direction * Mathf.PI / 180) * speed;
-	}
+        if (BaseScript.PlayerID == 0)
+        {
+            spriteRenderer.sprite = Resources.Load(BaseScript.WhatFaction + "Bullet", typeof(Sprite)) as Sprite;
+        }
+        if (BaseScript.PlayerID == 2)
+        {
+            spriteRenderer.sprite = Resources.Load(BaseScript.WhatFactionEnemy + "Bullet", typeof(Sprite)) as Sprite;
+        }
+    }
 
     // Update is called once per frame
     void Update ()

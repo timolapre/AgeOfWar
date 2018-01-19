@@ -126,7 +126,7 @@ public class Turret : MonoBehaviour
 
     public bool CanUpgradeTurret()
     {
-        if (BaseScript.Money >= 0/*add cost here later*/ && BaseScript.WhatTier > TurretLevel && TurretLevel != 5)
+        if (BaseScript.Money >= 20 * TurretLevel && BaseScript.WhatTier > TurretLevel && TurretLevel != 5)
         {
             return true;
         }
