@@ -1640,7 +1640,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1040315672}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 359.5952, y: 206.92363, z: 0.09375}
+  m_LocalPosition: {x: 336.0952, y: 193.92363, z: 0.09375}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 170095593}
@@ -1912,9 +1912,10 @@ GameObject:
   - component: {fileID: 1198727279}
   - component: {fileID: 1198727278}
   - component: {fileID: 1198727282}
+  - component: {fileID: 1198727280}
   m_Layer: 0
   m_Name: PBase /main object
-  m_TagString: Untagged
+  m_TagString: Base
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1959,6 +1960,7 @@ MonoBehaviour:
   EnemyBaseHealth: 0
   PlayerBaseHealthStart: 0
   EnemyBaseHealtStart: 0
+  GetDamage: 0
   Difficulty: 0
   WhatTier: 1
   WhatTierEnemy: 1
@@ -2016,6 +2018,31 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!61 &1198727280
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1198727277}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -5.0166316, y: -5.5982666}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 20, y: 22.4}
+    newSize: {x: 6.2000003, y: 7.11}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 8.779227, y: 11.203466}
+  m_EdgeRadius: 0
 --- !u!222 &1198727282
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2561,7 +2588,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1642749252}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 359.5952, y: 206.92363, z: 0.09375}
+  m_LocalPosition: {x: 336.0952, y: 193.92363, z: 0.09375}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 594942637}
@@ -2892,9 +2919,10 @@ GameObject:
   - component: {fileID: 1847756078}
   - component: {fileID: 1847756077}
   - component: {fileID: 1847756079}
+  - component: {fileID: 1847756080}
   m_Layer: 0
   m_Name: EBase
-  m_TagString: Untagged
+  m_TagString: EBase
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2975,6 +3003,32 @@ MonoBehaviour:
   spawnEnemy: {fileID: 1841949569}
   Money: 20
   XP: 100
+  GetDamage: 0
+--- !u!61 &1847756080
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1847756076}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 4.9805107, y: -7.235816}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 20, y: 22.4}
+    newSize: {x: 20, y: 22.4}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 10.038979, y: 7.928367}
+  m_EdgeRadius: 0
 --- !u!1 &1953944843
 GameObject:
   m_ObjectHideFlags: 0

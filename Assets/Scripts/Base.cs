@@ -13,7 +13,7 @@ public class Base : MonoBehaviour {
     public Text MoneyText, XpText, WhatTierText, MoneyTextP1, XpTextP1, WhatTierTextP1, MoneyTextP2, XpTextP2, WhatTierTextP2, GameOverText; 
     public float FirstPlayer, FirstEnemy;
     public float Money, XP, StartMoney = 20;
-    public float PlayerBaseHealth, EnemyBaseHealth, PlayerBaseHealthStart, EnemyBaseHealtStart;
+    public float PlayerBaseHealth, EnemyBaseHealth, PlayerBaseHealthStart, EnemyBaseHealtStart, GetDamage;
     public float Difficulty;
     public int WhatTier = 1, WhatTierEnemy = 1;
     public string WhatFaction, WhatFactionEnemy;
@@ -70,8 +70,8 @@ public class Base : MonoBehaviour {
         Teams = false;
         //  VsAI = true;
         Money = StartMoney;
-        PlayerBaseHealth = 1000;
-        EnemyBaseHealth = 1000;
+        PlayerBaseHealth = 100;
+        EnemyBaseHealth = 100;
         Playing = true;
         WhatTier = 1;
         WhatTierEnemy = 1;        
@@ -104,9 +104,9 @@ public class Base : MonoBehaviour {
             XpTextP2.text = "";
             WhatTierTextP2.text = "Tier " + WhatTierEnemy;
         }
-        HealthBarPlayer.transform.localScale = new Vector3(((float)3/1000*PlayerBaseHealth),0.2f,0.2f);
+        HealthBarPlayer.transform.localScale = new Vector3(((float)3/100*PlayerBaseHealth),0.2f,0.2f);
         HealthBarPlayer.transform.position = new Vector3(HealthBarPlayer.transform.localScale.x/2 - 9.5f, HealthBarPlayer.transform.position.y, HealthBarPlayer.transform.position.z);
-        HealthBarEnemy.transform.localScale = new Vector3(((float)3 / 1000 * EnemyBaseHealth), 0.2f, 0.2f);
+        HealthBarEnemy.transform.localScale = new Vector3(((float)3 / 100 * EnemyBaseHealth), 0.2f, 0.2f);
         HealthBarEnemy.transform.position = new Vector3(HealthBarEnemy.transform.localScale.x / 2 + 14f, HealthBarEnemy.transform.position.y, HealthBarEnemy.transform.position.z);
         if (PlayerBaseHealth <= 0 && !GameOver)
         {
@@ -169,8 +169,8 @@ public class Base : MonoBehaviour {
     }
     public void Reset()
     {
-        PlayerBaseHealth = 1000;
-        EnemyBaseHealth = 1000;
+        PlayerBaseHealth = 100;
+        EnemyBaseHealth = 100;
         GameOver = false;
         Playing = true;
         Money = StartMoney;
@@ -209,5 +209,22 @@ public class Base : MonoBehaviour {
         {
             return false;
         }
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.tag == "Enemy")
+            CancelInvoke("TakeDamage");
+    }
+
+    public void StartTakingDamage(float Damage, float GetHitAfterSeconds, float GetHitEverySeconds)
+    {
+        GetDamage = Damage;
+        InvokeRepeating("TakeDamage", GetHitAfterSeconds, GetHitEverySeconds);
+    }
+
+    void TakeDamage()
+    {
+        PlayerBaseHealth -= GetDamage;
     }
 }
