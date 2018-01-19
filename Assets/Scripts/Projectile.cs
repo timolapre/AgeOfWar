@@ -5,13 +5,13 @@ using UnityEngine;
 public class Projectile : MonoBehaviour {
     private Base BaseScript;
     SpriteRenderer spriteRenderer;
-    
+
 	public float direction; // 0 to the right
     public string kills = "Enemy";
     public int damage;
 
     public GameObject Explosion;
-    
+
 	float speed = 10;
 	float gravity = -9.81f;
 
@@ -25,13 +25,13 @@ public class Projectile : MonoBehaviour {
         transform.rotation = Quaternion.AngleAxis(-direction, Vector3.back);
 		verspeed = Mathf.Cos(direction * Mathf.PI / 180) * speed;
 		horspeed = -Mathf.Sin(direction * Mathf.PI / 180) * speed;
-        if (BaseScript.PlayerID == 0)
+        if (kills == "Enemy")
         {
-            spriteRenderer.sprite = Resources.Load(BaseScript.WhatFaction + "Bullet", typeof(Sprite)) as Sprite;
+            spriteRenderer.sprite = Resources.Load(BaseScript.WhatFaction + "/Bullet", typeof(Sprite)) as Sprite;
         }
-        if (BaseScript.PlayerID == 2)
+        if (kills == "Player")
         {
-            spriteRenderer.sprite = Resources.Load(BaseScript.WhatFactionEnemy + "Bullet", typeof(Sprite)) as Sprite;
+            spriteRenderer.sprite = Resources.Load(BaseScript.WhatFactionEnemy + "/Bullet", typeof(Sprite)) as Sprite;
         }
     }
 
@@ -47,7 +47,7 @@ public class Projectile : MonoBehaviour {
                 Expl.GetComponent<Explosion>().Expl = damage / 7;
                 Destroy(gameObject);
             }
-                
+
             verspeed += gravity * Time.deltaTime;
             direction = Mathf.Atan(verspeed / horspeed) * 180 / Mathf.PI;
             transform.rotation = Quaternion.AngleAxis(-direction + 90 * (horspeed <= 0 ? -1 : 1), Vector3.back);
