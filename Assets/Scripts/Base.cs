@@ -125,8 +125,11 @@ public class Base : MonoBehaviour {
 				if (!File.Exists(Application.persistentDataPath + "/SaveData.json"))
 					File.Create(Application.persistentDataPath + "/SaveData.json").Close();
 				List<string> Beat = new List<string>(File.ReadAllLines(Application.persistentDataPath + "/SaveData.json"));
-				Beat.Add(WhatFactionEnemy);
-				File.WriteAllLines(Application.persistentDataPath + "/SaveData.json", Beat.ToArray());
+				if (!Beat.Contains(WhatFactionEnemy))
+				{
+					Beat.Add(WhatFactionEnemy);
+					File.WriteAllLines(Application.persistentDataPath + "/SaveData.json", Beat.ToArray());
+				}
 			}
             SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);
         }
