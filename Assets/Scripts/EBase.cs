@@ -76,7 +76,7 @@ public class EBase : MonoBehaviour {
             SpawnEnemy(Random.Range((int)Time.fixedTime / 50 + 1, Mathf.Min(4, (int)Time.fixedTime / 25 + 2)));
             RandomSpawnTime = Random.Range(3f, 7f) + Time.fixedTime;
         }
-        if (Time.fixedTime > UpgradeTime)
+        if (Time.fixedTime > UpgradeTime && BaseScript.WhatTierEnemy != 5)
         {
             BaseScript.WhatTierEnemy++;
             UpgradeTime = Time.fixedTime + 30;
