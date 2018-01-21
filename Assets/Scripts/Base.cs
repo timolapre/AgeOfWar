@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -119,6 +120,14 @@ public class Base : MonoBehaviour {
         {
             GameOver = true;
             Playing = false;
+			if (PlayerPrefs.GetString("Mode") == "Campaign")
+			{
+				if (!File.Exists(Application.persistentDataPath + "/SaveData.json"))
+					File.Create(Application.persistentDataPath + "/SaveData.json").Close();
+				List<string> Beat = new List<string>(File.ReadAllLines(Application.persistentDataPath + "/SaveData.json"));
+				Beat.Add(WhatFactionEnemy);
+				File.WriteAllLines(Application.persistentDataPath + "/SaveData.json", Beat.ToArray());
+			}
             SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);
         }
 

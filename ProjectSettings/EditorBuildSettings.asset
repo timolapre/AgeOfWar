@@ -26,3 +26,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Options.unity
     guid: 3fea3bbac17055b48b0c129dc1e9fd95
+  - enabled: 1
+    path: Assets/Scenes/Campaign.unity
+    guid: 5b14b24fcdec9fd42a0839b710378902
