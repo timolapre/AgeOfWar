@@ -152,38 +152,5 @@ public class Enemy : MonoBehaviour {
             AttackEveryXSeconds = 1f;
             Speed = 1;
         }
-
-        /*if (id == 4)
-        {
-            Health = 25;
-            Damage = 2;
-            Range = 1;
-            Xp = 4;
-            Money = 4;
-            AttackAfterXSeconds = 0.3f;
-            AttackEveryXSeconds = 0.3f;
-        }
-
-        if (id == 5)
-        {
-            Health = 40;
-            Damage = 4;
-            Range = 1;
-            Xp = 5;
-            Money = 5;
-            AttackAfterXSeconds = 0.3f;
-            AttackEveryXSeconds = 0.3f;
-        }
-
-        if (id == 6)
-        {
-            Health = 50;
-            Damage = 5;
-            Range = 1;
-            Xp = 5;
-            Money = 5;
-            AttackAfterXSeconds = 0.3f;
-            AttackEveryXSeconds = 0.3f;
-        }*/
     }
 }
