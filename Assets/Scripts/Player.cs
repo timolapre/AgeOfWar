@@ -29,7 +29,7 @@ public class Player : MonoBehaviour {
         }
         if(BaseScript.WhatFaction == "Russia" && BaseScript.VsAI)
         {
-            Health += 10 * BaseScript.WhatTier;
+            Health += 3 * BaseScript.WhatTier;
         }
         if(BaseScript.WhatFaction == "Imperium of Man" && BaseScript.VsAI)
         {

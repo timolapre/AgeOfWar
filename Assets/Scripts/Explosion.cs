@@ -8,6 +8,7 @@ public class Explosion : MonoBehaviour {
     private Base BaseScript;
 
     private Animator animator;
+    AudioSource Audio;
 
     public int Expl = 1;
     public int ExplTimes = 1;
@@ -16,8 +17,16 @@ public class Explosion : MonoBehaviour {
 	void Start () {
         animator = GetComponent<Animator>();
         BaseScript = GetComponentInParent<Base>();
+
+        Audio = GetComponent<AudioSource>();
+
+        Audio.clip = Resources.Load("Sound/Explosions/" + Expl + "/1", typeof (AudioClip)) as AudioClip;
+        Audio.Play();
+
         if (Expl == 1)
-            animator.Play("SmallExplosion");
+        {
+            animator.Play("SmallExplosion");            
+        }            
         else if (Expl == 2)
         {
             animator.Play("MediumExplosion");

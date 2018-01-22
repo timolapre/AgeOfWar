@@ -11,6 +11,7 @@ public class Turret : MonoBehaviour
     public int TurretLevel;
     float Cooldown = 2f, Cooling = 0;
     SpriteRenderer TurretBase;
+    AudioSource Audio;
 
     public int PlayerID;
 	public GameObject projectile;
@@ -19,6 +20,7 @@ public class Turret : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        Audio = GetComponent<AudioSource>();
         TurretLevel = 1;
         BaseScript = GetComponentInParent<Base>();
         rotation = (PlayerID == 1 ? 0 : 180);
@@ -29,6 +31,14 @@ public class Turret : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (PlayerID == 0)
+        {
+            Audio.clip = Resources.Load("Sound/Gun/Tier " + TurretLevel + "/1", typeof(AudioClip)) as AudioClip;
+        }
+        else if(PlayerID == 1)
+        {
+            Audio.clip = Resources.Load("Sound/Gun/Tier " + TurretLevel + "/1", typeof(AudioClip)) as AudioClip;
+        }
         Cooling -= Time.deltaTime;
 
         if (PlayerID == 0)
@@ -56,6 +66,7 @@ public class Turret : MonoBehaviour
 		if (Cooling <= 0 && InputHelper.GetAction(PlayerID, Joycon.Button.HOME) && BaseScript.Playing)
 		{
             Shoot();
+            Audio.Play();
         }
 
         if (Input.GetKeyDown(KeyCode.R) && BaseScript.GameOver)
@@ -180,7 +191,10 @@ public class Turret : MonoBehaviour
         gameObject.transform.rotation = Quaternion.AngleAxis(rotation, Vector3.back);
 
         if (Cooling <= 0)
+        {
             Shoot();
+            Audio.Play();
+        }
     }
 
 
