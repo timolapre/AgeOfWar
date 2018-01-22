@@ -75,6 +75,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WhichUnit: 0
   Explosion: {fileID: 1666867468172020, guid: 328d0e5390082cd4cb334923c1997ef8, type: 2}
+  Particle: {fileID: 1333957874206738, guid: 5555eee96c17e09429a4641431cf750d, type: 2}
   Health: 0
   Damage: 0
   Speed: 2

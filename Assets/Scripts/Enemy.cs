@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour {
 
     public int WhichUnit;
-    public GameObject Explosion;
+    public GameObject Explosion, Particle;
 
     SpriteRenderer SpriteRenderer;
     public Sprite Sprite1, Sprite2, Sprite3, Sprite4, Sprite5, Sprite6;
@@ -94,11 +94,22 @@ public class Enemy : MonoBehaviour {
     void TakeDamage()
     {
         Health -= GetDamage;
+        Instantiate(Particle, new Vector3(transform.position.x + Random.Range(-0.5f,0.5f),transform.position.y + Random.Range(0.1f, 0.9f), transform.position.z-2), transform.rotation);
+        SpriteRenderer.color = new Color(1,0.8f,0.8f);
+        Invoke("ChangeColorToWhite",0.1f);
     }
 
     void TakeBulletDamage(int Damage)
     {
         Health -= Damage;
+        Instantiate(Particle, new Vector3(transform.position.x + Random.Range(-0.5f, 0.5f), transform.position.y + Random.Range(0.1f, 0.9f), transform.position.z - 2), transform.rotation);
+        SpriteRenderer.color = new Color(1, 0.75f, 0.75f);
+        Invoke("ChangeColorToWhite", 0.1f);
+    }
+
+    void ChangeColorToWhite()
+    {
+        SpriteRenderer.color = Color.white;
     }
 
     void GetStartValues(int id)
@@ -108,37 +119,37 @@ public class Enemy : MonoBehaviour {
         transform.localScale = new Vector3(2, 2, 1);
         if (id == 1)
         {
-            Health = 10 * BaseScript.WhatTierEnemy;
+            Health = 3 * BaseScript.WhatTierEnemy;
             Damage = BaseScript.WhatTierEnemy;
             Range = 1;
             Xp = 1;
             Money = 5;
-            AttackAfterXSeconds = 0.3f;
-            AttackEveryXSeconds = 0.3f;
+            AttackAfterXSeconds = 0.45f;
+            AttackEveryXSeconds = 1f;
             Speed = 3;
         }
 
         if (id == 2)
         {
-            Health = 20 * BaseScript.WhatTierEnemy;
+            Health = 6 * BaseScript.WhatTierEnemy;
             Damage = 2 + BaseScript.WhatTierEnemy;
             Range = 1;
             Xp = 2;
             Money = 10;
-            AttackAfterXSeconds = 0.3f;
-            AttackEveryXSeconds = 0.3f;
+            AttackAfterXSeconds = 0.45f;
+            AttackEveryXSeconds = 1f;
             Speed = 2;
         }
 
         if (id == 3)
         {
-            Health = 30 * BaseScript.WhatTierEnemy;
+            Health = 9 * BaseScript.WhatTierEnemy;
             Damage = 1 + BaseScript.WhatTierEnemy;
             Range = 1;
             Xp = 3;
             Money = 15;
-            AttackAfterXSeconds = 0.3f;
-            AttackEveryXSeconds = 0.3f;
+            AttackAfterXSeconds = 0.45f;
+            AttackEveryXSeconds = 1f;
             Speed = 1;
         }
 

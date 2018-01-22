@@ -6,7 +6,7 @@ using UnityEngine;
 public class Player : MonoBehaviour {
 
     public int WhichUnit;
-    public GameObject Explosion;
+    public GameObject Explosion, Particle;
 
     SpriteRenderer SpriteRenderer;
 
@@ -105,11 +105,22 @@ public class Player : MonoBehaviour {
     void TakeDamage()
     {
         Health -= GetDamage;
+        Instantiate(Particle, new Vector3(transform.position.x + Random.Range(-0.5f, 0.5f), transform.position.y + Random.Range(0.2f, 0.9f), transform.position.z - 2), transform.rotation);
+        SpriteRenderer.color = new Color(1, 0.75f, 0.75f);
+        Invoke("ChangeColorToWhite", 0.1f);
     }
 
     void TakeBulletDamage(int Damage)
     {
         Health -= Damage;
+        Instantiate(Particle, new Vector3(transform.position.x + Random.Range(-0.5f, 0.5f), transform.position.y + Random.Range(0.1f, 0.9f), transform.position.z - 2), transform.rotation);
+        SpriteRenderer.color = new Color(1, 0.8f, 0.8f);
+        Invoke("ChangeColorToWhite", 0.1f);
+    }
+
+    void ChangeColorToWhite()
+    {
+        SpriteRenderer.color = Color.white;
     }
 
     void GetStartValues(int id)
@@ -122,37 +133,37 @@ public class Player : MonoBehaviour {
 
         if (id == 1)
         {
-            Health = 10 * BaseScript.WhatTier * BaseScript.Difficulty;
+            Health = 3 * BaseScript.WhatTier * BaseScript.Difficulty;
             Damage = BaseScript.WhatTier * BaseScript.Difficulty;
             Range = 1;
             Xp = 1;
             Money = 7;
             AttackAfterXSeconds = 0.3f;
-            AttackEveryXSeconds = 0.3f;
+            AttackEveryXSeconds = 1f;
             Speed = 3;
         }
 
         if (id == 2)
         {
-            Health = 20 * BaseScript.WhatTier * BaseScript.Difficulty;
+            Health = 6 * BaseScript.WhatTier * BaseScript.Difficulty;
             Damage = (2 + BaseScript.WhatTier) * BaseScript.Difficulty;
             Range = 1;
             Xp = 2;
             Money = 13;
             AttackAfterXSeconds = 0.3f;
-            AttackEveryXSeconds = 0.3f;
+            AttackEveryXSeconds = 1f;
             Speed = 2;
         }
 
         if (id == 3)
         {
-            Health = 30 * BaseScript.WhatTier * BaseScript.Difficulty;
+            Health = 9 * BaseScript.WhatTier * BaseScript.Difficulty;
             Damage = (1 + BaseScript.WhatTier) * BaseScript.Difficulty;
             Range = 1;
             Xp = 3 ;
             Money = 19;
             AttackAfterXSeconds = 0.3f;
-            AttackEveryXSeconds = 0.3f;
+            AttackEveryXSeconds = 1f;
             Speed = 1;
         }
     }

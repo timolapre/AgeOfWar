@@ -44,7 +44,7 @@ public class Projectile : MonoBehaviour {
             {
                 GameObject Expl = Instantiate(Explosion, new Vector3(transform.position.x, -2f, transform.position.z), new Quaternion(0, 0, 0, 0));
                 Expl.transform.parent = transform.parent;
-                Expl.GetComponent<Explosion>().Expl = damage / 7;
+                Expl.GetComponent<Explosion>().Expl = damage / 1;
                 Destroy(gameObject);
             }
 
@@ -61,6 +61,9 @@ public class Projectile : MonoBehaviour {
         if (collision.gameObject.tag == kills)
         {
             collision.gameObject.SendMessage("TakeDamage", damage);
+            GameObject Expl = Instantiate(Explosion, new Vector3(transform.position.x, -2f, transform.position.z), new Quaternion(0, 0, 0, 0));
+            Expl.transform.parent = transform.parent;
+            Expl.GetComponent<Explosion>().Expl = damage / 1;
             Destroy(gameObject);
         }
 
