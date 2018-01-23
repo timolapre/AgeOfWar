@@ -169,15 +169,10 @@ public class Base : MonoBehaviour {
 
         if(SpawnList.Count > 0 && SpawnTimer == 0)
         {
-            SpawnTimer = ((SpawnList[0] * WhatTier) / 3);
+            SpawnTimer = ((SpawnList[0] * WhatTier) / 4);
             SpawnUnitID = SpawnList[0];
-            Debug.Log(SpawnTimer);
+            //Debug.Log(SpawnTimer);
             Invoke("SpawnPlayer", SpawnTimer);
-        }
-        
-        if(SpawnTimer > 0)
-        {
-            SpawnTimerObject.transform.localScale -= new Vector3(Time.deltaTime/(float)(SpawnTimer/2.7),0,0);
         }
     }
 
@@ -185,8 +180,10 @@ public class Base : MonoBehaviour {
     {
         if (Money >= id * 5 && Playing)
         {
-            if(SpawnList.Count < 5)
+            Money -= id * 5;
+            if (SpawnList.Count < 5)
                 SpawnList.Add(id);
+            SpawnTimerObject.transform.localScale = new Vector3(2.7f, SpawnTimerObject.transform.localScale.y, SpawnTimerObject.transform.localScale.z);
         }
     }
 
@@ -196,10 +193,8 @@ public class Base : MonoBehaviour {
         Player tempPlayerScript = tempPlayer.GetComponent<Player>();
         tempPlayerScript.WhichUnit = (int)SpawnUnitID;
         PlayerList.Add(tempPlayer);
-        Money -= SpawnUnitID * 5;
         SpawnList.RemoveAt(0);
         SpawnTimer = 0;
-        SpawnTimerObject.transform.localScale = new Vector3(2.7f, SpawnTimerObject.transform.localScale.y, SpawnTimerObject.transform.localScale.z);
     }
 
     public void Reset()
