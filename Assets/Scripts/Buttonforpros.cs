@@ -134,7 +134,6 @@ public class Buttonforpros : MonoBehaviour
         }
         else
         {
-            //PlayerPrefs.SetFloat("AudioTime", Audio.time);
             SceneManager.LoadScene(ChangeTo, LoadSceneMode.Single);
         }
     }

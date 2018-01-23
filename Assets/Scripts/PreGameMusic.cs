@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MenuMusic : MonoBehaviour {
+public class PreGameMusic : MonoBehaviour {
 
     AudioSource Audio;
     bool Play;
@@ -23,6 +23,10 @@ public class MenuMusic : MonoBehaviour {
         if (Play == true && Toggle == true)
         {
             Audio.clip = Resources.Load("music/AoWMainTheme", typeof(AudioClip)) as AudioClip;
+            if (PlayerPrefs.GetFloat("MusicTime") > 0)
+            {
+                Audio.time = PlayerPrefs.GetFloat("MusicTime");
+            }
             Audio.Play();
             Audio.loop = true;
             Toggle = false;
