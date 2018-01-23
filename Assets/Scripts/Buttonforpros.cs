@@ -142,5 +142,6 @@ public class Buttonforpros : MonoBehaviour
     public void MasterVolume (float Vol)
     {
         AudioListener.volume = Vol;
+        PlayerPrefs.SetFloat("MusicVol", Vol);
     }
 }
