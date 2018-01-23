@@ -14,6 +14,8 @@ public class Pause : MonoBehaviour {
         if (Button == "Resume")
         {
             SceneManager.UnloadSceneAsync("Paused");
+            BaseScript.Paused = false;
+            BaseScript.Playing = true;
         }
         if (Button == "Restart")
         {

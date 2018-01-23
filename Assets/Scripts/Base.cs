@@ -9,7 +9,7 @@ public class Base : MonoBehaviour {
     SpriteRenderer SpriteRenderer;
     private EBase EBaseScript;
     public Turret TurretScript, EnemyTurretScript;
-    public GameObject Player, Enemy, HealthBarPlayer, HealthBarEnemy, CanvasSingle, CanvasMulti;
+    public GameObject Player, Enemy, HealthBarPlayer, HealthBarEnemy, SpawnTimerObject, CanvasSingle, CanvasMulti;
     public Transform SpawnPlayerLocation, SpawnEnemyLocation;
     public Text MoneyText, XpText, WhatTierText, MoneyTextP1, XpTextP1, WhatTierTextP1, MoneyTextP2, XpTextP2, WhatTierTextP2, GameOverText; 
     public float FirstPlayer, FirstEnemy;
@@ -26,6 +26,9 @@ public class Base : MonoBehaviour {
 
     public EBase eBase;
     public int PlayerID = 0;
+
+    public List<float> SpawnList;
+    public float SpawnTimer, SpawnUnitID;
 
     public int[,] UnitCosts = { {1, 2, 3},
                                 {4, 5, 6},
@@ -97,7 +100,7 @@ public class Base : MonoBehaviour {
         else
         {
             MoneyText.text = "";
-            XpText.text = "XP: " + XP;
+            XpText.text = "";
             WhatTierText.text = "";
             MoneyTextP1.text = "";
             XpTextP1.text = "";
@@ -135,21 +138,17 @@ public class Base : MonoBehaviour {
 
         if (InputHelper.GetActionDown(PlayerID, Joycon.Button.DPAD_LEFT) && Money >= 1)
         {
-            SpawnPlayer(1);
+            AddSpawnPlayer(1);
         }
         if (InputHelper.GetActionDown(PlayerID, Joycon.Button.DPAD_DOWN) && Money >= 3)
         {
-            SpawnPlayer(2);
+            AddSpawnPlayer(2);
         }
         if (InputHelper.GetActionDown(PlayerID, Joycon.Button.DPAD_RIGHT) && Money >= 5)
         {
-            SpawnPlayer(3);
+            AddSpawnPlayer(3);
         }
 
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            Money++;
-        }
         if (InputHelper.GetActionDown(PlayerID, Joycon.Button.SR))
         {
             UpgradeTier();
@@ -160,25 +159,49 @@ public class Base : MonoBehaviour {
             Playing = false;
             SceneManager.LoadScene("Paused", LoadSceneMode.Additive);
         }
+
         else if (InputHelper.GetActionDown(PlayerID, Joycon.Button.PLUS) && Paused)
         {
             Paused = false;
             Playing = true;
             SceneManager.UnloadSceneAsync("Paused");
         }
+
+        if(SpawnList.Count > 0 && SpawnTimer == 0)
+        {
+            SpawnTimer = ((SpawnList[0] * WhatTier) / 3);
+            SpawnUnitID = SpawnList[0];
+            Debug.Log(SpawnTimer);
+            Invoke("SpawnPlayer", SpawnTimer);
+        }
+        
+        if(SpawnTimer > 0)
+        {
+            SpawnTimerObject.transform.localScale -= new Vector3(Time.deltaTime/(float)(SpawnTimer/2.7),0,0);
+        }
     }
 
-    public void SpawnPlayer(int id)
+    public void AddSpawnPlayer(int id)
     {
         if (Money >= id * 5 && Playing)
         {
-            GameObject tempPlayer = Instantiate(Player, SpawnPlayerLocation.position, SpawnPlayerLocation.rotation, transform) as GameObject;
-            Player tempPlayerScript = tempPlayer.GetComponent<Player>();
-            tempPlayerScript.WhichUnit = id;
-            PlayerList.Add(tempPlayer);
-            Money -= id * 5;
+            if(SpawnList.Count < 5)
+                SpawnList.Add(id);
         }
     }
+
+    private void SpawnPlayer()
+    {
+        GameObject tempPlayer = Instantiate(Player, SpawnPlayerLocation.position, SpawnPlayerLocation.rotation, transform) as GameObject;
+        Player tempPlayerScript = tempPlayer.GetComponent<Player>();
+        tempPlayerScript.WhichUnit = (int)SpawnUnitID;
+        PlayerList.Add(tempPlayer);
+        Money -= SpawnUnitID * 5;
+        SpawnList.RemoveAt(0);
+        SpawnTimer = 0;
+        SpawnTimerObject.transform.localScale = new Vector3(2.7f, SpawnTimerObject.transform.localScale.y, SpawnTimerObject.transform.localScale.z);
+    }
+
     public void Reset()
     {
         PlayerBaseHealth = 100;
