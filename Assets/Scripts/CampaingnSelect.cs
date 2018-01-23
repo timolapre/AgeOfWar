@@ -19,7 +19,9 @@ public class CampaingnSelect : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        GameObject.Find("Player").GetComponent<Dropdown>().AddOptions(SaveLoader.Unlocked);
+        List<string> Options = SaveLoader.Unlocked;
+        Options.Remove("Germany");
+        GameObject.Find("Player").GetComponent<Dropdown>().AddOptions(Options);
         Self = GameObject.Find("Self").GetComponent<Text>();
 		Left = GameObject.Find("Left");
 		Faction = GameObject.Find("FactionText").GetComponent<Text>();

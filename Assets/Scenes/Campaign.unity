@@ -2334,10 +2334,6 @@ MonoBehaviour:
     m_Options:
     - m_Text: Germany
       m_Image: {fileID: 0}
-    - m_Text: Russia
-      m_Image: {fileID: 0}
-    - m_Text: Imperium of Man
-      m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
