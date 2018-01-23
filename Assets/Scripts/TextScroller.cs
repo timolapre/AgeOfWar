@@ -23,7 +23,7 @@ public class TextScroller : MonoBehaviour {
         text1.transform.Translate(new Vector2(0, spd));
         text2.transform.Translate(new Vector2(0, spd));
 
-        if (InputHelper.GetActionDown(0, Joycon.Button.PLUS) || text2.transform.localPosition.y - text2.GetComponent<RectTransform>().rect.height / 2 > 1000)
+        if (InputHelper.GetActionDown(0, Joycon.Button.PLUS) || text2.transform.localPosition.y - text2.GetComponent<RectTransform>().rect.height / 2 > 900)
             SceneManager.LoadScene("Menu");
     }
 }

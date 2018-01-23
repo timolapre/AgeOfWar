@@ -1101,7 +1101,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 7b711bda2a7472c46996704777841dcf, type: 3}
+    m_Font: {fileID: 12800000, guid: d5839bf9ccae6c341b57f658454a5b4c, type: 3}
     m_FontSize: 25
     m_FontStyle: 0
     m_BestFit: 0
@@ -1128,7 +1128,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1829736758}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26e43efc50a42d74d9ea1797d68df023, type: 3}
+  m_Script: {fileID: 11500000, guid: faa3e8442d0771c4b9103cf5e8bd91f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   WinnerText: {fileID: 1829736760}

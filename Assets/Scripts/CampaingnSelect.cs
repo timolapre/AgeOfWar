@@ -17,9 +17,13 @@ public class CampaingnSelect : MonoBehaviour {
 	Image Image;
 	GameObject Right;
 
-	// Use this for initialization
-	void Start () {
-        List<string> Options = SaveLoader.Unlocked;
+    List<string> Unlocked = new List<string>();
+
+    // Use this for initialization
+    void Start () {
+        if(File.Exists(Application.persistentDataPath + "/SaveData.json"))
+            Unlocked = new List<string>(File.ReadAllLines(Application.persistentDataPath + "/SaveData.json"));
+        List<string> Options = new List<string>(Unlocked);
         Options.Remove("Germany");
         GameObject.Find("Player").GetComponent<Dropdown>().AddOptions(Options);
         Self = GameObject.Find("Self").GetComponent<Text>();
@@ -28,7 +32,7 @@ public class CampaingnSelect : MonoBehaviour {
 		Image = GameObject.Find("Image").GetComponent<Image>();
 		Right = GameObject.Find("Right");
         
-		if (SaveLoader.Unlocked.Contains(Faction.text))
+		if (Unlocked.Contains(Faction.text))
 		    Right.GetComponent<UnityEngine.UI.Button>().interactable = true;
 	}
 
@@ -65,7 +69,7 @@ public class CampaingnSelect : MonoBehaviour {
 		Faction.text = Order[Selected];
 		Image.sprite = Resources.Load<Sprite>("Backgrounds/" + Order[Selected]);
 
-		if (Selected == Order.Count - 1 || !SaveLoader.Unlocked.Contains(Faction.text))
+		if (Selected == Order.Count - 1 || !Unlocked.Contains(Faction.text))
 		{
 			Right.GetComponent<UnityEngine.UI.Button>().interactable = false;
 			Right.GetComponent<Image>().color = Color.clear;

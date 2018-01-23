@@ -11,7 +11,7 @@ public class Base : MonoBehaviour {
     public Turret TurretScript, EnemyTurretScript;
     public GameObject Player, Enemy, HealthBarPlayer, HealthBarEnemy, SpawnTimerObject, CanvasSingle, CanvasMulti;
     public Transform SpawnPlayerLocation, SpawnEnemyLocation;
-    public Text MoneyText, XpText, WhatTierText, MoneyTextP1, XpTextP1, WhatTierTextP1, MoneyTextP2, XpTextP2, WhatTierTextP2, GameOverText; 
+    public Text MoneyText, XpText, WhatTierText, MoneyTextP1, XpTextP1, WhatTierTextP1, MoneyTextP2, XpTextP2, WhatTierTextP2, GameOverText;
     public float FirstPlayer, FirstEnemy;
     public float Money, XP, StartMoney = 20;
     public float PlayerBaseHealth, EnemyBaseHealth, PlayerBaseHealthStart, EnemyBaseHealtStart, GetDamage;
@@ -22,11 +22,19 @@ public class Base : MonoBehaviour {
 
     public bool Playing, Paused;
 
+    public List<GameObject> PlayerList, EnemyList;
+
     public EBase eBase;
     public int PlayerID = 0;
 
     public List<float[]> SpawnList = new List<float[]>();
     public float SpawnTimer, SpawnUnitID, SpawnUnitTier;
+
+    public int[,] UnitCosts = { {1, 2, 3},
+                                {4, 5, 6},
+                                {7, 8, 9},
+                                {7, 8, 9},
+                                {7, 8, 9} };
 
     void Start () {
         //Instantiate(Object, spawn.position, spawn.rotation);
@@ -44,7 +52,7 @@ public class Base : MonoBehaviour {
             VsAI = false;
             CanvasSingle.SetActive(false);
         }
-        
+
     //Debug.Log(vsai + " " + VsAI);
 
         WhatFaction = PlayerPrefs.GetString("Faction");
@@ -68,12 +76,10 @@ public class Base : MonoBehaviour {
         //  VsAI = true;
         Money = StartMoney;
         PlayerBaseHealth = 100;
-        PlayerBaseHealthStart = PlayerBaseHealth;
         EnemyBaseHealth = 100;
-        EnemyBaseHealtStart = EnemyBaseHealth;
         Playing = true;
         WhatTier = 1;
-        WhatTierEnemy = 1;        
+        WhatTierEnemy = 1;
     }
 
 	void Update () {
@@ -103,23 +109,15 @@ public class Base : MonoBehaviour {
             XpTextP2.text = "";
             WhatTierTextP2.text = "Tier " + WhatTierEnemy;
         }
-        HealthBarPlayer.transform.localScale = new Vector3(((float)3 * (PlayerBaseHealth / PlayerBaseHealthStart)),0.2f,0.2f);
-        HealthBarPlayer.transform.position = new Vector3(HealthBarPlayer.transform.localScale.x/2 - 11.5f, HealthBarPlayer.transform.position.y, HealthBarPlayer.transform.position.z);
-        HealthBarEnemy.transform.localScale = new Vector3(((float)3 * (EnemyBaseHealth / EnemyBaseHealtStart)), 0.2f, 0.2f);
-        HealthBarEnemy.transform.position = new Vector3(HealthBarEnemy.transform.localScale.x / 2 + 16f, HealthBarEnemy.transform.position.y, HealthBarEnemy.transform.position.z);
+        HealthBarPlayer.transform.localScale = new Vector3(((float)3/100*PlayerBaseHealth),0.2f,0.2f);
+        HealthBarPlayer.transform.position = new Vector3(HealthBarPlayer.transform.localScale.x/2 - 9.5f, HealthBarPlayer.transform.position.y, HealthBarPlayer.transform.position.z);
+        HealthBarEnemy.transform.localScale = new Vector3(((float)3 / 100 * EnemyBaseHealth), 0.2f, 0.2f);
+        HealthBarEnemy.transform.position = new Vector3(HealthBarEnemy.transform.localScale.x / 2 + 14f, HealthBarEnemy.transform.position.y, HealthBarEnemy.transform.position.z);
         if (PlayerBaseHealth <= 0 && !GameOver)
         {
             GameOver = true;
             Playing = false;
-            if (!VsAI)
-            {
-                PlayerPrefs.SetString("WinnerString", "Player 2");
-            }
-            else
-            {
-                PlayerPrefs.SetString("WinnerString", "AI");
-            }
-            SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);            
+            SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);
         }
         else if(EnemyBaseHealth <= 0 && !GameOver)
         {
@@ -127,34 +125,27 @@ public class Base : MonoBehaviour {
             Playing = false;
 			if (PlayerPrefs.GetString("Mode") == "Campaign")
 			{
-				if (!File.Exists(Application.persistentDataPath + "/SaveData.json"))
-					File.Create(Application.persistentDataPath + "/SaveData.json").Close();
-				if (!SaveLoader.Unlocked.Contains(WhatFactionEnemy))
+                List<string> Unlocked = new List<string>();
+                if (File.Exists(Application.persistentDataPath + "/SaveData.json"))
+                     Unlocked = new List<string>(File.ReadAllLines(Application.persistentDataPath + "/SaveData.json"));
+                if (!Unlocked.Contains(WhatFactionEnemy))
 				{
-					SaveLoader.Unlocked.Add(WhatFactionEnemy);
-					File.WriteAllLines(Application.persistentDataPath + "/SaveData.json", SaveLoader.Unlocked.ToArray());
+					Unlocked.Add(WhatFactionEnemy);
+					File.WriteAllLines(Application.persistentDataPath + "/SaveData.json", Unlocked.ToArray());
 				}
 			}
-            if (!VsAI)
-            {
-                PlayerPrefs.SetString("WinnerString", "Player 1");
-            }
-            else
-            {
-                PlayerPrefs.SetString("WinnerString", "You");
-            }
             SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);
         }
 
-        if (InputHelper.GetActionDown(PlayerID, Joycon.Button.DPAD_LEFT))
+        if (InputHelper.GetActionDown(PlayerID, Joycon.Button.DPAD_LEFT) && Money >= 1)
         {
             AddSpawnPlayer(1);
         }
-        if (InputHelper.GetActionDown(PlayerID, Joycon.Button.DPAD_DOWN))
+        if (InputHelper.GetActionDown(PlayerID, Joycon.Button.DPAD_DOWN) && Money >= 3)
         {
             AddSpawnPlayer(2);
         }
-        if (InputHelper.GetActionDown(PlayerID, Joycon.Button.DPAD_RIGHT))
+        if (InputHelper.GetActionDown(PlayerID, Joycon.Button.DPAD_RIGHT) && Money >= 5)
         {
             AddSpawnPlayer(3);
         }
@@ -183,7 +174,6 @@ public class Base : MonoBehaviour {
             SpawnUnitID = SpawnList[0][0];
             SpawnUnitTier = SpawnList[0][1];
             Invoke("SpawnPlayer", SpawnTimer);
-            SpawnTimerObject.transform.localScale = new Vector3(2.7f, SpawnTimerObject.transform.localScale.y, SpawnTimerObject.transform.localScale.z);
         }
     }
 
@@ -216,6 +206,16 @@ public class Base : MonoBehaviour {
         Playing = true;
         Money = StartMoney;
         XP = 0;
+        foreach (GameObject g in PlayerList)
+        {
+            Destroy(g);
+        }
+        foreach(GameObject g in EnemyList)
+        {
+            Destroy(g);
+        }
+        PlayerList.Clear();
+        EnemyList.Clear();
         FirstPlayer = -8;
         FirstEnemy = 10;
         WhatTier = 1;
@@ -228,16 +228,18 @@ public class Base : MonoBehaviour {
         {
             XP -= WhatTier * 10;
             WhatTier++;
-            PlayerBaseHealthStart += 25;
-            PlayerBaseHealth += 25;
-        }       
+        }
     }
     public bool CanUpgradeTier()
     {
         if (XP >= 10 * WhatTier && WhatTier != 5)
+        {
             return true;
+        }
         else
+        {
             return false;
+        }
     }
 
     void OnTriggerExit2D(Collider2D collision)
