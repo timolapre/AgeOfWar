@@ -25,8 +25,8 @@ public class Base : MonoBehaviour {
     public EBase eBase;
     public int PlayerID = 0;
 
-    public List<float> SpawnList;
-    public float SpawnTimer, SpawnUnitID;
+    public List<float[]> SpawnList = new List<float[]>();
+    public float SpawnTimer, SpawnUnitID, SpawnUnitTier;
 
     void Start () {
         //Instantiate(Object, spawn.position, spawn.rotation);
@@ -179,8 +179,9 @@ public class Base : MonoBehaviour {
 
         if(SpawnList.Count > 0 && SpawnTimer == 0)
         {
-            SpawnTimer = ((SpawnList[0] * WhatTier) / 4);
-            SpawnUnitID = SpawnList[0];
+            SpawnTimer = ((SpawnList[0][0] * WhatTier) / 4);
+            SpawnUnitID = SpawnList[0][0];
+            SpawnUnitTier = SpawnList[0][1];
             Invoke("SpawnPlayer", SpawnTimer);
             SpawnTimerObject.transform.localScale = new Vector3(2.7f, SpawnTimerObject.transform.localScale.y, SpawnTimerObject.transform.localScale.z);
         }
@@ -192,7 +193,7 @@ public class Base : MonoBehaviour {
         {
             Money -= id * 5;
             if (SpawnList.Count < 5)
-                SpawnList.Add(id);
+                SpawnList.Add(new float[2] {id,WhatTier});
             //SpawnTimerObject.transform.localScale = new Vector3(2.7f, SpawnTimerObject.transform.localScale.y, SpawnTimerObject.transform.localScale.z);
         }
     }
@@ -202,6 +203,7 @@ public class Base : MonoBehaviour {
         GameObject tempPlayer = Instantiate(Player, SpawnPlayerLocation.position, SpawnPlayerLocation.rotation, transform) as GameObject;
         Player tempPlayerScript = tempPlayer.GetComponent<Player>();
         tempPlayerScript.WhichUnit = (int)SpawnUnitID;
+        tempPlayerScript.WhichTier = (int)SpawnUnitTier;
         SpawnList.RemoveAt(0);
         SpawnTimer = 0;
     }

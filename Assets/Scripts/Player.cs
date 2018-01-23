@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
-    public int WhichUnit;
+    public int WhichUnit, WhichTier;
     public GameObject Explosion, Particle;
 
     SpriteRenderer SpriteRenderer;
@@ -131,12 +131,12 @@ public class Player : MonoBehaviour {
         transform.localScale = new Vector3(-2, 2, 1);
         
         //Get Sprites. in Units folder + sprites names should be 1_1, 1_2, 2_1 etc (Tier_ID)
-        SpriteRenderer.sprite = Resources.Load(BaseScript.WhatFaction + "/Units/" + BaseScript.WhatTier.ToString() + "_" + (((id-1)%3)+1).ToString(), typeof(Sprite)) as Sprite;
+        SpriteRenderer.sprite = Resources.Load(BaseScript.WhatFaction + "/Units/" + WhichTier.ToString() + "_" + (((id-1)%3)+1).ToString(), typeof(Sprite)) as Sprite;
 
         if (id == 1)
         {
-            Health = 3 * BaseScript.WhatTier * BaseScript.Difficulty;
-            Damage = BaseScript.WhatTier * BaseScript.Difficulty;
+            Health = 3 * WhichTier * BaseScript.Difficulty;
+            Damage = WhichTier * BaseScript.Difficulty;
             Range = 1;
             Xp = 1;
             Money = 7;
@@ -148,8 +148,8 @@ public class Player : MonoBehaviour {
 
         if (id == 2)
         {
-            Health = 6 * BaseScript.WhatTier * BaseScript.Difficulty;
-            Damage = (2 + BaseScript.WhatTier) * BaseScript.Difficulty;
+            Health = 6 * WhichTier * BaseScript.Difficulty;
+            Damage = (2 + WhichTier) * BaseScript.Difficulty;
             Range = 1;
             Xp = 2;
             Money = 13;
@@ -160,8 +160,8 @@ public class Player : MonoBehaviour {
 
         if (id == 3)
         {
-            Health = 9 * BaseScript.WhatTier * BaseScript.Difficulty;
-            Damage = (1 + BaseScript.WhatTier) * BaseScript.Difficulty;
+            Health = 9 * WhichTier * BaseScript.Difficulty;
+            Damage = (1 + WhichTier) * BaseScript.Difficulty;
             Range = 1;
             Xp = 3 ;
             Money = 19;
