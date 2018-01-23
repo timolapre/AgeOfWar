@@ -187,10 +187,9 @@ public class Turret : MonoBehaviour
             }
         }
         //rotation = Vector2.Angle(transform.position, Closest.transform.position) - 90;
-        rotation = -Mathf.Atan((transform.position.y - Closest.transform.position.y) / (transform.position.x - Closest.transform.position.x)) / Mathf.PI * 180 + 15;
+        rotation = -Mathf.Atan((transform.position.y - Closest.transform.position.y) / (transform.position.x - Closest.transform.position.x)) / Mathf.PI * 180 + 25;
         gameObject.transform.rotation = Quaternion.AngleAxis(rotation, Vector3.back);
-
-        if (Cooling <= 0)
+        if (Cooling <= 0 &&  Shortest < 13)
         {
             Shoot();
             Audio.Play();

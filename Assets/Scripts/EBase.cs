@@ -5,20 +5,22 @@ using UnityEngine;
 public class EBase : MonoBehaviour {
 
     public Base BaseScript;
-    public GameObject Enemy;
+    public GameObject Enemy, SpawnTimerObject;
     public Transform spawnEnemy;
 
     private float RandomSpawnTime;
     private float UpgradeTime;
     public float Money, XP, GetDamage;
 
-
     SpriteRenderer SpriteRenderer;
 
     int PlayerID = 1;
 
-	// Use this for initialization
-	void Start () {
+    public List<float> SpawnList;
+    public float SpawnTimer, SpawnUnitID;
+
+    // Use this for initialization
+    void Start () {
         SpriteRenderer = GetComponent<SpriteRenderer>();
         BaseScript = GetComponentInParent<Base>();
 
@@ -39,35 +41,59 @@ public class EBase : MonoBehaviour {
 
         if (InputHelper.GetActionDown(PlayerID, Joycon.Button.DPAD_LEFT) && Money >= 1)
         {
-            SpawnPlayer(1);
+            AddSpawnPlayer(1);
         }
         if (InputHelper.GetActionDown(PlayerID, Joycon.Button.DPAD_DOWN) && Money >= 3)
         {
-            SpawnPlayer(2);
+            AddSpawnPlayer(2);
         }
         if (InputHelper.GetActionDown(PlayerID, Joycon.Button.DPAD_RIGHT) && Money >= 5)
         {
-            SpawnPlayer(3);
+            AddSpawnPlayer(3);
         }
         if (InputHelper.GetActionDown(PlayerID, Joycon.Button.SR) && XP >= 10 * BaseScript.WhatTierEnemy && BaseScript.WhatTierEnemy != 5)
         {
             XP -= BaseScript.WhatTierEnemy * 10;
             BaseScript.WhatTierEnemy++;          
         }
+
+        if (SpawnList.Count > 0 && SpawnTimer == 0)
+        {
+            SpawnTimer = ((SpawnList[0] * BaseScript.WhatTier) / 4);
+            SpawnUnitID = SpawnList[0];
+            Invoke("SpawnPlayer", SpawnTimer);
+            SpawnTimerObject.transform.localScale = new Vector3(2.7f, SpawnTimerObject.transform.localScale.y, SpawnTimerObject.transform.localScale.z);
+        }
     }
 
-    void SpawnPlayer(int id)
+    /*void SpawnPlayer(int id)
     {
         if (Money >= 5 * id && BaseScript.Playing)
         {
             GameObject tempPlayer = Instantiate(BaseScript.Enemy, BaseScript.SpawnEnemyLocation.position, BaseScript.SpawnEnemyLocation.rotation, transform) as GameObject;
             Enemy tempPlayerScript = tempPlayer.GetComponent<Enemy>();
             tempPlayerScript.WhichUnit = id;
-            BaseScript.EnemyList.Add(tempPlayer);
-            Money -= 5 * id;
+        }
+    }*/
+
+    public void AddSpawnPlayer(int id)
+    {
+        if (Money >= id * 5 && BaseScript.Playing)
+        {
+            Money -= id * 5;
+            if (SpawnList.Count < 5)
+                SpawnList.Add(id);
         }
     }
 
+    private void SpawnPlayer()
+    {
+        GameObject tempPlayer = Instantiate(BaseScript.Enemy, BaseScript.SpawnEnemyLocation.position, BaseScript.SpawnEnemyLocation.rotation, transform) as GameObject;
+        Enemy tempPlayerScript = tempPlayer.GetComponent<Enemy>();
+        tempPlayerScript.WhichUnit = (int)SpawnUnitID;
+        SpawnList.RemoveAt(0);
+        SpawnTimer = 0;
+    }
 
     void AI()
     {
@@ -93,9 +119,9 @@ public class EBase : MonoBehaviour {
             GameObject tempEnemy = Instantiate(Enemy, spawnEnemy.position, spawnEnemy.rotation, transform) as GameObject;
             Enemy tempEnemyScript = tempEnemy.GetComponent<Enemy>();
             tempEnemyScript.WhichUnit = id;
-            BaseScript.EnemyList.Add(tempEnemy);
         }
     }
+
     public void Reset()
     {
         XP = 0;

@@ -22,8 +22,6 @@ public class Base : MonoBehaviour {
 
     public bool Playing, Paused;
 
-    public List<GameObject> PlayerList, EnemyList;
-
     public EBase eBase;
     public int PlayerID = 0;
 
@@ -136,15 +134,15 @@ public class Base : MonoBehaviour {
             SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);
         }
 
-        if (InputHelper.GetActionDown(PlayerID, Joycon.Button.DPAD_LEFT) && Money >= 1)
+        if (InputHelper.GetActionDown(PlayerID, Joycon.Button.DPAD_LEFT))
         {
             AddSpawnPlayer(1);
         }
-        if (InputHelper.GetActionDown(PlayerID, Joycon.Button.DPAD_DOWN) && Money >= 3)
+        if (InputHelper.GetActionDown(PlayerID, Joycon.Button.DPAD_DOWN))
         {
             AddSpawnPlayer(2);
         }
-        if (InputHelper.GetActionDown(PlayerID, Joycon.Button.DPAD_RIGHT) && Money >= 5)
+        if (InputHelper.GetActionDown(PlayerID, Joycon.Button.DPAD_RIGHT))
         {
             AddSpawnPlayer(3);
         }
@@ -173,6 +171,7 @@ public class Base : MonoBehaviour {
             SpawnUnitID = SpawnList[0];
             //Debug.Log(SpawnTimer);
             Invoke("SpawnPlayer", SpawnTimer);
+            SpawnTimerObject.transform.localScale = new Vector3(2.7f, SpawnTimerObject.transform.localScale.y, SpawnTimerObject.transform.localScale.z);
         }
     }
 
@@ -183,7 +182,7 @@ public class Base : MonoBehaviour {
             Money -= id * 5;
             if (SpawnList.Count < 5)
                 SpawnList.Add(id);
-            SpawnTimerObject.transform.localScale = new Vector3(2.7f, SpawnTimerObject.transform.localScale.y, SpawnTimerObject.transform.localScale.z);
+            //SpawnTimerObject.transform.localScale = new Vector3(2.7f, SpawnTimerObject.transform.localScale.y, SpawnTimerObject.transform.localScale.z);
         }
     }
 
@@ -192,7 +191,6 @@ public class Base : MonoBehaviour {
         GameObject tempPlayer = Instantiate(Player, SpawnPlayerLocation.position, SpawnPlayerLocation.rotation, transform) as GameObject;
         Player tempPlayerScript = tempPlayer.GetComponent<Player>();
         tempPlayerScript.WhichUnit = (int)SpawnUnitID;
-        PlayerList.Add(tempPlayer);
         SpawnList.RemoveAt(0);
         SpawnTimer = 0;
     }
@@ -205,16 +203,6 @@ public class Base : MonoBehaviour {
         Playing = true;
         Money = StartMoney;
         XP = 0;
-        foreach (GameObject g in PlayerList)
-        {
-            Destroy(g);
-        }
-        foreach(GameObject g in EnemyList)
-        {
-            Destroy(g);
-        }
-        PlayerList.Clear();
-        EnemyList.Clear();
         FirstPlayer = -8;
         FirstEnemy = 10;
         WhatTier = 1;
@@ -232,13 +220,9 @@ public class Base : MonoBehaviour {
     public bool CanUpgradeTier()
     {
         if (XP >= 10 * WhatTier && WhatTier != 5)
-        {
             return true;
-        }
         else
-        {
             return false;
-        }
     }
 
     void OnTriggerExit2D(Collider2D collision)
