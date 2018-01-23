@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour {
         if (Health <= 0)
         {
             BaseScript.XP += Xp;
-            BaseScript.Money += Money;
+            BaseScript.Money += WhichUnit * WhichTier * 3 + 2;
             Destroy(gameObject);
             GameObject expl = Instantiate(Explosion);
             expl.transform.parent = transform.parent;
