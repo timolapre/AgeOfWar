@@ -18,7 +18,6 @@ public class Enemy : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        Debug.Log(WhichUnit + " " + WhichTier);
         BaseScript = GetComponentInParent<Base>();
         SpriteRenderer = GetComponent<SpriteRenderer>();
         transform.localScale = new Vector3(-6, 6, 1);

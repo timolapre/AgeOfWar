@@ -137,15 +137,15 @@ public class Base : MonoBehaviour {
             SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);
         }
 
-        if (InputHelper.GetActionDown(PlayerID, Joycon.Button.DPAD_LEFT) && Money >= 1)
+        if (InputHelper.GetActionDown(PlayerID, Joycon.Button.DPAD_LEFT))
         {
             AddSpawnPlayer(1);
         }
-        if (InputHelper.GetActionDown(PlayerID, Joycon.Button.DPAD_DOWN) && Money >= 3)
+        if (InputHelper.GetActionDown(PlayerID, Joycon.Button.DPAD_DOWN))
         {
             AddSpawnPlayer(2);
         }
-        if (InputHelper.GetActionDown(PlayerID, Joycon.Button.DPAD_RIGHT) && Money >= 5)
+        if (InputHelper.GetActionDown(PlayerID, Joycon.Button.DPAD_RIGHT))
         {
             AddSpawnPlayer(3);
         }
@@ -179,9 +179,9 @@ public class Base : MonoBehaviour {
 
     public void AddSpawnPlayer(int id)
     {
-        if (Money >= id * 5 && Playing)
+        if (Money >= id * 2*WhatTier + 2 && Playing)
         {
-            Money -= id * 5;
+            Money -= id * 2 * WhatTier + 2;
             if (SpawnList.Count < 5)
                 SpawnList.Add(new float[2] {id,WhatTier});
             //SpawnTimerObject.transform.localScale = new Vector3(2.7f, SpawnTimerObject.transform.localScale.y, SpawnTimerObject.transform.localScale.z);
