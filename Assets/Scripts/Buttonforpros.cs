@@ -16,6 +16,7 @@ public class Buttonforpros : MonoBehaviour
     public Dropdown Diff;
     public Dropdown Player1;
     public Dropdown Player2;
+    AudioSource Audio;
 
     private void Start()
     {
@@ -26,6 +27,8 @@ public class Buttonforpros : MonoBehaviour
             Can4.SetActive(false);
             Can5.SetActive(false);
         }
+
+        Audio = GetComponent<AudioSource>();
     }
 
     public void ChangeScene (string ChangeTo)
@@ -131,7 +134,8 @@ public class Buttonforpros : MonoBehaviour
         }
         else
         {
-                SceneManager.LoadScene(ChangeTo, LoadSceneMode.Single);
+            //PlayerPrefs.SetFloat("AudioTime", Audio.time);
+            SceneManager.LoadScene(ChangeTo, LoadSceneMode.Single);
         }
     }
 
