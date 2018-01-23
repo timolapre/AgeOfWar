@@ -124,7 +124,7 @@ public class Buttonforpros : MonoBehaviour
             if (Can4.activeSelf == true)
             {
                 Can4.SetActive(false);
-                Can2.SetActive(true);
+                Can1.SetActive(true);
             }
             if (Can5.activeSelf == true)
             {
