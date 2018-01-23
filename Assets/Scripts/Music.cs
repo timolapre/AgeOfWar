@@ -24,6 +24,14 @@ public class Music : MonoBehaviour {
             Audio.clip = Resources.Load("music/AoW" + Faction, typeof(AudioClip)) as AudioClip;
             Audio.Play();
             Audio.loop = true;
+            if (Audio.isPlaying)
+            {
+                PlayerPrefs.SetInt("AudioPlaying", 1);
+            }
+            else
+            {
+                PlayerPrefs.SetInt("AudioPlaying", 0);
+            }
             Toggle = false;
         }
         if (Play == false && Toggle == false)
