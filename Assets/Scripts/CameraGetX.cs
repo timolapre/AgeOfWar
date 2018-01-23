@@ -21,7 +21,6 @@ public class CameraGetX : MonoBehaviour {
         {
             transform.localScale = new Vector3(0.6f, 0.6f, 1);
             transform.localPosition = new Vector3(Camerax, 1, -9);
-            Debug.Log("kaas");
         }
         else if (Mode == "Multiplayer" && BaseScript.Paused)
         {            
