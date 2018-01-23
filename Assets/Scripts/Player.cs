@@ -86,6 +86,8 @@ public class Player : MonoBehaviour {
     {
         if (transform.position.x < collision.gameObject.transform.position.x && (collision.tag == "Enemy" || collision.tag == "Player"))
             Colliding = true;
+        if (collision.tag == "EBase")
+            Colliding = true;
     }
 
     void OnTriggerExit2D(Collider2D collision)
@@ -141,6 +143,7 @@ public class Player : MonoBehaviour {
             AttackAfterXSeconds = 0.3f;
             AttackEveryXSeconds = 1f;
             Speed = 3;
+
         }
 
         if (id == 2)
