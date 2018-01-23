@@ -15,6 +15,6 @@ public class FactionUnlocker : MonoBehaviour {
         Options.Remove("Germany");
         GameObject.Find("Player").GetComponent<Dropdown>().AddOptions(Options);
         GameObject.Find("Player 1").GetComponent<Dropdown>().AddOptions(Options);
-        GameObject.Find("Player 2").GetComponent<Dropdown>().AddOptions(Options);
+        GameObject.Find("player 2").GetComponent<Dropdown>().AddOptions(Options);
     }
 }
