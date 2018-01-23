@@ -30,11 +30,11 @@ public class CameraGetX : MonoBehaviour {
         }
         else
         {
-            if(Mode == "Singleplayer" && !BaseScript.Paused)
+            if(Mode == "Singleplayer" && BaseScript.GameOver)
             {
                 transform.localScale = new Vector3(2.6f, 2.6f, 1);
             }
-            if (Mode == "Multiplayer" && !BaseScript.Paused)
+            if (Mode == "Multiplayer" && BaseScript.GameOver)
             {
                 transform.localScale = new Vector3(3.9f, 3.9f, 1);
             }
