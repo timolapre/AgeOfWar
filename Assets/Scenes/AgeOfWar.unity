@@ -2370,7 +2370,7 @@ MonoBehaviour:
   FirstPlayer: -8
   FirstEnemy: 8
   Money: 0
-  XP: 100
+  XP: 0
   StartMoney: 20
   PlayerBaseHealth: 0
   EnemyBaseHealth: 0
@@ -3661,7 +3661,7 @@ MonoBehaviour:
   Enemy: {fileID: 1283681704908336, guid: f60c23e06e8a2ce469c64c2a163ae952, type: 2}
   spawnEnemy: {fileID: 1841949569}
   Money: 20
-  XP: 100
+  XP: 0
   GetDamage: 0
 --- !u!61 &1847756080
 BoxCollider2D:
