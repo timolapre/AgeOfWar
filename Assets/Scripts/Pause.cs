@@ -34,6 +34,7 @@ public class Pause : MonoBehaviour {
         {
             SceneManager.UnloadSceneAsync("Paused");
             PlayerPrefs.SetInt("InGame", 1);
+            PlayerPrefs.SetInt("AudioPlaying", 1);
             SceneManager.LoadScene("Options", LoadSceneMode.Additive);
         }
         if (Button == "ExitToMenu")
