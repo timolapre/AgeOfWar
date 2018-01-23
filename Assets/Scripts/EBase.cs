@@ -52,7 +52,9 @@ public class EBase : MonoBehaviour {
         if (InputHelper.GetActionDown(PlayerID, Joycon.Button.SR) && XP >= 10 * BaseScript.WhatTierEnemy && BaseScript.WhatTierEnemy != 5)
         {
             XP -= BaseScript.WhatTierEnemy * 10;
-            BaseScript.WhatTierEnemy++;          
+            BaseScript.WhatTierEnemy++;
+            BaseScript.EnemyBaseHealtStart += 25;
+            BaseScript.EnemyBaseHealth += 25;
         }
     }
 
