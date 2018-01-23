@@ -30,6 +30,14 @@ public class CameraGetX : MonoBehaviour {
         }
         else
         {
+            if(Mode == "Singleplayer")
+            {
+                transform.localScale = new Vector3(2.6f, 2.6f, 1);
+            }
+            if (Mode == "Multiplayer")
+            {
+                transform.localScale = new Vector3(3.9f, 3.9f, 1);
+            }
             transform.localPosition = new Vector3(Camerax, 2, -9);
         }
     }
