@@ -38,10 +38,12 @@ public class Pause : MonoBehaviour {
         }
         if (Button == "ExitToMenu")
         {
+            PlayerPrefs.SetInt("AudioPlaying", 0);
             SceneManager.LoadScene("Menu", LoadSceneMode.Single);
         }
         if (Button == "ExitToDesktop")
         {
+            PlayerPrefs.SetInt("AudioPlaying", 0);
             Application.Quit();
         }
     }
