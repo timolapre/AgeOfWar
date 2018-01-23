@@ -11,15 +11,17 @@ public class CampaingnSelect : MonoBehaviour {
 	List<string> Order = new List<string>() { "Germany", "Russia", "Imperium of Man" };
 	int Selected = 0;
 
+    Text Self;
 	GameObject Left;
 	Text Faction;
 	Image Image;
 	GameObject Right;
 
-	List<string> Beaten = new List<string>() { "Germany", "Russia", "Imperium of Man" };
+	List<string> Beaten = new List<string>();
 
 	// Use this for initialization
 	void Start () {
+        Self = GameObject.Find("Self").GetComponent<Text>();
 		Left = GameObject.Find("Left");
 		Faction = GameObject.Find("FactionText").GetComponent<Text>();
 		Image = GameObject.Find("Image").GetComponent<Image>();
@@ -34,9 +36,15 @@ public class CampaingnSelect : MonoBehaviour {
 
 	public void SelectSide(string side)
 	{
+        if(side == "back")
+        {
+            SceneManager.LoadScene("Pre-GameSettings");
+            return;
+        }
+
 		if(side == "middle")
 		{
-			PlayerPrefs.SetString("Faction", "Germany");				///Change this so you can choose yourself
+			PlayerPrefs.SetString("Faction", Self.text);
 			PlayerPrefs.SetString("FactionEnemy", Faction.text);
 			PlayerPrefs.SetString("Difficulty", "Normal");
 			PlayerPrefs.SetString("Mode", "Campaign");
