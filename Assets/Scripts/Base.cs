@@ -14,7 +14,7 @@ public class Base : MonoBehaviour {
     public Text MoneyText, XpText, WhatTierText, MoneyTextP1, XpTextP1, WhatTierTextP1, MoneyTextP2, XpTextP2, WhatTierTextP2, GameOverText;
     public float FirstPlayer, FirstEnemy;
     public float Money, XP, StartMoney = 20;
-    public float PlayerBaseHealth, EnemyBaseHealth, PlayerBaseHealthStart, EnemyBaseHealtStart, GetDamage;
+    public float PlayerBaseHealth, EnemyBaseHealth, PlayerBaseHealthStart, EnemyBaseHealthStart, GetDamage;
     public float Difficulty;
     public int WhatTier = 1, WhatTierEnemy = 1;
     public string WhatFaction, WhatFactionEnemy;
@@ -76,7 +76,9 @@ public class Base : MonoBehaviour {
         //  VsAI = true;
         Money = StartMoney;
         PlayerBaseHealth = 100;
+        PlayerBaseHealthStart = PlayerBaseHealth;
         EnemyBaseHealth = 100;
+        EnemyBaseHealthStart = EnemyBaseHealth;
         Playing = true;
         WhatTier = 1;
         WhatTierEnemy = 1;
@@ -109,10 +111,10 @@ public class Base : MonoBehaviour {
             XpTextP2.text = "";
             WhatTierTextP2.text = "Tier " + WhatTierEnemy;
         }
-        HealthBarPlayer.transform.localScale = new Vector3(((float)3/100*PlayerBaseHealth),0.2f,0.2f);
-        HealthBarPlayer.transform.position = new Vector3(HealthBarPlayer.transform.localScale.x/2 - 9.5f, HealthBarPlayer.transform.position.y, HealthBarPlayer.transform.position.z);
-        HealthBarEnemy.transform.localScale = new Vector3(((float)3 / 100 * EnemyBaseHealth), 0.2f, 0.2f);
-        HealthBarEnemy.transform.position = new Vector3(HealthBarEnemy.transform.localScale.x / 2 + 14f, HealthBarEnemy.transform.position.y, HealthBarEnemy.transform.position.z);
+        HealthBarPlayer.transform.localScale = new Vector3(((float)3 * (PlayerBaseHealth / PlayerBaseHealthStart)), 0.2f, 0.2f);
+        HealthBarPlayer.transform.position = new Vector3(HealthBarPlayer.transform.localScale.x / 2 - 11.5f, HealthBarPlayer.transform.position.y, HealthBarPlayer.transform.position.z);
+        HealthBarEnemy.transform.localScale = new Vector3(((float)3 * (EnemyBaseHealth / EnemyBaseHealthStart)), 0.2f, 0.2f);
+        HealthBarEnemy.transform.position = new Vector3(HealthBarEnemy.transform.localScale.x / 2 + 16f, HealthBarEnemy.transform.position.y, HealthBarEnemy.transform.position.z);
         if (PlayerBaseHealth <= 0 && !GameOver)
         {
             GameOver = true;
@@ -195,6 +197,7 @@ public class Base : MonoBehaviour {
         tempPlayerScript.WhichUnit = (int)SpawnUnitID;
         tempPlayerScript.WhichTier = (int)SpawnUnitTier;
         SpawnList.RemoveAt(0);
+        PlayerList.Add(tempPlayer);
         SpawnTimer = 0;
     }
 
@@ -228,6 +231,8 @@ public class Base : MonoBehaviour {
         {
             XP -= WhatTier * 10;
             WhatTier++;
+            PlayerBaseHealth += 25;
+            PlayerBaseHealthStart += 25;
         }
     }
     public bool CanUpgradeTier()
