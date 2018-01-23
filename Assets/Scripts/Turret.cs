@@ -17,6 +17,8 @@ public class Turret : MonoBehaviour
 	public GameObject projectile;
     public Vector3 gyro;
 
+    private int UpgradeTurretOnce;
+
     // Use this for initialization
     void Start()
     {
@@ -55,7 +57,11 @@ public class Turret : MonoBehaviour
         if (BaseScript.VsAI && PlayerID > 0)
         {
             DoAI();
-            return;
+            if (BaseScript.WhatTierEnemy > TurretLevel && UpgradeTurretOnce == 0)
+            {
+                Invoke("UpgradeTurretAI", Random.Range(13, 25));
+                UpgradeTurretOnce = 1;
+            }
         }
 		//Recenter the turret
 		if (InputHelper.GetActionDown(PlayerID, Joycon.Button.STICK) && BaseScript.Playing)
@@ -108,6 +114,12 @@ public class Turret : MonoBehaviour
 		}
 		gameObject.transform.rotation = Quaternion.AngleAxis(rotation, Vector3.back);
 	}
+
+    void UpgradeTurretAI()
+    {
+        TurretLevel++;
+        UpgradeTurretOnce = 0;
+    }
 
     public void UpgradeTurret()
     {
@@ -187,7 +199,7 @@ public class Turret : MonoBehaviour
             }
         }
         //rotation = Vector2.Angle(transform.position, Closest.transform.position) - 90;
-        rotation = -Mathf.Atan((transform.position.y - Closest.transform.position.y) / (transform.position.x - Closest.transform.position.x)) / Mathf.PI * 180 + 25;
+        rotation = -Mathf.Atan((transform.position.y - Closest.transform.position.y) / (transform.position.x - Closest.transform.position.x)) / Mathf.PI * 180 + Shortest/2 + 10;
         gameObject.transform.rotation = Quaternion.AngleAxis(rotation, Vector3.back);
         if (Cooling <= 0 &&  Shortest < 13)
         {

@@ -26,7 +26,7 @@ public class EBase : MonoBehaviour {
 
         Money = BaseScript.StartMoney;
 
-        UpgradeTime = Time.fixedTime + 30;
+        UpgradeTime = Time.fixedTime + 40;
     }
 
 	// Update is called once per frame
@@ -100,7 +100,7 @@ public class EBase : MonoBehaviour {
         if (Time.fixedTime > UpgradeTime && BaseScript.WhatTierEnemy != 5)
         {
             BaseScript.WhatTierEnemy++;
-            UpgradeTime = Time.fixedTime + 30;
+            UpgradeTime = Time.fixedTime + 50;
         }
     }
 
@@ -121,7 +121,7 @@ public class EBase : MonoBehaviour {
         XP = 0;
         Money = BaseScript.StartMoney;
         RandomSpawnTime = Random.Range(3f, 7f) + Time.fixedTime;
-        UpgradeTime = Time.fixedTime + 30;
+        UpgradeTime = Time.fixedTime + 40;
     }
 
     void OnTriggerExit2D(Collider2D collision)
