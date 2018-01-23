@@ -26,7 +26,7 @@ public class OptionsMusic : MonoBehaviour
             Audio.clip = Resources.Load("music/AoWMainTheme", typeof(AudioClip)) as AudioClip;
             if (PlayerPrefs.GetFloat("MusicTime") > 0)
             {
-                Audio.time = PlayerPrefs.GetFloat("MusiTime");
+                Audio.time = PlayerPrefs.GetFloat("MusicTime");
             }
             Audio.Play();
             Audio.loop = true;
