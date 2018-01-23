@@ -11,32 +11,38 @@ public class CampaingnSelect : MonoBehaviour {
 	List<string> Order = new List<string>() { "Germany", "Russia", "Imperium of Man" };
 	int Selected = 0;
 
+    Text Self;
 	GameObject Left;
 	Text Faction;
 	Image Image;
 	GameObject Right;
 
-	List<string> Beaten = new List<string>() { "Germany", "Russia", "Imperium of Man" };
-
 	// Use this for initialization
 	void Start () {
+        List<string> Options = SaveLoader.Unlocked;
+        Options.Remove("Germany");
+        GameObject.Find("Player").GetComponent<Dropdown>().AddOptions(Options);
+        Self = GameObject.Find("Self").GetComponent<Text>();
 		Left = GameObject.Find("Left");
 		Faction = GameObject.Find("FactionText").GetComponent<Text>();
 		Image = GameObject.Find("Image").GetComponent<Image>();
 		Right = GameObject.Find("Right");
-
-		if (File.Exists(Application.persistentDataPath + "/SaveData.json"))
-			Beaten = new List<string>(File.ReadAllLines(Application.persistentDataPath + "/SaveData.json"));//File.Delete(Application.persistentDataPath + "/SaveData.json");
-
-			if (Beaten.Contains(Faction.text))
-			Right.GetComponent<UnityEngine.UI.Button>().interactable = true;
+        
+		if (SaveLoader.Unlocked.Contains(Faction.text))
+		    Right.GetComponent<UnityEngine.UI.Button>().interactable = true;
 	}
 
 	public void SelectSide(string side)
 	{
+        if(side == "back")
+        {
+            SceneManager.LoadScene("Pre-GameSettings");
+            return;
+        }
+
 		if(side == "middle")
 		{
-			PlayerPrefs.SetString("Faction", "Germany");				///Change this so you can choose yourself
+			PlayerPrefs.SetString("Faction", Self.text);
 			PlayerPrefs.SetString("FactionEnemy", Faction.text);
 			PlayerPrefs.SetString("Difficulty", "Normal");
 			PlayerPrefs.SetString("Mode", "Campaign");
@@ -59,7 +65,7 @@ public class CampaingnSelect : MonoBehaviour {
 		Faction.text = Order[Selected];
 		Image.sprite = Resources.Load<Sprite>("Backgrounds/" + Order[Selected]);
 
-		if (Selected == Order.Count - 1 || !Beaten.Contains(Faction.text))
+		if (Selected == Order.Count - 1 || !SaveLoader.Unlocked.Contains(Faction.text))
 		{
 			Right.GetComponent<UnityEngine.UI.Button>().interactable = false;
 			Right.GetComponent<Image>().color = Color.clear;
