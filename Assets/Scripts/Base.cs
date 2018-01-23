@@ -107,13 +107,21 @@ public class Base : MonoBehaviour {
         }
         HealthBarPlayer.transform.localScale = new Vector3(((float)3 * (PlayerBaseHealth / PlayerBaseHealthStart)),0.2f,0.2f);
         HealthBarPlayer.transform.position = new Vector3(HealthBarPlayer.transform.localScale.x/2 - 11.5f, HealthBarPlayer.transform.position.y, HealthBarPlayer.transform.position.z);
-        HealthBarEnemy.transform.localScale = new Vector3(((float)3 * (EnemyBaseHealth / EnemyBaseHealthStart)), 0.2f, 0.2f);
+        HealthBarEnemy.transform.localScale = new Vector3(((float)3 * (EnemyBaseHealth / EnemyBaseHealtStart)), 0.2f, 0.2f);
         HealthBarEnemy.transform.position = new Vector3(HealthBarEnemy.transform.localScale.x / 2 + 16f, HealthBarEnemy.transform.position.y, HealthBarEnemy.transform.position.z);
         if (PlayerBaseHealth <= 0 && !GameOver)
         {
             GameOver = true;
             Playing = false;
-            SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);
+            if (!VsAI)
+            {
+                PlayerPrefs.SetString("WinnerString", "Player 2");
+            }
+            else
+            {
+                PlayerPrefs.SetString("WinnerString", "AI");
+            }
+            SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);            
         }
         else if(EnemyBaseHealth <= 0 && !GameOver)
         {
@@ -129,6 +137,14 @@ public class Base : MonoBehaviour {
 					File.WriteAllLines(Application.persistentDataPath + "/SaveData.json", SaveLoader.Unlocked.ToArray());
 				}
 			}
+            if (!VsAI)
+            {
+                PlayerPrefs.SetString("WinnerString", "Player 1");
+            }
+            else
+            {
+                PlayerPrefs.SetString("WinnerString", "You");
+            }
             SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);
         }
 
