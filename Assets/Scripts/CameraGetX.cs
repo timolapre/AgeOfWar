@@ -19,17 +19,25 @@ public class CameraGetX : MonoBehaviour {
         string Mode = PlayerPrefs.GetString("PlayerMode");
         if (Mode == "Singleplayer" && BaseScript.Paused)
         {
-            transform.localScale = new Vector3(6, 10.5f, 1);
-            transform.localPosition = new Vector3(Camerax, 0.5f, -9);
+            transform.localScale = new Vector3(0.6f, 0.6f, 1);
+            transform.localPosition = new Vector3(Camerax, 1, -9);
             Debug.Log("kaas");
         }
-        else if (Mode == "multiplayer" && BaseScript.Paused)
+        else if (Mode == "Multiplayer" && BaseScript.Paused)
         {            
-            transform.localScale = new Vector3(7, 15, 1);
+            transform.localScale = new Vector3(0.9f, 0.9f, 1);
             transform.localPosition = new Vector3(Camerax, 4, -9);
         }
         else
         {
+            if(Mode == "Singleplayer" && !BaseScript.Paused)
+            {
+                transform.localScale = new Vector3(2.6f, 2.6f, 1);
+            }
+            if (Mode == "Multiplayer" && !BaseScript.Paused)
+            {
+                transform.localScale = new Vector3(3.9f, 3.9f, 1);
+            }
             transform.localPosition = new Vector3(Camerax, 2, -9);
         }
     }
