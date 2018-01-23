@@ -16,8 +16,8 @@ public class EBase : MonoBehaviour {
 
     int PlayerID = 1;
 
-    public List<float> SpawnList;
-    public float SpawnTimer, SpawnUnitID;
+    public List<float[]> SpawnList = new List<float[]>();
+    public float SpawnTimer, SpawnUnitID, SpawnUnitTier;
 
     // Use this for initialization
     void Start () {
@@ -61,8 +61,9 @@ public class EBase : MonoBehaviour {
 
         if (SpawnList.Count > 0 && SpawnTimer == 0)
         {
-            SpawnTimer = ((SpawnList[0] * BaseScript.WhatTier) / 4);
-            SpawnUnitID = SpawnList[0];
+            SpawnTimer = ((SpawnList[0][0] * BaseScript.WhatTier) / 4);
+            SpawnUnitID = SpawnList[0][0];
+            SpawnUnitTier = SpawnList[0][1];
             Invoke("SpawnPlayer", SpawnTimer);
             SpawnTimerObject.transform.localScale = new Vector3(2.7f, SpawnTimerObject.transform.localScale.y, SpawnTimerObject.transform.localScale.z);
         }
@@ -84,7 +85,7 @@ public class EBase : MonoBehaviour {
         {
             Money -= id * 5;
             if (SpawnList.Count < 5)
-                SpawnList.Add(id);
+                SpawnList.Add(new float[2] { id, BaseScript.WhatTierEnemy });
         }
     }
 
@@ -93,6 +94,7 @@ public class EBase : MonoBehaviour {
         GameObject tempPlayer = Instantiate(BaseScript.Enemy, BaseScript.SpawnEnemyLocation.position, BaseScript.SpawnEnemyLocation.rotation, transform) as GameObject;
         Enemy tempPlayerScript = tempPlayer.GetComponent<Enemy>();
         tempPlayerScript.WhichUnit = (int)SpawnUnitID;
+        tempPlayerScript.WhichTier = (int)SpawnUnitTier;
         SpawnList.RemoveAt(0);
         SpawnTimer = 0;
     }

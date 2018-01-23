@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour {
 
-    public int WhichUnit;
+    public int WhichUnit, WhichTier;
     public GameObject Explosion, Particle;
 
     SpriteRenderer SpriteRenderer;
@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        Debug.Log(WhichUnit + " " + WhichTier);
         BaseScript = GetComponentInParent<Base>();
         SpriteRenderer = GetComponent<SpriteRenderer>();
         transform.localScale = new Vector3(-6, 6, 1);
@@ -116,13 +117,13 @@ public class Enemy : MonoBehaviour {
 
     void GetStartValues(int id)
     {
-        SpriteRenderer.sprite = Resources.Load(BaseScript.WhatFactionEnemy + "/Units/" + BaseScript.WhatTierEnemy.ToString() + "_" + (((id - 1) % 3) + 1).ToString(), typeof(Sprite)) as Sprite;
+        SpriteRenderer.sprite = Resources.Load(BaseScript.WhatFactionEnemy + "/Units/" + WhichTier.ToString() + "_" + (((id - 1) % 3) + 1).ToString(), typeof(Sprite)) as Sprite;
 
         transform.localScale = new Vector3(2, 2, 1);
         if (id == 1)
         {
-            Health = 3 * BaseScript.WhatTierEnemy;
-            Damage = BaseScript.WhatTierEnemy;
+            Health = 3 * WhichTier;
+            Damage = WhichTier;
             Range = 1;
             Xp = 1;
             Money = 5;
@@ -133,8 +134,8 @@ public class Enemy : MonoBehaviour {
 
         if (id == 2)
         {
-            Health = 6 * BaseScript.WhatTierEnemy;
-            Damage = 2 + BaseScript.WhatTierEnemy;
+            Health = 6 * WhichTier;
+            Damage = 2 + WhichTier;
             Range = 1;
             Xp = 2;
             Money = 10;
@@ -145,8 +146,8 @@ public class Enemy : MonoBehaviour {
 
         if (id == 3)
         {
-            Health = 9 * BaseScript.WhatTierEnemy;
-            Damage = 1 + BaseScript.WhatTierEnemy;
+            Health = 9 * WhichTier;
+            Damage = 1 + WhichTier;
             Range = 1;
             Xp = 3;
             Money = 15;
