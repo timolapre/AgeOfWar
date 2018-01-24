@@ -176,10 +176,12 @@ public class Base : MonoBehaviour {
     public void AddSpawnPlayer(int id)
     {
         if (Money >= id * 2*WhatTier + 2 && Playing)
-        {
-            Money -= id * 2 * WhatTier + 2;
+        {            
             if (SpawnList.Count < 5)
-                SpawnList.Add(new float[2] {id,WhatTier});
+            {
+                Money -= id * 2 * WhatTier + 2;
+                SpawnList.Add(new float[2] { id, WhatTier });
+            }                
             //SpawnTimerObject.transform.localScale = new Vector3(2.7f, SpawnTimerObject.transform.localScale.y, SpawnTimerObject.transform.localScale.z);
         }
     }
@@ -217,7 +219,8 @@ public class Base : MonoBehaviour {
         FirstEnemy = 10;
         WhatTier = 1;
         WhatTierEnemy = 1;
-        eBase.Reset();
+        eBase.Reset();       
+        TurretScript.Reset();
     }
     public void UpgradeTier()
     {

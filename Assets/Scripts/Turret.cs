@@ -174,6 +174,7 @@ public class Turret : MonoBehaviour
         TurretLevel = 1;
         SpriteRenderer.sprite = Resources.Load<Sprite>("Germany/Turrets/german_turret_barrel_" + TurretLevel);
         TurretBase.sprite = Resources.Load<Sprite>("Germany/Turrets/german_turret_body_" + TurretLevel);
+        Destroy(projectile);
     }
 
     void DoAI()
