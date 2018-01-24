@@ -27,6 +27,13 @@ public class JoyconManager: MonoBehaviour
 
     void Awake()
     {
+        if (GameObject.FindGameObjectsWithTag("JoyconManager").Length > 1)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        DontDestroyOnLoad(transform.gameObject);
+
         if (instance != null) Destroy(gameObject);
         instance = this;
 		int i = 0;

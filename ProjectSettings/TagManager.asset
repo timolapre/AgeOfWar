@@ -9,6 +9,7 @@ TagManager:
   - Bullet
   - Base
   - EBase
+  - JoyconManager
   layers:
   - Default
   - TransparentFX
