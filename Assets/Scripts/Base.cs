@@ -30,12 +30,6 @@ public class Base : MonoBehaviour {
     public List<float[]> SpawnList = new List<float[]>();
     public float SpawnTimer, SpawnUnitID, SpawnUnitTier;
 
-    public int[,] UnitCosts = { {1, 2, 3},
-                                {4, 5, 6},
-                                {7, 8, 9},
-                                {7, 8, 9},
-                                {7, 8, 9} };
-
     void Start () {
         //Instantiate(Object, spawn.position, spawn.rotation);
         EBaseScript = GetComponentInChildren<EBase>();
@@ -109,7 +103,7 @@ public class Base : MonoBehaviour {
             WhatTierTextP1.text = "";
             MoneyTextP2.text = "";
             XpTextP2.text = "";
-            WhatTierTextP2.text = "Tier " + WhatTierEnemy;
+            WhatTierTextP2.text = "";
         }
         HealthBarPlayer.transform.localScale = new Vector3(((float)3 * (PlayerBaseHealth / PlayerBaseHealthStart)), 0.2f, 0.2f);
         HealthBarPlayer.transform.position = new Vector3(HealthBarPlayer.transform.localScale.x / 2 - 11.5f, HealthBarPlayer.transform.position.y, HealthBarPlayer.transform.position.z);
