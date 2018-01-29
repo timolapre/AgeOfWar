@@ -154,6 +154,7 @@ public class Base : MonoBehaviour {
         {
             Paused = true;
             Playing = false;
+            EBaseScript.Pause();
             SceneManager.LoadScene("Paused", LoadSceneMode.Additive);
         }
 
@@ -161,6 +162,7 @@ public class Base : MonoBehaviour {
         {
             Paused = false;
             Playing = true;
+            EBaseScript.Unpause();
             SceneManager.UnloadSceneAsync("Paused");
         }
 
@@ -175,11 +177,11 @@ public class Base : MonoBehaviour {
 
     public void AddSpawnPlayer(int id)
     {
-        if (Money >= id * 2*WhatTier + 2 && Playing)
+        if (Money >= id * 5 + 5 * (WhatTier - 1) && Playing)
         {            
             if (SpawnList.Count < 5)
             {
-                Money -= id * 2 * WhatTier + 2;
+                Money -= id * 5 + 5 * (WhatTier - 1);
                 SpawnList.Add(new float[2] { id, WhatTier });
             }                
             //SpawnTimerObject.transform.localScale = new Vector3(2.7f, SpawnTimerObject.transform.localScale.y, SpawnTimerObject.transform.localScale.z);

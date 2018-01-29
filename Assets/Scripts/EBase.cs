@@ -8,8 +8,8 @@ public class EBase : MonoBehaviour {
     public GameObject Enemy, SpawnTimerObject;
     public Transform spawnEnemy;
 
-    private float RandomSpawnTime;
-    private float UpgradeTime;
+    private float RandomSpawnTime, RandomSpawnTimeAtPause;
+    private float UpgradeTime, UpgradeTimeAtPause;
     public float Money, XP, GetDamage;
 
     SpriteRenderer SpriteRenderer;
@@ -71,11 +71,11 @@ public class EBase : MonoBehaviour {
 
     public void AddSpawnPlayer(int id)
     {
-        if (Money >= id * 2 * BaseScript.WhatTierEnemy + 2 && BaseScript.Playing)
+        if (Money >= id * 5 + 5 * (BaseScript.WhatTierEnemy - 1) && BaseScript.Playing)
         {
-            Money -= id * 2 * BaseScript.WhatTierEnemy + 2;
             if (SpawnList.Count < 5)
-                SpawnList.Add(new float[2] { id, BaseScript.WhatTierEnemy });
+                Money -= id * 5 + 5 * (BaseScript.WhatTierEnemy - 1);
+            SpawnList.Add(new float[2] { id, BaseScript.WhatTierEnemy });
         }
     }
 
@@ -92,17 +92,17 @@ public class EBase : MonoBehaviour {
 
     void AI()
     {
-        if (Time.fixedTime > RandomSpawnTime)
+        if (Time.fixedTime > RandomSpawnTime && !BaseScript.GameOver && !BaseScript.Paused)
         {
             SpawnEnemy(Random.Range(1, Mathf.Min(4, (int)Time.fixedTime / 25 + 2))); 
             RandomSpawnTime = Random.Range(3f, 7f) + Time.fixedTime;
         }
         if (Time.fixedTime > UpgradeTime && BaseScript.WhatTierEnemy != 5)
         {
-            //BaseScript.WhatTierEnemy++;
+            BaseScript.WhatTierEnemy++;
             BaseScript.EnemyBaseHealth += 25;
             BaseScript.EnemyBaseHealthStart += 25;
-            UpgradeTime = Time.fixedTime + 50;
+            UpgradeTime = Time.fixedTime + 80;
         }
     }
 
@@ -141,5 +141,17 @@ public class EBase : MonoBehaviour {
     void TakeDamage()
     {
         BaseScript.EnemyBaseHealth -= GetDamage;
+    }
+
+    public void Pause()
+    {
+        RandomSpawnTimeAtPause = RandomSpawnTime - Time.fixedTime;
+        UpgradeTimeAtPause = UpgradeTime - Time.fixedTime;
+    }
+
+    public void Unpause()
+    {
+        RandomSpawnTime = RandomSpawnTimeAtPause + Time.fixedTime;
+        UpgradeTime = UpgradeTimeAtPause + Time.fixedTime;
     }
 }

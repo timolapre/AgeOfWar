@@ -38,15 +38,11 @@ public class Enemy : MonoBehaviour {
 
         if (!Colliding && !AtOtherBase && BaseScript.Playing)
             transform.Translate(-Speed * Time.deltaTime, 0, 0);
-        //else if (AtOtherBase && !Colliding && BaseScript.Playing)
-            //BaseScript.PlayerBaseHealth -= Damage * 200 * Time.deltaTime;
-        //else if (BaseScript.Playing) { };
-        //Attackee.GetComponent<Player>().StartTakingDamage(Damage,);
 
         if (Health <= 0)
         {
             BaseScript.XP += Xp;
-            BaseScript.Money += WhichUnit * WhichTier * 3 + 2;
+            BaseScript.Money += WhichUnit * WhichTier * 5 + 2 * WhichTier; ;
             Destroy(gameObject);
             GameObject expl = Instantiate(Explosion);
             expl.transform.parent = transform.parent;
@@ -126,8 +122,7 @@ public class Enemy : MonoBehaviour {
             Damage = 1.66f * 1.5f * WhichTier;
             Range = 1;
             Xp = 1;
-            Money = 7;
-            AttackAfterXSeconds = 0.45f;
+            AttackAfterXSeconds = 0.3f;
             AttackEveryXSeconds = 1f;
             Speed = 3;
 
@@ -139,8 +134,7 @@ public class Enemy : MonoBehaviour {
             Damage = 3.33f * 1.5f * WhichTier;
             Range = 1;
             Xp = 2;
-            Money = 13;
-            AttackAfterXSeconds = 0.45f;
+            AttackAfterXSeconds = 0.3f;
             AttackEveryXSeconds = 1f;
             Speed = 2;
         }
@@ -151,8 +145,7 @@ public class Enemy : MonoBehaviour {
             Damage = 2.66f * 1.5f * WhichTier;
             Range = 1;
             Xp = 3;
-            Money = 19;
-            AttackAfterXSeconds = 0.45f;
+            AttackAfterXSeconds = 0.3f;
             AttackEveryXSeconds = 1f;
             Speed = 1;
         }

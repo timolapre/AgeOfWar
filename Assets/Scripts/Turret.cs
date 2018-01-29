@@ -147,7 +147,7 @@ public class Turret : MonoBehaviour
         GameObject proj = Instantiate(projectile, GetComponentsInChildren<Transform>()[1].position, new Quaternion(0, 0, 0, 0));
         proj.GetComponent<Projectile>().direction = (transform.rotation.eulerAngles.z + 90) % 360;
         proj.GetComponent<Projectile>().kills = PlayerID == 0 ? "Enemy" : "Player";
-        proj.GetComponent<Projectile>().damage = 1 * TurretLevel;
+        proj.GetComponent<Projectile>().damage = 2.5f * TurretLevel;
         proj.GetComponent<Projectile>().transform.localScale = new Vector3(TurretLevel * 0.75f, TurretLevel * 0.75f, 1);
         ProjectileList.Add(proj);
         proj.transform.parent = transform.parent;
@@ -190,7 +190,7 @@ public class Turret : MonoBehaviour
         //rotation = Vector2.Angle(transform.position, Closest.transform.position) - 90;
         rotation = -Mathf.Atan((transform.position.y - Closest.transform.position.y) / (transform.position.x - Closest.transform.position.x)) / Mathf.PI * 180 + Shortest/2 + 10;
         gameObject.transform.rotation = Quaternion.AngleAxis(rotation, Vector3.back);
-        if (Cooling <= 0 &&  Shortest < 13)
+        if (Cooling <= 0 && Shortest < 13 && !BaseScript.GameOver && !BaseScript.Paused)
         {
             Shoot();
             Audio.Play();

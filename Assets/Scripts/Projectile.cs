@@ -8,7 +8,7 @@ public class Projectile : MonoBehaviour {
 
 	public float direction; // 0 to the right
     public string kills = "Enemy";
-    public int damage;
+    public float damage;
 
     public GameObject Explosion;
 
@@ -46,7 +46,7 @@ public class Projectile : MonoBehaviour {
                 GameObject Expl = Instantiate(Explosion, new Vector3(transform.position.x, -2f, transform.position.z), new Quaternion(0, 0, 0, 0));
                 BaseScript.ExplosionList.Add(Expl);
                 Expl.transform.parent = transform.parent;
-                Expl.GetComponent<Explosion>().Expl = damage / 1;
+                Expl.GetComponent<Explosion>().Expl = (int)(damage / 2.5f);
                 Destroy(gameObject);
             }
 
@@ -65,7 +65,7 @@ public class Projectile : MonoBehaviour {
             collision.gameObject.SendMessage("TakeDamage", damage);
             GameObject Expl = Instantiate(Explosion, new Vector3(transform.position.x, -2f, transform.position.z), new Quaternion(0, 0, 0, 0));
             Expl.transform.parent = transform.parent;
-            Expl.GetComponent<Explosion>().Expl = damage / 1;
+            Expl.GetComponent<Explosion>().Expl = (int)(damage / 2.5f);
             Destroy(gameObject);
         }
 
