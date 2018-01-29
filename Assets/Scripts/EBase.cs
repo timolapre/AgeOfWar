@@ -94,12 +94,12 @@ public class EBase : MonoBehaviour {
     {
         if (Time.fixedTime > RandomSpawnTime)
         {
-            SpawnEnemy(Random.Range(1, Mathf.Min(4, (int)Time.fixedTime / 25 + 2)));          
+            SpawnEnemy(Random.Range(1, Mathf.Min(4, (int)Time.fixedTime / 25 + 2))); 
             RandomSpawnTime = Random.Range(3f, 7f) + Time.fixedTime;
         }
         if (Time.fixedTime > UpgradeTime && BaseScript.WhatTierEnemy != 5)
         {
-            BaseScript.WhatTierEnemy++;
+            //BaseScript.WhatTierEnemy++;
             BaseScript.EnemyBaseHealth += 25;
             BaseScript.EnemyBaseHealthStart += 25;
             UpgradeTime = Time.fixedTime + 50;

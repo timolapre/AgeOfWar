@@ -22,7 +22,7 @@ public class Base : MonoBehaviour {
 
     public bool Playing, Paused;
 
-    public List<GameObject> PlayerList, EnemyList;
+    public List<GameObject> PlayerList, EnemyList, ExplosionList;
 
     public EBase eBase;
     public int PlayerID = 0;
@@ -203,6 +203,7 @@ public class Base : MonoBehaviour {
         EnemyBaseHealth = 100;
         GameOver = false;
         Playing = true;
+        Paused = false;
         Money = StartMoney;
         XP = 0;
         foreach (GameObject g in PlayerList)
@@ -210,6 +211,10 @@ public class Base : MonoBehaviour {
             Destroy(g);
         }
         foreach(GameObject g in EnemyList)
+        {
+            Destroy(g);
+        }
+        foreach(GameObject g in ExplosionList)
         {
             Destroy(g);
         }

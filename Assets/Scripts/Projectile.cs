@@ -18,7 +18,8 @@ public class Projectile : MonoBehaviour {
 	float verspeed;
 	float horspeed;
 
-	void Start()
+
+    void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         BaseScript = GetComponentInParent<Base>();
@@ -43,6 +44,7 @@ public class Projectile : MonoBehaviour {
             if (transform.position.y < -2.5f)
             {
                 GameObject Expl = Instantiate(Explosion, new Vector3(transform.position.x, -2f, transform.position.z), new Quaternion(0, 0, 0, 0));
+                BaseScript.ExplosionList.Add(Expl);
                 Expl.transform.parent = transform.parent;
                 Expl.GetComponent<Explosion>().Expl = damage / 1;
                 Destroy(gameObject);

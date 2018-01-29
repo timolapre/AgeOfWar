@@ -17,6 +17,8 @@ public class Turret : MonoBehaviour
 	public GameObject projectile;
     public Vector3 gyro;
 
+    public List<GameObject> ProjectileList;
+
     private int UpgradeTurretOnce;
 
     // Use this for initialization
@@ -24,10 +26,10 @@ public class Turret : MonoBehaviour
     {
         Audio = GetComponent<AudioSource>();
         TurretLevel = 1;
-        BaseScript = GetComponentInParent<Base>();
+        BaseScript = GetComponentInParent<Base>();        
         rotation = (PlayerID == 1 ? 0 : 180);
         SpriteRenderer = GetComponent<SpriteRenderer>();
-        TurretBase = PlayerID == 0 ? GameObject.Find("Turret Body").GetComponent<SpriteRenderer>(): GameObject.Find("Turret Body2").GetComponent<SpriteRenderer>();
+        TurretBase = PlayerID == 0 ? GameObject.Find("Turret Body").GetComponent<SpriteRenderer>(): GameObject.Find("Turret Body2").GetComponent<SpriteRenderer>();        
     }
 
     // Update is called once per frame
@@ -85,22 +87,6 @@ public class Turret : MonoBehaviour
             UpgradeTurret();
         }
 
-        //Play the Mario Theme
-        if (InputHelper.GetActionDown(PlayerID, Joycon.Button.SHOULDER_1))
-        {
-            Debug.Log("Mario!");
-
-            // Rumble for 200 milliseconds, with low frequency rumble at 160 Hz and high frequency rumble at 320 Hz. For more information check:
-            // https://github.com/dekuNukem/Nintendo_Switch_Reverse_Engineering/blob/master/rumble_data_table.md
-
-            StartCoroutine(PlayMario());
-            //InputHelper.SetRumble(PlayerID, 160, 320, 0.6f, 10000);
-
-            // The last argument (time) in SetRumble is optional. Call it with three arguments to turn it on without telling it when to turn off.
-            // (Useful for dynamically changing rumble values.)
-            // Then call SetRumble(0,0,0) when you want to turn it off.
-        }
-
 		//Rotating the turret
 		gyro = InputHelper.GetGyro(PlayerID);
 		if (Mathf.Floor(Mathf.Abs(gyro.y) * 90) != 0 && BaseScript.Playing)
@@ -138,8 +124,6 @@ public class Turret : MonoBehaviour
             {
                 BaseScript.eBase.Money -= 20 * TurretLevel;
                 TurretLevel++;
-                //SpriteRenderer.sprite = Resources.Load<Sprite>(BaseScript.WhatFaction + "/Turrets/" + TurretLevel);
-               // TurretBase.sprite = Resources.Load<Sprite>(BaseScript.WhatFaction + "/Turrets/B" + TurretLevel);
 
                 GetComponentsInChildren<Transform>()[1].localPosition = new Vector3(-1, 0);
                 transform.localPosition = new Vector3(0, 0, .1f);
@@ -165,6 +149,7 @@ public class Turret : MonoBehaviour
         proj.GetComponent<Projectile>().kills = PlayerID == 0 ? "Enemy" : "Player";
         proj.GetComponent<Projectile>().damage = 1 * TurretLevel;
         proj.GetComponent<Projectile>().transform.localScale = new Vector3(TurretLevel * 0.75f, TurretLevel * 0.75f, 1);
+        ProjectileList.Add(proj);
         proj.transform.parent = transform.parent;
         Cooling = Cooldown;
     }
@@ -174,7 +159,10 @@ public class Turret : MonoBehaviour
         TurretLevel = 1;
         SpriteRenderer.sprite = Resources.Load<Sprite>("Germany/Turrets/german_turret_barrel_" + TurretLevel);
         TurretBase.sprite = Resources.Load<Sprite>("Germany/Turrets/german_turret_body_" + TurretLevel);
-        Destroy(projectile);
+        foreach (GameObject g in ProjectileList)
+        {
+            Destroy(g);
+        }
     }
 
     void DoAI()
@@ -207,70 +195,5 @@ public class Turret : MonoBehaviour
             Shoot();
             Audio.Play();
         }
-    }
-
-
-    float E3 = 329.628f;//164.814f;
-    float G3 = 391.995f;//195.998f;
-    float A3 = 440;//220f;
-    float Am3 = 466.164f;//233.082f;
-    float B3 = 493.883f;//246.942f;
-    float C4 = 523.251f;//261.626f;
-    float D4 = 587.330f;//293.665f;
-    float E4 = 659.255f;//329.628f;
-    float F4 = 698.456f;//349.228f;
-    float G4 = 783.991f;//391.995f;
-    float A4 = 880;//440;
-
-    IEnumerator PlayMario()
-    {
-        int speed = 60000/(128*4);
-        InputHelper.SetRumble(PlayerID, E4, 320, 1f, speed); //E4
-        yield return new WaitForSeconds(speed * 2 / 1000f);
-        InputHelper.SetRumble(PlayerID, E4, 320, 1f, speed); //E4
-        yield return new WaitForSeconds(speed * 2 / 1000f);
-        InputHelper.SetRumble(PlayerID, E4, 320, 1f, speed); //E4
-        yield return new WaitForSeconds(speed * 3 / 1000f);
-        InputHelper.SetRumble(PlayerID, C4, 320, 1f, speed); //C4
-        yield return new WaitForSeconds(speed * 2 / 1000f);
-        InputHelper.SetRumble(PlayerID, E4, 320, 1f, speed); //E4
-        yield return new WaitForSeconds(speed * 3 / 1000f);
-        InputHelper.SetRumble(PlayerID, G4, 320, 1f, speed); //G4
-        yield return new WaitForSeconds(speed * 6 / 1000f);
-        InputHelper.SetRumble(PlayerID, G3, 320, 1f, speed); //G3
-        yield return new WaitForSeconds(speed * 5 / 1000f);
-        InputHelper.SetRumble(PlayerID, C4, 320, 1f, speed); //C4
-        yield return new WaitForSeconds(speed * 4 / 1000f);
-        InputHelper.SetRumble(PlayerID, G3, 320, 1f, speed); //G3
-        yield return new WaitForSeconds(speed * 4 / 1000f);
-        InputHelper.SetRumble(PlayerID, E3, 320, 1f, speed); //E3
-        yield return new WaitForSeconds(speed * 4 / 1000f);
-        InputHelper.SetRumble(PlayerID, A3, 320, 1f, speed); //A3
-        yield return new WaitForSeconds(speed * 2 / 1000f);
-        InputHelper.SetRumble(PlayerID, B3, 320, 1f, speed); //B3
-        yield return new WaitForSeconds(speed * 3 / 1000f);
-        InputHelper.SetRumble(PlayerID, Am3, 320, 1f, speed); //A#3
-        yield return new WaitForSeconds(speed * 2 / 1000f);
-        InputHelper.SetRumble(PlayerID, A3, 320, 1f, speed); //A3
-        yield return new WaitForSeconds(speed * 3 / 1000f);
-        InputHelper.SetRumble(PlayerID, G3, 320, 1f, speed); //G3
-        yield return new WaitForSeconds(speed * 2 / 1000f);
-        InputHelper.SetRumble(PlayerID, E4, 320, 1f, speed); //E4
-        yield return new WaitForSeconds(speed * 3 / 1000f);
-        InputHelper.SetRumble(PlayerID, G4, 320, 1f, speed); //G4
-        yield return new WaitForSeconds(speed * 2 / 1000f);
-        InputHelper.SetRumble(PlayerID, A4, 320, 1f, speed); //A4
-        yield return new WaitForSeconds(speed * 3 / 1000f);
-        InputHelper.SetRumble(PlayerID, F4, 320, 1f, speed); //F4
-        yield return new WaitForSeconds(speed * 2 / 1000f);
-        InputHelper.SetRumble(PlayerID, G4, 320, 1f, speed); //G4
-        yield return new WaitForSeconds(speed * 3 / 1000f);
-        InputHelper.SetRumble(PlayerID, E4, 320, 1f, speed); //E4
-        yield return new WaitForSeconds(speed * 3 / 1000f);
-        InputHelper.SetRumble(PlayerID, C4, 320, 1f, speed); //C4
-        yield return new WaitForSeconds(speed * 2 / 1000f);
-        InputHelper.SetRumble(PlayerID, D4, 320, 1f, speed); //D4
-        yield return new WaitForSeconds(speed * 2 / 1000f);
-        InputHelper.SetRumble(PlayerID, B3, 320, 1f, speed); //B3
     }
 }
