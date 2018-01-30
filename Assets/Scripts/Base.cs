@@ -69,9 +69,9 @@ public class Base : MonoBehaviour {
         Teams = false;
         //  VsAI = true;
         Money = StartMoney;
-        PlayerBaseHealth = 100;
+        PlayerBaseHealth = 40;
         PlayerBaseHealthStart = PlayerBaseHealth;
-        EnemyBaseHealth = 100;
+        EnemyBaseHealth = 40;
         EnemyBaseHealthStart = EnemyBaseHealth;
         Playing = true;
         WhatTier = 1;
@@ -113,6 +113,10 @@ public class Base : MonoBehaviour {
         {
             GameOver = true;
             Playing = false;
+            if (!VsAI)
+                PlayerPrefs.SetString("WinnerString", "Player 2");
+            else
+                PlayerPrefs.SetString("WinnerString", "Computer");
             SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);
         }
         else if(EnemyBaseHealth <= 0 && !GameOver)
@@ -130,6 +134,10 @@ public class Base : MonoBehaviour {
 					File.WriteAllLines(Application.persistentDataPath + "/SaveData.json", Unlocked.ToArray());
 				}
 			}
+            if (!VsAI)
+                PlayerPrefs.SetString("WinnerString", "Player 1");
+            else
+                PlayerPrefs.SetString("WinnerString", "Player");
             SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);
         }
 
@@ -199,8 +207,8 @@ public class Base : MonoBehaviour {
 
     public void Reset()
     {
-        PlayerBaseHealth = 100;
-        EnemyBaseHealth = 100;
+        PlayerBaseHealth = 40;
+        EnemyBaseHealth = 40;
         GameOver = false;
         Playing = true;
         Money = StartMoney;

@@ -73,9 +73,11 @@ public class EBase : MonoBehaviour {
     {
         if (Money >= id * 2 * BaseScript.WhatTierEnemy + 2 && BaseScript.Playing)
         {
-            Money -= id * 2 * BaseScript.WhatTierEnemy + 2;
             if (SpawnList.Count < 5)
+            {
+                Money -= id * 2 * BaseScript.WhatTierEnemy + 2;
                 SpawnList.Add(new float[2] { id, BaseScript.WhatTierEnemy });
+            }
         }
     }
 
