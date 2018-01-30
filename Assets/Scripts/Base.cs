@@ -22,7 +22,7 @@ public class Base : MonoBehaviour {
 
     public bool Playing, Paused;
 
-    public List<GameObject> PlayerList, EnemyList;
+    public List<GameObject> PlayerList, EnemyList, ExplosionList;
 
     public EBase eBase;
     public int PlayerID = 0;
@@ -162,6 +162,7 @@ public class Base : MonoBehaviour {
         {
             Paused = true;
             Playing = false;
+            EBaseScript.Pause();
             SceneManager.LoadScene("Paused", LoadSceneMode.Additive);
         }
 
@@ -169,6 +170,7 @@ public class Base : MonoBehaviour {
         {
             Paused = false;
             Playing = true;
+            EBaseScript.Unpause();
             SceneManager.UnloadSceneAsync("Paused");
         }
 
@@ -183,11 +185,11 @@ public class Base : MonoBehaviour {
 
     public void AddSpawnPlayer(int id)
     {
-        if (Money >= id * 2*WhatTier + 2 && Playing)
+        if (Money >= id * 5 + 5 * (WhatTier - 1) && Playing)
         {            
             if (SpawnList.Count < 5)
             {
-                Money -= id * 2 * WhatTier + 2;
+                Money -= id * 5 + 5 * (WhatTier - 1);
                 SpawnList.Add(new float[2] { id, WhatTier });
             }                
             //SpawnTimerObject.transform.localScale = new Vector3(2.7f, SpawnTimerObject.transform.localScale.y, SpawnTimerObject.transform.localScale.z);
@@ -211,6 +213,7 @@ public class Base : MonoBehaviour {
         EnemyBaseHealth = 40;
         GameOver = false;
         Playing = true;
+        Paused = false;
         Money = StartMoney;
         XP = 0;
         foreach (GameObject g in PlayerList)
@@ -218,6 +221,10 @@ public class Base : MonoBehaviour {
             Destroy(g);
         }
         foreach(GameObject g in EnemyList)
+        {
+            Destroy(g);
+        }
+        foreach(GameObject g in ExplosionList)
         {
             Destroy(g);
         }

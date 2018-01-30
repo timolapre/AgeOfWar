@@ -22,6 +22,7 @@ public class Enemy : MonoBehaviour {
         SpriteRenderer = GetComponent<SpriteRenderer>();
         transform.localScale = new Vector3(-6, 6, 1);
         GetStartValues(WhichUnit);
+        Health += 0.1f;
 
         PolygonCollider2D comp = gameObject.AddComponent<PolygonCollider2D>();
         comp.isTrigger = true;
@@ -37,15 +38,11 @@ public class Enemy : MonoBehaviour {
 
         if (!Colliding && !AtOtherBase && BaseScript.Playing)
             transform.Translate(-Speed * Time.deltaTime, 0, 0);
-        //else if (AtOtherBase && !Colliding && BaseScript.Playing)
-            //BaseScript.PlayerBaseHealth -= Damage * 200 * Time.deltaTime;
-        //else if (BaseScript.Playing) { };
-        //Attackee.GetComponent<Player>().StartTakingDamage(Damage,);
 
         if (Health <= 0)
         {
             BaseScript.XP += Xp;
-            BaseScript.Money += WhichUnit * WhichTier * 3 + 2;
+            BaseScript.Money += WhichUnit * WhichTier * 5 + 2 * WhichTier; ;
             Destroy(gameObject);
             GameObject expl = Instantiate(Explosion);
             expl.transform.parent = transform.parent;
@@ -121,36 +118,34 @@ public class Enemy : MonoBehaviour {
         transform.localScale = new Vector3(2, 2, 1);
         if (id == 1)
         {
-            Health = 3 * WhichTier;
-            Damage = WhichTier;
+            Health = 3.33f * 1.5f * WhichTier;
+            Damage = 1.66f * 1.5f * WhichTier;
             Range = 1;
             Xp = 1;
-            Money = 5;
-            AttackAfterXSeconds = 0.45f;
+            AttackAfterXSeconds = 0.3f;
             AttackEveryXSeconds = 1f;
             Speed = 3;
+
         }
 
         if (id == 2)
         {
-            Health = 6 * WhichTier;
-            Damage = 2 + WhichTier;
+            Health = 6.66f * 1.5f * WhichTier;
+            Damage = 3.33f * 1.5f * WhichTier;
             Range = 1;
             Xp = 2;
-            Money = 10;
-            AttackAfterXSeconds = 0.45f;
+            AttackAfterXSeconds = 0.3f;
             AttackEveryXSeconds = 1f;
             Speed = 2;
         }
 
         if (id == 3)
         {
-            Health = 9 * WhichTier;
-            Damage = 1 + WhichTier;
+            Health = 10 * 1.5f * WhichTier;
+            Damage = 2.66f * 1.5f * WhichTier;
             Range = 1;
             Xp = 3;
-            Money = 15;
-            AttackAfterXSeconds = 0.45f;
+            AttackAfterXSeconds = 0.3f;
             AttackEveryXSeconds = 1f;
             Speed = 1;
         }

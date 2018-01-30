@@ -23,6 +23,7 @@ public class Player : MonoBehaviour {
         SpriteRenderer = GetComponent<SpriteRenderer>();
 
         GetStartValues(WhichUnit);
+        Health += 0.1f;
         if(BaseScript.WhatFaction == "Germany" && BaseScript.VsAI)
         {
             Speed ++;
@@ -48,7 +49,7 @@ public class Player : MonoBehaviour {
         if (Health <= 0)
         {
             BaseScript.eBase.XP += Xp;
-            BaseScript.eBase.Money += WhichUnit * WhichTier * 3 + 2;
+            BaseScript.eBase.Money += WhichUnit * WhichTier * 5 + 2 * WhichTier;
             GameObject expl = Instantiate(Explosion);
             expl.transform.parent = transform.parent;
             expl.transform.position = new Vector3(transform.position.x,0,0);
@@ -135,12 +136,11 @@ public class Player : MonoBehaviour {
 
         if (id == 1)
         {
-            Health = 3 * WhichTier * BaseScript.Difficulty;
-            Damage = WhichTier * BaseScript.Difficulty/1.5f;
+            Health = 3.33f * 1.5f * WhichTier * BaseScript.Difficulty;
+            Damage = 1.66f * 1.5f * WhichTier  * BaseScript.Difficulty;
             Range = 1;
             Xp = 1;
-            Money = 7;
-            AttackAfterXSeconds = 0.3f;
+            AttackAfterXSeconds = 0.45f;
             AttackEveryXSeconds = 1f;
             Speed = 3;
 
@@ -148,24 +148,22 @@ public class Player : MonoBehaviour {
 
         if (id == 2)
         {
-            Health = 6 * WhichTier * BaseScript.Difficulty;
-            Damage = (2 + WhichTier) * BaseScript.Difficulty/1.5f;
+            Health = 6.66f * 1.5f * WhichTier * BaseScript.Difficulty;
+            Damage = 3.33f * 1.5f * WhichTier * BaseScript.Difficulty;
             Range = 1;
             Xp = 2;
-            Money = 13;
-            AttackAfterXSeconds = 0.3f;
+            AttackAfterXSeconds = 0.45f;
             AttackEveryXSeconds = 1f;
             Speed = 2;
         }
 
         if (id == 3)
         {
-            Health = 9 * WhichTier * BaseScript.Difficulty;
-            Damage = (1 + WhichTier) * BaseScript.Difficulty/1.5f;
+            Health = 10 * 1.5f * WhichTier * BaseScript.Difficulty;
+            Damage = 2.66f * 1.5f * WhichTier * BaseScript.Difficulty;
             Range = 1;
             Xp = 3 ;
-            Money = 19;
-            AttackAfterXSeconds = 0.3f;
+            AttackAfterXSeconds = 0.45f;
             AttackEveryXSeconds = 1f;
             Speed = 1;
         }
